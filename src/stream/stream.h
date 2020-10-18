@@ -7,6 +7,7 @@
 
 
 #include "../user/user.h"
+#include "../user/viewer/viewer.h"
 #include <iostream>
 
 class Stream {
@@ -19,17 +20,7 @@ public:
     unsigned getMinAge() const;
     std::string getTitle() const;
     std::string getLanguage() const;
-    bool canJoin(Viewer newViewer) const;
-};
-
-class PrivateStream: public Stream {
-public:
-    PrivateStream(std::string title, std::string lang, unsigned minAge);
-};
-
-class PublicStream: public Stream {
-public:
-    PublicStream(std::string title, std::string lang, unsigned minAge);
+    bool canJoin(Viewer* newViewer) const;
 };
 
 #endif //PROJECT_STREAM_H
