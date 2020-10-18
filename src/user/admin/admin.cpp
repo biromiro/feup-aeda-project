@@ -7,5 +7,5 @@
 Admin::Admin(unsigned int age, std::string name, std::string nickname): User(age,name,nickname) {}
 
 enum UserTypes Admin::getUserType() const{
-    return admin;
+    return ADMIN;
 }

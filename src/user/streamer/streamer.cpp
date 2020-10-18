@@ -11,5 +11,5 @@ Streamer::Streamer(unsigned int age, std::string name, std::string nickname): Us
 }
 
 enum UserTypes Streamer::getUserType() const{
-    return streamer;
+    return STREAMER;
 }

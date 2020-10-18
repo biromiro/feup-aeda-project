@@ -1,19 +1,19 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.10.2)
 project(project)
 
-set(CMAKE_CXX_STANDARD 14)
+# Use C++11
+set(CMAKE_CXX_STANDARD 11)
+# Require (at least) it
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# Don't use e.g. GNU extension (like -std=gnu++11) for portability
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_subdirectory(../libs/googletest)
-include_directories(../libs/googletest/googletest/include)
-include_directories(../libs/googletest/googlemock/include)
+add_subdirectory(src)
 
-add_executable(project
-        main.cpp
-        streamZ/streamZ.h
-        user/user.h user/user.cpp
-        stream/stream.h stream/stream.cpp
-        user/Viewer/viewer.h user/Viewer/viewer.cpp
-        user/Streamer/streamer.h user/Streamer/streamer.cpp
-        user/Admin/admin.h user/Admin/admin.cpp)
-
-target_link_libraries(project gtest gtest_main)
+option(BUILD_TESTING "Build the testing tree." ON)
+# Only build tests if we are the top-level project
+# Allows this to be used by super projects with `add_subdirectory`
+if (BUILD_TESTING AND (PROJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR))
+    enable_testing()
+    add_subdirectory(test)
+endif ()

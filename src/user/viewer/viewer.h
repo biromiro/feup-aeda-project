@@ -8,9 +8,9 @@
 #ifndef PROJECT_VIEWER_H
 #define PROJECT_VIEWER_H
 
-enum feedbackLikeSystem{
-    like,
-    dislike
+enum FeedbackLikeSystem{
+    LIKE,
+    DISLIKE
 };
 
 class Stream;
@@ -18,12 +18,12 @@ class Stream;
 class Viewer: public User{
 public:
     Viewer(unsigned int age, std::string name, std::string nickname);
-    virtual enum UserTypes getUserType() const;
+    enum UserTypes getUserType() const override;
     bool joinStream(Stream* stream);
-    bool isWatchingStream();
+    bool isWatchingStream() const;
     bool leaveCurrentStream();
-    bool giveFeedbackToStream(enum feedbackLikeSystem);
-    bool giveFeedbackToStream(enum feedbackLikeSystem, std::string comment);
+    bool giveFeedbackToStream(enum FeedbackLikeSystem);
+    bool giveFeedbackToStream(enum FeedbackLikeSystem, std::string comment);
 
 private:
     Stream* currentStream;

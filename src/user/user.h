@@ -9,9 +9,9 @@
 #define PROJECT_USER_H
 
 enum UserTypes{
-    streamer,
-    viewer,
-    admin
+    STREAMER,
+    VIEWER,
+    ADMIN
 };
 
 class User{
@@ -20,7 +20,7 @@ public:
     unsigned int getAge() const;
     const std::string &getName() const;
     const std::string &getNickname() const;
-    virtual enum UserTypes getUserType() = 0;
+    virtual enum UserTypes getUserType() const = 0;
 
 protected:
     unsigned int age;

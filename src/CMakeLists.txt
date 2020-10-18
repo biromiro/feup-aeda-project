@@ -1,9 +1,18 @@
-cmake_minimum_required(VERSION 3.17)
-project(project)
+# Use C++11
+set(CMAKE_CXX_STANDARD 11)
+# Require (at least) it
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# Don't use e.g. GNU extension (like -std=gnu++11) for portability
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(CMAKE_CXX_STANDARD 14)
+if (WIN32)
+    link_libraries(wsock32 ws2_32)
+    set(CMAKE_CXX_STANDARD_LIBRARIES "-static-libgcc -static-libstdc++ -lwsock32 -lws2_32")
+    SET(CMAKE_CXX_FLAGS -Wcpp)
+endif (WIN32)
 
-add_executable(project
+
+add_library(project
         main.cpp
         streamZ/streamZ.h
         user/user.h user/user.cpp
@@ -11,4 +20,24 @@ add_executable(project
         user/viewer/viewer.h user/viewer/viewer.cpp
         user/streamer/streamer.h user/streamer/streamer.cpp
         user/admin/admin.h user/admin/admin.cpp
-        utils/date/date.h utils/date/date.cpp stream/privateStream/privateStream.h stream/privateStream/privateStream.cpp stream/publicStream/publicStream.h stream/publicStream/publicStream.cpp user/viewer/viewer.h)
+        utils/date/date.h utils/date/date.cpp stream/privateStream/privateStream.h
+        stream/privateStream/privateStream.cpp stream/publicStream/publicStream.h
+        stream/publicStream/publicStream.cpp )
+
+
+add_executable(application
+        main.cpp
+        streamZ/streamZ.h
+        user/user.h user/user.cpp
+        stream/stream.h stream/stream.cpp
+        user/viewer/viewer.h user/viewer/viewer.cpp
+        user/streamer/streamer.h user/streamer/streamer.cpp
+        user/admin/admin.h user/admin/admin.cpp
+        utils/date/date.h utils/date/date.cpp
+        stream/privateStream/privateStream.h stream/privateStream/privateStream.cpp
+        stream/publicStream/publicStream.h stream/publicStream/publicStream.cpp)
+
+
+target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(project PUBLIC gtest_main)
