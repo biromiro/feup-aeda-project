@@ -3,12 +3,17 @@
 //
 
 #include "../stream.h"
+#include <vector>
 
 #ifndef PROJECT_PRIVATESTREAM_H
 
 class PrivateStream: public Stream {
 public:
-    PrivateStream(std::string title, std::string lang, unsigned minAge);
+    PrivateStream(std::string title, std::string lang, size_t minAge);
+    enum StreamType getStreamType() const override;
+    void getComment(std::string comment);
+private:
+    std::vector<std::string> comments;
 };
 
 

@@ -16,16 +16,17 @@ enum UserTypes{
 
 class User{
 public:
-    User(unsigned int age, std::string name, std::string nickname);
-    unsigned int getAge() const;
+    User(size_t age, std::string name, std::string nickname, enum UserTypes type);
+    size_t getAge() const;
     const std::string &getName() const;
     const std::string &getNickname() const;
     virtual enum UserTypes getUserType() const = 0;
 
 protected:
-    unsigned int age;
+    size_t age;
     std::string name;
     std::string nickname;
+    enum UserTypes type;
 };
 
 #endif //PROJECT_USER_H

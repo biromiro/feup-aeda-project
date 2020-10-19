@@ -5,9 +5,9 @@
 #include <iostream>
 #include "user.h"
 
-User::User(unsigned int age, std::string name, std::string nickname) : age(age), name(name), nickname(nickname){}
+User::User(size_t age, std::string name, std::string nickname, enum UserTypes type) : age(age), name(name), nickname(nickname), type(type){}
 
-unsigned int User::getAge() const{
+size_t User::getAge() const{
     return age;
 }
 

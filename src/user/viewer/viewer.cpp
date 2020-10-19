@@ -4,16 +4,17 @@
 
 #include "viewer.h"
 #include "../../stream/stream.h"
+#include "../../stream/privateStream/privateStream.h"
 
 
-Viewer::Viewer(unsigned int age, std::string name, std::string nickname): User(age,name,nickname){
+Viewer::Viewer(unsigned int age, std::string name, std::string nickname): User(age,name,nickname, VIEWER){
     if(age < 12){
         throw std::invalid_argument("Minimum Age Not Met");
     }
 }
 
 enum UserTypes Viewer::getUserType() const{
-    return VIEWER;
+    return type;
 }
 
 bool Viewer::joinStream(Stream* stream){
@@ -35,10 +36,26 @@ bool Viewer::leaveCurrentStream() {
     return false;
 }
 
-bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem) {
-
+bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback) {
+    return isWatchingStream() && currentStream->getFeedback(feedback);
 }
 
-bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem, std::string comment) {
-
+bool Viewer::giveFeedbackToStream(std::string comment) {
+    if(currentStream->getStreamType() == PRIVATE ){
+        PrivateStream* currentStreamPrivate = dynamic_cast<PrivateStream*>(currentStream);
+        currentStreamPrivate->getComment(comment);
+        return true;
+    }else
+        return false;
 }
+
+bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback, std::string comment) {
+    if(!isWatchingStream()){
+        return false;
+    }
+    if(!(currentStream->getFeedback(feedback)))
+        return false;
+
+    return giveFeedbackToStream(comment);
+}
+

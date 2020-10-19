@@ -3,15 +3,11 @@
 //
 
 #include "../user.h"
+#include "../../stream/stream.h"
 #include <vector>
 
 #ifndef PROJECT_VIEWER_H
 #define PROJECT_VIEWER_H
-
-enum FeedbackLikeSystem{
-    LIKE,
-    DISLIKE
-};
 
 class Stream;
 
@@ -22,8 +18,9 @@ public:
     bool joinStream(Stream* stream);
     bool isWatchingStream() const;
     bool leaveCurrentStream();
-    bool giveFeedbackToStream(enum FeedbackLikeSystem);
-    bool giveFeedbackToStream(enum FeedbackLikeSystem, std::string comment);
+    bool giveFeedbackToStream(enum FeedbackLikeSystem feedback);
+    bool giveFeedbackToStream(std::string comment);
+    bool giveFeedbackToStream(enum FeedbackLikeSystem feedback, std::string comment);
 
 private:
     Stream* currentStream;
