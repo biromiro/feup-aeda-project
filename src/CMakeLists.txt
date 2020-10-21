@@ -40,4 +40,4 @@ add_executable(application
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-target_link_libraries(project PUBLIC gtest_main)
+target_link_libraries(project PUBLIC gtest_main coverage_config)
