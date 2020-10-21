@@ -4,9 +4,9 @@
 
 //#include "../stream/privateStream/privateStream.h"
 //#include "../stream/publicStream/publicStream.h"
-#include "./user/streamer/streamer.h"
-#include "./stream/stream.h"
-#include "./user/user.h"
+#include "../user/streamer/streamer.h"
+#include "../stream/stream.h"
+#include "../user/user.h"
 #include <vector>
 #include <string>
 
