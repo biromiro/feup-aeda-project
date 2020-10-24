@@ -16,14 +16,14 @@ enum UserTypes{
 
 class User{
 public:
-    User(size_t age, std::string name, std::string nickname, enum UserTypes type);
-    size_t getAge() const;
+    User(unsigned int age, std::string name, std::string nickname, enum UserTypes type);
+    unsigned int getAge() const;
     const std::string &getName() const;
     const std::string &getNickname() const;
     virtual enum UserTypes getUserType() const = 0;
 
 protected:
-    size_t age;
+    unsigned int age;
     std::string name;
     std::string nickname;
     enum UserTypes type;

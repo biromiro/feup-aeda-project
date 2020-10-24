@@ -9,7 +9,7 @@
 
 class PrivateStream: public Stream {
 public:
-    PrivateStream(std::string title, std::string lang, size_t minAge);
+    PrivateStream(std::string title, std::string lang, unsigned int minAge);
     enum StreamType getStreamType() const override;
     void getComment(std::string comment);
 private:

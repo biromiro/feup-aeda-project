@@ -5,7 +5,7 @@
 #include "../user/viewer/viewer.h"
 #include <iostream>
 
-Stream::Stream(std::string title, std::string lang, size_t minAge, enum StreamType type): title(title), lang(lang), minAge(minAge), type(type) {}
+Stream::Stream(std::string title, std::string lang, unsigned int minAge, enum StreamType type): title(title), lang(lang), minAge(minAge), type(type) {}
 
 unsigned Stream::getMinAge() const { return minAge; }
 

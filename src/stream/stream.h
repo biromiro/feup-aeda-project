@@ -24,7 +24,7 @@ class Viewer;
 
 class Stream {
 public:
-    Stream(std::string title, std::string lang, size_t minAge, enum StreamType type);
+    Stream(std::string title, std::string lang, unsigned int minAge, enum StreamType type);
     unsigned getMinAge() const;
     std::string getTitle() const;
     std::string getLanguage() const;
@@ -32,11 +32,11 @@ public:
     bool getFeedback(enum FeedbackLikeSystem feedback);
     virtual enum StreamType getStreamType() const = 0;
 protected:
-    size_t minAge;
+    unsigned int minAge;
     std::string title;
     std::string lang;
     enum StreamType type;
-    std::pair<size_t,size_t> votingSystem;
+    std::pair<unsigned int,unsigned int> votingSystem;
 };
 
 #endif //PROJECT_STREAM_H

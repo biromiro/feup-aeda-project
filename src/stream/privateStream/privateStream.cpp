@@ -4,7 +4,7 @@
 
 #include "privateStream.h"
 
-PrivateStream::PrivateStream(std::string title, std::string lang, size_t minAge): Stream(title, lang, minAge, PRIVATE){};
+PrivateStream::PrivateStream(std::string title, std::string lang, unsigned int minAge): Stream(title, lang, minAge, PRIVATE){};
 
 enum StreamType PrivateStream::getStreamType() const {
     return type;
