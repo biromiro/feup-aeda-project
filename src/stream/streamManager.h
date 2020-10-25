@@ -1,0 +1,8 @@
+//
+// Created by Danny on 25/10/2020.
+//
+
+#ifndef PROJECT_STREAMMANAGER_H
+#define PROJECT_STREAMMANAGER_H
+
+#endif //PROJECT_STREAMMANAGER_H

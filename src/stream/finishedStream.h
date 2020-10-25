@@ -1,0 +1,8 @@
+//
+// Created by Danny on 25/10/2020.
+//
+
+#ifndef PROJECT_FINISHEDSTREAM_H
+#define PROJECT_FINISHEDSTREAM_H
+
+#endif //PROJECT_FINISHEDSTREAM_H

@@ -23,7 +23,8 @@ add_library(project
         utils/date/date.h utils/date/date.cpp stream/privateStream/privateStream.h
         stream/privateStream/privateStream.cpp stream/publicStream/publicStream.h
         stream/publicStream/publicStream.cpp streamZ/streamZ.cpp
-        utils/leaderboard/leaderboard.h)
+        utils/leaderboard/leaderboard.h
+        stream/streamManager.cpp stream/streamManager.h stream/finishedStream.cpp stream/finishedStream.h)
 
 
 add_executable(application
@@ -38,7 +39,7 @@ add_executable(application
         stream/privateStream/privateStream.h stream/privateStream/privateStream.cpp
         stream/publicStream/publicStream.h stream/publicStream/publicStream.cpp
         streamZ/streamZ.cpp
-        utils/leaderboard/leaderboard.h)
+        utils/leaderboard/leaderboard.h stream/streamManager.cpp stream/streamManager.h stream/finishedStream.cpp stream/finishedStream.h)
 
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

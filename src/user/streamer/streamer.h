@@ -9,6 +9,8 @@
 
 #ifndef PROJECT_STREAMER_H
 
+class Stream;
+
 class Streamer: public User{
 public:
     Streamer(unsigned int age, std::string name, std::string nickname);
