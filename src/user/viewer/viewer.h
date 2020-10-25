@@ -25,6 +25,7 @@ public:
 private:
     Stream* currentStream;
     std::vector<Stream*> streamHistory;
+    std::vector<Streamer*> followingStreamers;
 };
 
 #endif //PROJECT_VIEWER_H
