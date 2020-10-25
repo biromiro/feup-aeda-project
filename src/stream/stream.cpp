@@ -4,14 +4,15 @@
 #include "stream.h"
 #include "../user/viewer/viewer.h"
 #include <iostream>
+#include <utility>
 
-Stream::Stream(std::string title, std::string lang, unsigned int minAge, enum StreamType type): title(title), lang(lang), minAge(minAge), type(type) {}
+Stream::Stream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type): title(std::move(title)), language(lang), minAge(minAge), type(type) {}
 
 unsigned Stream::getMinAge() const { return minAge; }
 
 std::string Stream::getTitle() const { return title; }
 
-std::string Stream::getLanguage() const { return lang; }
+enum StreamLanguage Stream::getLanguage() const { return language; }
 
 bool Stream::canJoin(Viewer* newViewer) const { return newViewer->getAge() >= minAge; }
 

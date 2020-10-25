@@ -9,9 +9,9 @@
 
 class PrivateStream: public Stream {
 public:
-    PrivateStream(std::string title, std::string lang, unsigned int minAge);
+    PrivateStream(std::string title, enum StreamLanguage lang, unsigned int minAge);
     enum StreamType getStreamType() const override;
-    void getComment(std::string comment);
+    void getComment(const std::string& comment);
 private:
     std::vector<std::string> comments;
 };

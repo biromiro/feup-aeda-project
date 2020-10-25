@@ -10,8 +10,6 @@
 #include <iomanip>
 #include <ctime>
 
-time_t ttime = time(nullptr);
-tm *local_time = localtime(&ttime);
 
 class Date{
 public:

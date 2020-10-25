@@ -9,7 +9,7 @@
 
 class PublicStream: public Stream {
 public:
-    PublicStream(std::string title, std::string lang, unsigned int minAge);
+    PublicStream(std::string title, enum StreamLanguage lang, unsigned int minAge);
     enum StreamType getStreamType() const override;
 };
 

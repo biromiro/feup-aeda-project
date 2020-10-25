@@ -4,6 +4,9 @@
 
 #include "date.h"
 
+time_t ttime = time(nullptr);
+tm *local_time = localtime(&ttime);
+
 Date::Date(){
     year = 1900 + local_time->tm_year;
     month = 1 + local_time->tm_mon;

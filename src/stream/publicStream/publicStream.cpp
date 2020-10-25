@@ -4,7 +4,7 @@
 
 #include "publicStream.h"
 
-PublicStream::PublicStream(std::string title, std::string lang, unsigned int minAge): Stream(title, lang, minAge, PUBLIC){};
+PublicStream::PublicStream(std::string title, enum StreamLanguage lang, unsigned int minAge): Stream(std::move(title), lang, minAge, PUBLIC){}
 
 enum StreamType PublicStream::getStreamType() const {
     return type;

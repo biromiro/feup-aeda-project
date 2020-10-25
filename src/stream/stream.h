@@ -8,6 +8,7 @@
 
 #include "../user/user.h"
 #include "../utils/date/date.h"
+#include <utility>
 #include <iostream>
 
 enum FeedbackLikeSystem{
@@ -36,7 +37,7 @@ class Streamer;
 
 class Stream {
 public:
-    Stream(std::string title, std::string lang, unsigned int minAge, enum StreamType type);
+    Stream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type);
     unsigned int getMinAge() const;
     std::string getTitle() const;
     enum StreamLanguage getLanguage() const;
@@ -49,9 +50,9 @@ protected:
     enum StreamLanguage language;
     unsigned int minAge;
     enum StreamType type;
-    Streamer* streamer;
+    Streamer* streamer{};
     std::pair<unsigned int,unsigned int> votingSystem;
-    unsigned int uniqueViewerCount;
+    unsigned int uniqueViewerCount{};
 };
 
 #endif //PROJECT_STREAM_H
