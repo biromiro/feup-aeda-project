@@ -7,8 +7,8 @@
 #include "../../stream/privateStream/privateStream.h"
 
 
-Viewer::Viewer(unsigned int age, std::string name, std::string nickname): User(age,name,nickname, VIEWER){
-    if(age < 12){
+Viewer::Viewer(Date birthDate, std::string name, std::string nickname): User(birthDate,name,nickname, VIEWER){
+    if(getAge() < 12){
         throw std::invalid_argument("Minimum Age Not Met");
     }
 }

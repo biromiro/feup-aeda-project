@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include "../utils/date/date.h"
 
 #ifndef PROJECT_USER_H
 #define PROJECT_USER_H
@@ -16,14 +18,14 @@ enum UserTypes{
 
 class User{
 public:
-    User(unsigned int age, std::string name, std::string nickname, enum UserTypes type);
+    User(Date birthDate, std::string name, std::string nickname, enum UserTypes type);
     unsigned int getAge() const;
     const std::string &getName() const;
     const std::string &getNickname() const;
     virtual enum UserTypes getUserType() const = 0;
 
 protected:
-    unsigned int age;
+    Date birthDate;
     std::string name;
     std::string nickname;
     enum UserTypes type;

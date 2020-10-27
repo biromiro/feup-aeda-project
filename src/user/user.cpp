@@ -12,10 +12,10 @@
  * @param nickname
  * @param type
  */
-User::User(unsigned int age, std::string name, std::string nickname, enum UserTypes type) : age(age), name(name), nickname(nickname), type(type){}
+User::User(Date birthDate, std::string name, std::string nickname, enum UserTypes type) : birthDate(birthDate), name(name), nickname(nickname), type(type){}
 
 unsigned int User::getAge() const{
-    return age;
+    return timeElapsed(birthDate,Date()).getYear();
 }
 
 const std::string &User::getName() const {

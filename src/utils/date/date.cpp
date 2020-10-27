@@ -74,12 +74,12 @@ void Date::show() const {
     std::cout << std::setw(4) << std::setfill('0')  << year << "/" << std::setw(2) << std::setfill('0') <<month << "/" << std::setw(2) << std::setfill('0') << day;
 }
 
-bool Date::isLeap (unsigned int y) {
+bool isLeap (unsigned int y) {
     if (y % 400 == 0) return true;
     else return ((y % 4 == 0) && (y % 100 != 0));
 }
 
-unsigned int Date::numberOfDays(unsigned int y, unsigned int m) {
+unsigned int numberOfDays(unsigned int y, unsigned int m) {
     if (m == 2){
         if (isLeap(y)){return 29;}
         else {return 28;}
@@ -148,6 +148,7 @@ bool Date::operator>=(const Date &rhs) const {
     return !(*this < rhs);
 }
 
+
 bool Date::operator==(const Date &rhs) const {
     return year == rhs.year &&
            month == rhs.month &&
@@ -156,4 +157,38 @@ bool Date::operator==(const Date &rhs) const {
 
 bool Date::operator!=(const Date &rhs) const {
     return !(rhs == *this);
+}
+
+unsigned int Date::totalNumOfDays() const {
+    unsigned int years = getYear(), months = getMonth(), totalDays = getDay();
+    for(int y=1; y<years; ++y){
+        for(int m=1; m<=12; ++m){
+            totalDays += numberOfDays(y,m);
+        }
+    }
+    for(int m=1; m<months; ++m){
+        totalDays += numberOfDays(getYear(),m);
+    }
+    return totalDays;
+}
+
+Date daysToDate(unsigned int totalDays) {
+    Date result(0,0,0);
+    while(totalDays>31){
+        totalDays-=numberOfDays(result.getYear(),result.getMonth());
+        if(result.getMonth() == 12)
+            result.setYear(result.getYear()+1);
+
+        result.setMonth(result.getMonth()%12 + 1);
+    }
+    result.setDay(totalDays);
+    return result;
+}
+
+Date timeElapsed(const Date& d1, const Date& d2){
+    if(d1 < d2){
+        return timeElapsed(d2,d1);
+    }
+    unsigned int days1= d1.totalNumOfDays(), days2 = d2.totalNumOfDays(), res = days1-days2;
+    return daysToDate(res);
 }

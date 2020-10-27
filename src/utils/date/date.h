@@ -25,8 +25,7 @@ public:
     unsigned int getDay() const;
     std::string getDate() const;
     void show() const;
-    static bool isLeap(unsigned int y) ;
-    static unsigned int numberOfDays(unsigned int year, unsigned int month) ;
+    unsigned int totalNumOfDays() const;
     bool isValid() const;
     bool isEqualTo(const Date &date) const;
     bool isNotEqualTo(const Date &date) const;
@@ -45,6 +44,11 @@ private:
     unsigned int month{};
     unsigned int day{};
 };
+
+Date daysToDate(unsigned int days);
+Date timeElapsed(const Date& d1, const Date& d2);
+unsigned int numberOfDays(unsigned int year, unsigned int month);
+bool isLeap(unsigned int y);
 
 #define PROJECT_DATE_H
 
