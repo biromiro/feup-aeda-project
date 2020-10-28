@@ -16,6 +16,8 @@ enum StreamLanguage Stream::getLanguage() const { return language; }
 
 bool Stream::canJoin(Viewer* newViewer) const { return newViewer->getAge() >= minAge; }
 
+Date Stream::getStreamDate() const { return streamDate; }
+
 bool Stream::getFeedback(enum FeedbackLikeSystem feedback) {
     if(feedback == LIKE)
         votingSystem.first++;

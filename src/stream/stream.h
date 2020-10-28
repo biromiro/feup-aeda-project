@@ -42,6 +42,7 @@ public:
     std::string getTitle() const;
     enum StreamLanguage getLanguage() const;
     bool canJoin(Viewer* newViewer) const;
+    Date getStreamDate() const;
     bool getFeedback(enum FeedbackLikeSystem feedback);
     virtual enum StreamType getStreamType() const = 0;
 protected:
