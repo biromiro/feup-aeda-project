@@ -18,7 +18,13 @@ bool Stream::canJoin(Viewer* newViewer) const { return newViewer->getAge() >= mi
 
 Date Stream::getStreamDate() const { return streamDate; }
 
-bool Stream::getFeedback(enum FeedbackLikeSystem feedback) {
+Streamer* Stream::getStreamer() const { return streamer; }
+
+std::pair<unsigned int, unsigned int> Stream::getVotes() const { return votingSystem; }
+
+unsigned int Stream::getViewerCount() const { return uniqueViewerCount; }
+
+bool Stream::addFeedback(enum FeedbackLikeSystem feedback) {
     if(feedback == LIKE)
         votingSystem.first++;
     else if(feedback == DISLIKE)

@@ -38,13 +38,17 @@ class Streamer;
 class Stream {
 public:
     Stream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type);
+    virtual unsigned int getNumOfViewers() const = 0;
+    virtual enum StreamType getStreamType() const = 0;
     unsigned int getMinAge() const;
     std::string getTitle() const;
     enum StreamLanguage getLanguage() const;
     bool canJoin(Viewer* newViewer) const;
     Date getStreamDate() const;
-    bool getFeedback(enum FeedbackLikeSystem feedback);
-    virtual enum StreamType getStreamType() const = 0;
+    Streamer* getStreamer() const;
+    std::pair<unsigned int, unsigned int> getVotes() const;
+    unsigned int getViewerCount() const;
+    bool addFeedback(enum FeedbackLikeSystem feedback);
 protected:
     std::string title;
     Date streamDate;

@@ -37,13 +37,13 @@ bool Viewer::leaveCurrentStream() {
 }
 
 bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback) {
-    return isWatchingStream() && currentStream->getFeedback(feedback);
+    return isWatchingStream() && currentStream->addFeedback(feedback);
 }
 
 bool Viewer::giveFeedbackToStream(std::string comment) {
     if(currentStream->getStreamType() == PRIVATE ){
         PrivateStream* currentStreamPrivate = dynamic_cast<PrivateStream*>(currentStream);
-        currentStreamPrivate->getComment(comment);
+        currentStreamPrivate->addComment(comment);
         return true;
     }else
         return false;
@@ -53,7 +53,7 @@ bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback, std::string 
     if(!isWatchingStream()){
         return false;
     }
-    if(!(currentStream->getFeedback(feedback)))
+    if(!(currentStream->addFeedback(feedback)))
         return false;
 
     return giveFeedbackToStream(comment);
