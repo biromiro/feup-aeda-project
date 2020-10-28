@@ -4,7 +4,7 @@
 
 #include "admin.h"
 
-Admin::Admin(unsigned int age, std::string name, std::string nickname): User(age,name,nickname, ADMIN) {}
+Admin::Admin(Date birthDate, std::string name, std::string nickname): User(birthDate,name,nickname, ADMIN) {}
 
 enum UserTypes Admin::getUserType() const{
     return type;

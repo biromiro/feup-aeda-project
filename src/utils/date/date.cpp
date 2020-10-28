@@ -11,18 +11,36 @@ Date::Date(){
     year = 1900 + local_time->tm_year;
     month = 1 + local_time->tm_mon;
     day = local_time->tm_mday;
+    hours = local_time->tm_hour;
+    minutes = local_time->tm_min;
+    seconds = local_time->tm_sec;
 }
 
 Date::Date(unsigned int y, unsigned int m, unsigned int d){
     year = y;
     month = m;
     day = d;
+    hours = 0;
+    minutes = 0;
+    seconds = 0;
+}
+
+Date::Date(unsigned int y, unsigned int m, unsigned int d, unsigned int h, unsigned int min, unsigned int sec) {
+    year = y;
+    month = m;
+    day = d;
+    hours = h;
+    minutes = min;
+    seconds = sec;
 }
 
 Date::Date(const std::string& yearMonthDay){
     std::istringstream inp(yearMonthDay);
     char separator;
     inp >>  year >> separator >> month >> separator >> year;
+    hours = 0;
+    minutes = 0;
+    seconds = 0;
 }
 
 void Date::setYear(unsigned int y){
@@ -35,6 +53,18 @@ void Date::setMonth(unsigned int m){
 
 void Date::setDay(unsigned int d){
     day = d;
+}
+
+void Date::setHours(unsigned int hours) {
+    Date::hours = hours;
+}
+
+void Date::setMinutes(unsigned int minutes) {
+    Date::minutes = minutes;
+}
+
+void Date::setSeconds(unsigned int seconds) {
+    Date::seconds = seconds;
 }
 
 void Date::setDate(unsigned int y, unsigned int m, unsigned int d){
@@ -55,8 +85,20 @@ unsigned int Date::getDay() const {
     return day;
 }
 
+unsigned int Date::getHours() const {
+    return hours;
+}
+
+unsigned int Date::getMinutes() const {
+    return minutes;
+}
+
+unsigned int Date::getSeconds() const {
+    return seconds;
+}
+
 std::string Date::getDate() const {
-    std::string date,y,m,d;
+    std::string date,y,m,d,h,min,s;
     if(std::to_string(year).size()<=4){
         y = std::string(4-std::to_string(year).size(),'0') + std::to_string(year);
     }
@@ -66,20 +108,30 @@ std::string Date::getDate() const {
     if(std::to_string(day).size()<=2){
         d = std::string(2-std::to_string(day).size(),'0') + std::to_string(day);
     }
-    date = y + "/" + m + "/" + d;
+    if(std::to_string(hours).size()<=2){
+        h = std::string(4-std::to_string(hours).size(),'0') + std::to_string(hours);
+    }
+    if(std::to_string(minutes).size()<=2){
+        min = std::string(2-std::to_string(minutes).size(),'0') + std::to_string(minutes);
+    }
+    if(std::to_string(seconds).size()<=2){
+        s = std::string(2-std::to_string(seconds).size(),'0') + std::to_string(seconds);
+    }
+    date = y + "/" + m + "/" + d + ", " + h + ":" + min + ":" + s;
     return date;
 }
 
 void Date::show() const {
     std::cout << std::setw(4) << std::setfill('0')  << year << "/" << std::setw(2) << std::setfill('0') <<month << "/" << std::setw(2) << std::setfill('0') << day;
+    std::cout << ", " << std::setw(2) << std::setfill('0')  << hours << ":" << std::setw(2) << std::setfill('0') <<minutes << ":" << std::setw(2) << std::setfill('0') << seconds;
 }
 
-bool Date::isLeap (unsigned int y) {
+bool isLeap (unsigned int y) {
     if (y % 400 == 0) return true;
     else return ((y % 4 == 0) && (y % 100 != 0));
 }
 
-unsigned int Date::numberOfDays(unsigned int y, unsigned int m) {
+unsigned int numberOfDays(unsigned int y, unsigned int m) {
     if (m == 2){
         if (isLeap(y)){return 29;}
         else {return 28;}
@@ -111,7 +163,15 @@ bool Date::isAfter(const Date &date) const {
         return true;
     else if (date.getMonth() < getMonth() && date.getYear() == getYear())
         return true;
-    else return date.getDay() <= getDay() && date.getMonth() == getMonth() && date.getYear() == getYear();
+    else if(date.getDay() < getDay() && date.getMonth() == getMonth() && date.getYear() == getYear())
+        return true;
+    else if(date.getHours() < getHours())
+        return true;
+    else if(date.getMinutes() < getMinutes() && date.getHours() == getHours())
+        return true;
+    else if(date.getSeconds() < getSeconds() && date.getMinutes() == getMinutes() && date.getHours() == getHours())
+        return true;
+    return false;
 }
 
 bool Date::isBefore(const Date &date) const {
@@ -120,8 +180,23 @@ bool Date::isBefore(const Date &date) const {
 }
 
 std::ostream &operator<<(std::ostream &os, const Date &date) {
-    os << "year: " << date.year << " month: " << date.month << " day: " << date.day;
+    os << date.year << "/" << date.month << "/" << date.day << ", " << date.hours << ":" << date.minutes << ":" << date.seconds;
     return os;
+}
+
+
+
+unsigned int Date::totalNumOfDays() const {
+    unsigned int years = getYear(), months = getMonth(), totalDays = getDay();
+    for(int y=1; y<years; ++y){
+        for(int m=1; m<=12; ++m){
+            totalDays += numberOfDays(y,m);
+        }
+    }
+    for(int m=1; m<months; ++m){
+        totalDays += numberOfDays(getYear(),m);
+    }
+    return totalDays;
 }
 
 bool Date::operator<(const Date &rhs) const {
@@ -133,7 +208,19 @@ bool Date::operator<(const Date &rhs) const {
         return true;
     if (rhs.month < month)
         return false;
-    return day < rhs.day;
+    if (day < rhs.day)
+        return true;
+    if (rhs.day < day)
+        return false;
+    if (hours < rhs.hours)
+        return true;
+    if (rhs.hours < hours)
+        return false;
+    if (minutes < rhs.minutes)
+        return true;
+    if (rhs.minutes < minutes)
+        return false;
+    return seconds < rhs.seconds;
 }
 
 bool Date::operator>(const Date &rhs) const {
@@ -151,9 +238,33 @@ bool Date::operator>=(const Date &rhs) const {
 bool Date::operator==(const Date &rhs) const {
     return year == rhs.year &&
            month == rhs.month &&
-           day == rhs.day;
+           day == rhs.day &&
+           hours == rhs.hours &&
+           minutes == rhs.minutes &&
+           seconds == rhs.seconds;
 }
 
 bool Date::operator!=(const Date &rhs) const {
     return !(rhs == *this);
+}
+
+Date daysToDate(unsigned int totalDays) {
+    Date result(0,0,0);
+    while(totalDays>31){
+        totalDays-=numberOfDays(result.getYear(),result.getMonth());
+        if(result.getMonth() == 12)
+            result.setYear(result.getYear()+1);
+
+        result.setMonth(result.getMonth()%12 + 1);
+    }
+    result.setDay(totalDays);
+    return result;
+}
+
+Date timeElapsed(const Date& d1, const Date& d2){
+    if(d1 < d2){
+        return timeElapsed(d2,d1);
+    }
+    unsigned int days1= d1.totalNumOfDays(), days2 = d2.totalNumOfDays(), res = days1-days2-2;
+    return daysToDate(res);
 }

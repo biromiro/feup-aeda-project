@@ -8,7 +8,7 @@
 
 class Admin: public User{
 public:
-    Admin(unsigned int age, std::string name, std::string nickname);
+    Admin(Date birthDate, std::string name, std::string nickname);
     enum UserTypes getUserType() const override;
 };
 

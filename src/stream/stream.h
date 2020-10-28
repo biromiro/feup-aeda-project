@@ -52,7 +52,7 @@ protected:
     enum StreamType type;
     Streamer* streamer{};
     std::pair<unsigned int,unsigned int> votingSystem;
-    unsigned int uniqueViewerCount{};
+    unsigned int uniqueViewerCount;
 };
 
 #endif //PROJECT_STREAM_H

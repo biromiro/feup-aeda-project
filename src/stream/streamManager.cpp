@@ -3,3 +3,7 @@
 //
 
 #include "streamManager.h"
+
+StreamManager::StreamManager(ViewerManager *viewerManager) {
+
+}

@@ -13,11 +13,16 @@ class Stream;
 
 class Streamer: public User{
 public:
-    Streamer(unsigned int age, std::string name, std::string nickname);
+    Streamer(Date birthDate, std::string name, std::string nickname);
     enum UserTypes getUserType() const override;
+    bool isStreaming();
+    void setStream(Stream* stream);
+    void removeStream();
 
 private:
     std::vector<Stream*> previousStreams;
+    Stream* currentStream;
+    unsigned int totalViewCount;
 };
 
 #define PROJECT_STREAMER_H

@@ -16,14 +16,20 @@ add_library(project
         main.cpp
         streamZ/streamZ.h
         user/user.h user/user.cpp
+        user/user_manager.h user/user_manager.cpp
         stream/stream.h stream/stream.cpp
         user/viewer/viewer.h user/viewer/viewer.cpp
+        user/viewer/viewer_manager.h user/viewer/viewer_manager.cpp
         user/streamer/streamer.h user/streamer/streamer.cpp
+        user/streamer/streamer_manager.h user/streamer/streamer_manager.cpp
         user/admin/admin.h user/admin/admin.cpp
+        user/admin/admin_manager.h user/admin/admin_manager.cpp
         utils/date/date.h utils/date/date.cpp stream/privateStream/privateStream.h
         stream/privateStream/privateStream.cpp stream/publicStream/publicStream.h
         stream/publicStream/publicStream.cpp streamZ/streamZ.cpp
         utils/leaderboard/leaderboard.h
+        utils/leaderboard/leaderboard_manager.h
+        utils/leaderboard/leaderboard_manager.cpp
         stream/streamManager.cpp stream/streamManager.h stream/finishedStream.cpp stream/finishedStream.h)
 
 
@@ -31,15 +37,21 @@ add_executable(application
         main.cpp
         streamZ/streamZ.h
         user/user.h user/user.cpp
+        user/user_manager.h user/user_manager.cpp
         stream/stream.h stream/stream.cpp
         user/viewer/viewer.h user/viewer/viewer.cpp
+        user/viewer/viewer_manager.h user/viewer/viewer_manager.cpp
         user/streamer/streamer.h user/streamer/streamer.cpp
+        user/streamer/streamer_manager.h user/streamer/streamer_manager.cpp
         user/admin/admin.h user/admin/admin.cpp
-        utils/date/date.h utils/date/date.cpp
-        stream/privateStream/privateStream.h stream/privateStream/privateStream.cpp
-        stream/publicStream/publicStream.h stream/publicStream/publicStream.cpp
-        streamZ/streamZ.cpp
-        utils/leaderboard/leaderboard.h stream/streamManager.cpp stream/streamManager.h stream/finishedStream.cpp stream/finishedStream.h)
+        user/admin/admin_manager.h user/admin/admin_manager.cpp
+        utils/date/date.h utils/date/date.cpp stream/privateStream/privateStream.h
+        stream/privateStream/privateStream.cpp stream/publicStream/publicStream.h
+        stream/publicStream/publicStream.cpp streamZ/streamZ.cpp
+        utils/leaderboard/leaderboard.h
+        utils/leaderboard/leaderboard_manager.h
+        utils/leaderboard/leaderboard_manager.cpp
+        stream/streamManager.cpp stream/streamManager.h stream/finishedStream.cpp stream/finishedStream.h)
 
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
