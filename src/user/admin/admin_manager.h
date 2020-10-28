@@ -6,9 +6,12 @@
 #define PROJECT_ADMIN_MANAGER_H
 
 #include "admin.h"
+#include "../user_manager.h"
+
 
 class AdminManager{
 public:
+    AdminManager(UserManager* userManager);
     bool add(Admin* admin);
     bool remove(Admin* admin);
     bool has(Admin* admin) const;
@@ -19,6 +22,7 @@ public:
 
 private:
     std::vector<Admin*> admin;
+    UserManager* userManager;
 };
 
 #endif //PROJECT_ADMIN_MANAGER_H

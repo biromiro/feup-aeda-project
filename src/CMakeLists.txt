@@ -28,6 +28,8 @@ add_library(project
         stream/privateStream/privateStream.cpp stream/publicStream/publicStream.h
         stream/publicStream/publicStream.cpp streamZ/streamZ.cpp
         utils/leaderboard/leaderboard.h
+        utils/leaderboard/leaderboard_manager.h
+        utils/leaderboard/leaderboard_manager.cpp
         stream/streamManager.cpp stream/streamManager.h stream/finishedStream.cpp stream/finishedStream.h)
 
 
@@ -47,6 +49,8 @@ add_executable(application
         stream/privateStream/privateStream.cpp stream/publicStream/publicStream.h
         stream/publicStream/publicStream.cpp streamZ/streamZ.cpp
         utils/leaderboard/leaderboard.h
+        utils/leaderboard/leaderboard_manager.h
+        utils/leaderboard/leaderboard_manager.cpp
         stream/streamManager.cpp stream/streamManager.h stream/finishedStream.cpp stream/finishedStream.h)
 
 

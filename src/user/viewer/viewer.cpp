@@ -19,8 +19,9 @@ enum UserTypes Viewer::getUserType() const{
 bool Viewer::joinStream(Stream* stream){
     if(stream->canJoin(this)){
         currentStream = stream;
-        //need to add viewer to stream viewers
+        return true;
     }
+    return false;
 }
 
 bool Viewer::isWatchingStream() const{

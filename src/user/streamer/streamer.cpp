@@ -4,24 +4,32 @@
 
 #include "streamer.h"
 
-Streamer::Streamer(Date birthDate, std::string name, std::string nickname): User(birthDate,name,nickname, STREAMER) {
+#include <utility>
+
+Streamer::Streamer(Date birthDate, std::string name, std::string nickname): User(birthDate,std::move(name),std::move(nickname), STREAMER) {
     if(getAge() < 15){
         throw std::invalid_argument("Minimum Age Not Met");
     }
+    currentStream = nullptr;
+    previousStreams = std::vector<Stream*>();
+    totalViewCount = 0;
 }
 
 enum UserTypes Streamer::getUserType() const{
     return type;
 }
 
-bool Streamer::startPublicStream(std::string title, enum StreamLanguage lang, unsigned int minAge) {
-    return false;
+bool Streamer::isStreaming(){
+    return currentStream != nullptr;
 }
 
-bool Streamer::startPrivateStream(std::string title, enum StreamLanguage lang, unsigned int minAge) {
-    return false;
+void Streamer::setStream(Stream *stream) {
+    currentStream = stream;
 }
 
-bool Streamer::endStream() {
-    return false;
+
+void Streamer::removeStream() {
+    previousStreams.push_back(currentStream);
+    currentStream = nullptr;
 }
+

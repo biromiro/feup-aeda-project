@@ -5,10 +5,12 @@
 #ifndef PROJECT_VIEWER_MANAGER_H
 #define PROJECT_VIEWER_MANAGER_H
 
+#include "../user_manager.h"
 #include "viewer.h"
 
 class ViewerManager{
 public:
+    ViewerManager(UserManager* userManager);
     bool add(Viewer* viewer);
     bool remove(Viewer* viewer);
     bool has(Viewer* viewer) const;
@@ -19,6 +21,7 @@ public:
 
 private:
     std::vector<Viewer*> viewers;
+    UserManager* userManager;
 };
 
 #endif //PROJECT_VIEWER_MANAGER_H

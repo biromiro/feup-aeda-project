@@ -8,6 +8,7 @@
 
 class UserManager{
 public:
+    UserManager();
     bool add(User* user);
     bool remove(User* user);
     bool has(User* user) const;
