@@ -4,6 +4,7 @@
 
 #include "../user.h"
 #include "../../stream/stream.h"
+#include <algorithm>
 
 #ifndef PROJECT_VIEWER_H
 #define PROJECT_VIEWER_H
@@ -20,6 +21,8 @@ public:
     bool giveFeedbackToStream(enum FeedbackLikeSystem feedback);
     bool giveFeedbackToStream(std::string comment);
     bool giveFeedbackToStream(enum FeedbackLikeSystem feedback, std::string comment);
+    bool followStreamer(Streamer* streamer);
+    bool unfollowStreamer(Streamer* streamer);
 
 private:
     Stream* currentStream;

@@ -13,3 +13,15 @@ Streamer::Streamer(Date birthDate, std::string name, std::string nickname): User
 enum UserTypes Streamer::getUserType() const{
     return type;
 }
+
+bool Streamer::startPublicStream(std::string title, enum StreamLanguage lang, unsigned int minAge) {
+    return false;
+}
+
+bool Streamer::startPrivateStream(std::string title, enum StreamLanguage lang, unsigned int minAge) {
+    return false;
+}
+
+bool Streamer::endStream() {
+    return false;
+}

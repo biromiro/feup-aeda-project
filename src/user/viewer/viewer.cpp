@@ -1,7 +1,6 @@
 //
 // Created by biromiro on 18/10/20.
 //
-
 #include "viewer.h"
 #include "../../stream/stream.h"
 #include "../../stream/privateStream/privateStream.h"
@@ -57,5 +56,23 @@ bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback, std::string 
         return false;
 
     return giveFeedbackToStream(comment);
+}
+
+bool Viewer::followStreamer(Streamer *streamer) {
+    unsigned int initSize = followingStreamers.size();
+    auto it = std::find_if(followingStreamers.begin(),followingStreamers.end(),[streamer](Streamer* streamer1){return streamer==streamer1;});
+    if(it != followingStreamers.end())
+        return false;
+    else
+        followingStreamers.push_back(streamer);
+    return true;
+}
+
+bool Viewer::unfollowStreamer(Streamer *streamer) {
+    unsigned int initSize = followingStreamers.size();
+    followingStreamers.erase(std::remove_if(followingStreamers.begin(),followingStreamers.end(),
+                                            [streamer](Streamer* streamer1){return streamer==streamer1;})
+                             ,followingStreamers.end());
+    return initSize == followingStreamers.size();
 }
 

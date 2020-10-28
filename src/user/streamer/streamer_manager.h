@@ -10,6 +10,7 @@
 class StreamerManager{
 public:
     bool add(Streamer* streamer);
+    bool addStream()
     bool remove(Streamer* streamer);
     bool has(Streamer* streamer) const;
     bool has(std::string nickname) const;
