@@ -10,9 +10,12 @@
 class StreamManager{
 public:
     StreamManager(ViewerManager* viewerManager);
+    void build(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type);
+    bool add(Stream* streamToAdd);
 
 private:
     ViewerManager* viewerManager;
+    std::vector<Stream*> streams;
 };
 
 #endif //PROJECT_STREAMMANAGER_H

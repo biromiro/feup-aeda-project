@@ -29,3 +29,11 @@ bool PrivateStream::setMaxNumViewers(unsigned int maxNumViewers) {
 void PrivateStream::addComment(const std::string& comment) {
     comments.push_back(comment);
 }
+
+bool PrivateStream::canJoin(Viewer* newViewer) const {
+    if (newViewer->getAge() < minAge) { return false; }
+    for (auto nickname: whitelist) {
+        if (newViewer->getNickname() == nickname) { return true; }
+    }
+    return false;
+}

@@ -21,6 +21,7 @@ public:
     bool addToWhitelist(Viewer* v);
     bool setMaxNumViewers(unsigned int maxNumViewers);
     void addComment(const std::string& comment);
+    bool canJoin(Viewer* newViewer) const;
 private:
     std::vector<std::string> whitelist;
     unsigned int maxNumViewers;

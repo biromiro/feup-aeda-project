@@ -43,7 +43,7 @@ public:
     unsigned int getMinAge() const;
     std::string getTitle() const;
     enum StreamLanguage getLanguage() const;
-    bool canJoin(Viewer* newViewer) const;
+    virtual bool canJoin(Viewer* newViewer) const;
     Date getStreamDate() const;
     Streamer* getStreamer() const;
     std::pair<unsigned int, unsigned int> getVotes() const;
