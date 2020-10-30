@@ -9,7 +9,7 @@
 using testing::Eq;
 
 
-TEST(viewer, constructor_test){
+TEST(viewer, constructor){
     Date birthDate(2000,11,18);
     Viewer viewer1(birthDate, "Palpa", "Palps");
     EXPECT_EQ(viewer1.getUserType(), UserTypes::VIEWER);

@@ -25,12 +25,13 @@ bool Viewer::joinStream(Stream* stream){
 }
 
 bool Viewer::isWatchingStream() const{
-    return currentStream != NULL;
+    return currentStream != nullptr;
 }
 
 bool Viewer::leaveCurrentStream() {
     if(isWatchingStream()){
-        currentStream = NULL;
+        streamHistory.push_back(currentStream);
+        currentStream = nullptr;
         return true;
     }
     return false;
@@ -41,7 +42,7 @@ bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback) {
 }
 
 bool Viewer::giveFeedbackToStream(std::string comment) {
-    if(currentStream->getStreamType() == PRIVATE ){
+    if(isWatchingStream() && currentStream->getStreamType() == PRIVATE ){
         PrivateStream* currentStreamPrivate = dynamic_cast<PrivateStream*>(currentStream);
         currentStreamPrivate->getComment(comment);
         return true;
@@ -49,23 +50,11 @@ bool Viewer::giveFeedbackToStream(std::string comment) {
         return false;
 }
 
-bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback, std::string comment) {
-    if(!isWatchingStream()){
-        return false;
-    }
-    if(!(currentStream->getFeedback(feedback)))
-        return false;
-
-    return giveFeedbackToStream(comment);
-}
-
 bool Viewer::followStreamer(Streamer *streamer) {
-    unsigned int initSize = followingStreamers.size();
-    auto it = std::find_if(followingStreamers.begin(),followingStreamers.end(),[streamer](Streamer* streamer1){return streamer==streamer1;});
-    if(it != followingStreamers.end())
+    if(followingStreamers.find(streamer) != followingStreamers.end())
         return false;
     else
-        followingStreamers.push_back(streamer);
+        followingStreamers.insert(streamer);
     return true;
 }
 

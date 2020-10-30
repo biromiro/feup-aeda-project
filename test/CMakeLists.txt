@@ -38,6 +38,8 @@ include_directories(../src/)
 
 # Link against gtest or gtest_main as needed
 add_executable(tests
+        user/user_test.cpp
+        user/user_manager_test.cpp
         user/viewer/viewer_test.cpp)
 target_link_libraries(tests PRIVATE gtest_main project)
 
