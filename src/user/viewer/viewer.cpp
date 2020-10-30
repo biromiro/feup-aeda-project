@@ -59,10 +59,6 @@ bool Viewer::followStreamer(Streamer *streamer) {
 }
 
 bool Viewer::unfollowStreamer(Streamer *streamer) {
-    unsigned int initSize = followingStreamers.size();
-    followingStreamers.erase(std::remove_if(followingStreamers.begin(),followingStreamers.end(),
-                                            [streamer](Streamer* streamer1){return streamer==streamer1;})
-                             ,followingStreamers.end());
-    return initSize == followingStreamers.size();
+    return followingStreamers.erase(streamer) != 0;
 }
 
