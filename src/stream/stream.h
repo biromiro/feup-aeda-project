@@ -38,7 +38,7 @@ class Streamer;
 class Stream {
 public:
     Stream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type);
-    virtual unsigned int getNumOfViewers() const = 0;
+    virtual unsigned int getNumOfViewers() const = 0; // para q?
     virtual enum StreamType getStreamType() const = 0;
     unsigned int getMinAge() const;
     std::string getTitle() const;
