@@ -15,7 +15,7 @@ public:
      *
      * @param userManager the user manager
      */
-    ViewerManager(UserManager* userManager);
+    explicit ViewerManager(UserManager* userManager);
 
     /**
      * Adds a new viewer to the viewers vector

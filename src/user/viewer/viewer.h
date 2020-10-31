@@ -66,7 +66,7 @@ public:
      * @param comment the comment to be given to a stream
      * @return True if the comment was given successfully, false otherwise
      */
-    bool giveFeedbackToStream(std::string comment);
+    bool giveFeedbackToStream(const std::string& comment);
 
     /**
      * Follows a new streamer
