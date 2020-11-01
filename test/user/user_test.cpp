@@ -3,7 +3,6 @@
 //
 
 #include <gtest/gtest.h>
-#include <user/user_manager.h>
 #include <user/viewer/viewer.h>
 #include <user/streamer/streamer.h>
 #include <user/admin/admin.h>
@@ -86,4 +85,5 @@ TEST(user, update_nickname){
     EXPECT_EQ(viewer.getNickname(), "Dustini, O Ditador, David Luís");
     streamer.updateNickname("kekw");
     EXPECT_EQ(streamer.getNickname(), "kekw");
+    
 }

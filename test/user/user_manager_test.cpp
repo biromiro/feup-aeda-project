@@ -74,8 +74,12 @@ TEST(user_manager, getters){
     userManager.add(std::dynamic_pointer_cast<User>(viewer2));
     userManager.add(std::dynamic_pointer_cast<User>(admin));
     EXPECT_EQ(userManager.get("urmaior"), std::dynamic_pointer_cast<User>(admin));
+    EXPECT_EQ(userManager.getUsers().size(),3);
     userManager.remove(std::dynamic_pointer_cast<User>(admin));
     EXPECT_EQ(userManager.get("urmaior"), nullptr);
+    EXPECT_EQ(userManager.getUsers().size(),2);
+    EXPECT_EQ(*(userManager.getUsers().find(viewer)), viewer);
+    EXPECT_EQ(userManager.getUsers().find(streamer), userManager.getUsers().end());
 }
 
 
