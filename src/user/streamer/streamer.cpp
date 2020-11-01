@@ -11,19 +11,15 @@ Streamer::Streamer(Date birthDate, std::string name, std::string nickname): User
         throw std::invalid_argument("Minimum Age Not Met");
     }
     currentStream = nullptr;
-    previousStreams = std::vector<Stream*>();
+    previousStreams = std::vector<std::shared_ptr<Stream>>();
     totalViewCount = 0;
-}
-
-enum UserTypes Streamer::getUserType() const{
-    return type;
 }
 
 bool Streamer::isStreaming(){
     return currentStream != nullptr;
 }
 
-void Streamer::setStream(Stream *stream) {
+void Streamer::setStream(const std::shared_ptr<Stream>& stream) {
     currentStream = stream;
 }
 
