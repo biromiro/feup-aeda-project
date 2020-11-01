@@ -16,7 +16,7 @@ Viewer::Viewer(Date birthDate, std::string name, std::string nickname): User(bir
 }
 
 bool Viewer::joinStream(const std::shared_ptr<Stream>& stream){
-    if(stream->canJoin(this)){
+    if(stream->canJoin(shared_from_this())){
         currentStream = stream;
         return true;
     }
@@ -43,7 +43,7 @@ bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback) {
 bool Viewer::giveFeedbackToStream(const std::string& comment) {
     if(isWatchingStream() && currentStream->getStreamType() == PRIVATE ){
         auto currentStreamPrivate = std::dynamic_pointer_cast<PrivateStream>(currentStream);
-        currentStreamPrivate->getComment(comment);
+        currentStreamPrivate->addComment(comment);
         return true;
     }else
         return false;

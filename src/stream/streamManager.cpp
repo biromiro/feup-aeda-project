@@ -26,7 +26,7 @@ std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLangu
 } // mudar para bool?
 
 bool StreamManager::add(std::shared_ptr<Stream> streamToAdd) {
-    if (std::find(streams.begin(), streams.end(), streams) == streams.end()){
+    if (std::find(streams.begin(), streams.end(), streamToAdd) == streams.end()){
         streams.push_back(streamToAdd);
         return true;
     }

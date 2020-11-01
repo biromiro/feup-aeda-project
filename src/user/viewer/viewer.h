@@ -13,7 +13,7 @@
 
 class Stream;
 
-class Viewer: public User{
+class Viewer: public User, public std::enable_shared_from_this<Viewer>{
 public:
     /**
      * Constructor of the Viewer Class
