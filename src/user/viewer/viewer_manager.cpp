@@ -7,14 +7,14 @@
 ViewerManager::ViewerManager(UserManager *userManager):
 userManager(userManager){}
 
-bool ViewerManager::build(Date birthDate, const std::string& name, const std::string& nickname) {
+std::shared_ptr<Viewer> ViewerManager::build(Date birthDate, const std::string& name, const std::string& nickname) {
     if(userManager->has(nickname))
-        return false;
+        return nullptr;
     auto viewer = std::make_shared<Viewer>(birthDate,name,nickname);
     add(viewer);
     std::shared_ptr<User> user_form = std::dynamic_pointer_cast<Viewer>(viewer);
     userManager->add(user_form);
-    return true;
+    return viewer;
 }
 
 bool ViewerManager::add(const std::shared_ptr<Viewer>& viewer) {
@@ -29,6 +29,7 @@ bool ViewerManager::remove(const std::shared_ptr<Viewer>& viewer) {
     auto it = std::find(viewers.begin(),viewers.end(),viewer);
     if (it != viewers.end()) {
         viewers.erase(it);
+        userManager->remove(std::dynamic_pointer_cast<User>(viewer));
         return true;
     }else
         return false;
@@ -50,4 +51,8 @@ std::shared_ptr<Viewer> ViewerManager::get(std::string nickname) const {
         return *it;
     }
     return nullptr;
+}
+
+const std::vector<std::shared_ptr<Viewer>> &ViewerManager::getViewers() const {
+    return viewers;
 }

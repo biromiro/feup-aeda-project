@@ -40,7 +40,12 @@ include_directories(../src/)
 add_executable(tests
         user/user_test.cpp
         user/user_manager_test.cpp
-        user/viewer/viewer_test.cpp)
+        user/viewer/viewer_test.cpp
+        user/viewer/viewer_manager_test.cpp
+        user/streamer/streamer_test.cpp
+        user/streamer/streamer_manager_test.cpp
+        user/admin/admin.cpp
+        user/admin/admin_manager_test.cpp)
 target_link_libraries(tests PRIVATE gtest_main project)
 
 add_test(NAME tests COMMAND tests)

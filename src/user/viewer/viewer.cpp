@@ -4,6 +4,7 @@
 #include "viewer.h"
 
 #include <utility>
+
 #include "../../stream/privateStream/privateStream.h"
 
 
@@ -14,11 +15,7 @@ Viewer::Viewer(Date birthDate, std::string name, std::string nickname): User(bir
     currentStream = nullptr;
 }
 
-enum UserTypes Viewer::getUserType() const{
-    return type;
-}
-
-bool Viewer::joinStream(Stream* stream){
+bool Viewer::joinStream(const std::shared_ptr<Stream>& stream){
     if(stream->canJoin(this)){
         currentStream = stream;
         return true;
@@ -45,14 +42,14 @@ bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback) {
 
 bool Viewer::giveFeedbackToStream(const std::string& comment) {
     if(isWatchingStream() && currentStream->getStreamType() == PRIVATE ){
-        auto* currentStreamPrivate = dynamic_cast<PrivateStream*>(currentStream);
+        auto currentStreamPrivate = std::dynamic_pointer_cast<PrivateStream>(currentStream);
         currentStreamPrivate->getComment(comment);
         return true;
     }else
         return false;
 }
 
-bool Viewer::followStreamer(Streamer *streamer) {
+bool Viewer::followStreamer(const std::shared_ptr<Streamer>& streamer) {
     if(followingStreamers.find(streamer) != followingStreamers.end())
         return false;
     else
@@ -60,7 +57,19 @@ bool Viewer::followStreamer(Streamer *streamer) {
     return true;
 }
 
-bool Viewer::unfollowStreamer(Streamer *streamer) {
+bool Viewer::unfollowStreamer(const std::shared_ptr<Streamer>& streamer) {
     return followingStreamers.erase(streamer) != 0;
+}
+
+const std::shared_ptr<Stream> &Viewer::getCurrentStream() const {
+    return currentStream;
+}
+
+const std::vector<std::shared_ptr<Stream>> &Viewer::getStreamHistory() const {
+    return streamHistory;
+}
+
+const std::unordered_set<std::shared_ptr<Streamer>> &Viewer::getFollowingStreamers() const {
+    return followingStreamers;
 }
 

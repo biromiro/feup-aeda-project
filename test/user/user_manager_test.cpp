@@ -81,5 +81,3 @@ TEST(user_manager, getters){
     EXPECT_EQ(*(userManager.getUsers().find(viewer)), viewer);
     EXPECT_EQ(userManager.getUsers().find(streamer), userManager.getUsers().end());
 }
-
-

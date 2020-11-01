@@ -55,7 +55,7 @@ public:
      * @param type the type of the stream
      * @return True if the action was successful, false otherwise
      */
-    bool startStream(const std::shared_ptr<Streamer>& streamer, std::string title, StreamLanguage lang, unsigned int minAge, StreamType type);
+    bool startStream(const std::shared_ptr<Streamer>& streamer, const std::string& title, StreamLanguage lang, unsigned int minAge, StreamType type);
 
     /**
      * Ends the stream of a given streamer

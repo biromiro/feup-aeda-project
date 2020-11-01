@@ -11,7 +11,7 @@
 #define PROJECT_USER_H
 
 /**
- * Defines what type of user an instanciation of the User Class is
+ * Defines what type of user an instantiation of the User Class is
  */
 enum UserTypes{
     STREAMER,
@@ -21,22 +21,13 @@ enum UserTypes{
 
 class User{
 public:
-    /**
-     * Constructor of the User class
-     *
-     * @param birthDate the date of birth of the user
-     * @param name the name of the user
-     * @param nickname the nickname of the user
-     * @param type the type of user
-     */
-    User(Date birthDate, std::string name, std::string nickname, enum UserTypes type);
 
     /**
      * Getter of the birth date of the User
      *
      * @return user's birth date
      */
-    Date getBirthDate() const;
+    const Date& getBirthDate() const;
 
     /**
      * Gets the age of the user in years
@@ -50,7 +41,7 @@ public:
      *
      * @return user's join date
      */
-    Date getJoinDate() const;
+    const Date& getJoinDate() const;
 
     /**
      * Getter of the name of the user
@@ -92,9 +83,19 @@ public:
      *
      * @return the user's type
      */
-    virtual enum UserTypes getUserType() const = 0;
+    enum UserTypes getUserType() const;
 
 protected:
+    /**
+     * Constructor of the User class
+     *
+     * @param birthDate the date of birth of the user
+     * @param name the name of the user
+     * @param nickname the nickname of the user
+     * @param type the type of user
+     */
+    User(Date birthDate, std::string name, std::string nickname, enum UserTypes type);
+
     Date birthDate;
     Date joinDate;
     std::string name;

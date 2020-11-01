@@ -32,14 +32,15 @@ bool StreamerManager::remove(const std::shared_ptr<Streamer>& streamer) {
     auto it = std::find(streamers.begin(),streamers.end(),streamer);
     if (it != streamers.end()) {
         streamers.erase(it);
+        userManager->remove(std::dynamic_pointer_cast<User>(streamer));
         return true;
     }else
         return false;
 }
 
-bool StreamerManager::startStream(const std::shared_ptr<Streamer>& streamer, std::string title, StreamLanguage lang, unsigned int minAge,
+bool StreamerManager::startStream(const std::shared_ptr<Streamer>& streamer, const std::string& title, StreamLanguage lang, unsigned int minAge,
                                   StreamType type) {
-    //Stream* stream = streamManager->build(title,lang,minAge,type);
+    //std::shared_ptr<Stream> stream = streamManager->build(title,lang,minAge,type);
     //streamer->setStream(stream);
     return false;
 }

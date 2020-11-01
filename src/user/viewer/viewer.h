@@ -5,6 +5,7 @@
 #include "../user.h"
 #include "../../stream/stream.h"
 #include <algorithm>
+#include <memory>
 #include <unordered_set>
 
 #ifndef PROJECT_VIEWER_H
@@ -24,19 +25,12 @@ public:
     Viewer(Date birthDate, std::string name, std::string nickname);
 
     /**
-     * Getter of the type of User
-     *
-     * @return the user's type (in this case, VIEWER)
-     */
-    enum UserTypes getUserType() const override;
-
-    /**
      * Joins/Sets the current stream
      *
      * @param stream the stream to join
      * @return True if the action was successful, false otherwise
      */
-    bool joinStream(Stream* stream);
+    bool joinStream(const std::shared_ptr<Stream>& stream);
 
     /**
      * Checks if the viewer is watching a stream
@@ -74,7 +68,7 @@ public:
      * @param streamer the streamer to follow
      * @return True if the viewer can follow the given streamer, false otherwise
      */
-    bool followStreamer(Streamer* streamer);
+    bool followStreamer(const std::shared_ptr<Streamer>& streamer);
 
     /**
      * Unfollows a new streamer
@@ -82,12 +76,33 @@ public:
      * @param streamer the streamer to unfollow
      * @return True if the viewer can unfollow the given streamer, false otherwise
      */
-    bool unfollowStreamer(Streamer* streamer);
+    bool unfollowStreamer(const std::shared_ptr<Streamer>& streamer);
+
+    /**
+     * Getter of current stream
+     *
+     * @return the current stream
+     */
+    const std::shared_ptr<Stream> &getCurrentStream() const;
+
+    /**
+     * Getter of the stream history
+     *
+     * @return the stream history
+     */
+    const std::vector<std::shared_ptr<Stream>> &getStreamHistory() const;
+
+    /**
+     * Getter of the following streamers unordered set
+     *
+     * @return the unordered set of the following streamers
+     */
+    const std::unordered_set<std::shared_ptr<Streamer>> &getFollowingStreamers() const;
 
 private:
-    Stream* currentStream;
-    std::vector<Stream*> streamHistory;
-    std::unordered_set<Streamer*> followingStreamers;
+    std::shared_ptr<Stream> currentStream;
+    std::vector<std::shared_ptr<Stream>> streamHistory;
+    std::unordered_set<std::shared_ptr<Streamer>> followingStreamers;
 };
 
 #endif //PROJECT_VIEWER_H

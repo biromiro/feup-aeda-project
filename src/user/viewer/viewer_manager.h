@@ -26,7 +26,7 @@ public:
      * @param nickname the nickname of the viewer
      * @return True if the action was successful, false otherwise
      */
-    bool build(Date birthDate, const std::string& name, const std::string& nickname);
+    std::shared_ptr<Viewer> build(Date birthDate, const std::string& name, const std::string& nickname);
 
     /**
      * Adds a new viewer to the viewers vector
@@ -67,6 +67,13 @@ public:
      * @return the viewer with the given nickname
      */
     std::shared_ptr<Viewer> get(std::string nickname) const;
+
+    /**
+     * Getter of the viewers vector
+     *
+     * @return the viewers vector
+     */
+    const std::vector<std::shared_ptr<Viewer>> &getViewers() const;
 
 private:
     std::vector<std::shared_ptr<Viewer>> viewers;

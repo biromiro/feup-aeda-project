@@ -54,7 +54,6 @@ TEST(user, update_birthdate){
     Date birthDate1("2001/10/20"), birthDate2("2007/10/29"), birthDate3(1969,11,16);
     Viewer viewer(birthDate2,"André Moreira","Dustini");
     Streamer streamer(birthDate1, "Nuno Costa", "biromiro");
-    Admin admin(birthDate3, "Úrsula Maior", "urmaior");
     EXPECT_EQ(viewer.getBirthDate(), birthDate2);
     viewer.updateBirthDate(birthDate3);
     EXPECT_EQ(viewer.getBirthDate(),birthDate3);
@@ -67,7 +66,6 @@ TEST(user, update_name){
     Date birthDate1("2001/10/20"), birthDate2("2007/10/29"), birthDate3(1969,11,16);
     Viewer viewer(birthDate2,"André Moreira","Dustini");
     Streamer streamer(birthDate1, "Nuno Costa", "biromiro");
-    Admin admin(birthDate3, "Úrsula Maior", "urmaior");
     EXPECT_EQ(viewer.getName(), "André Moreira");
     viewer.updateName("Nuno Costa");
     EXPECT_EQ(viewer.getName(), "Nuno Costa");
@@ -79,11 +77,9 @@ TEST(user, update_nickname){
     Date birthDate1("2001/10/20"), birthDate2("2007/10/29"), birthDate3(1969,11,16);
     Viewer viewer(birthDate2,"André Moreira","Dustini");
     Streamer streamer(birthDate1, "Nuno Costa", "biromiro");
-    Admin admin(birthDate3, "Úrsula Maior", "urmaior");
     EXPECT_EQ(viewer.getNickname(), "Dustini");
     viewer.updateNickname("Dustini, O Ditador, David Luís");
     EXPECT_EQ(viewer.getNickname(), "Dustini, O Ditador, David Luís");
     streamer.updateNickname("kekw");
     EXPECT_EQ(streamer.getNickname(), "kekw");
-    
 }
