@@ -3,3 +3,7 @@
 //
 
 #include "finishedStream.h"
+
+FinishedStream::FinishedStream(unsigned int numOfViews) { this->numOfViews = numOfViews; }
+
+unsigned int FinishedStream::getNumOfViews() const { return numOfViews; }

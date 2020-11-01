@@ -10,6 +10,7 @@
 #include "../utils/date/date.h"
 #include <utility>
 #include <iostream>
+#include <memory>
 
 enum FeedbackLikeSystem{
     LIKE,
@@ -37,22 +38,33 @@ class Streamer;
 
 class Stream {
 public:
-    Stream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type);
+    virtual enum StreamType getStreamType() const = 0;
+    unsigned int getNumOfViewers() const;
     unsigned int getMinAge() const;
     std::string getTitle() const;
     enum StreamLanguage getLanguage() const;
-    bool canJoin(Viewer* newViewer) const;
-    bool getFeedback(enum FeedbackLikeSystem feedback);
-    virtual enum StreamType getStreamType() const = 0;
+    virtual bool canJoin(std::shared_ptr<Viewer> newViewer) const;
+    Date getStreamDate() const;
+    std::shared_ptr<Streamer> getStreamer() const;
+    std::pair<unsigned int, unsigned int> getVotes() const;
+    unsigned int getViewerCount() const;
+    bool addFeedback(enum FeedbackLikeSystem feedback);
+    void setNumOfViewers(unsigned int numOfViewers);
+    unsigned int getUniqueId() const;
+    bool operator==(std::shared_ptr<Stream> stream) const;
 protected:
+    Stream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, std::shared_ptr<Streamer> streamer);
     std::string title;
     Date streamDate;
     enum StreamLanguage language;
     unsigned int minAge;
     enum StreamType type;
-    Streamer* streamer{};
+    std::shared_ptr<Streamer> streamer;
     std::pair<unsigned int,unsigned int> votingSystem;
     unsigned int uniqueViewerCount;
+    unsigned int numOfViewers;
+    unsigned int uniqueID;
+    static unsigned int nextID;
 };
 
 #endif //PROJECT_STREAM_H

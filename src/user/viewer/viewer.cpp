@@ -37,7 +37,7 @@ bool Viewer::leaveCurrentStream() {
 }
 
 bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback) {
-    return isWatchingStream() && currentStream->getFeedback(feedback);
+    return isWatchingStream() && currentStream->addFeedback(feedback);
 }
 
 bool Viewer::giveFeedbackToStream(const std::string& comment) {
