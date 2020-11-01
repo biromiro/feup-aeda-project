@@ -7,6 +7,7 @@
 
 #include "../user_manager.h"
 #include "viewer.h"
+#include <memory>
 
 class ViewerManager{
 public:
@@ -18,12 +19,22 @@ public:
     explicit ViewerManager(UserManager* userManager);
 
     /**
+     * Creates an object of class Viewer
+     *
+     * @param birthDate the birthdate of the viewer
+     * @param name the name of the viewer
+     * @param nickname the nickname of the viewer
+     * @return True if the action was successful, false otherwise
+     */
+    bool build(Date birthDate, const std::string& name, const std::string& nickname);
+
+    /**
      * Adds a new viewer to the viewers vector
      *
      * @param viewer new viewer to be added
      * @return True if the action was successful, false otherwise
      */
-    bool add(Viewer* viewer);
+    bool add(const std::shared_ptr<Viewer>& viewer);
 
     /**
      * Removes a viewer from the viewers vector
@@ -31,7 +42,7 @@ public:
      * @param viewer new viewer to be added
      * @return True if the action was successful, false otherwise
      */
-    bool remove(Viewer* viewer);
+    bool remove(const std::shared_ptr<Viewer>& viewer);
 
     /**
      * Checks if the viewer exists in the viewers vector
@@ -39,7 +50,7 @@ public:
      * @param viewer viewer to be found
      * @return True if the action was successful, false otherwise
      */
-    bool has(Viewer* viewer) const;
+    bool has(const std::shared_ptr<Viewer>& viewer) const;
 
     /**
      * Checks, by nickname (which is unique), if the user exists in the viewers unordered set
@@ -55,24 +66,10 @@ public:
      * @param nickname the nickname of the viewer to be found and returned
      * @return the viewer with the given nickname
      */
-    Viewer* get(std::string nickname) const;
-
-    /**
-     * Writes to an output stream the Viewer information
-     *
-     * @param os output stream to be writen to
-     */
-    void write(std::ostream os) const;
-
-    /**
-     * Reads viewer information from an input stream
-     *
-     * @param is the input stream to be read from
-     */
-    void read(std::istream is);
+    std::shared_ptr<Viewer> get(std::string nickname) const;
 
 private:
-    std::vector<Viewer*> viewers;
+    std::vector<std::shared_ptr<Viewer>> viewers;
     UserManager* userManager;
 };
 

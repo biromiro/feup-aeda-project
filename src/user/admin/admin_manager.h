@@ -19,12 +19,22 @@ public:
     explicit AdminManager(UserManager* userManager);
 
     /**
+     * Creates an object of class Admin
+     *
+     * @param birthDate the birthdate of the admin
+     * @param name the name of the admin
+     * @param nickname the nickname of the admin
+     * @return True if the action was successful, false otherwise
+     */
+    bool build(Date birthDate, const std::string& name, const std::string& nickname);
+
+    /**
      * Adds/Updates the admin to manage
      *
      * @param admin the admin to add
      * @return True if the action was successful, false otherwise
      */
-    bool add(Admin* admin);
+    bool add(const std::shared_ptr<Admin>& admin);
 
     /**
      * Removes the current admin
@@ -32,7 +42,7 @@ public:
      * @param admin the admin to remove
      * @return True if the action was successful, false otherwise
      */
-    bool remove(Admin* admin);
+    bool remove();
 
     /**
      * Checks if the admin is the one given as parameter
@@ -40,7 +50,7 @@ public:
      * @param admin the admin to check
      * @return True if the action was successful, false otherwise
      */
-    bool is(Admin* admin) const;
+    bool is(const std::shared_ptr<Admin>& admin) const;
 
     /**
      * Checks if the admin has the nickname (which is unique) given as parameter
@@ -48,18 +58,18 @@ public:
      * @param nickname the nickname to check
      * @return True if the action was successful, false otherwise
      */
-    bool is(std::string nickname) const;
+    bool is(const std::string& nickname) const;
 
     /**
      * Getter of the admin
      *
      * @return the current admin
      */
-    Admin* get() const;
+    std::shared_ptr<Admin> get() const;
 
     ~AdminManager();
 private:
-    Admin* admin;
+    std::shared_ptr<Admin> admin;
     UserManager* userManager;
     static unsigned int noInstances;
 };

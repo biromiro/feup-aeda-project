@@ -6,6 +6,7 @@
 #include <ostream>
 #include <unordered_set>
 #include "user.h"
+#include "memory"
 
 class UserManager{
 public:
@@ -21,7 +22,7 @@ public:
      * @param user new user to be added
      * @return True if the action was successful, false otherwise
      */
-    bool add(User* user);
+    bool add(const std::shared_ptr<User>& user);
 
     /**
      * Removes a user from the users unordered set
@@ -29,7 +30,7 @@ public:
      * @param user user to be removed
      * @return True if the action was successful, false otherwise
      */
-    bool remove(User* user);
+    bool remove(const std::shared_ptr<User>& user);
 
     /**
      * Checks if the user exists in the users unordered set
@@ -37,7 +38,7 @@ public:
      * @param user user to be found
      * @return True if the action was successful, false otherwise
      */
-    bool has(User* user) const;
+    bool has(const std::shared_ptr<User>& user) const;
 
     /**
      * Checks, by nickname (which is unique), if the user exists in the users unordered set
@@ -53,10 +54,17 @@ public:
      * @param nickname the nickname of the user to be found and returned
      * @return the user with the given nickname
      */
-    User* get(std::string nickname) const;
+    std::shared_ptr<User> get(std::string nickname) const;
+
+    /**
+     * Getter of the users unordered set
+     *
+     * @return the unordered set of users
+     */
+    std::unordered_set<std::shared_ptr<User>> getUsers() const;
 
 private:
-    std::unordered_set<User*> users;
+    std::unordered_set<std::shared_ptr<User>> users;
 };
 #define PROJECT_USER_MANAGER_H
 

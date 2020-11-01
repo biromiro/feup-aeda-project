@@ -7,10 +7,10 @@
 #include "user_manager.h"
 
 UserManager::UserManager() {
-    users = std::unordered_set<User*>();
+    users = std::unordered_set<std::shared_ptr<User>>();
 }
 
-bool UserManager::add(User *user) {
+bool UserManager::add(const std::shared_ptr<User>& user) {
     if (users.find(user) == users.end()){
         users.insert(user);
         return true;
@@ -18,7 +18,7 @@ bool UserManager::add(User *user) {
         return false;
 }
 
-bool UserManager::remove(User *user) {
+bool UserManager::remove(const std::shared_ptr<User>& user) {
     if (users.find(user) != users.end()) {
         users.erase(user);
         return true;
@@ -26,20 +26,24 @@ bool UserManager::remove(User *user) {
         return false;
 }
 
-bool UserManager::has(User *user) const {
+bool UserManager::has(const std::shared_ptr<User>& user) const {
     return users.find(user) != users.end();
 }
 
 bool UserManager::has(std::string nickname) const {
     return std::find_if(users.begin(),users.end(),
-                        [&nickname](User* user){return user->getNickname() == nickname;}) != users.end();
+                        [&nickname](const std::shared_ptr<User>& user){return user->getNickname() == nickname;}) != users.end();
 }
 
-User *UserManager::get(std::string nickname) const {
+std::shared_ptr<User> UserManager::get(std::string nickname) const {
     auto it = std::find_if(users.begin(),users.end(),
-                           [&nickname](User* user){return user->getNickname() == nickname;});
+                           [&nickname](const std::shared_ptr<User>& user){return user->getNickname() == nickname;});
     if(it != users.end()){
         return *it;
     }
     return nullptr;
+}
+
+std::unordered_set<std::shared_ptr<User>> UserManager::getUsers() const {
+    return users;
 }

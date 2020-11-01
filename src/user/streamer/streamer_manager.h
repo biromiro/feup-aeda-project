@@ -20,12 +20,22 @@ public:
     StreamerManager(StreamManager* streamManager,ViewerManager* viewerManager, UserManager* userManager);
 
     /**
+     * Creates an object of class Streamer
+     *
+     * @param birthDate the birthdate of the streamer
+     * @param name the name of the streamer
+     * @param nickname the nickname of the streamer
+     * @return True if the action was successful, false otherwise
+     */
+    bool build(Date birthDate, const std::string& name, const std::string& nickname);
+
+    /**
      * Adds a new streamer to the streamer vector
      *
      * @param streamer new streamer to be added
      * @return True if the action was successful, false otherwise
      */
-    bool add(Streamer* streamer);
+    bool add(const std::shared_ptr<Streamer>& streamer);
 
     /**
      * Removes a streamer from the streamers vector
@@ -33,7 +43,7 @@ public:
      * @param streamer new streamer to be added
      * @return True if the action was successful, false otherwise
      */
-    bool remove(Streamer* streamer);
+    bool remove(const std::shared_ptr<Streamer>& streamer);
 
     /**
      * Starts a stream for a given streamer
@@ -45,7 +55,7 @@ public:
      * @param type the type of the stream
      * @return True if the action was successful, false otherwise
      */
-    bool startStream(Streamer* streamer, std::string title, StreamLanguage lang, unsigned int minAge, StreamType type);
+    bool startStream(const std::shared_ptr<Streamer>& streamer, std::string title, StreamLanguage lang, unsigned int minAge, StreamType type);
 
     /**
      * Ends the stream of a given streamer
@@ -53,7 +63,7 @@ public:
      * @param streamer the stream to which the stream is to be finished
      * @return True if the action was successful, false otherwise
      */
-    bool endStream(Streamer* streamer);
+    bool endStream(const std::shared_ptr<Streamer>& streamer);
 
     /**
      * Checks if the streamer exists in the streamers vector
@@ -61,7 +71,7 @@ public:
      * @param streamer streamer to be found
      * @return True if the action was successful, false otherwise
      */
-    bool has(Streamer* streamer) const;
+    bool has(const std::shared_ptr<Streamer>& streamer) const;
 
     /**
      * Checks, by nickname (which is unique), if the user exists in the streamers unordered set
@@ -77,10 +87,10 @@ public:
     * @param nickname the nickname of the streamer to be found and returned
     * @return the streamer with the given nickname
     */
-    Streamer* get(std::string nickname) const;
+    std::shared_ptr<Streamer> get(std::string nickname) const;
 
 private:
-    std::vector<Streamer*> streamers;
+    std::vector<std::shared_ptr<Streamer>> streamers;
     StreamManager* streamManager;
     ViewerManager* viewerManager;
     UserManager* userManager;

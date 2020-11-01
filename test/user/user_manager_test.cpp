@@ -11,90 +11,71 @@
 using testing::Eq;
 
 
-TEST(user_manager, add_method){
+TEST(user_manager, add){
     UserManager userManager;
     Date birthDate("2001/10/20");
-    Viewer viewer(birthDate,"André Moreira","Dustini");
-    Viewer viewer2(birthDate,"André Pereira","dustibo");
-    Streamer streamer(birthDate, "Nuno Costa", "biromiro");
-    Admin admin(birthDate, "Úrsula Maior", "urmaior");
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&streamer)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), false);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), false);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&admin)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&admin)), false);
+    auto viewer = std::make_shared<Viewer>(birthDate,"André Moreira","Dustini");
+    auto viewer2 = std::make_shared<Viewer>(birthDate,"André Pereira","dustibo");
+    auto streamer =  std::make_shared<Streamer>(birthDate, "Nuno Costa", "biromiro");
+    auto admin = std::make_shared<Admin>(birthDate, "Úrsula Maior", "urmaior");
+    EXPECT_EQ(userManager.add(std::dynamic_pointer_cast<User>(viewer)), true);
+    EXPECT_EQ(userManager.add(std::dynamic_pointer_cast<User>(streamer)), true);
+    EXPECT_EQ(userManager.add(std::dynamic_pointer_cast<User>(viewer)), false);
+    EXPECT_EQ(userManager.add(std::dynamic_pointer_cast<User>(viewer2)), true);
+    EXPECT_EQ(userManager.add(std::dynamic_pointer_cast<User>(admin)), true);
+    EXPECT_EQ(userManager.add(std::dynamic_pointer_cast<User>(admin)), false);
+    EXPECT_EQ(userManager.getUsers().size(),4);
 }
 
-TEST(user_manager, remove_method) {
+TEST(user_manager, remove){
     UserManager userManager;
     Date birthDate("2001/10/20");
-    Viewer viewer(birthDate,"André Moreira","Dustini");
-    Viewer viewer2(birthDate,"André Pereira","dustibo");
-    Streamer streamer(birthDate, "Nuno Costa", "biromiro");
-    Admin admin(birthDate, "Úrsula Maior", "urmaior");
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&streamer)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), false);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), false);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&admin)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&admin)), false);
-    EXPECT_EQ(userManager.remove(dynamic_cast<User*>(&streamer)), true);
-    EXPECT_EQ(userManager.remove(dynamic_cast<User*>(&viewer2)), false);
+    auto viewer = std::make_shared<Viewer>(birthDate,"André Moreira","Dustini");
+    auto viewer2 = std::make_shared<Viewer>(birthDate,"André Pereira","dustibo");
+    auto streamer =  std::make_shared<Streamer>(birthDate, "Nuno Costa", "biromiro");
+    auto admin = std::make_shared<Admin>(birthDate, "Úrsula Maior", "urmaior");
+    userManager.add(std::dynamic_pointer_cast<User>(viewer));
+    userManager.add(std::dynamic_pointer_cast<User>(viewer2));
+    EXPECT_EQ(userManager.getUsers().size(),2);
+    EXPECT_EQ(userManager.remove(std::dynamic_pointer_cast<User>(streamer)), false);
+    EXPECT_EQ(userManager.remove(std::dynamic_pointer_cast<User>(viewer)), true);
+    userManager.add(std::dynamic_pointer_cast<User>(admin));
+    EXPECT_EQ(userManager.remove(std::dynamic_pointer_cast<User>(admin)), true);
+    EXPECT_EQ(userManager.getUsers().size(),1);
 }
 
-TEST(user_manager, has_method) {
+TEST(user_manager, has){
     UserManager userManager;
     Date birthDate("2001/10/20");
-    Viewer viewer(birthDate,"André Moreira","Dustini");
-    Viewer viewer2(birthDate,"André Pereira","dustibo");
-    Streamer streamer(birthDate, "Nuno Costa", "biromiro");
-    Admin admin(birthDate, "Úrsula Maior", "urmaior");
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&streamer)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), false);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), false);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&admin)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&admin)), false);
-    EXPECT_EQ(userManager.has(dynamic_cast<User*>(&streamer)), true);
-    EXPECT_EQ(userManager.has(dynamic_cast<User*>(&viewer2)), false);
-    EXPECT_EQ(userManager.has(dynamic_cast<User*>(&streamer)), true);
+    auto viewer = std::make_shared<Viewer>(birthDate,"André Moreira","Dustini");
+    auto viewer2 = std::make_shared<Viewer>(birthDate,"André Pereira","dustibo");
+    auto streamer =  std::make_shared<Streamer>(birthDate, "Nuno Costa", "biromiro");
+    auto admin = std::make_shared<Admin>(birthDate, "Úrsula Maior", "urmaior");
+    userManager.add(std::dynamic_pointer_cast<User>(viewer));
+    userManager.add(std::dynamic_pointer_cast<User>(viewer2));
+    EXPECT_EQ(userManager.has(std::dynamic_pointer_cast<User>(streamer)), false);
+    EXPECT_EQ(userManager.has("biromiro"), false);
+    EXPECT_EQ(userManager.has(std::dynamic_pointer_cast<User>(viewer)), true);
+    EXPECT_EQ(userManager.has("Dustini"), true);
+    userManager.add(std::dynamic_pointer_cast<User>(admin));
+    EXPECT_EQ(userManager.has(std::dynamic_pointer_cast<User>(admin)), true);
+    userManager.remove(std::dynamic_pointer_cast<User>(admin));
+    EXPECT_EQ(userManager.has("urmaior"), false);
 }
 
-TEST(user_manager, has_by_nickname_method) {
+TEST(user_manager, getters){
     UserManager userManager;
     Date birthDate("2001/10/20");
-    Viewer viewer(birthDate,"André Moreira","Dustini");
-    Viewer viewer2(birthDate,"André Pereira","dustibo");
-    Streamer streamer(birthDate, "Nuno Costa", "biromiro");
-    Admin admin(birthDate, "Úrsula Maior", "urmaior");
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&streamer)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), false);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), false);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&admin)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&admin)), false);
-    EXPECT_EQ(userManager.has(streamer.getNickname()), true);
-    EXPECT_EQ(userManager.has(viewer2.getNickname()), false);
-    EXPECT_EQ(userManager.has(viewer.getNickname()), true);
-    EXPECT_EQ(userManager.has(streamer.getNickname()), true);
-}
-
-TEST(user_manager, get_by_nickname_method) {
-    UserManager userManager;
-    Date birthDate("2001/10/20");
-    Viewer viewer(birthDate,"André Moreira","Dustini");
-    Viewer viewer2(birthDate,"André Pereira","dustibo");
-    Streamer streamer(birthDate, "Nuno Costa", "biromiro");
-    Admin admin(birthDate, "Úrsula Maior", "urmaior");
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&streamer)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), false);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&viewer)), false);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&admin)), true);
-    EXPECT_EQ(userManager.add(dynamic_cast<User*>(&admin)), false);
-    EXPECT_EQ(userManager.get(streamer.getNickname()), dynamic_cast<User*>(&streamer));
-    EXPECT_EQ(userManager.get(viewer.getNickname()), dynamic_cast<User*>(&viewer));
+    auto viewer = std::make_shared<Viewer>(birthDate,"André Moreira","Dustini");
+    auto viewer2 = std::make_shared<Viewer>(birthDate,"André Pereira","dustibo");
+    auto streamer =  std::make_shared<Streamer>(birthDate, "Nuno Costa", "biromiro");
+    auto admin = std::make_shared<Admin>(birthDate, "Úrsula Maior", "urmaior");
+    userManager.add(std::dynamic_pointer_cast<User>(viewer));
+    userManager.add(std::dynamic_pointer_cast<User>(viewer2));
+    userManager.add(std::dynamic_pointer_cast<User>(admin));
+    EXPECT_EQ(userManager.get("urmaior"), std::dynamic_pointer_cast<User>(admin));
+    userManager.remove(std::dynamic_pointer_cast<User>(admin));
+    EXPECT_EQ(userManager.get("urmaior"), nullptr);
 }
 
 
