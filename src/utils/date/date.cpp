@@ -37,7 +37,7 @@ Date::Date(unsigned int y, unsigned int m, unsigned int d, unsigned int h, unsig
 Date::Date(const std::string& yearMonthDay){
     std::istringstream inp(yearMonthDay);
     char separator;
-    inp >>  year >> separator >> month >> separator >> year;
+    inp >>  year >> separator >> month >> separator >> day;
     hours = 0;
     minutes = 0;
     seconds = 0;
@@ -249,13 +249,15 @@ bool Date::operator!=(const Date &rhs) const {
 }
 
 Date daysToDate(unsigned int totalDays) {
-    Date result(0,0,0);
-    while(totalDays>31){
-        totalDays-=numberOfDays(result.getYear(),result.getMonth());
+    Date result(0,1,1);
+    unsigned int lastMonthDays = numberOfDays(result.getYear(),result.getMonth());
+    while(totalDays>=lastMonthDays){
+        totalDays-=lastMonthDays;
         if(result.getMonth() == 12)
             result.setYear(result.getYear()+1);
 
         result.setMonth(result.getMonth()%12 + 1);
+        lastMonthDays = numberOfDays(result.getYear(),result.getMonth());;
     }
     result.setDay(totalDays);
     return result;
@@ -265,6 +267,6 @@ Date timeElapsed(const Date& d1, const Date& d2){
     if(d1 < d2){
         return timeElapsed(d2,d1);
     }
-    unsigned int days1= d1.totalNumOfDays(), days2 = d2.totalNumOfDays(), res = days1-days2-2;
+    unsigned int days1= d1.totalNumOfDays(), days2 = d2.totalNumOfDays(), res = days1-days2;
     return daysToDate(res);
 }

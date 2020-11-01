@@ -16,7 +16,7 @@ public:
     Date();
     Date(unsigned int y, unsigned int m, unsigned int d);
     Date(unsigned int y, unsigned int m, unsigned int d, unsigned int h, unsigned int min, unsigned int sec);
-    explicit Date(const std::string& yearMonthDay);  //yearMonthDay must be in format yyyy/MM/dd
+    Date(const std::string& yearMonthDay);  //yearMonthDay must be in format yyyy/MM/dd
     void setYear(unsigned int y);
     void setMonth(unsigned int m);
     void setDay(unsigned int d);

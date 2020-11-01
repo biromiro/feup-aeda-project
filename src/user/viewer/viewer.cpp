@@ -2,21 +2,20 @@
 // Created by biromiro on 18/10/20.
 //
 #include "viewer.h"
-#include "../../stream/stream.h"
+
+#include <utility>
+
 #include "../../stream/privateStream/privateStream.h"
 
 
-Viewer::Viewer(Date birthDate, std::string name, std::string nickname): User(birthDate,name,nickname, VIEWER){
+Viewer::Viewer(Date birthDate, std::string name, std::string nickname): User(birthDate,std::move(name),std::move(nickname), VIEWER){
     if(getAge() < 12){
         throw std::invalid_argument("Minimum Age Not Met");
     }
+    currentStream = nullptr;
 }
 
-enum UserTypes Viewer::getUserType() const{
-    return type;
-}
-
-bool Viewer::joinStream(Stream* stream){
+bool Viewer::joinStream(const std::shared_ptr<Stream>& stream){
     if(stream->canJoin(this)){
         currentStream = stream;
         return true;
@@ -25,12 +24,13 @@ bool Viewer::joinStream(Stream* stream){
 }
 
 bool Viewer::isWatchingStream() const{
-    return currentStream != NULL;
+    return currentStream != nullptr;
 }
 
 bool Viewer::leaveCurrentStream() {
     if(isWatchingStream()){
-        currentStream = NULL;
+        streamHistory.push_back(currentStream);
+        currentStream = nullptr;
         return true;
     }
     return false;
@@ -40,40 +40,36 @@ bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback) {
     return isWatchingStream() && currentStream->addFeedback(feedback);
 }
 
-bool Viewer::giveFeedbackToStream(std::string comment) {
-    if(currentStream->getStreamType() == PRIVATE ){
-        PrivateStream* currentStreamPrivate = dynamic_cast<PrivateStream*>(currentStream);
-        currentStreamPrivate->addComment(comment);
+bool Viewer::giveFeedbackToStream(const std::string& comment) {
+    if(isWatchingStream() && currentStream->getStreamType() == PRIVATE ){
+        auto currentStreamPrivate = std::dynamic_pointer_cast<PrivateStream>(currentStream);
+        currentStreamPrivate->getComment(comment);
         return true;
     }else
         return false;
 }
 
-bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback, std::string comment) {
-    if(!isWatchingStream()){
-        return false;
-    }
-    if(!(currentStream->addFeedback(feedback)))
-        return false;
-
-    return giveFeedbackToStream(comment);
-}
-
-bool Viewer::followStreamer(Streamer *streamer) {
-    unsigned int initSize = followingStreamers.size();
-    auto it = std::find_if(followingStreamers.begin(),followingStreamers.end(),[streamer](Streamer* streamer1){return streamer==streamer1;});
-    if(it != followingStreamers.end())
+bool Viewer::followStreamer(const std::shared_ptr<Streamer>& streamer) {
+    if(followingStreamers.find(streamer) != followingStreamers.end())
         return false;
     else
-        followingStreamers.push_back(streamer);
+        followingStreamers.insert(streamer);
     return true;
 }
 
-bool Viewer::unfollowStreamer(Streamer *streamer) {
-    unsigned int initSize = followingStreamers.size();
-    followingStreamers.erase(std::remove_if(followingStreamers.begin(),followingStreamers.end(),
-                                            [streamer](Streamer* streamer1){return streamer==streamer1;})
-                             ,followingStreamers.end());
-    return initSize == followingStreamers.size();
+bool Viewer::unfollowStreamer(const std::shared_ptr<Streamer>& streamer) {
+    return followingStreamers.erase(streamer) != 0;
+}
+
+const std::shared_ptr<Stream> &Viewer::getCurrentStream() const {
+    return currentStream;
+}
+
+const std::vector<std::shared_ptr<Stream>> &Viewer::getStreamHistory() const {
+    return streamHistory;
+}
+
+const std::unordered_set<std::shared_ptr<Streamer>> &Viewer::getFollowingStreamers() const {
+    return followingStreamers;
 }
 

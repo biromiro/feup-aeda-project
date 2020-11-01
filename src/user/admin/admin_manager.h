@@ -11,18 +11,67 @@
 
 class AdminManager{
 public:
-    AdminManager(UserManager* userManager);
-    bool add(Admin* admin);
-    bool remove(Admin* admin);
-    bool has(Admin* admin) const;
-    bool has(std::string nickname) const;
-    Admin* get(std::string nickname) const;
-    void write(std::ostream os) const;
-    void read(std::ostream os);
+    /**
+     * Constructor of Admin Manager class
+     *
+     * @param userManager the user manager
+     */
+    explicit AdminManager(UserManager* userManager);
 
+    /**
+     * Creates an object of class Admin
+     *
+     * @param birthDate the birthdate of the admin
+     * @param name the name of the admin
+     * @param nickname the nickname of the admin
+     * @return True if the action was successful, false otherwise
+     */
+    bool build(Date birthDate, const std::string& name, const std::string& nickname);
+
+    /**
+     * Adds/Updates the admin to manage
+     *
+     * @param admin the admin to add
+     * @return True if the action was successful, false otherwise
+     */
+    bool add(const std::shared_ptr<Admin>& admin);
+
+    /**
+     * Removes the current admin
+     *
+     * @param admin the admin to remove
+     * @return True if the action was successful, false otherwise
+     */
+    bool remove();
+
+    /**
+     * Checks if the admin is the one given as parameter
+     *
+     * @param admin the admin to check
+     * @return True if the action was successful, false otherwise
+     */
+    bool is(const std::shared_ptr<Admin>& admin) const;
+
+    /**
+     * Checks if the admin has the nickname (which is unique) given as parameter
+     *
+     * @param nickname the nickname to check
+     * @return True if the action was successful, false otherwise
+     */
+    bool is(const std::string& nickname) const;
+
+    /**
+     * Getter of the admin
+     *
+     * @return the current admin
+     */
+    std::shared_ptr<Admin> get() const;
+
+    ~AdminManager();
 private:
-    std::vector<Admin*> admin;
+    std::shared_ptr<Admin> admin;
     UserManager* userManager;
+    static unsigned int noInstances;
 };
 
 #endif //PROJECT_ADMIN_MANAGER_H
