@@ -20,7 +20,9 @@ std::string Stream::getTitle() const { return title; }
 
 enum StreamLanguage Stream::getLanguage() const { return language; }
 
-bool Stream::canJoin(std::shared_ptr<Viewer> newViewer) const { return newViewer->getAge() >= minAge; }
+bool Stream::canJoin(std::shared_ptr<Viewer> newViewer) const {
+    return newViewer->getAge() >= minAge;
+}
 
 Date Stream::getStreamDate() const { return streamDate; }
 

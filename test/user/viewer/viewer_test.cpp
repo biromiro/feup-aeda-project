@@ -32,7 +32,8 @@ TEST(viewer, constructor_test_invalid_age){
 
 TEST(viewer, joinStream){
     Date birthDate1(2000,11,18), birthDate2(2005,11,18);
-    auto stream = std::make_shared<PublicStream>("New Stream!",PT_PT,18);
+    auto streamer = std::make_shared<Streamer>(birthDate1,"adasda adasda","ededfeqw");
+    auto stream = std::make_shared<PublicStream>("New Stream!",PT_PT,18,streamer);
     auto viewer = std::make_shared<Viewer>(birthDate1,"André Moreira","Dustini");
     auto viewer2 = std::make_shared<Viewer>(birthDate2,"Epic Man","epic");
     EXPECT_EQ(viewer->joinStream(std::dynamic_pointer_cast<Stream>(stream)),true);
@@ -41,7 +42,8 @@ TEST(viewer, joinStream){
 
 TEST(viewer, iswatchingstream_leave){
     Date birthDate1(2000,11,18), birthDate2(2005,11,18);
-    auto stream = std::make_shared<PublicStream>("New Stream!",PT_PT,18);
+    auto streamer = std::make_shared<Streamer>(birthDate1,"adasda adasda","ededfeqw");
+    auto stream = std::make_shared<PublicStream>("New Stream!",PT_PT,18,streamer);
     auto viewer = std::make_shared<Viewer>(birthDate1,"André Moreira","Dustini");
     auto viewer2 = std::make_shared<Viewer>(birthDate2,"Epic Man","epic");
     EXPECT_EQ(viewer->isWatchingStream(),false);
@@ -56,15 +58,18 @@ TEST(viewer, iswatchingstream_leave){
 
 TEST(viewer, giveFeedback){
     Date birthDate1(2000,11,18), birthDate2(1998,11,18);
-    auto stream = std::make_shared<PublicStream>("New Stream!",PT_PT,18);
-    auto stream2 = std::make_shared<PrivateStream>("New!",PT_BR,18);
+    auto streamer = std::make_shared<Streamer>(birthDate1,"adasda adasda","ededfeqw");
+    auto stream = std::make_shared<PublicStream>("New Stream!",PT_PT,18,streamer);
+    auto streamer2 = std::make_shared<Streamer>(birthDate1,"dsadsdasda","asdad");
+    auto stream2 = std::make_shared<PrivateStream>("New!",PT_BR,18,streamer2);
     auto viewer = std::make_shared<Viewer>(birthDate1,"André Moreira","Dustini");
     auto viewer2 = std::make_shared<Viewer>(birthDate2,"Epic Man","epic");
+    stream2->addToWhitelist(viewer2);
     EXPECT_EQ(viewer->giveFeedbackToStream(LIKE),false);
     viewer->joinStream(std::dynamic_pointer_cast<Stream>(stream));
     EXPECT_EQ(viewer->giveFeedbackToStream(LIKE),true);
     EXPECT_EQ(viewer->giveFeedbackToStream("kekw"),false);
-    viewer2->joinStream(std::dynamic_pointer_cast<Stream>(stream2));
+    EXPECT_EQ(viewer2->joinStream(std::dynamic_pointer_cast<Stream>(stream2)),true);
     EXPECT_EQ(viewer2->giveFeedbackToStream(LIKE),true);
     EXPECT_EQ(viewer2->giveFeedbackToStream("kekw"),true);
 }

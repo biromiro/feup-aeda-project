@@ -10,7 +10,8 @@ User::User(Date birthDate, std::string name, std::string nickname, enum UserType
         birthDate(birthDate), joinDate(Date()), name(std::move(name)), nickname(std::move(nickname)), type(type){}
 
 unsigned int User::getAge() const{
-    return timeElapsed(birthDate,Date()).getYear();
+    unsigned int age = timeElapsed(birthDate,Date()).getYear();
+    return age;
 }
 
 const std::string &User::getName() const {

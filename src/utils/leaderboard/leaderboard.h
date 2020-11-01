@@ -37,7 +37,6 @@ class LeaderBoard{
 private:
     std::vector<N> leaderBoard;
 public:
-    LeaderBoard(){}
     LeaderBoard(std::vector<N> leaderBoard){
         this->leaderBoard = leaderBoard;
     }
