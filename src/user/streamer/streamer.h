@@ -42,6 +42,10 @@ public:
      */
     void removeStream();
 
+    unsigned int getTotalViewCount() const;
+
+    const std::shared_ptr<Stream> &getCurrentStream() const;
+
 private:
     std::vector<std::shared_ptr<Stream>> previousStreams;
     std::shared_ptr<Stream> currentStream;

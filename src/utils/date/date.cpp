@@ -180,7 +180,7 @@ bool Date::isBefore(const Date &date) const {
 }
 
 std::ostream &operator<<(std::ostream &os, const Date &date) {
-    os << date.year << "/" << date.month << "/" << date.day << ", " << date.hours << ":" << date.minutes << ":" << date.seconds;
+    os << std::right << std::setfill('0') << std::setw(4) << date.year << "/" << std::setw(2) << date.month << "/" << std::setw(2) << date.day << std::setfill(' ');
     return os;
 }
 

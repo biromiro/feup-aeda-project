@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10.2)
 
-SET(CMAKE_CXX_STANDARD 14)
+SET(CMAKE_CXX_STANDARD 17)
 
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
@@ -45,7 +45,8 @@ add_executable(tests
         user/streamer/streamer_test.cpp
         user/streamer/streamer_manager_test.cpp
         user/admin/admin.cpp
-        user/admin/admin_manager_test.cpp)
+        user/admin/admin_manager_test.cpp
+        utils/leaderboard/leaderboard_manager.cpp)
 target_link_libraries(tests PRIVATE gtest_main project)
 
 add_test(NAME tests COMMAND tests)

@@ -1,88 +1,47 @@
 //
-// Created by emanu on 21-Oct-20.
+// Created by biromiro on 01/11/20.
 //
 
+#ifndef PROJECT_LEADERBOARD_H
+#define PROJECT_LEADERBOARD_H
 
+#include <iostream>
 #include <vector>
 #include <memory>
-#include <algorithm>
 #include "../../stream/stream.h"
 #include "../date/date.h"
+#include <ostream>
 
-#ifndef SRC_LEADERBOARD_H
-#define SRC_LEADERBOARD_H
-
-/*enum SortOrFilterType{
-    AGE,
-    LANGUAGE,
-    GENRE,
-    VIEWS,
-    LIKES,
-    DATE,
-    PRIVATE,
-    PUBLIC
-};*/
-
-enum Language{
-    AF, AR, AZ,  BE, BG, CA, CZ, CY, DA, DE, EL, EN, EO, ES, ET, EU,
-    FA ,FI, FO, FR, GL, GU, HE, HI, HR, HU, HY, ID, IS, IT, JA, KA,
-    KK, KN, KO, KOK, KY, LT, LV, MI ,MK, MN, MR, MS, MT, NB, NL, NN,
-    NS, PA, PL, PS, PT_BR, PT_PT, QU, RO, RU, SA ,SE, SK, SL, SQ, SR,
-    SV, SW, SYR, TA, TE, TH, TL, TN, TR, TT, TS, UK, UR, UZ, YI, XH, ZH
-};
-
-
-template<class N>
-class LeaderBoard{
-private:
-    std::vector<N> leaderBoard;
+template <class N>
+class Leaderboard{
 public:
-    LeaderBoard(std::vector<N> leaderBoard){
-        this->leaderBoard = leaderBoard;
+    Leaderboard(std::vector<N> vec): leaderboard(vec){};
+
+    friend std::ostream& operator<<(std::ostream& os, const Leaderboard<N>& dt){
+        if constexpr(std::is_same_v<N, std::shared_ptr<Streamer>>) {
+            os << "Streamer Leaderboard\n\n";
+            os << std::left << std::setfill(' ') << std::setw(20) <<  "Nickname" << std::setw(20) <<  "Name"
+                    << std::setw(20) <<  "View Count" << std::setw(20) <<  "Streaming?" <<  std::setw(20) <<  "Stream ID"
+                    << "Join Date";
+            os << "\n\n" << std::left;
+            for(const auto& elem: dt.leaderboard){
+                os << std::left << std::setw(20) << elem->getNickname() << std::setw(20) <<
+                elem->getName() << std::setw(20) << 
+                elem->getTotalViewCount() << std::setw(20) <<  (elem->isStreaming() ? "Yes" : "No") << std::setw(20)
+                << (elem->isStreaming() ? std::to_string((elem->getCurrentStream())->getUniqueId()) : "-") << elem->getJoinDate() << "\n";
+            }
+        }else if constexpr (std::is_same_v<N, std::shared_ptr<Viewer>>){
+            return os;
+        }else if constexpr (std::is_same_v<N, std::shared_ptr<User>>){
+            return os;
+        }else if constexpr (std::is_same_v<N, std::shared_ptr<Stream>>){
+            return os;
+        }else
+            return os;
     }
-    std::vector<N> filterStreamByLanguage(enum Language lang){
-        std::vector<N> newLB = this->leaderBoard;
-        std::remove_if(newLB.begin(),newLB.end(),[&lang](std::shared_ptr<Stream> stream){return stream->getLanguage() != lang;});
-        return newLB;
-    }
-    std::vector<N> filterStreamByAge(unsigned int minAge){
-        std::vector<N> newLB = this->leaderBoard;
-        std::remove_if(newLB.begin(),newLB.end(),[&minAge](std::shared_ptr<Stream> stream){return stream->getMinAge() < minAge;});
-        return newLB;
-    }
-    /*
-    std::vector<N> filterStreamByDate(Date date){
-        std::vector<N> newLB = this->leaderBoard;
-        std::remove_if(newLB.begin(),newLB.end(),[&date](std::shared_ptr<Stream> stream){return stream.getDate() != date;});
-        return newLB;
-    }*/
-    std::vector<N> filterStreamByType(enum StreamType type){
-        std::vector<N> newLB = this->leaderBoard;
-        std::remove_if(newLB.begin(),newLB.end(),[&type](std::shared_ptr<Stream> stream){return stream->getStreamType() != type;});
-        return newLB;
-    }
-    /*
-    std::vector<N> sortByViews(){
-        std::vector<N> newLB = this->leaderBoard;
-        std::sort(newLB.begin(),newLB.end(),[](std::shared_ptr<Stream> streamA,std::shared_ptr<Stream> streamB){return streamA->getViewerCount > streamB.getViewerCount();});
-        return newLB;
-    }*/
-    std::vector<N> sortByLikes(){
-        std::vector<N> newLB = this->leaderBoard;
-        std::sort(newLB.begin(),newLB.end(),[](std::shared_ptr<Stream> streamA,std::shared_ptr<Stream> streamB){return streamA->getFeedback(LIKE) > streamB->getFeedback(LIKE);});
-        return newLB;
-    }
-    //std::vector<N> getLeaderBoard(){return this->leaderBoard;}
-    std::vector<N> getTopN(unsigned int n){
-        unsigned int i = 0;
-        std::vector<N> newLB;
-        while(n && i <this->leaderBoard.size()){
-            newLB.push_back(this->leaderBoard[i]);
-            i++;
-            n--;
-        }
-        return newLB;
-    }
+
+private:
+    std::vector<N> leaderboard;
 };
 
-#endif //SRC_LEADERBOARD_H
+#endif //PROJECT_LEADERBOARD_H

@@ -8,7 +8,8 @@
 #include "../user/viewer/viewer_manager.h"
 #include "../stream/privateStream/privateStream.h"
 #include "../stream/publicStream/publicStream.h"
-#include "../stream/finishedStream.h"
+#include "../stream/finishedStream/finishedStream.h"
+#include "../user/streamer/streamer.h"
 #include <memory>
 
 class StreamManager{
@@ -20,10 +21,13 @@ public:
     bool has(std::shared_ptr<Stream> streamToCheck);
     std::shared_ptr<Stream> get(std::shared_ptr<Streamer> streamer);
     bool finish(std::shared_ptr<Stream> streamToFinish);
+    const std::vector<std::shared_ptr<Stream>> &getStreams() const;
+    const std::vector<std::shared_ptr<Stream>> &getCacheOfFinishedStreams() const;
 
 private:
     ViewerManager* viewerManager;
     std::vector<std::shared_ptr<Stream>> streams;
+    std::vector<std::shared_ptr<Stream>> cacheOfFinishedStreams;
 };
 
 #endif //PROJECT_STREAMMANAGER_H

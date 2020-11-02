@@ -29,3 +29,11 @@ void Streamer::removeStream() {
     currentStream = nullptr;
 }
 
+unsigned int Streamer::getTotalViewCount() const {
+    return totalViewCount;
+}
+
+const std::shared_ptr<Stream> &Streamer::getCurrentStream() const {
+    return currentStream;
+}
+

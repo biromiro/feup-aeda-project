@@ -10,6 +10,9 @@ unsigned int Stream::nextID = 0;
 
 Stream::Stream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, std::shared_ptr<Streamer> streamer): title(std::move(title)), language(lang), minAge(minAge), type(type), streamer(streamer) {
     uniqueID = ++nextID;
+    votingSystem = std::pair<unsigned int,unsigned int>();
+    uniqueViewerCount = 0;
+    numOfViewers = 0;
 }
 
 unsigned int Stream::getNumOfViewers() const { return numOfViewers; }

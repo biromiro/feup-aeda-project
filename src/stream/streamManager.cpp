@@ -12,16 +12,18 @@ std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLangu
             auto prv_stream = std::make_shared<PrivateStream>(title, lang, minAge, streamer);
             auto stream_form = std::dynamic_pointer_cast<Stream>(prv_stream);
             add(stream_form);
-            break;
+            streamer->setStream(stream_form);
+            return stream_form;
         }
         case PUBLIC: {
             auto pbl_stream = std::make_shared<PublicStream>(title, lang, minAge, streamer);
             auto stream_form = std::dynamic_pointer_cast<Stream>(pbl_stream);
             add(stream_form);
-            break;
+            streamer->setStream(stream_form);
+            return stream_form;
         }
         default:
-            break;
+            return nullptr;
     }
 } // mudar para bool?
 
@@ -58,6 +60,14 @@ std::shared_ptr<Stream> StreamManager::get(std::shared_ptr<Streamer> streamer) {
 bool StreamManager::finish(std::shared_ptr<Stream> streamToFinish) {
     auto res = std::dynamic_pointer_cast<FinishedStream>(streamToFinish);
     return true;
+}
+
+const std::vector<std::shared_ptr<Stream>> &StreamManager::getStreams() const {
+    return streams;
+}
+
+const std::vector<std::shared_ptr<Stream>> &StreamManager::getCacheOfFinishedStreams() const {
+    return cacheOfFinishedStreams;
 }
 
 

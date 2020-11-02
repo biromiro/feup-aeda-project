@@ -10,14 +10,14 @@ streamManager(streamManager), viewerManager(viewerManager), userManager(userMana
     streamers = std::vector<std::shared_ptr<Streamer>>();
 }
 
-bool StreamerManager::build(Date birthDate, const std::string &name, const std::string &nickname) {
+std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::string &name, const std::string &nickname) {
     if(userManager->has(nickname))
-        return false;
+        return nullptr;
     auto streamer = std::make_shared<Streamer>(birthDate,name,nickname);
     add(streamer);
     std::shared_ptr<User> user_form = std::dynamic_pointer_cast<Streamer>(streamer);
     userManager->add(user_form);
-    return true;
+    return streamer;
 }
 
 bool StreamerManager::add(const std::shared_ptr<Streamer>& streamer) {
@@ -69,6 +69,10 @@ std::shared_ptr<Streamer> StreamerManager::get(std::string nickname) const {
         return *it;
     }
     return nullptr;
+}
+
+const std::vector<std::shared_ptr<Streamer>> &StreamerManager::getStreamers() const {
+    return streamers;
 }
 
 

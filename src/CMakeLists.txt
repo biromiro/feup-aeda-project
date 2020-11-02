@@ -1,5 +1,5 @@
-# Use C++14
-set(CMAKE_CXX_STANDARD 14)
+# Use C++17
+set(CMAKE_CXX_STANDARD 17)
 # Require (at least) it
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Don't use e.g. GNU extension (like -std=gnu++11) for portability
@@ -30,7 +30,7 @@ add_library(project
         utils/leaderboard/leaderboard.h
         utils/leaderboard/leaderboard_manager.h
         utils/leaderboard/leaderboard_manager.cpp
-        stream/streamManager.cpp stream/streamManager.h stream/finishedStream.cpp stream/finishedStream.h)
+        stream/streamManager.cpp stream/streamManager.h stream/finishedStream/finishedStream.cpp stream/finishedStream/finishedStream.h)
 
 
 add_executable(application
@@ -51,7 +51,7 @@ add_executable(application
         utils/leaderboard/leaderboard.h
         utils/leaderboard/leaderboard_manager.h
         utils/leaderboard/leaderboard_manager.cpp
-        stream/streamManager.cpp stream/streamManager.h stream/finishedStream.cpp stream/finishedStream.h)
+        stream/streamManager.cpp stream/streamManager.h stream/finishedStream/finishedStream.cpp stream/finishedStream/finishedStream.h)
 
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

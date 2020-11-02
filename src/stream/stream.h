@@ -20,7 +20,8 @@ enum FeedbackLikeSystem{
 
 enum StreamType{
     PRIVATE,
-    PUBLIC
+    PUBLIC,
+    FINISHED
 };
 
 enum StreamLanguage{
@@ -52,6 +53,7 @@ public:
     void setNumOfViewers(unsigned int numOfViewers);
     unsigned int getUniqueId() const;
     bool operator==(std::shared_ptr<Stream> stream) const;
+
 protected:
     Stream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, std::shared_ptr<Streamer> streamer);
     std::string title;

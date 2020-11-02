@@ -27,7 +27,7 @@ public:
      * @param nickname the nickname of the streamer
      * @return True if the action was successful, false otherwise
      */
-    bool build(Date birthDate, const std::string& name, const std::string& nickname);
+    std::shared_ptr<Streamer> build(Date birthDate, const std::string& name, const std::string& nickname);
 
     /**
      * Adds a new streamer to the streamer vector
@@ -88,6 +88,8 @@ public:
     * @return the streamer with the given nickname
     */
     std::shared_ptr<Streamer> get(std::string nickname) const;
+
+    const std::vector<std::shared_ptr<Streamer>> &getStreamers() const;
 
 private:
     std::vector<std::shared_ptr<Streamer>> streamers;
