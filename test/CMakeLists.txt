@@ -46,7 +46,8 @@ add_executable(tests
         user/streamer/streamer_manager_test.cpp
         user/admin/admin.cpp
         user/admin/admin_manager_test.cpp
-        utils/leaderboard/leaderboard_manager.cpp)
+        utils/leaderboard/leaderboard_manager_test.cpp
+        )
 target_link_libraries(tests PRIVATE gtest_main project)
 
 add_test(NAME tests COMMAND tests)

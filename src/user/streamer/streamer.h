@@ -46,6 +46,13 @@ public:
 
     const std::shared_ptr<Stream> &getCurrentStream() const;
 
+    bool operator<(const Streamer &rhs) const;
+    bool operator>(const Streamer &rhs) const;
+    bool operator<=(const Streamer &rhs) const;
+    bool operator==(const Streamer &rhs) const;
+    bool operator!=(const Streamer &rhs) const;
+    bool operator>=(const Streamer &rhs) const;
+
 private:
     std::vector<std::shared_ptr<Stream>> previousStreams;
     std::shared_ptr<Stream> currentStream;

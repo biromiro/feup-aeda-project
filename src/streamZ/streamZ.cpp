@@ -10,7 +10,7 @@ viewerManager(ViewerManager(&userManager)),
 streamManager(StreamManager(&viewerManager)),
 streamerManager(StreamerManager(&streamManager, &viewerManager, &userManager)),
 adminManager( AdminManager(&userManager)),
-leaderboardManager(LeaderboardManager(&viewerManager,&streamerManager,&streamManager)){}
+leaderboardManager(LeaderboardManager(&viewerManager,&streamerManager,&streamManager,&userManager)){}
 
 //void StreamZ::showActiveStreams() {
 //}

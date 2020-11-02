@@ -15,7 +15,7 @@
 class StreamManager{
 public:
     StreamManager(ViewerManager* viewerManager);
-    std::shared_ptr<Stream> build(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, std::shared_ptr<Streamer> streamer);
+    std::shared_ptr<Stream> build(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer);
     bool add(std::shared_ptr<Stream> streamToAdd);
     bool remove(std::shared_ptr<Stream> streamToRemove);
     bool has(std::shared_ptr<Stream> streamToCheck);

@@ -5,7 +5,7 @@
 #include "privateStream.h"
 #include "../../user/viewer/viewer.h"
 
-PrivateStream::PrivateStream(std::string title, enum StreamLanguage lang, unsigned int minAge, std::shared_ptr<Streamer> streamer): Stream(std::move(title), lang, minAge, PRIVATE, streamer){};
+PrivateStream::PrivateStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamGenre genre, std::shared_ptr<Streamer> streamer): Stream(std::move(title), lang, minAge, PRIVATE, genre, streamer){};
 
 enum StreamType PrivateStream::getStreamType() const { return type; }
 
@@ -30,7 +30,7 @@ void PrivateStream::addComment(const std::string& comment) {
     comments.push_back(comment);
 }
 
-bool PrivateStream::canJoin(std::shared_ptr<Viewer> newViewer) const {
+bool PrivateStream::canJoin(const std::shared_ptr<Viewer>& newViewer) const {
     if (newViewer->getAge() < minAge) { return false; }
     for (auto nickname: whitelist) {
         if (newViewer->getNickname() == nickname) { return true; }

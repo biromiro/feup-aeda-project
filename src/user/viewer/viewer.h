@@ -99,6 +99,13 @@ public:
      */
     const std::unordered_set<std::shared_ptr<Streamer>> &getFollowingStreamers() const;
 
+    bool operator<(const Viewer &rhs) const;
+    bool operator>(const Viewer &rhs) const;
+    bool operator<=(const Viewer &rhs) const;
+    bool operator==(const Viewer &rhs) const;
+    bool operator!=(const Viewer &rhs) const;
+    bool operator>=(const Viewer &rhs) const;
+
 private:
     std::shared_ptr<Stream> currentStream;
     std::vector<std::shared_ptr<Stream>> streamHistory;

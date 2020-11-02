@@ -24,6 +24,13 @@ enum StreamType{
     FINISHED
 };
 
+enum StreamGenre{
+    MUSIC,
+    GAMING,
+    COOKING,
+    TALKSHOW
+};
+
 enum StreamLanguage{
     AF, AR, AZ, BE, BG, CA, CZ, CY, DA, DE, EL, EN,
     EO, ES, ET, EU, FA ,FI, FO, FR, GL, GU, HE, HI,
@@ -44,29 +51,40 @@ public:
     unsigned int getMinAge() const;
     std::string getTitle() const;
     enum StreamLanguage getLanguage() const;
-    virtual bool canJoin(std::shared_ptr<Viewer> newViewer) const;
+    virtual bool canJoin(const std::shared_ptr<Viewer>& newViewer) const;
     Date getStreamDate() const;
     std::shared_ptr<Streamer> getStreamer() const;
     std::pair<unsigned int, unsigned int> getVotes() const;
-    unsigned int getViewerCount() const;
     bool addFeedback(enum FeedbackLikeSystem feedback);
     void setNumOfViewers(unsigned int numOfViewers);
     unsigned int getUniqueId() const;
     bool operator==(std::shared_ptr<Stream> stream) const;
+    StreamGenre getGenre() const;
+    StreamType getType() const;
+    bool operator==(const Stream &rhs) const;
+    bool operator!=(const Stream &rhs) const;
+    bool operator<(const Stream &rhs) const;
+    bool operator>(const Stream &rhs) const;
+    bool operator<=(const Stream &rhs) const;
+    bool operator>=(const Stream &rhs) const;
 
 protected:
-    Stream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, std::shared_ptr<Streamer> streamer);
+    Stream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer);
     std::string title;
     Date streamDate;
     enum StreamLanguage language;
     unsigned int minAge;
     enum StreamType type;
+    enum StreamGenre genre;
     std::shared_ptr<Streamer> streamer;
     std::pair<unsigned int,unsigned int> votingSystem;
-    unsigned int uniqueViewerCount;
     unsigned int numOfViewers;
     unsigned int uniqueID;
     static unsigned int nextID;
 };
+
+std::ostream& operator<<(std::ostream& out, StreamLanguage f);
+std::ostream& operator<<(std::ostream& out, StreamGenre f);
+std::ostream& operator<<(std::ostream& out, StreamType f);
 
 #endif //PROJECT_STREAM_H

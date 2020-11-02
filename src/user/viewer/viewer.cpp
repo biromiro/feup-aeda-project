@@ -74,3 +74,42 @@ const std::unordered_set<std::shared_ptr<Streamer>> &Viewer::getFollowingStreame
     return followingStreamers;
 }
 
+bool Viewer::operator<(const Viewer &rhs) const {
+    if (joinDate < rhs.joinDate)
+        return true;
+    if (rhs.joinDate < joinDate)
+        return false;
+    if (birthDate < rhs.birthDate)
+        return true;
+    if (rhs.birthDate < birthDate)
+        return false;
+    if (nickname < rhs.nickname)
+        return true;
+    if (rhs.nickname < nickname)
+        return false;
+    if (name < rhs.name)
+        return true;
+    if (rhs.name < name)
+        return false;
+    return type < rhs.type;
+}
+
+bool Viewer::operator>(const Viewer &rhs) const {
+    return rhs < *this;
+}
+
+bool Viewer::operator<=(const Viewer &rhs) const {
+    return !(rhs < *this);
+}
+
+bool Viewer::operator>=(const Viewer &rhs) const {
+    return !(*this < rhs);
+}
+
+bool Viewer::operator==(const Viewer &rhs) const {
+    return nickname == rhs.nickname;
+}
+
+bool Viewer::operator!=(const Viewer &rhs) const {
+    return !(rhs == *this);
+}

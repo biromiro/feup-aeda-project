@@ -9,7 +9,7 @@
 
 class FinishedStream: public Stream{
 public:
-    FinishedStream(std::string title, enum StreamLanguage lang, unsigned int minAge, std::shared_ptr<Streamer> streamer, unsigned int numOfViews);
+    FinishedStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamGenre genre, std::shared_ptr<Streamer> streamer, unsigned int numOfViews);
     unsigned int getNumOfViews() const;
     enum StreamType getStreamType() const override;
 private:

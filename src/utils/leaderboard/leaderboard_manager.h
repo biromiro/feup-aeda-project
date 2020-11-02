@@ -25,18 +25,27 @@
 
 class LeaderboardManager{
 public:
-    LeaderboardManager(ViewerManager* viewerManager,StreamerManager* streamerManager,StreamManager* streamManager);
+    LeaderboardManager(ViewerManager* viewerManager,StreamerManager* streamerManager,StreamManager* streamManager, UserManager* userManager);
     Leaderboard<std::shared_ptr<Stream>> filterStreamByLanguage(StreamLanguage lang);
+    Leaderboard<std::shared_ptr<Stream>> filterStreamByGenre(StreamGenre genre);
     Leaderboard<std::shared_ptr<Stream>> filterStreamByAge(unsigned int minAge);
+    Leaderboard<std::shared_ptr<Stream>> filterStreamByStreamer(const std::string& nickname);
     Leaderboard<std::shared_ptr<Stream>> filterStreamByDate(const Date &date);
     Leaderboard<std::shared_ptr<Stream>> filterStreamByType(StreamType type);
-    Leaderboard<std::shared_ptr<Streamer>> sortStreamersByNickname();
+    Leaderboard<std::shared_ptr<Streamer>> sortStreamers();
+    Leaderboard<std::shared_ptr<Streamer>> sortStreamers(const Leaderboard<std::shared_ptr<Streamer>>& lb);
+    Leaderboard<std::shared_ptr<Viewer>> sortViewers();
+    Leaderboard<std::shared_ptr<Viewer>> sortViewers(const Leaderboard<std::shared_ptr<Viewer>>& lb);
+    Leaderboard<std::shared_ptr<User>> sortUsers();
+    Leaderboard<std::shared_ptr<User>> sortUsers(const Leaderboard<std::shared_ptr<User>>& lb);
+    Leaderboard<std::shared_ptr<Stream>> sortStreams();
+    Leaderboard<std::shared_ptr<Stream>> sortStreams(const Leaderboard<std::shared_ptr<Stream>>& lb);
 
 private:
     ViewerManager* viewerManager;
     StreamerManager* streamerManager;
     StreamManager* streamManager;
-
+    UserManager* userManager;
 
 
 };

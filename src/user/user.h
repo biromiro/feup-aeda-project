@@ -85,6 +85,12 @@ public:
      */
     enum UserTypes getUserType() const;
 
+    bool operator<(const User &rhs) const;
+    bool operator>(const User &rhs) const;
+    bool operator<=(const User &rhs) const;
+    bool operator==(const User &rhs) const;
+    bool operator!=(const User &rhs) const;
+    bool operator>=(const User &rhs) const;
 protected:
     /**
      * Constructor of the User class
@@ -102,5 +108,13 @@ protected:
     std::string nickname;
     enum UserTypes type;
 };
+
+bool operator<(std::string s1, std::string s2);
+bool operator>(std::string s1, std::string s2);
+bool operator<=(std::string s1, std::string s2);
+bool operator>=(std::string s1, std::string s2);
+bool operator==(std::string s1, std::string s2);
+bool operator!=(std::string s1, std::string s2);
+std::ostream& operator<<(std::ostream& out, UserTypes f);
 
 #endif //PROJECT_USER_H

@@ -6,17 +6,17 @@
 
 StreamManager::StreamManager(ViewerManager *viewerManager) : viewerManager(viewerManager) {}
 
-std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, std::shared_ptr<Streamer> streamer){
+std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer){
     switch(type) {
         case PRIVATE: {
-            auto prv_stream = std::make_shared<PrivateStream>(title, lang, minAge, streamer);
+            auto prv_stream = std::make_shared<PrivateStream>(title, lang, minAge, genre, streamer);
             auto stream_form = std::dynamic_pointer_cast<Stream>(prv_stream);
             add(stream_form);
             streamer->setStream(stream_form);
             return stream_form;
         }
         case PUBLIC: {
-            auto pbl_stream = std::make_shared<PublicStream>(title, lang, minAge, streamer);
+            auto pbl_stream = std::make_shared<PublicStream>(title, lang, minAge, genre, streamer);
             auto stream_form = std::dynamic_pointer_cast<Stream>(pbl_stream);
             add(stream_form);
             streamer->setStream(stream_form);

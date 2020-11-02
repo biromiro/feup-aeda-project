@@ -37,3 +37,44 @@ const std::shared_ptr<Stream> &Streamer::getCurrentStream() const {
     return currentStream;
 }
 
+bool Streamer::operator<(const Streamer &rhs) const {
+    if (joinDate < rhs.joinDate)
+        return true;
+    if (rhs.joinDate < joinDate)
+        return false;
+    if (birthDate < rhs.birthDate)
+        return true;
+    if (rhs.birthDate < birthDate)
+        return false;
+    if (nickname < rhs.nickname)
+        return true;
+    if (rhs.nickname < nickname)
+        return false;
+    if (name < rhs.name)
+        return true;
+    if (rhs.name < name)
+        return false;
+    return type < rhs.type;
+}
+
+bool Streamer::operator>(const Streamer &rhs) const {
+    return rhs < *this;
+}
+
+bool Streamer::operator<=(const Streamer &rhs) const {
+    return !(rhs < *this);
+}
+
+bool Streamer::operator>=(const Streamer &rhs) const {
+    return !(*this < rhs);
+}
+
+bool Streamer::operator==(const Streamer &rhs) const {
+    return nickname == rhs.nickname;
+}
+
+bool Streamer::operator!=(const Streamer &rhs) const {
+    return !(rhs == *this);
+}
+
+
