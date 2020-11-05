@@ -68,16 +68,14 @@ public:
      */
     std::shared_ptr<Admin> get() const;
 
-    ~AdminManager();
-
     bool readData();
 
     bool writeData();
 
 private:
-    std::shared_ptr<Admin> admin;
+    std::shared_ptr<Admin> admin = nullptr;
     std::shared_ptr<UserManager> userManager;
-    static unsigned int noInstances;
+    unsigned int noInstances = 0;
 };
 
 #endif //PROJECT_ADMIN_MANAGER_H
