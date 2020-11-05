@@ -7,6 +7,7 @@
 #include <unordered_set>
 #include "user.h"
 #include "memory"
+#include <fstream>
 
 class UserManager{
 public:

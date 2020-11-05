@@ -4,7 +4,9 @@
 
 #include "streamManager.h"
 
-StreamManager::StreamManager(ViewerManager *viewerManager) : viewerManager(viewerManager) {}
+#include <utility>
+
+StreamManager::StreamManager(std::shared_ptr<ViewerManager> viewerManager) : viewerManager(std::move(viewerManager)) {}
 
 std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer){
     switch(type) {
@@ -12,23 +14,27 @@ std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLangu
             auto prv_stream = std::make_shared<PrivateStream>(title, lang, minAge, genre, streamer);
             auto stream_form = std::dynamic_pointer_cast<Stream>(prv_stream);
             add(stream_form);
-            streamer->setStream(stream_form);
             return stream_form;
         }
         case PUBLIC: {
             auto pbl_stream = std::make_shared<PublicStream>(title, lang, minAge, genre, streamer);
             auto stream_form = std::dynamic_pointer_cast<Stream>(pbl_stream);
             add(stream_form);
-            streamer->setStream(stream_form);
             return stream_form;
         }
         default:
             return nullptr;
     }
-} // mudar para bool?
+}
 
 bool StreamManager::add(std::shared_ptr<Stream> streamToAdd) {
-    if (std::find(streams.begin(), streams.end(), streamToAdd) == streams.end()){
+    if ((std::find(cacheOfFinishedStreams.begin(), cacheOfFinishedStreams.end(), streamToAdd) == streams.end())
+    && streamToAdd->getStreamType() == FINISHED){
+        cacheOfFinishedStreams.push_back(streamToAdd);
+        return true;
+    }
+    else if (std::find(streams.begin(), streams.end(), streamToAdd) == streams.end()
+    && streamToAdd->getStreamType() != FINISHED){
         streams.push_back(streamToAdd);
         return true;
     }
@@ -44,7 +50,7 @@ bool StreamManager::remove(std::shared_ptr<Stream> streamToRemove) {
     return false;
 }
 
-bool StreamManager::has(std::shared_ptr<Stream> streamToCheck) {
+bool StreamManager::has(const std::shared_ptr<Stream>& streamToCheck) {
     return std::find(streams.begin(), streams.end(), streamToCheck) != streams.end();
 }
 
@@ -57,9 +63,22 @@ std::shared_ptr<Stream> StreamManager::get(std::shared_ptr<Streamer> streamer) {
     return nullptr;
 }
 
-bool StreamManager::finish(std::shared_ptr<Stream> streamToFinish) {
-    auto res = std::dynamic_pointer_cast<FinishedStream>(streamToFinish);
+bool StreamManager::finish(const std::shared_ptr<Stream>& streamToFinish) {
+    if(streamToFinish->getType() == FINISHED)
+        return false;
+    streams.erase(std::remove(streams.begin(),streams.end(),streamToFinish));
+    auto res = std::make_shared<FinishedStream>(streamToFinish->getTitle(),streamToFinish->getLanguage(), streamToFinish->getMinAge(),
+                                                streamToFinish->getGenre(), streamToFinish->getStreamer(), getNumOfViewers(streamToFinish));
+    for(const auto& elem: viewerManager->getViewers()){
+        if(elem->getCurrentStream() == streamToFinish)
+            elem->leaveCurrentStream();
+    }
+    cacheOfFinishedStreams.push_back(res);
     return true;
+}
+
+unsigned int StreamManager::getNumOfViewers(const std::shared_ptr<Stream> &streamToFinish) {
+    return std::count_if(viewerManager->getViewers().begin(),viewerManager->getViewers().end(),[&streamToFinish](const std::shared_ptr<Viewer>& v){return v->getCurrentStream()==streamToFinish;});
 }
 
 const std::vector<std::shared_ptr<Stream>> &StreamManager::getStreams() const {
@@ -71,3 +90,38 @@ const std::vector<std::shared_ptr<Stream>> &StreamManager::getCacheOfFinishedStr
 }
 
 
+bool StreamManager::readData() {
+    //open file again
+    std::fstream file;
+
+    file.open("../../src/stream/dataStream.dat",std::ios::in|std::ios::binary);
+    if(!file){
+        std::cout << "Error in opening file..." << std::endl;
+        return false;
+    }
+
+    if(!file.read((char*)this,sizeof(*this))){
+        std::cout << "Could not fetch the last session's data..." << std::endl;
+        return -1;
+    }
+
+    file.close();
+    return true;
+}
+
+
+bool StreamManager::writeData() {
+    //write object into the file
+    std::fstream file;
+
+    file.open("../../src/stream/dataStream.dat",std::ios::out|std::ios::binary);
+    if(!file){
+        std::cout<<"Could not save the current session...\n";
+        return false;
+    }
+
+    file.write((char*)this,sizeof(*this));
+    file.close();
+    std::cout<<"Date saved into file the file.\n";
+    return true;
+}

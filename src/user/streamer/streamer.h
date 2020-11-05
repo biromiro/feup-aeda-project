@@ -14,6 +14,8 @@ class Stream;
 
 class Streamer: public User{
 public:
+
+    Streamer();
     /**
      * Constructor of the Streamer Class
      *

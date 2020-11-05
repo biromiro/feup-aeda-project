@@ -10,18 +10,42 @@
 #include "leaderboard.h"
 
 
-/*enum FilterStream{
+enum SortStream{
     MINIMUM_AGE,
     LANGUAGE,
     GENRE,
     VIEWS,
     LIKES,
     DATE,
-    PRIVATE_STREAM,
-    PUBLIC_STREAM,
-    ACTIVE_STREAM,
-    FINISHED_STREAM
-};*/
+    TYPE
+};
+
+enum SortUser{
+    NAME,
+    NICKNAME,
+    BIRTHDATE,
+    JOINDATE,
+    USERTYPE
+};
+
+enum SortViewer{
+    NAME_V,
+    NICKNAME_V,
+    BIRTHDATE_V,
+    JOINDATE_V,
+    WATCHING_STREAM,
+    NUM_OF_WATCHED_STREAMS
+};
+
+enum SortStreamer{
+    NAME_S,
+    NICKNAME_S,
+    BIRTHDATE_S,
+    JOINDATE_S,
+    VIEWCOUNT,
+    STREAMING,
+    NUM_FOLLOWERS
+};
 
 class LeaderboardManager{
 public:
@@ -33,7 +57,8 @@ public:
      * @param userManager sets the userManager
      * @param viewerManager sets the viewerManager
      */
-    LeaderboardManager(ViewerManager* viewerManager,StreamerManager* streamerManager,StreamManager* streamManager, UserManager* userManager);
+     LeaderboardManager(std::shared_ptr<ViewerManager> viewerManager,std::shared_ptr<StreamerManager> streamerManager,std::shared_ptr<StreamManager> streamManager, std::shared_ptr<UserManager> userManager);
+    
     /**
      * Creates Leaderboard of streams of the selected language
      *
@@ -41,6 +66,7 @@ public:
      * @return Leaderboard of streams of the selected language
      */
     Leaderboard<std::shared_ptr<Stream>> filterStreamByLanguage(StreamLanguage lang);
+  
     /**
      * Creates Leaderboard of streams of the selected Genre
      *
@@ -89,12 +115,16 @@ public:
      * @return sorted Leaderboard of streamers
      */
     Leaderboard<std::shared_ptr<Streamer>> sortStreamers(const Leaderboard<std::shared_ptr<Streamer>>& lb);
+
+    Leaderboard<std::shared_ptr<Streamer>> sortStreamerBy(SortStreamer sorter);
+  
     /**
      * Sorts the Leaderboard by viewer's joindate > age > nickname > name
      *
      * @return sorted Leaderboard of viewers
      */
     Leaderboard<std::shared_ptr<Viewer>> sortViewers();
+  
     /**
      * Sorts the given Viewer Leaderboard by viewer's joindate > age > nickname > name
      *
@@ -102,12 +132,16 @@ public:
      * @return sorted Leaderboard of viewers
      */
     Leaderboard<std::shared_ptr<Viewer>> sortViewers(const Leaderboard<std::shared_ptr<Viewer>>& lb);
+
+    Leaderboard<std::shared_ptr<Viewer>> sortViewerBy(SortViewer sorter);
+
     /**
      * Sorts the Leaderboard by user's joindate > age > nickname > name
      *
      * @return sorted Leaderboard of users
      */
     Leaderboard<std::shared_ptr<User>> sortUsers();
+  
     /**
      * Sorts the given User Leaderboard by user's joindate > age > nickname > name
      *
@@ -115,25 +149,31 @@ public:
      * @return sorted Leaderboard of viewers
      */
     Leaderboard<std::shared_ptr<User>> sortUsers(const Leaderboard<std::shared_ptr<User>>& lb);
+
+    Leaderboard<std::shared_ptr<User>> sortUserBy(SortUser sorter);
+  
     /**
      * Sorts the Leaderboard by Stream's type > date > likes > dislikes > views > ID > minAge > utils > lang > genre
      *
      * @return sorted Leaderboard of streams
      */
     Leaderboard<std::shared_ptr<Stream>> sortStreams();
+  
     /**
      * Sorts the given Stream Leaderboard by Stream's type > date > likes > dislikes > views > ID > minAge > utils > lang > genre
      *
      * @param lb Leaderboard of streams to sort
      * @return sorted Leaderboard of streams
      */
+  
     Leaderboard<std::shared_ptr<Stream>> sortStreams(const Leaderboard<std::shared_ptr<Stream>>& lb);
+    Leaderboard<std::shared_ptr<Stream>> sortStreamsBy(SortStream sorter);
 
 private:
-    ViewerManager* viewerManager;
-    StreamerManager* streamerManager;
-    StreamManager* streamManager;
-    UserManager* userManager;
+    std::shared_ptr<ViewerManager> viewerManager;
+    std::shared_ptr<StreamerManager> streamerManager;
+    std::shared_ptr<StreamManager> streamManager;
+    std::shared_ptr<UserManager> userManager;
 
 
 };

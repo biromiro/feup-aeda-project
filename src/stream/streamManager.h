@@ -14,18 +14,23 @@
 
 class StreamManager{
 public:
-    StreamManager(ViewerManager* viewerManager);
+    explicit StreamManager(std::shared_ptr<ViewerManager> viewerManager);
     std::shared_ptr<Stream> build(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer);
     bool add(std::shared_ptr<Stream> streamToAdd);
     bool remove(std::shared_ptr<Stream> streamToRemove);
-    bool has(std::shared_ptr<Stream> streamToCheck);
+    bool has(const std::shared_ptr<Stream>& streamToCheck);
     std::shared_ptr<Stream> get(std::shared_ptr<Streamer> streamer);
-    bool finish(std::shared_ptr<Stream> streamToFinish);
+    bool finish(const std::shared_ptr<Stream>& streamToFinish);
+    unsigned int getNumOfViewers(const std::shared_ptr<Stream>& streamToFinish);
     const std::vector<std::shared_ptr<Stream>> &getStreams() const;
     const std::vector<std::shared_ptr<Stream>> &getCacheOfFinishedStreams() const;
 
+    bool readData();
+
+    bool writeData();
+
 private:
-    ViewerManager* viewerManager;
+    std::shared_ptr<ViewerManager> viewerManager;
     std::vector<std::shared_ptr<Stream>> streams;
     std::vector<std::shared_ptr<Stream>> cacheOfFinishedStreams;
 };

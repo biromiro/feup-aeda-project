@@ -12,25 +12,38 @@
 #include "../utils/leaderboard/leaderboard_manager.h"
 #include <vector>
 #include <string>
+#include <fstream>
+#include <filesystem>
 
 #ifndef PROJECT_STREAMZ_H
 #define PROJECT_STREAMZ_H
 class StreamZ{
 private:
-    UserManager userManager;
-    ViewerManager viewerManager;
-    StreamManager streamManager;
-    StreamerManager streamerManager;
-    AdminManager adminManager;
-    LeaderboardManager leaderboardManager;
+    std::shared_ptr<UserManager> userManager;
+    std::shared_ptr<ViewerManager> viewerManager;
+    std::shared_ptr<StreamManager> streamManager;
+    std::shared_ptr<StreamerManager> streamerManager;
+    std::shared_ptr<AdminManager> adminManager;
+    std::shared_ptr<LeaderboardManager> leaderboardManager;
 
 public:
     StreamZ();
-    /*
-    void filterAge(unsigned int minAge);
-    void filterLanguage(std::string streamLang);
-    void sortByViews(int order);
-    void showActiveStreams();*/
+
+    bool initialize();
+
+    bool finish();
+
+    std::shared_ptr<UserManager> getUserManager();
+
+    std::shared_ptr<ViewerManager> getViewerManager();
+
+    std::shared_ptr<StreamManager> getStreamManager();
+
+    std::shared_ptr<StreamerManager> getStreamerManager();
+
+    std::shared_ptr<AdminManager> getAdminManager();
+
+    std::shared_ptr<LeaderboardManager> getLeaderboardManager();
 };
 
 #endif //PROJECT_STREAMZ_H
