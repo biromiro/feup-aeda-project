@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include<type_traits>
 #include "../../stream/stream.h"
 #include "../date/date.h"
 #include <ostream>
@@ -30,7 +31,7 @@ public:
      * @return the output stream given as input (allows chain input)
      */
     friend std::ostream& operator<<(std::ostream& os, const Leaderboard<N>& dt) {
-        if constexpr(std::is_same_v<N, std::shared_ptr<Streamer>>) {
+        if constexpr (std::is_same_v<N, std::shared_ptr<Streamer>>) {
             os << "Streamer Leaderboard\n\n";
             os << std::left << std::setfill(' ') << std::setw(20) << "Nickname" << std::setw(20) << "Name"
                << std::setw(20) << "View Count" << std::setw(20) << "Streaming?" << std::setw(20) << "Stream ID"
@@ -90,7 +91,11 @@ public:
         }
         return os;
     }
-
+    /**
+     * Returns the leaderboard
+     *
+     * @return The current leaderboard
+     */
     const std::vector<N> &get() const {
         return leaderboard;
     }
