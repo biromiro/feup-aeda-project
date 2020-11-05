@@ -92,6 +92,8 @@ public:
     bool operator!=(const User &rhs) const;
     bool operator>=(const User &rhs) const;
 protected:
+    User() = default;
+
     /**
      * Constructor of the User class
      *

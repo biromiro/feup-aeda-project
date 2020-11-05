@@ -4,8 +4,12 @@
 
 #include "viewer_manager.h"
 
-ViewerManager::ViewerManager(UserManager *userManager):
-userManager(userManager){}
+#include <utility>
+
+ViewerManager::ViewerManager(std::shared_ptr<UserManager> userManager):
+userManager(std::move(userManager)){
+    viewers = std::vector<std::shared_ptr<Viewer>>();
+}
 
 std::shared_ptr<Viewer> ViewerManager::build(Date birthDate, const std::string& name, const std::string& nickname) {
     if(userManager->has(nickname))
@@ -55,4 +59,40 @@ std::shared_ptr<Viewer> ViewerManager::get(std::string nickname) const {
 
 const std::vector<std::shared_ptr<Viewer>> &ViewerManager::getViewers() const {
     return viewers;
+}
+
+bool ViewerManager::readData() {
+    //open file again
+    std::fstream file;
+
+    file.open("../../src/user/viewer/dataViewer.dat",std::ios::in|std::ios::binary);
+    if(!file){
+        std::cout << "Error in opening file..." << std::endl;
+        return false;
+    }
+
+    if(!file.read((char*)this,sizeof(*this))){
+        std::cout << "Could not fetch the last session's data..." << std::endl;
+        return -1;
+    }
+
+    file.close();
+    return true;
+}
+
+
+bool ViewerManager::writeData() {
+    //write object into the file
+    std::fstream file;
+
+    file.open("../../src/user/viewer/dataViewer.dat",std::ios::out|std::ios::binary);
+    if(!file){
+        std::cout<<"Could not save the current session...\n";
+        return false;
+    }
+
+    file.write((char*)this,sizeof(*this));
+    file.close();
+    std::cout<<"Date saved into file the file.\n";
+    return true;
 }

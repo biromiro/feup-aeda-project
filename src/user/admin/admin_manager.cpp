@@ -4,10 +4,12 @@
 
 #include "admin_manager.h"
 
+#include <utility>
+
 unsigned int AdminManager::noInstances = 0;
 
-AdminManager::AdminManager(UserManager *userManager) :
-userManager(userManager)
+AdminManager::AdminManager(std::shared_ptr<UserManager> userManager) :
+userManager(std::move(userManager))
 {}
 
 bool AdminManager::build(Date birthDate, const std::string &name, const std::string &nickname) {
@@ -53,4 +55,40 @@ std::shared_ptr<Admin> AdminManager::get() const {
 
 AdminManager::~AdminManager() {
     --noInstances;
+}
+
+bool AdminManager::readData() {
+    //open file again
+    std::fstream file;
+
+    file.open("../../src/user/admin/dataAdmin.dat",std::ios::in|std::ios::binary);
+    if(!file){
+        std::cout << "Error in opening file..." << std::endl;
+        return false;
+    }
+
+    if(!file.read((char*)this,sizeof(*this))){
+        std::cout << "Could not fetch the last session's data..." << std::endl;
+        return -1;
+    }
+
+    file.close();
+    return true;
+}
+
+
+bool AdminManager::writeData() {
+    //write object into the file
+    std::fstream file;
+
+    file.open("../../src/user/admin/dataAdmin.dat",std::ios::out|std::ios::binary);
+    if(!file){
+        std::cout<<"Could not save the current session...\n";
+        return false;
+    }
+
+    file.write((char*)this,sizeof(*this));
+    file.close();
+    std::cout<<"Date saved into file the file.\n";
+    return true;
 }

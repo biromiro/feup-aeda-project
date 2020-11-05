@@ -6,6 +6,8 @@
 
 #include <utility>
 
+Streamer::Streamer() : User() {}
+
 Streamer::Streamer(Date birthDate, std::string name, std::string nickname): User(birthDate,std::move(name),std::move(nickname), STREAMER) {
     if(getAge() < 15){
         throw std::invalid_argument("Minimum Age Not Met");
@@ -36,6 +38,7 @@ unsigned int Streamer::getTotalViewCount() const {
 const std::shared_ptr<Stream> &Streamer::getCurrentStream() const {
     return currentStream;
 }
+
 
 bool Streamer::operator<(const Streamer &rhs) const {
     if (joinDate < rhs.joinDate)
@@ -76,5 +79,4 @@ bool Streamer::operator==(const Streamer &rhs) const {
 bool Streamer::operator!=(const Streamer &rhs) const {
     return !(rhs == *this);
 }
-
 
