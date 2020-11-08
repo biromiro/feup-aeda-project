@@ -2,19 +2,26 @@
 // Created by biromiro on 18/10/20.
 //
 
+
+#ifndef PROJECT_VIEWER_H
+#define PROJECT_VIEWER_H
+
 #include "../user.h"
 #include "../../stream/stream.h"
+#include "../streamer/streamer.h"
 #include <algorithm>
 #include <memory>
 #include <unordered_set>
 
-#ifndef PROJECT_VIEWER_H
-#define PROJECT_VIEWER_H
+class StreamManager;
 
 class Stream;
 
 class Viewer: public User,  public std::enable_shared_from_this<Viewer>{
 public:
+
+    Viewer();
+
     /**
      * Constructor of the Viewer Class
      *
@@ -97,7 +104,11 @@ public:
      *
      * @return the unordered set of the following streamers
      */
-    const std::unordered_set<std::shared_ptr<Streamer>> &getFollowingStreamers() const;
+    const std::unordered_set<std::string> &getFollowingStreamers() const;
+
+    void readData(std::ifstream &ist, const std::shared_ptr<StreamManager>& streamManager);
+
+    void writeData(std::ofstream &ost);
 
     bool operator<(const Viewer &rhs) const;
     bool operator>(const Viewer &rhs) const;
@@ -109,7 +120,7 @@ public:
 private:
     std::shared_ptr<Stream> currentStream;
     std::vector<std::shared_ptr<Stream>> streamHistory;
-    std::unordered_set<std::shared_ptr<Streamer>> followingStreamers;
+    std::unordered_set<std::string> followingStreamers;
 };
 
 #endif //PROJECT_VIEWER_H

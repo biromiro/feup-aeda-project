@@ -10,6 +10,8 @@
 
 class StreamerManager{
 public:
+    StreamerManager();
+
     /**
      * Constructor of the Streamer Manager
      *
@@ -17,7 +19,7 @@ public:
      * @param viewerManager the viewer manager
      * @param userManager the user manager
      */
-    StreamerManager(StreamManager* streamManager,ViewerManager* viewerManager, UserManager* userManager);
+    StreamerManager(std::shared_ptr<StreamManager> streamManager,std::shared_ptr<ViewerManager> viewerManager, std::shared_ptr<UserManager> userManager);
 
     /**
      * Creates an object of class Streamer
@@ -37,6 +39,8 @@ public:
      */
     bool add(const std::shared_ptr<Streamer>& streamer);
 
+    bool reload(const std::shared_ptr<Streamer>& streamer);
+
     /**
      * Removes a streamer from the streamers vector
      *
@@ -55,7 +59,7 @@ public:
      * @param type the type of the stream
      * @return True if the action was successful, false otherwise
      */
-    bool startStream(const std::shared_ptr<Streamer>& streamer, const std::string& title, StreamLanguage lang, unsigned int minAge, StreamType type);
+    bool startStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer);
 
     /**
      * Ends the stream of a given streamer
@@ -89,13 +93,19 @@ public:
     */
     std::shared_ptr<Streamer> get(std::string nickname) const;
 
+    unsigned int getNumOfFollowers(const std::shared_ptr<Streamer>& streamer) const;
+
     const std::vector<std::shared_ptr<Streamer>> &getStreamers() const;
+
+    bool readData();
+
+    bool writeData();
 
 private:
     std::vector<std::shared_ptr<Streamer>> streamers;
-    StreamManager* streamManager;
-    ViewerManager* viewerManager;
-    UserManager* userManager;
+    std::shared_ptr<StreamManager> streamManager;
+    std::shared_ptr<ViewerManager> viewerManager;
+    std::shared_ptr<UserManager> userManager;
 };
 
 

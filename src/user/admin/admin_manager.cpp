@@ -4,18 +4,20 @@
 
 #include "admin_manager.h"
 
+#include <utility>
+
 unsigned int AdminManager::noInstances = 0;
 
-AdminManager::AdminManager(UserManager *userManager) :
-userManager(userManager)
+AdminManager::AdminManager(std::shared_ptr<UserManager> userManager) :
+userManager(std::move(userManager))
 {}
 
 bool AdminManager::build(Date birthDate, const std::string &name, const std::string &nickname) {
     if(userManager->has(nickname) || noInstances > 0)
         return false;
     auto newAdmin = std::make_shared<Admin>(birthDate,name,nickname);
-    add(admin);
-    std::shared_ptr<User> user_form = std::dynamic_pointer_cast<Admin>(admin);
+    add(newAdmin);
+    std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(newAdmin);
     userManager->add(user_form);
     return true;
 }
@@ -34,6 +36,7 @@ bool AdminManager::remove() {
     if(admin != nullptr){
         admin.reset();
         userManager->remove(std::dynamic_pointer_cast<User>(admin));
+        noInstances--;
         return true;
     }
     return false;
@@ -53,4 +56,41 @@ std::shared_ptr<Admin> AdminManager::get() const {
 
 AdminManager::~AdminManager() {
     --noInstances;
+}
+
+bool AdminManager::readData() {
+    //write object into the file
+    std::ifstream file;
+
+    file.open("../../src/user/admin/dataAdmin.txt");
+
+    if(!file){
+        std::cout << "Could not open Streamers file...";
+        return false;
+    }
+    file >> noInstances;
+
+    admin->readData(file);
+
+    file.close();
+    return true;
+}
+
+
+bool AdminManager::writeData() {
+    //write object into the file
+    std::ofstream file;
+
+    file.open("../../src/user/admin/dataAdmin.txt");
+
+    if(!file){
+        std::cout << "Could not open Admin file...";
+        return false;
+    }
+
+    file << noInstances << "\n";
+    if(admin != nullptr)
+        admin->writeData(file);
+
+    file.close();
 }

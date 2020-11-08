@@ -5,6 +5,8 @@
 #include "privateStream.h"
 #include "../../user/viewer/viewer.h"
 
+PrivateStream::PrivateStream() : Stream(PRIVATE){}
+
 PrivateStream::PrivateStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamGenre genre, std::shared_ptr<Streamer> streamer): Stream(std::move(title), lang, minAge, PRIVATE, genre, streamer){};
 
 enum StreamType PrivateStream::getStreamType() const { return type; }
@@ -35,9 +37,49 @@ void PrivateStream::addComment(const std::string& comment) {
 }
 
 bool PrivateStream::canJoin(const std::shared_ptr<Viewer>& newViewer) const {
-    if (newViewer->getAge() < minAge) { return false; }
+    if (newViewer->getAge() < minAge || maxNumViewers <= (numOfViewers + 1)) { return false; }
     for (auto nickname: whitelist) {
         if (newViewer->getNickname() == nickname) { return true; }
     }
     return false;
 }
+
+void PrivateStream::readData(std::ifstream &ifs, std::shared_ptr<StreamerManager> streamerManager) {
+    unsigned int whitelistSize, commentsSize;
+    std::string temp;
+
+    ifs >> whitelistSize;
+    ifs.ignore();
+    while(whitelistSize--) {
+        getline(ifs, temp);
+        whitelist.push_back(temp);
+    }
+
+    ifs >> commentsSize;
+    ifs.ignore();
+    while (commentsSize--){
+        getline(ifs,temp);
+        comments.push_back(temp);
+    }
+
+    ifs >> maxNumViewers;
+
+    Stream::readData(ifs, streamerManager);
+}
+
+void PrivateStream::writeData(std::ofstream &ofs) {
+    ofs << whitelist.size() << "\n";
+    for(const auto& elem: whitelist)
+        ofs << elem << "\n";
+
+
+    ofs << comments.size() << "\n";
+
+    for(const auto& elem: comments)
+        ofs << elem << "\n";
+
+    ofs << maxNumViewers;
+    Stream::writeData(ofs);
+}
+
+

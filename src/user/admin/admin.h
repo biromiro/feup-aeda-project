@@ -8,6 +8,8 @@
 
 class Admin: public User{
 public:
+
+    Admin();
     /**
      * Constructor of the Admin class
      *
@@ -16,6 +18,10 @@ public:
      * @param nickname the nickname of the admin
      */
     Admin(Date birthDate, std::string name, std::string nickname);
+
+    void readData(std::ifstream& ifs);
+
+    void writeData(std::ofstream& ofs);
 };
 
 #define PROJECT_ADMIN_H

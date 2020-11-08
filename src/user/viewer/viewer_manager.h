@@ -8,6 +8,9 @@
 #include "../user_manager.h"
 #include "viewer.h"
 #include <memory>
+#include <fstream>
+
+class StreamerManager;
 
 class ViewerManager{
 public:
@@ -16,7 +19,7 @@ public:
      *
      * @param userManager the user manager
      */
-    explicit ViewerManager(UserManager* userManager);
+    explicit ViewerManager(std::shared_ptr<UserManager> userManager);
 
     /**
      * Creates an object of class Viewer
@@ -35,6 +38,8 @@ public:
      * @return True if the action was successful, false otherwise
      */
     bool add(const std::shared_ptr<Viewer>& viewer);
+
+    bool reload(const std::shared_ptr<Viewer>& viewer);
 
     /**
      * Removes a viewer from the viewers vector
@@ -75,9 +80,13 @@ public:
      */
     const std::vector<std::shared_ptr<Viewer>> &getViewers() const;
 
+    bool readData(const std::shared_ptr<StreamManager>& streamManager);
+
+    bool writeData();
+
 private:
     std::vector<std::shared_ptr<Viewer>> viewers;
-    UserManager* userManager;
+    std::shared_ptr<UserManager> userManager;
 };
 
 #endif //PROJECT_VIEWER_MANAGER_H

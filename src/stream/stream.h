@@ -11,6 +11,9 @@
 #include <utility>
 #include <iostream>
 #include <memory>
+#include <fstream>
+
+class StreamerManager;
 
 /**
  * Defines the type of feedback that can be given to a stream
@@ -100,6 +103,10 @@ public:
      * @return true if the viewer meets the requirements to join, false otherwise
      */
     virtual bool canJoin(const std::shared_ptr<Viewer>& newViewer) const;
+  
+    void newViewerJoin();
+  
+    void viewerLeft();
 
     /**
      * Getter of the stream's date
@@ -150,6 +157,11 @@ public:
      * @return stream's genre
      */
     StreamGenre getGenre() const;
+  
+    void readData(std::ifstream& ifs, std::shared_ptr<StreamerManager> streamerManager);
+
+    void writeData(std::ofstream& ofs);
+
 
     /**
      * Getter of the stream's type
@@ -157,7 +169,9 @@ public:
      * @return stream's type
      */
     StreamType getType() const;
+  
     bool operator==(std::shared_ptr<Stream> stream) const;
+    
     bool operator==(const Stream &rhs) const;
     bool operator!=(const Stream &rhs) const;
     bool operator<(const Stream &rhs) const;
@@ -166,6 +180,8 @@ public:
     bool operator>=(const Stream &rhs) const;
 
 protected:
+    Stream(enum StreamType type);
+  
     /**
      * Constructor of the Stream class
      *
@@ -191,8 +207,10 @@ protected:
     static unsigned int nextID;
 };
 
-std::ostream& operator<<(std::ostream& out, StreamLanguage f);
-std::ostream& operator<<(std::ostream& out, StreamGenre f);
-std::ostream& operator<<(std::ostream& out, StreamType f);
-
+std::ostream& operator<<(std::ostream& out, const StreamLanguage& f);
+std::ostream& operator<<(std::ostream& out, const StreamGenre& f);
+std::ostream& operator<<(std::ostream& out, const StreamType& f);
+std::istream& operator>>(std::istream& inf, StreamLanguage& f);
+std::istream& operator>>(std::istream& inf, StreamGenre& f);
+std::istream& operator>>(std::istream& inf, StreamType& f);
 #endif //PROJECT_STREAM_H

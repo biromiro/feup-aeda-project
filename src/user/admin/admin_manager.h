@@ -7,6 +7,7 @@
 
 #include "admin.h"
 #include "../user_manager.h"
+#include <fstream>
 
 
 class AdminManager{
@@ -16,7 +17,7 @@ public:
      *
      * @param userManager the user manager
      */
-    explicit AdminManager(UserManager* userManager);
+    explicit AdminManager(std::shared_ptr<UserManager> userManager);
 
     /**
      * Creates an object of class Admin
@@ -68,9 +69,14 @@ public:
     std::shared_ptr<Admin> get() const;
 
     ~AdminManager();
+
+    bool readData();
+
+    bool writeData();
+
 private:
     std::shared_ptr<Admin> admin;
-    UserManager* userManager;
+    std::shared_ptr<UserManager> userManager;
     static unsigned int noInstances;
 };
 

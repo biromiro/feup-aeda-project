@@ -5,25 +5,50 @@
 #include "streamZ.h"
 
 StreamZ::StreamZ() :
-userManager(UserManager()),
-viewerManager(ViewerManager(&userManager)),
-streamManager(StreamManager(&viewerManager)),
-streamerManager(StreamerManager(&streamManager, &viewerManager, &userManager)),
-adminManager( AdminManager(&userManager)),
-leaderboardManager(LeaderboardManager(&viewerManager,&streamerManager,&streamManager,&userManager)){}
+userManager(std::make_shared<UserManager>()),
+viewerManager(std::make_shared<ViewerManager>(userManager)),
+streamManager(std::make_shared<StreamManager>(viewerManager,std::make_shared<StreamerManager>())),
+streamerManager(std::make_shared<StreamerManager>(streamManager, viewerManager, userManager)),
+adminManager( std::make_shared<AdminManager>(userManager)),
+leaderboardManager(std::make_shared<LeaderboardManager>(viewerManager,streamerManager,streamManager,userManager)){
+    streamManager->setStreamerManager(streamerManager);
+}
 
-//void StreamZ::showActiveStreams() {
-//}
 
-//void StreamZ::sortByViews(int order){
-    /*sort active streams by view count
-     (descending ou ascending according to input: 1 to ascending and -1 to descending)*/
-//}
+std::shared_ptr<UserManager> StreamZ::getUserManager() {
+    return userManager;
+}
 
-//void StreamZ::filterLanguage(std::string streamLang){
-    /*show streams with selected language*/
-//}
+std::shared_ptr<ViewerManager> StreamZ::getViewerManager() {
+    return viewerManager;
+}
 
-//void StreamZ::filterAge(unsigned int minAge) {
-    /*show streams with age >= minAge*/
-//}
+std::shared_ptr<StreamManager> StreamZ::getStreamManager() {
+    return streamManager;
+}
+
+std::shared_ptr<StreamerManager> StreamZ::getStreamerManager() {
+    return streamerManager;
+}
+
+std::shared_ptr<AdminManager> StreamZ::getAdminManager() {
+    return adminManager;
+}
+
+std::shared_ptr<LeaderboardManager> StreamZ::getLeaderboardManager() {
+    return leaderboardManager;
+}
+
+void StreamZ::initialize() {
+    streamerManager->readData();
+    streamManager->readData();
+    viewerManager->readData(streamManager);
+    adminManager->readData();
+}
+
+void StreamZ::finish() {
+    streamerManager->writeData();
+    streamManager->writeData();
+    viewerManager->writeData();
+    adminManager->writeData();
+}

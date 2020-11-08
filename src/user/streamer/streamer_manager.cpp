@@ -4,8 +4,13 @@
 
 #include "streamer_manager.h"
 
-StreamerManager::StreamerManager(StreamManager *streamManager, ViewerManager *viewerManager, UserManager *userManager):
-streamManager(streamManager), viewerManager(viewerManager), userManager(userManager)
+#include <utility>
+
+StreamerManager::StreamerManager() {}
+
+
+StreamerManager::StreamerManager(std::shared_ptr<StreamManager> streamManager, std::shared_ptr<ViewerManager> viewerManager, std::shared_ptr<UserManager> userManager):
+streamManager(std::move(streamManager)), viewerManager(std::move(viewerManager)), userManager(std::move(userManager))
 {
     streamers = std::vector<std::shared_ptr<Streamer>>();
 }
@@ -15,7 +20,7 @@ std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::stri
         return nullptr;
     auto streamer = std::make_shared<Streamer>(birthDate,name,nickname);
     add(streamer);
-    std::shared_ptr<User> user_form = std::dynamic_pointer_cast<Streamer>(streamer);
+    std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(streamer);
     userManager->add(user_form);
     return streamer;
 }
@@ -28,6 +33,16 @@ bool StreamerManager::add(const std::shared_ptr<Streamer>& streamer) {
         return false;
 }
 
+bool StreamerManager::reload(const std::shared_ptr<Streamer>& streamer){
+    if(userManager->has(streamer->getNickname())){
+        return false;
+    }else{
+        std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(streamer);
+        userManager->add(user_form);
+        return add(streamer);
+    }
+}
+
 bool StreamerManager::remove(const std::shared_ptr<Streamer>& streamer) {
     auto it = std::find(streamers.begin(),streamers.end(),streamer);
     if (it != streamers.end()) {
@@ -38,10 +53,9 @@ bool StreamerManager::remove(const std::shared_ptr<Streamer>& streamer) {
         return false;
 }
 
-bool StreamerManager::startStream(const std::shared_ptr<Streamer>& streamer, const std::string& title, StreamLanguage lang, unsigned int minAge,
-                                  StreamType type) {
-    //std::shared_ptr<Stream> stream = streamManager->build(title,lang,minAge,type);
-    //streamer->setStream(stream);
+bool StreamerManager::startStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer) {
+    std::shared_ptr<Stream> stream = streamManager->build(title,lang,minAge,type,genre,streamer);
+    streamer->setStream(stream);
     return false;
 }
 
@@ -71,9 +85,54 @@ std::shared_ptr<Streamer> StreamerManager::get(std::string nickname) const {
     return nullptr;
 }
 
+unsigned int StreamerManager::getNumOfFollowers(const std::shared_ptr<Streamer> &streamer) const {
+    return std::count_if(streamers.begin(),streamers.end(),[&streamer](const std::shared_ptr<Streamer>& str){return streamer == str;});
+}
+
 const std::vector<std::shared_ptr<Streamer>> &StreamerManager::getStreamers() const {
     return streamers;
 }
 
+bool StreamerManager::readData() {
+    //write object into the file
+    std::ifstream file;
+    unsigned int streamersSize;
+
+    file.open("../../src/user/streamer/dataStreamer.txt");
+
+    if(!file){
+        std::cout << "Could not open Streamers file...";
+        return false;
+    }
+    file >> streamersSize;
+
+    while(streamersSize--){
+        std::shared_ptr<Streamer> newStreamer = std::make_shared<Streamer>();
+        newStreamer->readData(file);
+        reload(newStreamer);
+    }
+    file.close();
+    return true;
+}
+
+
+bool StreamerManager::writeData() {
+    //write object into the file
+    std::ofstream file;
+
+    file.open("../../src/user/streamer/dataStreamer.txt");
+
+    if(!file){
+        std::cout << "Could not open Streamers file...";
+        return false;
+    }
+
+    file << streamers.size() << "\n";
+
+    for(const auto& elem: streamers){
+        elem->writeData(file);
+    }
+    file.close();
+}
 
 

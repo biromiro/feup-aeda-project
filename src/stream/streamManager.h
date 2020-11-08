@@ -17,8 +17,11 @@ public:
     /**
      * Constructor of the StreamManager class
      *
-     * @param viewerManager viewerManager of the StreamManager
+     * @param viewerManager the manager of the Viewers
+     * @param streamerManaager the manager of the Streamers
      */
+    StreamManager(std::shared_ptr<ViewerManager> viewerManager, std::shared_ptr<StreamerManager> streamerManager);
+      
     StreamManager(ViewerManager* viewerManager);
 
     /**
@@ -32,6 +35,7 @@ public:
      * @param streamer streamer of the stream
      * @return pointer to the created stream
      */
+
     std::shared_ptr<Stream> build(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer);
 
     /**
@@ -56,15 +60,15 @@ public:
      * @param streamToCheck stream to look for in the vector
      * @return true if stream is in the vector, false otherwise
      */
-    bool has(std::shared_ptr<Stream> streamToCheck);
+    bool has(const std::shared_ptr<Stream>& streamToCheck);
 
     /**
-     * Gets the stream that has parameter streamer as the streamer attribute
+     * Gets the stream of a given uniqueID
      *
-     * @param streamer streamer object for which to find the stream
-     * @return pointer to the stream that has parameter streamer as attribute
+     * @param streamID the uniqueID of the stream to get
+     * @return pointer to the stream that has parameter streamID
      */
-    std::shared_ptr<Stream> get(std::shared_ptr<Streamer> streamer);
+    std::shared_ptr<Stream> get(unsigned int streamID);
 
     /**
      * Creates a FinishedStream object through downcasting, marking the end of a stream
@@ -72,8 +76,12 @@ public:
      * @param streamToFinish stream that is downcast as a FinishedStream
      * @return true if FinishedStream is successfully created, false otherwise
      */
-    bool finish(std::shared_ptr<Stream> streamToFinish);
-
+    bool finish(const std::shared_ptr<Stream>& streamToFinish);
+    
+    unsigned int getNumOfViewers(const std::shared_ptr<Stream>& streamToFinish);
+  
+    void setStreamerManager(std::shared_ptr<StreamerManager> newStreamerManager);
+  
     /**
      * Getter of the streams vector
      *
@@ -88,8 +96,13 @@ public:
      */
     const std::vector<std::shared_ptr<Stream>> &getCacheOfFinishedStreams() const;
 
+    bool readData();
+
+    bool writeData();
+
 private:
-    ViewerManager* viewerManager;
+    std::shared_ptr<StreamerManager> streamerManager;
+    std::shared_ptr<ViewerManager> viewerManager;
     std::vector<std::shared_ptr<Stream>> streams;
     std::vector<std::shared_ptr<Stream>> cacheOfFinishedStreams;
 };

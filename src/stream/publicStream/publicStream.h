@@ -4,11 +4,14 @@
 
 #include "../stream.h"
 
+
 #ifndef PROJECT_PUBLICSTREAM_H
 
 
 class PublicStream: public Stream {
 public:
+    PublicStream();
+
     /**
      * Constructor of the PublicStream class
      *
@@ -26,6 +29,10 @@ public:
      * @return public stream's type
      */
     enum StreamType getStreamType() const override;
+
+    void readData(std::ifstream& ifs,std::shared_ptr<StreamerManager> streamerManager);
+
+    void writeData(std::ofstream& ofs);
 };
 
 

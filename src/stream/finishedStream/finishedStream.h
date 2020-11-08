@@ -6,9 +6,13 @@
 #define PROJECT_FINISHEDSTREAM_H
 
 #include "../stream.h"
+#include <fstream>
 
 class FinishedStream: public Stream{
 public:
+   
+    FinishedStream();
+    
     /**
      * Constructor of the FinishedStream class
      *
@@ -34,6 +38,11 @@ public:
      * @return finished stream's type
      */
     enum StreamType getStreamType() const override;
+
+    void readData(std::ifstream& ifs, std::shared_ptr<StreamerManager> streamerManager);
+
+    void writeData(std::ofstream& ofs);
+
 private:
     unsigned int numOfViews;
 };

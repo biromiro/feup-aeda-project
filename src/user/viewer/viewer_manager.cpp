@@ -4,8 +4,12 @@
 
 #include "viewer_manager.h"
 
-ViewerManager::ViewerManager(UserManager *userManager):
-userManager(userManager){}
+#include <utility>
+
+ViewerManager::ViewerManager(std::shared_ptr<UserManager> userManager):
+userManager(std::move(userManager)){
+    viewers = std::vector<std::shared_ptr<Viewer>>();
+}
 
 std::shared_ptr<Viewer> ViewerManager::build(Date birthDate, const std::string& name, const std::string& nickname) {
     if(userManager->has(nickname))
@@ -23,6 +27,16 @@ bool ViewerManager::add(const std::shared_ptr<Viewer>& viewer) {
         return true;
     }else
         return false;
+}
+
+bool ViewerManager::reload(const std::shared_ptr<Viewer>& viewer){
+    if(userManager->has(viewer->getNickname())){
+        return false;
+    }else{
+        std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(viewer);
+        userManager->add(user_form);
+        return add(viewer);
+    }
 }
 
 bool ViewerManager::remove(const std::shared_ptr<Viewer>& viewer) {
@@ -55,4 +69,46 @@ std::shared_ptr<Viewer> ViewerManager::get(std::string nickname) const {
 
 const std::vector<std::shared_ptr<Viewer>> &ViewerManager::getViewers() const {
     return viewers;
+}
+
+bool ViewerManager::readData(const std::shared_ptr<StreamManager>& streamManager) {
+    //write object into the file
+    std::ifstream file;
+    unsigned int viewersSize;
+
+    file.open("../../src/user/viewer/dataViewer.txt");
+
+    if(!file){
+        std::cout << "Could not open Viewers file...";
+        return false;
+    }
+    file >> viewersSize;
+
+    while(viewersSize--){
+        std::shared_ptr<Viewer> newViewer = std::make_shared<Viewer>();
+        newViewer->readData(file, streamManager);
+        reload(newViewer);
+    }
+    file.close();
+    return true;
+}
+
+
+bool ViewerManager::writeData() {
+    //write object into the file
+    std::ofstream file;
+
+    file.open("../../src/user/viewer/dataViewer.txt");
+
+    if(!file){
+        std::cout << "Could not open Viewers file...";
+        return false;
+    }
+
+    file << viewers.size() << "\n";
+
+    for(const auto& elem: viewers){
+        elem->writeData(file);
+    }
+    file.close();
 }

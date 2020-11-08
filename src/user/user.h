@@ -85,6 +85,10 @@ public:
      */
     enum UserTypes getUserType() const;
 
+    void readData(std::ifstream& ifs);
+
+    void writeData(std::ofstream& ofs);
+
     bool operator<(const User &rhs) const;
     bool operator>(const User &rhs) const;
     bool operator<=(const User &rhs) const;
@@ -92,6 +96,8 @@ public:
     bool operator!=(const User &rhs) const;
     bool operator>=(const User &rhs) const;
 protected:
+    User(enum UserTypes type);
+
     /**
      * Constructor of the User class
      *
