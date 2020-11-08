@@ -19,12 +19,8 @@ TEST(stream, getNumOfViewers){
     PublicStream stream1("Epic LoL Stream", EN, 13, GAMING, std::make_shared<Streamer>(streamer1));
     PrivateStream stream2("Based Games", EN, 18, GAMING, std::make_shared<Streamer>(streamer2));
     FinishedStream stream3 ("?????", PT_PT, 10, COOKING, std::make_shared<Streamer>(streamer2), 50);
-    stream1.setNumOfViewers(1300);
-    stream2.setNumOfViewers(200);
-    stream3.setNumOfViewers(51);
-    EXPECT_EQ(stream1.getNumOfViewers(), 1300);
-    EXPECT_EQ(stream2.getNumOfViewers(), 200);
-    EXPECT_EQ(stream3.getNumOfViewers(), 51);
+    EXPECT_EQ(stream1.getNumOfViewers(), 0);
+    EXPECT_EQ(stream3.getNumOfViews(), 50);
 }
 
 TEST(stream, getMinAge){
