@@ -6,6 +6,7 @@
 #include <iostream>
 #include <utility>
 #include "../user/streamer/streamer_manager.h"
+#include <unordered_map>
 
 unsigned int Stream::nextID = 0;
 
