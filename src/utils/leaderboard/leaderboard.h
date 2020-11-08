@@ -84,7 +84,7 @@ public:
                 os << std::left << std::setw(20) << elem->getTitle() << std::setw(20) <<
                    elem->getLanguage() << std::setw(20) << elem->getMinAge() << std::setw(20) << elem->getGenre()
                    << std::setw(20)
-                   << elem->getType() << std::setw(20) << elem->getUniqueId() << std::setw(20)
+                   << elem->getStreamType() << std::setw(20) << elem->getUniqueId() << std::setw(20)
                    << elem->getNumOfViewers() << std::setw(20) <<
                    elem->getStreamer()->getNickname() << std::setw(20) << elem->getStreamDate() << std::setw(20) <<
                    (elem->getVotes()).first << std::setw(20) << (elem->getVotes()).second << "\n";

@@ -55,10 +55,6 @@ StreamGenre Stream::getGenre() const {
     return genre;
 }
 
-StreamType Stream::getType() const {
-    return type;
-}
-
 bool Stream::operator<(const Stream &rhs) const {
     if (type < rhs.type)
         return true;

@@ -69,7 +69,7 @@ std::shared_ptr<Stream> StreamManager::get(unsigned int streamID) {
 }
 
 bool StreamManager::finish(const std::shared_ptr<Stream>& streamToFinish) {
-    if(streamToFinish->getType() == FINISHED)
+    if(streamToFinish->getStreamType() == FINISHED)
         return false;
     streams.erase(std::remove(streams.begin(),streams.end(),streamToFinish));
     auto res = std::make_shared<FinishedStream>(streamToFinish->getTitle(),streamToFinish->getLanguage(), streamToFinish->getMinAge(),

@@ -64,7 +64,6 @@ public:
     unsigned int getUniqueId() const;
     bool operator==(std::shared_ptr<Stream> stream) const;
     StreamGenre getGenre() const;
-    StreamType getType() const;
 
     void readData(std::ifstream& ifs, std::shared_ptr<StreamerManager> streamerManager);
 
