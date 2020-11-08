@@ -19,4 +19,17 @@ TEST(admin_manager,build_add_remove){
     EXPECT_EQ(adminManager.add(admin2),true);
 }
 
-//TEST(admin_manager,)
+TEST(admin_manager, is_get){
+    std::shared_ptr<UserManager> userManager =  std::make_shared<UserManager>();
+    AdminManager adminManager = AdminManager(userManager);
+    Date birthDate(2001,10,20);
+    auto admin = std::make_shared<Admin>(birthDate,"vruh momento","cao manteiga");
+    adminManager.add(admin);
+    auto admin2 = std::make_shared<Admin>(birthDate, "vroooooom", "party cat");
+    EXPECT_EQ(adminManager.is(admin), true);
+    EXPECT_EQ(adminManager.is(admin2), false);
+    EXPECT_EQ(adminManager.is("cao manteiga"), true);
+    EXPECT_EQ(adminManager.is("buttah dog"), false);
+    EXPECT_EQ(adminManager.get() == admin, true);
+    EXPECT_EQ(adminManager.get() == admin2,false);
+}

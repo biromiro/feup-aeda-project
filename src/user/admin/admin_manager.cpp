@@ -6,14 +6,13 @@
 
 #include <utility>
 
-unsigned int AdminManager::noInstances = 0;
 
 AdminManager::AdminManager(std::shared_ptr<UserManager> userManager) :
 userManager(std::move(userManager))
 {}
 
 bool AdminManager::build(Date birthDate, const std::string &name, const std::string &nickname) {
-    if(userManager->has(nickname) || noInstances > 0)
+    if(userManager->has(nickname)|| noInstances > 0)
         return false;
     auto newAdmin = std::make_shared<Admin>(birthDate,name,nickname);
     add(newAdmin);
@@ -25,7 +24,7 @@ bool AdminManager::build(Date birthDate, const std::string &name, const std::str
 
 bool AdminManager::add(const std::shared_ptr<Admin>& adminToAdd) {
     if ( noInstances == 0){
-        ++noInstances;
+        noInstances++;
         admin = adminToAdd;
         return true;
     }else
@@ -54,9 +53,6 @@ std::shared_ptr<Admin> AdminManager::get() const {
     return admin;
 }
 
-AdminManager::~AdminManager() {
-    --noInstances;
-}
 
 bool AdminManager::readData() {
     //write object into the file
