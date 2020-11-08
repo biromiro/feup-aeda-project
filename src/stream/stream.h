@@ -12,18 +12,27 @@
 #include <iostream>
 #include <memory>
 
+/**
+ * Defines the type of feedback that can be given to a stream
+ */
 enum FeedbackLikeSystem{
     LIKE,
     DISLIKE,
     INVALID_VOTE
 };
 
+/**
+ * Defines what type of stream an instantiation of the Stream Class is
+ */
 enum StreamType{
     PRIVATE,
     PUBLIC,
     FINISHED
 };
 
+/**
+ * Defines the genres a stream can be
+ */
 enum StreamGenre{
     MUSIC,
     GAMING,
@@ -31,6 +40,9 @@ enum StreamGenre{
     TALKSHOW
 };
 
+/**
+ * Defines the languages a stream can be in
+ */
 enum StreamLanguage{
     AF, AR, AZ, BE, BG, CA, CZ, CY, DA, DE, EL, EN,
     EO, ES, ET, EU, FA ,FI, FO, FR, GL, GU, HE, HI,
@@ -46,21 +58,106 @@ class Streamer;
 
 class Stream {
 public:
-    virtual enum StreamType getStreamType() const = 0;
+    /**
+     * Placeholder for getter of the stream's type
+     *
+     * @return 0
+     */
+     virtual enum StreamType getStreamType() const = 0;
+
+    /**
+     * Getter of the number of viewers of the stream
+     *
+     * @return stream's number of viewers
+     */
     unsigned int getNumOfViewers() const;
+
+    /**
+     * Getter of the minimum age allowed for viewers of the stream
+     *
+     * @return minimum allowed viewer age
+     */
     unsigned int getMinAge() const;
+
+    /**
+     * Getter of the stream's title
+     *
+     * @return stream's title
+     */
     std::string getTitle() const;
+
+    /**
+     * Getter of the stream's language
+     *
+     * @return stream's language
+     */
     enum StreamLanguage getLanguage() const;
+
+    /**
+     * Checks if a viewer can join the stream
+     *
+     * @param newViewer viewer to check
+     * @return true if the viewer meets the requirements to join, false otherwise
+     */
     virtual bool canJoin(const std::shared_ptr<Viewer>& newViewer) const;
+
+    /**
+     * Getter of the stream's date
+     *
+     * @return stream's date
+     */
     Date getStreamDate() const;
+
+    /**
+     * Getter of the stream's streamer
+     *
+     * @return pointer to stream's streamer
+     */
     std::shared_ptr<Streamer> getStreamer() const;
+
+    /**
+     * Getter of the number of each type of votes (like or dislike) the stream has
+     *
+     * @return pair with the number of votes of each type
+     */
     std::pair<unsigned int, unsigned int> getVotes() const;
+
+    /**
+     * Adds a vote to the stream's feedback
+     *
+     * @param feedback vote (like or dislike) to add
+     * @return true if feedback added is valid (like or dislike), false otherwise
+     */
     bool addFeedback(enum FeedbackLikeSystem feedback);
+
+    /**
+     * Sets/Updates the number of viewers of the stream
+     *
+     * @param numOfViewers stream's new number of viewers
+     */
     void setNumOfViewers(unsigned int numOfViewers);
+
+    /**
+     * Getter of the unique ID of the stream
+     *
+     * @return stream's unique ID
+     */
     unsigned int getUniqueId() const;
-    bool operator==(std::shared_ptr<Stream> stream) const;
+
+    /**
+     * Getter of the stream's genre
+     *
+     * @return stream's genre
+     */
     StreamGenre getGenre() const;
+
+    /**
+     * Getter of the stream's type
+     *
+     * @return stream's type
+     */
     StreamType getType() const;
+    bool operator==(std::shared_ptr<Stream> stream) const;
     bool operator==(const Stream &rhs) const;
     bool operator!=(const Stream &rhs) const;
     bool operator<(const Stream &rhs) const;
@@ -69,7 +166,18 @@ public:
     bool operator>=(const Stream &rhs) const;
 
 protected:
+    /**
+     * Constructor of the Stream class
+     *
+     * @param title title of the stream
+     * @param lang language the stream is in
+     * @param minAge minimum viewer age allowed
+     * @param type type of the stream
+     * @param genre genre of the stream
+     * @param streamer streamer of the stream
+     */
     Stream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer);
+
     std::string title;
     Date streamDate;
     enum StreamLanguage language;

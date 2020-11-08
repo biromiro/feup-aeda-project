@@ -16,8 +16,12 @@ unsigned int PrivateStream::getMaxNumViewers() const { return maxNumViewers; }
 std::vector<std::string> PrivateStream::getComments() const { return comments; }
 
 bool PrivateStream::addToWhitelist(std::shared_ptr<Viewer> v){
-    whitelist.push_back(v->getNickname());
-    return true;
+    std::string v_nick = v->getNickname();
+    if (std::find(whitelist.begin(), whitelist.end(), v_nick) == whitelist.end()){
+        whitelist.push_back(v_nick);
+        return true;
+    }
+    return false;
 }
 
 bool PrivateStream::setMaxNumViewers(unsigned int maxNumViewers) {
