@@ -6,6 +6,9 @@
 
 #include <utility>
 
+StreamerManager::StreamerManager() {}
+
+
 StreamerManager::StreamerManager(std::shared_ptr<StreamManager> streamManager, std::shared_ptr<ViewerManager> viewerManager, std::shared_ptr<UserManager> userManager):
 streamManager(std::move(streamManager)), viewerManager(std::move(viewerManager)), userManager(std::move(userManager))
 {
@@ -17,7 +20,7 @@ std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::stri
         return nullptr;
     auto streamer = std::make_shared<Streamer>(birthDate,name,nickname);
     add(streamer);
-    std::shared_ptr<User> user_form = std::dynamic_pointer_cast<Streamer>(streamer);
+    std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(streamer);
     userManager->add(user_form);
     return streamer;
 }
@@ -28,6 +31,16 @@ bool StreamerManager::add(const std::shared_ptr<Streamer>& streamer) {
         return true;
     }else
         return false;
+}
+
+bool StreamerManager::reload(const std::shared_ptr<Streamer>& streamer){
+    if(userManager->has(streamer->getNickname())){
+        return false;
+    }else{
+        std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(streamer);
+        userManager->add(user_form);
+        return add(streamer);
+    }
 }
 
 bool StreamerManager::remove(const std::shared_ptr<Streamer>& streamer) {
@@ -81,20 +94,23 @@ const std::vector<std::shared_ptr<Streamer>> &StreamerManager::getStreamers() co
 }
 
 bool StreamerManager::readData() {
-    //open file again
-    std::fstream file;
+    //write object into the file
+    std::ifstream file;
+    unsigned int streamersSize;
 
-    file.open("../../src/user/streamer/dataStreamer.dat",std::ios::in|std::ios::binary);
+    file.open("../../src/user/streamer/dataStreamer.txt");
+
     if(!file){
-        std::cout << "Error in opening file..." << std::endl;
+        std::cout << "Could not open Streamers file...";
         return false;
     }
+    file >> streamersSize;
 
-    if(!file.read((char*)this,sizeof(*this))){
-        std::cout << "Could not fetch the last session's data..." << std::endl;
-        return -1;
+    while(streamersSize--){
+        std::shared_ptr<Streamer> newStreamer = std::make_shared<Streamer>();
+        newStreamer->readData(file);
+        reload(newStreamer);
     }
-
     file.close();
     return true;
 }
@@ -102,18 +118,21 @@ bool StreamerManager::readData() {
 
 bool StreamerManager::writeData() {
     //write object into the file
-    std::fstream file;
+    std::ofstream file;
 
-    file.open("../../src/user/streamer/dataStreamer.dat",std::ios::out|std::ios::binary);
+    file.open("../../src/user/streamer/dataStreamer.txt");
+
     if(!file){
-        std::cout<<"Could not save the current session...\n";
+        std::cout << "Could not open Streamers file...";
         return false;
     }
 
-    file.write((char*)this,sizeof(*this));
+    file << streamers.size() << "\n";
+
+    for(const auto& elem: streamers){
+        elem->writeData(file);
+    }
     file.close();
-    std::cout<<"Date saved into file the file.\n";
-    return true;
 }
 
 

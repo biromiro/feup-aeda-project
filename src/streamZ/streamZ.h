@@ -29,9 +29,9 @@ private:
 public:
     StreamZ();
 
-    bool initialize();
+    void initialize();
 
-    bool finish();
+    void finish();
 
     std::shared_ptr<UserManager> getUserManager();
 

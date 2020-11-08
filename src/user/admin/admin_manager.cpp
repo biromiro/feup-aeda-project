@@ -16,8 +16,8 @@ bool AdminManager::build(Date birthDate, const std::string &name, const std::str
     if(userManager->has(nickname) || noInstances > 0)
         return false;
     auto newAdmin = std::make_shared<Admin>(birthDate,name,nickname);
-    add(admin);
-    std::shared_ptr<User> user_form = std::dynamic_pointer_cast<Admin>(admin);
+    add(newAdmin);
+    std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(newAdmin);
     userManager->add(user_form);
     return true;
 }
@@ -36,6 +36,7 @@ bool AdminManager::remove() {
     if(admin != nullptr){
         admin.reset();
         userManager->remove(std::dynamic_pointer_cast<User>(admin));
+        noInstances--;
         return true;
     }
     return false;
@@ -58,19 +59,18 @@ AdminManager::~AdminManager() {
 }
 
 bool AdminManager::readData() {
-    //open file again
-    std::fstream file;
+    //write object into the file
+    std::ifstream file;
 
-    file.open("../../src/user/admin/dataAdmin.dat",std::ios::in|std::ios::binary);
+    file.open("../../src/user/admin/dataAdmin.txt");
+
     if(!file){
-        std::cout << "Error in opening file..." << std::endl;
+        std::cout << "Could not open Streamers file...";
         return false;
     }
+    file >> noInstances;
 
-    if(!file.read((char*)this,sizeof(*this))){
-        std::cout << "Could not fetch the last session's data..." << std::endl;
-        return -1;
-    }
+    admin->readData(file);
 
     file.close();
     return true;
@@ -79,16 +79,18 @@ bool AdminManager::readData() {
 
 bool AdminManager::writeData() {
     //write object into the file
-    std::fstream file;
+    std::ofstream file;
 
-    file.open("../../src/user/admin/dataAdmin.dat",std::ios::out|std::ios::binary);
+    file.open("../../src/user/admin/dataAdmin.txt");
+
     if(!file){
-        std::cout<<"Could not save the current session...\n";
+        std::cout << "Could not open Admin file...";
         return false;
     }
 
-    file.write((char*)this,sizeof(*this));
+    file << noInstances << "\n";
+    if(admin != nullptr)
+        admin->writeData(file);
+
     file.close();
-    std::cout<<"Date saved into file the file.\n";
-    return true;
 }

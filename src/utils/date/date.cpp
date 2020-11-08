@@ -187,6 +187,14 @@ std::ostream &operator<<(std::ostream &os, const Date &date) {
     return os;
 }
 
+std::istream &operator>>(std::istream &is, Date &date) {
+    std::string str;
+    char temp;
+    is >> str;
+    std::istringstream ss(str);
+    ss >> date.year >> temp >> date.month >> temp >> date.day;
+    return is;
+}
 
 
 unsigned int Date::totalNumOfDays() const {

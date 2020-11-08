@@ -39,6 +39,7 @@ public:
         bool isAfter(const Date &date) const;
     bool isBefore(const Date &date) const;
     friend std::ostream &operator<<(std::ostream &os, const Date &date);
+    friend std::istream &operator>>(std::istream &os, Date &date);
     bool operator==(const Date &rhs) const;
     bool operator!=(const Date &rhs) const;
     bool operator<(const Date &rhs) const;

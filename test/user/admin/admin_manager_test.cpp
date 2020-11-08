@@ -6,4 +6,17 @@
 #include <user/admin/admin_manager.h>
 
 
+TEST(admin_manager,build_add_remove){
+    std::shared_ptr<UserManager> userManager =  std::make_shared<UserManager>();
+    AdminManager adminManager = AdminManager(userManager);
+    Date birthDate(2001,10,20);
+    auto admin2 = std::make_shared<Admin>(birthDate,"vruh momento 2","cao manteiga");
+    EXPECT_EQ(adminManager.remove(),false);
+    EXPECT_EQ(adminManager.build(birthDate,"Bruh momento", "buttah dog"),true);
+    EXPECT_EQ(adminManager.add(admin2), false);
+    EXPECT_EQ(adminManager.build(birthDate,"bruj momento 3","catal inodoro"),false);
+    EXPECT_EQ(adminManager.remove(),true);
+    EXPECT_EQ(adminManager.add(admin2),true);
+}
+
 //TEST(admin_manager,)

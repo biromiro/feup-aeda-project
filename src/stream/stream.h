@@ -11,6 +11,9 @@
 #include <utility>
 #include <iostream>
 #include <memory>
+#include <fstream>
+
+class StreamerManager;
 
 enum FeedbackLikeSystem{
     LIKE,
@@ -52,15 +55,21 @@ public:
     std::string getTitle() const;
     enum StreamLanguage getLanguage() const;
     virtual bool canJoin(const std::shared_ptr<Viewer>& newViewer) const;
+    void newViewerJoin();
+    void viewerLeft();
     Date getStreamDate() const;
     std::shared_ptr<Streamer> getStreamer() const;
     std::pair<unsigned int, unsigned int> getVotes() const;
     bool addFeedback(enum FeedbackLikeSystem feedback);
-    void setNumOfViewers(unsigned int numOfViewers);
     unsigned int getUniqueId() const;
     bool operator==(std::shared_ptr<Stream> stream) const;
     StreamGenre getGenre() const;
     StreamType getType() const;
+
+    void readData(std::ifstream& ifs, std::shared_ptr<StreamerManager> streamerManager);
+
+    void writeData(std::ofstream& ofs);
+
     bool operator==(const Stream &rhs) const;
     bool operator!=(const Stream &rhs) const;
     bool operator<(const Stream &rhs) const;
@@ -69,6 +78,7 @@ public:
     bool operator>=(const Stream &rhs) const;
 
 protected:
+    Stream(enum StreamType type);
     Stream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer);
     std::string title;
     Date streamDate;
@@ -83,8 +93,10 @@ protected:
     static unsigned int nextID;
 };
 
-std::ostream& operator<<(std::ostream& out, StreamLanguage f);
-std::ostream& operator<<(std::ostream& out, StreamGenre f);
-std::ostream& operator<<(std::ostream& out, StreamType f);
-
+std::ostream& operator<<(std::ostream& out, const StreamLanguage& f);
+std::ostream& operator<<(std::ostream& out, const StreamGenre& f);
+std::ostream& operator<<(std::ostream& out, const StreamType& f);
+std::istream& operator>>(std::istream& inf, StreamLanguage& f);
+std::istream& operator>>(std::istream& inf, StreamGenre& f);
+std::istream& operator>>(std::istream& inf, StreamType& f);
 #endif //PROJECT_STREAM_H

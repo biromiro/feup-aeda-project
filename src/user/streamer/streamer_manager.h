@@ -10,6 +10,8 @@
 
 class StreamerManager{
 public:
+    StreamerManager();
+
     /**
      * Constructor of the Streamer Manager
      *
@@ -36,6 +38,8 @@ public:
      * @return True if the action was successful, false otherwise
      */
     bool add(const std::shared_ptr<Streamer>& streamer);
+
+    bool reload(const std::shared_ptr<Streamer>& streamer);
 
     /**
      * Removes a streamer from the streamers vector

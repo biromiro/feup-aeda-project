@@ -10,9 +10,9 @@ int main() {
 
     twitch.initialize();
 
-    Date birthDate(1992,7,29);
-    (twitch.getStreamerManager())->build(birthDate,"João Costa", "jpcosta");
     std::cout << twitch.getLeaderboardManager()->sortStreamers();
+    std::cout << twitch.getLeaderboardManager()->sortViewers();
+    std::cout << twitch.getLeaderboardManager()->sortStreams();
 
     twitch.finish();
     return 0;

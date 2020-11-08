@@ -21,9 +21,10 @@ using testing::Eq;
 TEST(leaderboard_manager, sorts){
     std::shared_ptr<UserManager> userManager =  std::make_shared<UserManager>();
     std::shared_ptr<ViewerManager> viewerManager = std::make_shared<ViewerManager>(userManager);
-    std::shared_ptr<StreamManager> streamManager = std::make_shared<StreamManager>(viewerManager);
+    std::shared_ptr<StreamManager> streamManager = std::make_shared<StreamManager>(viewerManager,std::make_shared<StreamerManager>());
     std::shared_ptr<StreamerManager> streamerManager = std::make_shared<StreamerManager>(streamManager,viewerManager,userManager);
     std::shared_ptr<LeaderboardManager> leaderboardManager = std::make_shared<LeaderboardManager>(viewerManager,streamerManager,streamManager,userManager);
+    streamManager->setStreamerManager(streamerManager);
 
     Date birthDate("2001/10/20");
     viewerManager->build(birthDate,"André Moreira","Dustini");
@@ -39,9 +40,10 @@ TEST(leaderboard_manager, sorts){
 TEST(leaderboard_manager, filters){
     std::shared_ptr<UserManager> userManager =  std::make_shared<UserManager>();
     std::shared_ptr<ViewerManager> viewerManager = std::make_shared<ViewerManager>(userManager);
-    std::shared_ptr<StreamManager> streamManager = std::make_shared<StreamManager>(viewerManager);
+    std::shared_ptr<StreamManager> streamManager = std::make_shared<StreamManager>(viewerManager,std::make_shared<StreamerManager>());
     std::shared_ptr<StreamerManager> streamerManager = std::make_shared<StreamerManager>(streamManager,viewerManager,userManager);
     std::shared_ptr<LeaderboardManager> leaderboardManager = std::make_shared<LeaderboardManager>(viewerManager,streamerManager,streamManager,userManager);
+    streamManager->setStreamerManager(streamerManager);
 
     Date birthDate("2001/10/20");
     viewerManager->build(birthDate,"André Moreira","Dustini");

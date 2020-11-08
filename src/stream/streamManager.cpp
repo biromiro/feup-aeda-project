@@ -6,20 +6,25 @@
 
 #include <utility>
 
-StreamManager::StreamManager(std::shared_ptr<ViewerManager> viewerManager) : viewerManager(std::move(viewerManager)) {}
+StreamManager::StreamManager(std::shared_ptr<ViewerManager> viewerManager, std::shared_ptr<StreamerManager> streamerManager) :
+viewerManager(std::move(viewerManager)), streamerManager(std::move(streamerManager)) {}
 
 std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer){
+    if(streamer->isStreaming())
+        return nullptr;
     switch(type) {
         case PRIVATE: {
             auto prv_stream = std::make_shared<PrivateStream>(title, lang, minAge, genre, streamer);
             auto stream_form = std::dynamic_pointer_cast<Stream>(prv_stream);
             add(stream_form);
+            streamer->setStream(stream_form);
             return stream_form;
         }
         case PUBLIC: {
             auto pbl_stream = std::make_shared<PublicStream>(title, lang, minAge, genre, streamer);
             auto stream_form = std::dynamic_pointer_cast<Stream>(pbl_stream);
             add(stream_form);
+            streamer->setStream(stream_form);
             return stream_form;
         }
         default:
@@ -54,9 +59,9 @@ bool StreamManager::has(const std::shared_ptr<Stream>& streamToCheck) {
     return std::find(streams.begin(), streams.end(), streamToCheck) != streams.end();
 }
 
-std::shared_ptr<Stream> StreamManager::get(std::shared_ptr<Streamer> streamer) {
+std::shared_ptr<Stream> StreamManager::get(unsigned int streamID) {
     auto itr = std::find_if(streams.begin(), streams.end(),
-                           [&streamer](const std::shared_ptr<Stream>& stream){return stream->getStreamer() == streamer;});
+                           [streamID](const std::shared_ptr<Stream>& stream){return stream->getUniqueId() == streamID;});
     if(itr != streams.end()){
         return *itr;
     }
@@ -92,19 +97,45 @@ const std::vector<std::shared_ptr<Stream>> &StreamManager::getCacheOfFinishedStr
 
 bool StreamManager::readData() {
     //open file again
-    std::fstream file;
+    std::ifstream file;
 
-    file.open("../../src/stream/dataStream.dat",std::ios::in|std::ios::binary);
+    unsigned int streamsSize, cacheOfFinishedStreamsSize;
+
+    StreamType type;
+
+    file.open("../../src/stream/dataStream.txt",std::ios::in|std::ios::binary);
     if(!file){
         std::cout << "Error in opening file..." << std::endl;
         return false;
     }
 
-    if(!file.read((char*)this,sizeof(*this))){
-        std::cout << "Could not fetch the last session's data..." << std::endl;
-        return -1;
+    file >> streamsSize;
+    file.ignore();
+
+    while (streamsSize--){
+        file >> type;
+        switch (type) {
+            case PUBLIC: {
+                std::shared_ptr<PublicStream> newPublicStream = std::make_shared<PublicStream>();
+                newPublicStream->readData(file, streamerManager);
+                add(newPublicStream);
+                break;
+            }
+            case PRIVATE: {
+                std::shared_ptr<PrivateStream> newPrivateStream = std::make_shared<PrivateStream>();
+                newPrivateStream->readData(file, streamerManager);
+                add(newPrivateStream);
+            }
+        }
     }
 
+    file >> cacheOfFinishedStreamsSize;
+
+    while (cacheOfFinishedStreamsSize--){
+        std::shared_ptr<FinishedStream> finishedStream = std::make_shared<FinishedStream>();
+        finishedStream->readData(file, streamerManager);
+        add(finishedStream);
+    }
     file.close();
     return true;
 }
@@ -112,16 +143,43 @@ bool StreamManager::readData() {
 
 bool StreamManager::writeData() {
     //write object into the file
-    std::fstream file;
+    std::ofstream file;
 
-    file.open("../../src/stream/dataStream.dat",std::ios::out|std::ios::binary);
-    if(!file){
-        std::cout<<"Could not save the current session...\n";
+    file.open("../../src/stream/dataStream.txt");
+
+    if (!file) {
+        std::cout << "Could not open Streamers file...";
         return false;
     }
 
-    file.write((char*)this,sizeof(*this));
+    file << streams.size() << "\n";
+
+    for (const auto &elem: streams) {
+        switch (elem->getStreamType()) {
+            case PRIVATE:{
+                file << "PRIVATE" << "\n";
+                auto privateStream = std::dynamic_pointer_cast<PrivateStream>(elem);
+                privateStream->writeData(file);
+                break;
+            }
+            case PUBLIC: {
+                file << "PUBLIC" << "\n";
+                auto publicStream = std::dynamic_pointer_cast<PublicStream>(elem);
+                publicStream->writeData(file);
+                break;
+            }
+        }
+    }
+
+    file << cacheOfFinishedStreams.size() << "\n";
+
+    for (const auto &elem: cacheOfFinishedStreams){
+        auto finishedStream = std::dynamic_pointer_cast<FinishedStream>(elem);
+        finishedStream->writeData(file);
+    }
     file.close();
-    std::cout<<"Date saved into file the file.\n";
-    return true;
+}
+
+void StreamManager::setStreamerManager(std::shared_ptr<StreamerManager> newStreamerManager) {
+    streamerManager = newStreamerManager;
 }
