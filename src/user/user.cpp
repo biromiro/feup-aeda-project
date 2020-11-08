@@ -5,6 +5,14 @@
 #include "user.h"
 
 #include <utility>
+#include <fstream>
+
+User::User(enum UserTypes type) : type(type){
+    birthDate = Date();
+    joinDate = Date();
+    name = "";
+    nickname = "";
+}
 
 User::User(Date birthDate, std::string name, std::string nickname, enum UserTypes type) :
         birthDate(birthDate), joinDate(Date()), name(std::move(name)), nickname(std::move(nickname)), type(type){}
@@ -84,6 +92,21 @@ bool User::operator==(const User &rhs) const {
 
 bool User::operator!=(const User &rhs) const {
     return !(rhs == *this);
+}
+
+void User::readData(std::ifstream& ifs) {
+    ifs >> birthDate;
+    ifs >> joinDate;
+    ifs.ignore();
+    getline(ifs,name);
+    getline(ifs,nickname);
+}
+
+void User::writeData(std::ofstream& ofs) {
+    ofs << birthDate << "\n";
+    ofs << joinDate << "\n";
+    ofs << name << "\n";
+    ofs << nickname << "\n";
 }
 
 bool charCmpEq(char a, char b) {

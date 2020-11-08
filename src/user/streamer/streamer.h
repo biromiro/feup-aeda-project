@@ -46,7 +46,11 @@ public:
 
     unsigned int getTotalViewCount() const;
 
-    const std::shared_ptr<Stream> &getCurrentStream() const;
+    unsigned int getCurrentStreamID() const;
+
+    void readData(std::ifstream& ifs);
+
+    void writeData(std::ofstream& ofs);
 
     bool operator<(const Streamer &rhs) const;
     bool operator>(const Streamer &rhs) const;
@@ -56,8 +60,8 @@ public:
     bool operator>=(const Streamer &rhs) const;
 
 private:
-    std::vector<std::shared_ptr<Stream>> previousStreams;
-    std::shared_ptr<Stream> currentStream;
+    std::vector<unsigned int> previousStreamsIDs;
+    unsigned int currentStreamID;
     unsigned int totalViewCount;
 };
 

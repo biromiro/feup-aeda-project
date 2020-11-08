@@ -65,6 +65,7 @@ TEST(viewer, giveFeedback){
     auto viewer = std::make_shared<Viewer>(birthDate1,"André Moreira","Dustini");
     auto viewer2 = std::make_shared<Viewer>(birthDate2,"Epic Man","epic");
     stream2->addToWhitelist(viewer2);
+    stream2->setMaxNumViewers(5);
     EXPECT_EQ(viewer->giveFeedbackToStream(LIKE),false);
     viewer->joinStream(std::dynamic_pointer_cast<Stream>(stream));
     EXPECT_EQ(viewer->giveFeedbackToStream(LIKE),true);

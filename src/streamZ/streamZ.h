@@ -13,7 +13,6 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include <filesystem>
 
 #ifndef PROJECT_STREAMZ_H
 #define PROJECT_STREAMZ_H
@@ -29,9 +28,9 @@ private:
 public:
     StreamZ();
 
-    bool initialize();
+    void initialize();
 
-    bool finish();
+    void finish();
 
     std::shared_ptr<UserManager> getUserManager();
 

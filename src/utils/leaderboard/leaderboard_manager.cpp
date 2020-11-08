@@ -138,7 +138,7 @@ Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::sortStreamsBy(SortStrea
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getStreamDate() < s2->getStreamDate();});
             break;
         case TYPE:
-            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getType() < s2->getType();});
+            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getStreamType() < s2->getStreamType();});
             break;
         default:
             break;

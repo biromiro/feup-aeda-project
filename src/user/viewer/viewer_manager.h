@@ -10,6 +10,8 @@
 #include <memory>
 #include <fstream>
 
+class StreamerManager;
+
 class ViewerManager{
 public:
     /**
@@ -36,6 +38,8 @@ public:
      * @return True if the action was successful, false otherwise
      */
     bool add(const std::shared_ptr<Viewer>& viewer);
+
+    bool reload(const std::shared_ptr<Viewer>& viewer);
 
     /**
      * Removes a viewer from the viewers vector
@@ -76,7 +80,7 @@ public:
      */
     const std::vector<std::shared_ptr<Viewer>> &getViewers() const;
 
-    bool readData();
+    bool readData(const std::shared_ptr<StreamManager>& streamManager);
 
     bool writeData();
 

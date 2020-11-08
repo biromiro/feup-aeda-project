@@ -4,9 +4,12 @@
 #include "viewer.h"
 
 #include <utility>
-
+#include <fstream>
 #include "../../stream/privateStream/privateStream.h"
+#include "../../stream/streamManager.h"
 
+
+Viewer::Viewer() : User(VIEWER) {}
 
 Viewer::Viewer(Date birthDate, std::string name, std::string nickname): User(birthDate,std::move(name),std::move(nickname), VIEWER){
     if(getAge() < 12){
@@ -18,6 +21,7 @@ Viewer::Viewer(Date birthDate, std::string name, std::string nickname): User(bir
 bool Viewer::joinStream(const std::shared_ptr<Stream>& stream){
     std::shared_ptr<Viewer> thisViewer = shared_from_this();
     if(stream->canJoin(thisViewer)){
+        stream->newViewerJoin();
         currentStream = stream;
         return true;
     }
@@ -31,6 +35,7 @@ bool Viewer::isWatchingStream() const{
 bool Viewer::leaveCurrentStream() {
     if(isWatchingStream()){
         streamHistory.push_back(currentStream);
+        currentStream->viewerLeft();
         currentStream = nullptr;
         return true;
     }
@@ -51,15 +56,17 @@ bool Viewer::giveFeedbackToStream(const std::string& comment) {
 }
 
 bool Viewer::followStreamer(const std::shared_ptr<Streamer>& streamer) {
-    if(followingStreamers.find(streamer) != followingStreamers.end())
+    std::string nickname = streamer->getNickname();
+    if(followingStreamers.find(nickname) != followingStreamers.end())
         return false;
     else
-        followingStreamers.insert(streamer);
+        followingStreamers.insert(nickname);
     return true;
 }
 
 bool Viewer::unfollowStreamer(const std::shared_ptr<Streamer>& streamer) {
-    return followingStreamers.erase(streamer) != 0;
+    std::string nickname = streamer->getNickname();
+    return followingStreamers.erase(nickname) != 0;
 }
 
 const std::shared_ptr<Stream> &Viewer::getCurrentStream() const {
@@ -70,7 +77,7 @@ const std::vector<std::shared_ptr<Stream>> &Viewer::getStreamHistory() const {
     return streamHistory;
 }
 
-const std::unordered_set<std::shared_ptr<Streamer>> &Viewer::getFollowingStreamers() const {
+const std::unordered_set<std::string> &Viewer::getFollowingStreamers() const {
     return followingStreamers;
 }
 
@@ -112,4 +119,40 @@ bool Viewer::operator==(const Viewer &rhs) const {
 
 bool Viewer::operator!=(const Viewer &rhs) const {
     return !(rhs == *this);
+}
+
+void Viewer::readData(std::ifstream &ifs, const std::shared_ptr<StreamManager>& streamManager) {
+    unsigned int streamHistorySize, currentStreamID, streamIDFromHistory, followingStreamersSize;
+    std::string newStreamerID;
+    std::shared_ptr<Stream> streamInHistory;
+    ifs >> currentStreamID;
+    if(currentStreamID != 0)
+        currentStream = streamManager->get(currentStreamID);
+    ifs >> streamHistorySize;
+    while (streamHistorySize--){
+        ifs >> streamIDFromHistory;
+        streamInHistory = streamManager->get(streamIDFromHistory);
+        if(streamInHistory != nullptr)
+            streamHistory.push_back(streamInHistory);
+    }
+    ifs >> followingStreamersSize;
+    ifs.ignore();
+    while(followingStreamersSize--){
+        getline(ifs,newStreamerID);
+        followingStreamers.insert(newStreamerID);
+    }
+    User::readData(ifs);
+}
+
+void Viewer::writeData(std::ofstream &ofs) {
+    ofs << ((currentStream != nullptr) ? currentStream->getUniqueId() : 0) << "\n";
+    ofs << streamHistory.size() << "\n";
+    for(const auto& elem: streamHistory){
+        ofs << elem->getUniqueId() << "\n";
+    }
+    ofs << followingStreamers.size() << "\n";
+    for(const auto& elem: followingStreamers){
+        ofs << elem << "\n";
+    }
+    User::writeData(ofs);
 }
