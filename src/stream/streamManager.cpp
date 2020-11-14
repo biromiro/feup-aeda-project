@@ -103,7 +103,7 @@ bool StreamManager::readData() {
 
     StreamType type;
 
-    file.open("../../src/stream/dataStream.txt",std::ios::in|std::ios::binary);
+    file.open("../../src/stream/dataStream.txt");
     if(!file){
         std::cout << "Error in opening file..." << std::endl;
         return false;
@@ -181,5 +181,5 @@ bool StreamManager::writeData() {
 }
 
 void StreamManager::setStreamerManager(std::shared_ptr<StreamerManager> newStreamerManager) {
-    streamerManager = newStreamerManager;
+    streamerManager = std::move(newStreamerManager);
 }
