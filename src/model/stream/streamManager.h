@@ -22,6 +22,7 @@ public:
      */
     StreamManager(std::shared_ptr<ViewerManager> viewerManager, std::shared_ptr<StreamerManager> streamerManager);
 
+
     /**
      * Creates a PublicStream or PrivateStream object using the given parameters
      *
@@ -74,6 +75,7 @@ public:
      * @param streamToFinish stream that is downcast as a FinishedStream
      * @return true if FinishedStream is successfully created, false otherwise
      */
+  
     std::shared_ptr<FinishedStream> finish(const std::shared_ptr<Stream>& streamToFinish);
     
     /**

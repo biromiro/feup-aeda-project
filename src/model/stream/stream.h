@@ -146,6 +146,13 @@ public:
     bool addFeedback(enum FeedbackLikeSystem feedback);
 
     /**
+     * Sets/Updates the number of viewers of the stream
+     *
+     * @param numOfViewers stream's new number of viewers
+     */
+    void setNumOfViewers(unsigned int numOfViewers);
+
+    /**
      * Getter of the unique ID of the stream
      *
      * @return stream's unique ID

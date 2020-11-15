@@ -64,6 +64,7 @@ public:
     bool addToWhitelist(std::shared_ptr<Viewer> v);
 
     /**
+
      * Removes a viewer from the whitelist (using his nickname)
      *
      * @param v viewer whose nickname is to be removed from the whitelist
@@ -72,6 +73,7 @@ public:
     bool removeFromWhitelist(std::shared_ptr<Viewer> v);
 
     /**
+
      * Sets/Updates the maximum number of viewers allowed in the private stream
      *
      * @param maxNumViewers new maximum number of viewers of the private stream

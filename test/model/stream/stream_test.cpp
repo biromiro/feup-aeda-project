@@ -108,6 +108,7 @@ TEST(stream, getGenre){
     EXPECT_EQ(stream3.getGenre(), COOKING);
     EXPECT_EQ(stream4.getGenre(), MUSIC);
 }
+
 /* Só funciona se for corrido isoladamente!
 TEST(stream, getUniqueID){
     Date birthDate1("1999/06/09"), birthDate2("2000/02/26");
@@ -123,6 +124,7 @@ TEST(stream, getUniqueID){
     EXPECT_EQ(stream4.getUniqueId(), 4);
 }
 */
+
 TEST(stream, addFeedback){
     Date birthDate1("1999/06/09"), birthDate2("2000/02/26");
     Streamer streamer1(birthDate1, "Oskar ÚltimoNome", "Autofeito", "123ola123");
