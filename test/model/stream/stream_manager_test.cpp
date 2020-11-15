@@ -115,27 +115,26 @@ TEST(streamManager, finish){
 TEST(streamManager, getNumOfViewers){
     std::shared_ptr<UserManager> um1 =  std::make_shared<UserManager>();
     std::shared_ptr<ViewerManager> vm1 = std::make_shared<ViewerManager>(um1);
-    StreamManager sm1(vm1, std::make_shared<StreamerManager>());
+    std::shared_ptr<StreamManager> sm1 = std::make_shared<StreamManager>(vm1, std::make_shared<StreamerManager>());
+    std::shared_ptr<StreamerManager> stm1 = std::make_shared<StreamerManager>(sm1,vm1,um1);
+    sm1->setStreamerManager(stm1);
     Date birthDate1("1999/06/09"), birthDate2("2000/02/26"), birthDate3("1996/04/02");
-    Streamer streamer1(birthDate1, "Oskar ÚltimoNome", "Autofeito", "klmndafka");
-    Streamer streamer2(birthDate2, "Homem Baseado", "Base", "ansdkasdad");
-    Viewer viewer1(birthDate2,"Visualizador Não Pog","Pogn't", "knoadsiodkas");
-    Viewer viewer2(birthDate1,"Visualizador Pog","Pog", "dkmadnas");
-    Viewer viewer3(birthDate3,"Visualizador Pog 2","Pog 2", "knasdxaasw");
-    PublicStream stream1("Epic LoL Stream", EN, 13, GAMING, std::make_shared<Streamer>(streamer1));
-    PrivateStream stream2("Based Games", EN, 18, GAMING, std::make_shared<Streamer>(streamer2));
-    std::shared_ptr<PublicStream> stream1_ptr = std::make_shared<PublicStream>(stream1);
-    std::shared_ptr<PrivateStream> stream2_ptr = std::make_shared<PrivateStream>(stream2);
-    std::shared_ptr<Viewer> viewer1_ptr = std::make_shared<Viewer>(viewer1);
-    std::shared_ptr<Viewer> viewer2_ptr = std::make_shared<Viewer>(viewer2);
-    std::shared_ptr<Viewer> viewer3_ptr = std::make_shared<Viewer>(viewer3);
-    stream2.addToWhitelist(viewer1_ptr);
-    stream2.addToWhitelist(viewer2_ptr);
-    if(stream1.canJoin(std::make_shared<Viewer>(viewer1))) { viewer1_ptr->joinStream(stream1_ptr); }
-    if(stream1.canJoin(std::make_shared<Viewer>(viewer1))) { viewer1_ptr->joinStream(stream2_ptr); }
-    if(stream1.canJoin(std::make_shared<Viewer>(viewer2))) { viewer2_ptr->joinStream(stream2_ptr); }
-    EXPECT_EQ(sm1.getNumOfViewers(stream1_ptr), 1);
-    if(stream1.canJoin(std::make_shared<Viewer>(viewer3))) { viewer3_ptr->joinStream(stream1_ptr); }
-    EXPECT_EQ(sm1.getNumOfViewers(stream1_ptr), 1);
-    EXPECT_EQ(sm1.getNumOfViewers(stream2_ptr), 2);
+    auto streamer1 = stm1->build(birthDate1, "Oskar ÚltimoNome", "Autofeito", "klmndafka");
+    auto streamer2 = stm1->build(birthDate2, "Homem Baseado", "Base", "ansdkasdad");
+    auto viewer1 = vm1->build(birthDate2,"Visualizador Não Pog","Pogn't", "ajnsioadsa");
+    auto viewer2 = vm1->build(birthDate1,"Visualizador Pog","Pog", "dkmadnas");
+    auto viewer3 = vm1->build(birthDate3,"Visualizador Pog 2","Pog 2", "knasdxaasw");
+    auto stream1 = std::dynamic_pointer_cast<PublicStream>(sm1->build("Epic LoL Stream", EN, 13, PUBLIC, GAMING, streamer1));
+    auto stream2 = std::dynamic_pointer_cast<PrivateStream>(sm1->build("Based Games", EN, 18, PRIVATE, GAMING, streamer2));
+    stream2->addToWhitelist(viewer1);
+    stream2->addToWhitelist(viewer2);
+    EXPECT_EQ(viewer1->joinStream(stream1), true);
+    EXPECT_EQ(viewer1->joinStream(stream2), false);
+    EXPECT_EQ(viewer2->joinStream(stream2), true);
+    EXPECT_EQ(sm1->getNumOfViewers(stream1), 1);
+    EXPECT_EQ(viewer3->joinStream(stream1), true);
+    EXPECT_EQ(sm1->getNumOfViewers(stream1), 2);
+    viewer1->leaveCurrentStream();
+    EXPECT_EQ(viewer1->joinStream(stream2), true);
+    EXPECT_EQ(sm1->getNumOfViewers(stream2), 2);
 }

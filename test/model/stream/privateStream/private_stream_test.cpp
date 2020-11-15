@@ -5,6 +5,10 @@
 #include <gtest/gtest.h>
 #include <model/stream/privateStream/privateStream.h>
 #include <model/user/streamer/streamer.h>
+#include <model/user/user_manager.h>
+#include <model/user/viewer/viewer_manager.h>
+#include <model/stream/streamManager.h>
+#include <model/user/streamer/streamer_manager.h>
 
 using testing::Eq;
 
@@ -62,19 +66,21 @@ TEST(privateStream, getComments){
 }
 
 TEST(privateStream, canJoin){
+    std::shared_ptr<UserManager> um1 =  std::make_shared<UserManager>();
+    std::shared_ptr<ViewerManager> vm1 = std::make_shared<ViewerManager>(um1);
+    std::shared_ptr<StreamManager> sm1 = std::make_shared<StreamManager>(vm1, std::make_shared<StreamerManager>());
+    std::shared_ptr<StreamerManager> stm1 = std::make_shared<StreamerManager>(sm1,vm1,um1);
+    sm1->setStreamerManager(stm1);
     Date birthDate1("1999/06/09"), birthDate2("2000/02/26");
-    Streamer streamer1(birthDate1, "Oskar ÚltimoNome", "Autofeito", "jknadjkhnasida");
-    Streamer streamer2(birthDate2, "Homem Baseado", "Base", "knajkodhnaisda");
-    PrivateStream stream1("Epic LoL Stream", EN, 13, GAMING, std::make_shared<Streamer>(streamer1));
-    Viewer viewer1(birthDate2,"Visualizador Não Pog","Pogn't", "inasjkbndaisda");
-    Viewer viewer2(birthDate1,"Visualizador Pog","Pog", "knadiuohsndas");
-    std::shared_ptr<PrivateStream> stream1_ptr = std::make_shared<PrivateStream>(stream1);
-    stream1.setMaxNumViewers(275);
-    std::shared_ptr<Viewer> viewer1_ptr = std::make_shared<Viewer>(viewer1);
-    std::shared_ptr<Viewer> viewer2_ptr = std::make_shared<Viewer>(viewer2);
-    stream1.addToWhitelist(viewer1_ptr);
-    stream1.addToWhitelist(viewer2_ptr);
-    EXPECT_EQ(viewer1_ptr->joinStream(stream1_ptr), true);
-    EXPECT_EQ(viewer2_ptr->joinStream(stream1_ptr), true);
-    EXPECT_EQ(stream1.getNumOfViewers(), 2);
+    auto streamer1 = stm1->build(birthDate1, "Oskar ÚltimoNome", "Autofeito", "jknadjkhnasida");
+    auto streamer2 = stm1->build(birthDate2, "Homem Baseado", "Base", "knajkodhnaisda");
+    auto stream1 = std::dynamic_pointer_cast<PrivateStream>(sm1->build("Epic LoL Stream", EN, 13, PRIVATE, GAMING, streamer1));
+    auto viewer1 = vm1->build(birthDate2,"Visualizador Não Pog","Pogn't", "inasjkbndaisda");
+    auto viewer2 = vm1->build(birthDate1,"Visualizador Pog","Pog", "knadiuohsndas");
+    stream1->setMaxNumViewers(275);
+    stream1->addToWhitelist(viewer1);
+    stream1->addToWhitelist(viewer2);
+    EXPECT_EQ(viewer1->joinStream(stream1), true);
+    EXPECT_EQ(viewer2->joinStream(stream1), true);
+    EXPECT_EQ(stream1->getNumOfViewers(), 2);
 }

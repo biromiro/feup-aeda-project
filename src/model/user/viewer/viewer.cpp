@@ -20,7 +20,7 @@ Viewer::Viewer(Date birthDate, std::string name, std::string nickname, std::stri
 
 bool Viewer::joinStream(const std::shared_ptr<Stream>& stream){
     std::shared_ptr<Viewer> thisViewer = shared_from_this();
-    if(stream->canJoin(thisViewer)){
+    if(stream->canJoin(thisViewer) && currentStream == nullptr){
         stream->newViewerJoin();
         currentStream = stream;
         return true;
