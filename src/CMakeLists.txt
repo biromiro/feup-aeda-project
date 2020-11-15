@@ -35,7 +35,6 @@ add_library(project
         utils/leaderboard/leaderboard_manager.h
         utils/leaderboard/leaderboard_manager.cpp
         model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h)
-        model/stream/streamManager.cpp model/stream/streamManager.h model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h)
 
 
 add_executable(application
