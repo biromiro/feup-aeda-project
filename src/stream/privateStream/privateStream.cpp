@@ -26,6 +26,16 @@ bool PrivateStream::addToWhitelist(std::shared_ptr<Viewer> v){
     return false;
 }
 
+bool PrivateStream::removeFromWhitelist(std::shared_ptr<Viewer> v){
+    std::string v_nick = v->getNickname();
+    auto itr = std::find(whitelist.begin(), whitelist.end(), v_nick);
+    if (itr != whitelist.end()){
+        whitelist.erase(itr);
+        return true;
+    }
+    return false;
+}
+
 bool PrivateStream::setMaxNumViewers(unsigned int maxNumViewers) {
     this->maxNumViewers = maxNumViewers;
     if(this->maxNumViewers == maxNumViewers) { return true; }
@@ -37,7 +47,7 @@ void PrivateStream::addComment(const std::string& comment) {
 }
 
 bool PrivateStream::canJoin(const std::shared_ptr<Viewer>& newViewer) const {
-    if (newViewer->getAge() < minAge || maxNumViewers <= (numOfViewers + 1)) { return false; }
+    if (newViewer->getAge() < minAge || maxNumViewers < (numOfViewers + 1)) { return false; }
     for (auto nickname: whitelist) {
         if (newViewer->getNickname() == nickname) { return true; }
     }

@@ -56,12 +56,20 @@ public:
     std::vector<std::string> getComments() const;
 
     /**
-     * Adds a viewer's nickname to the whitelist
+     * Adds a viewer to the whitelist (using his nickname)
      *
      * @param v viewer whose nickname is to be added to the whitelist
      * @return true if viewer's nickname is successfully added, false if nickname is already in whitelist
      */
     bool addToWhitelist(std::shared_ptr<Viewer> v);
+
+    /**
+     * Removes a viewer from the whitelist (using his nickname)
+     *
+     * @param v viewer whose nickname is to be removed from the whitelist
+     * @return true if a viewer's nickname is successfully removed, false if nickname isn't in whitelist
+     */
+    bool removeFromWhitelist(std::shared_ptr<Viewer> v);
 
     /**
      * Sets/Updates the maximum number of viewers allowed in the private stream

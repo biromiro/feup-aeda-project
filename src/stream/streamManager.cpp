@@ -68,10 +68,10 @@ std::shared_ptr<Stream> StreamManager::get(unsigned int streamID) {
     return nullptr;
 }
 
-bool StreamManager::finish(const std::shared_ptr<Stream>& streamToFinish) {
+std::shared_ptr<FinishedStream> StreamManager::finish(const std::shared_ptr<Stream>& streamToFinish) {
     if(streamToFinish->getStreamType() == FINISHED)
-        return false;
-    streams.erase(std::remove(streams.begin(),streams.end(),streamToFinish));
+        return nullptr;
+    streams.erase(std::remove(streams.begin(),streams.end(),streamToFinish), streams.end());
     auto res = std::make_shared<FinishedStream>(streamToFinish->getTitle(),streamToFinish->getLanguage(), streamToFinish->getMinAge(),
                                                 streamToFinish->getGenre(), streamToFinish->getStreamer(), getNumOfViewers(streamToFinish));
     for(const auto& elem: viewerManager->getViewers()){
@@ -79,7 +79,7 @@ bool StreamManager::finish(const std::shared_ptr<Stream>& streamToFinish) {
             elem->leaveCurrentStream();
     }
     cacheOfFinishedStreams.push_back(res);
-    return true;
+    return res;
 }
 
 unsigned int StreamManager::getNumOfViewers(const std::shared_ptr<Stream> &streamToFinish) {
@@ -103,7 +103,7 @@ bool StreamManager::readData() {
 
     StreamType type;
 
-    file.open("../../src/stream/dataStream.txt",std::ios::in|std::ios::binary);
+    file.open("../../src/stream/dataStream.txt");
     if(!file){
         std::cout << "Error in opening file..." << std::endl;
         return false;

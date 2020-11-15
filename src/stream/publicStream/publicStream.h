@@ -10,6 +10,10 @@
 
 class PublicStream: public Stream {
 public:
+    /**
+     * Default constructor of the PublicStream class
+     *
+     */
     PublicStream();
 
     /**

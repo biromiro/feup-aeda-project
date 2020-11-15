@@ -21,8 +21,6 @@ public:
      * @param streamerManaager the manager of the Streamers
      */
     StreamManager(std::shared_ptr<ViewerManager> viewerManager, std::shared_ptr<StreamerManager> streamerManager);
-      
-    StreamManager(ViewerManager* viewerManager);
 
     /**
      * Creates a PublicStream or PrivateStream object using the given parameters
@@ -76,10 +74,21 @@ public:
      * @param streamToFinish stream that is downcast as a FinishedStream
      * @return true if FinishedStream is successfully created, false otherwise
      */
-    bool finish(const std::shared_ptr<Stream>& streamToFinish);
+    std::shared_ptr<FinishedStream> finish(const std::shared_ptr<Stream>& streamToFinish);
     
+    /**
+     * Getter of the number of viewers of a stream that is to be finished at its end
+     *
+     * @param streamToFinish stream that is to be finished
+     * @return number of viewers of streamToFinish at its end
+     */
     unsigned int getNumOfViewers(const std::shared_ptr<Stream>& streamToFinish);
   
+    /**
+     * Sets/Updates the StreamManager's streamer manager
+     *
+     * @param newStreamerManager new streamer manager
+     */
     void setStreamerManager(std::shared_ptr<StreamerManager> newStreamerManager);
   
     /**

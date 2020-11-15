@@ -47,7 +47,7 @@ add_executable(tests
         user/admin/admin.cpp
         user/admin/admin_manager_test.cpp
         utils/leaderboard/leaderboard_manager_test.cpp
-        stream/stream_test.cpp)
+        stream/stream_test.cpp stream/publicStream/public_stream_test.cpp stream/privateStream/private_stream_test.cpp stream/stream_manager_test.cpp stream/finishedStream/finished_stream_test.cpp)
 target_link_libraries(tests PRIVATE gtest_main project)
 
 add_test(NAME tests COMMAND tests)
