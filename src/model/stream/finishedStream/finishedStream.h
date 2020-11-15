@@ -10,7 +10,11 @@
 
 class FinishedStream: public Stream{
 public:
-   
+
+   /**
+    * Default constructor of the FinishedStream class
+    *
+    */
     FinishedStream();
     
     /**

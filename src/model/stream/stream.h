@@ -104,8 +104,16 @@ public:
      */
     virtual bool canJoin(const std::shared_ptr<Viewer>& newViewer) const;
   
+    /**
+     * Increases numOfViewers by one
+     *
+     */
     void newViewerJoin();
   
+    /**
+     * Decreases numOfViewers by one
+     *
+     */
     void viewerLeft();
 
     /**
@@ -162,14 +170,6 @@ public:
 
     void writeData(std::ofstream& ofs);
 
-
-    /**
-     * Getter of the stream's type
-     *
-     * @return stream's type
-     */
-    StreamType getType() const;
-  
     bool operator==(std::shared_ptr<Stream> stream) const;
     
     bool operator==(const Stream &rhs) const;

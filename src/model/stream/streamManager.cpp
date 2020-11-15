@@ -33,7 +33,7 @@ std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLangu
 }
 
 bool StreamManager::add(std::shared_ptr<Stream> streamToAdd) {
-    if ((std::find(cacheOfFinishedStreams.begin(), cacheOfFinishedStreams.end(), streamToAdd) == streams.end())
+    if ((std::find(cacheOfFinishedStreams.begin(), cacheOfFinishedStreams.end(), streamToAdd) == cacheOfFinishedStreams.end())
     && streamToAdd->getStreamType() == FINISHED){
         cacheOfFinishedStreams.push_back(streamToAdd);
         return true;
@@ -65,13 +65,18 @@ std::shared_ptr<Stream> StreamManager::get(unsigned int streamID) {
     if(itr != streams.end()){
         return *itr;
     }
+    itr = std::find_if(cacheOfFinishedStreams.begin(), cacheOfFinishedStreams.end(),
+                            [streamID](const std::shared_ptr<Stream>& stream){return stream->getUniqueId() == streamID;});
+    if(itr != cacheOfFinishedStreams.end()){
+        return *itr;
+    }
     return nullptr;
 }
 
-bool StreamManager::finish(const std::shared_ptr<Stream>& streamToFinish) {
+std::shared_ptr<FinishedStream> StreamManager::finish(const std::shared_ptr<Stream>& streamToFinish) {
     if(streamToFinish->getStreamType() == FINISHED)
-        return false;
-    if(!remove(streamToFinish)) return false;
+        return nullptr;
+    if(!remove(streamToFinish)) return nullptr;
     auto res = std::make_shared<FinishedStream>(streamToFinish->getTitle(),streamToFinish->getLanguage(), streamToFinish->getMinAge(),
                                                 streamToFinish->getGenre(), streamToFinish->getStreamer(), getNumOfViewers(streamToFinish));
     for(const auto& elem: viewerManager->getViewers()){
@@ -79,7 +84,7 @@ bool StreamManager::finish(const std::shared_ptr<Stream>& streamToFinish) {
             elem->leaveCurrentStream();
     }
     cacheOfFinishedStreams.push_back(res);
-    return true;
+    return res;
 }
 
 unsigned int StreamManager::getNumOfViewers(const std::shared_ptr<Stream> &streamToFinish) {

@@ -19,8 +19,18 @@ TEST(stream, getNumOfViewers){
     PublicStream stream1("Epic LoL Stream", EN, 13, GAMING, std::make_shared<Streamer>(streamer1));
     PrivateStream stream2("Based Games", EN, 18, GAMING, std::make_shared<Streamer>(streamer2));
     FinishedStream stream3 ("?????", PT_PT, 10, COOKING, std::make_shared<Streamer>(streamer2), 50);
-    EXPECT_EQ(stream1.getNumOfViewers(), 0);
+    auto stream1_ptr = std::dynamic_pointer_cast<Stream>(std::make_shared<PublicStream>(stream1));
+    Viewer viewer1(birthDate2,"Visualizador Não Pog","Pogn't", "adknjsada");
+    Viewer viewer2(birthDate1,"Visualizador Pog","Pog", "hjkoasiodhnoaisd");
+    auto viewer1_ptr = std::make_shared<Viewer>(viewer1);
+    auto viewer2_ptr = std::make_shared<Viewer>(viewer2);
+    if(stream1.canJoin(viewer1_ptr)) { viewer1_ptr->joinStream(stream1_ptr); }
+    if(stream1.canJoin(viewer2_ptr)) { viewer2_ptr->joinStream(stream1_ptr); }
+    EXPECT_EQ(stream1.getNumOfViewers(), 2);
     EXPECT_EQ(stream3.getNumOfViews(), 50);
+    viewer1.leaveCurrentStream();
+    EXPECT_EQ(stream1.getNumOfViewers(), 1);
+    EXPECT_EQ(stream2.getNumOfViewers(), 0);
 }
 
 TEST(stream, getMinAge){
@@ -71,8 +81,6 @@ TEST(stream, getStreamDate){
     EXPECT_EQ(stream3.getMinAge(), 10);
 }
 
-
-
 TEST(stream, getStreamer){
     Date birthDate1("1999/06/09"), birthDate2("2000/02/26");
     Streamer streamer1(birthDate1, "Oskar ÚltimoNome", "Autofeito", "cheirameabase");
@@ -100,6 +108,22 @@ TEST(stream, getGenre){
     EXPECT_EQ(stream3.getGenre(), COOKING);
     EXPECT_EQ(stream4.getGenre(), MUSIC);
 }
+
+/* Só funciona se for corrido isoladamente!
+TEST(stream, getUniqueID){
+    Date birthDate1("1999/06/09"), birthDate2("2000/02/26");
+    Streamer streamer1(birthDate1, "Oskar ÚltimoNome", "Autofeito");
+    Streamer streamer2(birthDate2, "Homem Baseado", "Base");
+    PublicStream stream1("Epic LoL Stream", EN, 13, GAMING, std::make_shared<Streamer>(streamer1));
+    PrivateStream stream2("Based Games", EN, 18, TALKSHOW, std::make_shared<Streamer>(streamer2));
+    FinishedStream stream3 ("?????", PT_PT, 10, COOKING, std::make_shared<Streamer>(streamer2), 50);
+    PrivateStream stream4("Top Hits 1857", ES, 3, MUSIC, std::make_shared<Streamer>(streamer1));
+    EXPECT_EQ(stream1.getUniqueId(), 1);
+    EXPECT_EQ(stream2.getUniqueId(), 2);
+    EXPECT_EQ(stream3.getUniqueId(), 3);
+    EXPECT_EQ(stream4.getUniqueId(), 4);
+}
+*/
 
 TEST(stream, addFeedback){
     Date birthDate1("1999/06/09"), birthDate2("2000/02/26");

@@ -21,6 +21,7 @@ add_library(project
         model/user/user.h model/user/user.cpp
         model/user/user_manager.h model/user/user_manager.cpp
         model/stream/stream.h model/stream/stream.cpp
+        model/stream/streamManager.h model/stream/streamManager.cpp
         model/user/viewer/viewer.h model/user/viewer/viewer.cpp
         model/user/viewer/viewer_manager.h model/user/viewer/viewer_manager.cpp
         model/user/streamer/streamer.h model/user/streamer/streamer.cpp
@@ -33,6 +34,7 @@ add_library(project
         utils/leaderboard/leaderboard.h
         utils/leaderboard/leaderboard_manager.h
         utils/leaderboard/leaderboard_manager.cpp
+        model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h)
         model/stream/streamManager.cpp model/stream/streamManager.h model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h)
 
 
