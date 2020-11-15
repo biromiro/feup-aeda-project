@@ -10,3 +10,23 @@ UIManager::UIManager(){
     currentSession = CurrentSession(platform.getUserManager());
 }
 
+void UIManager::run() const{
+    currentUI->run();
+}
+
+void UIManager::setCurrent(UI *ui) {
+    currentUI = ui;
+}
+
+const StreamZ &UIManager::getPlatform() const {
+    return platform;
+}
+
+const CurrentSession &UIManager::getCurrentSession() const {
+    return currentSession;
+}
+
+UI *UIManager::getCurrentUi() const {
+    return currentUI;
+}
+

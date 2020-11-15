@@ -18,6 +18,9 @@ branches:
   only:
     - main
 
+before_install:
+	- chmod +x build.sh
+
 install:
   # (fake) install dependencies (usually involves wget, configure, make, ...)
   # install into cache folder (build binaries+headers only, no sources and do NOT build there)

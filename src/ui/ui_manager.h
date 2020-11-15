@@ -5,8 +5,10 @@
 #ifndef PROJECT_UI_MANAGER_H
 #define PROJECT_UI_MANAGER_H
 
+#include "../utils/otherFunctions/auxiliaryFunctions.h"
 #include "../model/streamZ/streamZ.h"
 #include "../auth/currentSession.h"
+#include "ui.h"
 
 enum class CurrentView{
     INITIAL_PAGE,
@@ -21,10 +23,20 @@ enum class CurrentView{
 class UIManager{
 public:
     UIManager();
-    void run();
+
+    const StreamZ &getPlatform() const;
+
+    const CurrentSession &getCurrentSession() const;
+
+    UI *getCurrentUi() const;
+
+    void run() const;
+
+    void setCurrent(UI* ui);
 private:
     StreamZ platform;
     CurrentSession currentSession;
+    UI* currentUI = nullptr;
 };
 
 #endif //PROJECT_UI_MANAGER_H

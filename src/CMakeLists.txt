@@ -14,7 +14,11 @@ endif (WIN32)
 
 add_library(project
         main.cpp
-        ui/ui_manager.h ui/ui_manager.cpp ui/initialPage/initialPage.h ui/initialPage/initialPage.cpp
+        utils/otherFunctions/auxiliaryFunctions.h
+        utils/otherFunctions/auxiliaryFunctions.cpp
+        ui/ui.h
+        ui/ui_manager.h ui/ui_manager.cpp
+        ui/initialPage/initialPage.h ui/initialPage/initialPage.cpp
         auth/currentSession.h auth/currentSession.cpp
         exception/invalidAge.h exception/invalidAge.cpp
         model/streamZ/streamZ.h
@@ -39,7 +43,11 @@ add_library(project
 
 add_executable(application
         main.cpp
-        ui/ui_manager.h ui/ui_manager.cpp ui/initialPage/initialPage.h ui/initialPage/initialPage.cpp
+        utils/otherFunctions/auxiliaryFunctions.h
+        utils/otherFunctions/auxiliaryFunctions.cpp
+        ui/ui.h
+        ui/ui_manager.h ui/ui_manager.cpp
+        ui/initialPage/initialPage.h ui/initialPage/initialPage.cpp
         auth/currentSession.h auth/currentSession.cpp
         exception/invalidAge.h exception/invalidAge.cpp
         model/streamZ/streamZ.h
