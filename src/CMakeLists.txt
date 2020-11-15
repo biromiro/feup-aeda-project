@@ -14,6 +14,8 @@ endif (WIN32)
 
 add_library(project
         main.cpp
+        ui/ui_manager.h ui/ui_manager.cpp ui/initialPage/initialPage.h ui/initialPage/initialPage.cpp
+        auth/currentSession.h auth/currentSession.cpp
         exception/invalidAge.h exception/invalidAge.cpp
         model/streamZ/streamZ.h
         model/user/user.h model/user/user.cpp
@@ -36,6 +38,8 @@ add_library(project
 
 add_executable(application
         main.cpp
+        ui/ui_manager.h ui/ui_manager.cpp ui/initialPage/initialPage.h ui/initialPage/initialPage.cpp
+        auth/currentSession.h auth/currentSession.cpp
         exception/invalidAge.h exception/invalidAge.cpp
         model/streamZ/streamZ.h
         model/user/user.h model/user/user.cpp
@@ -53,7 +57,7 @@ add_executable(application
         utils/leaderboard/leaderboard.h
         utils/leaderboard/leaderboard_manager.h
         utils/leaderboard/leaderboard_manager.cpp
-        model/stream/streamManager.cpp model/stream/streamManager.h model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h exception/invalidAge.h exception/invalidAge.cpp ui/initialPage.cpp ui/initialPage.h ui/ui_manager.h ui/ui_manager.cpp)
+        model/stream/streamManager.cpp model/stream/streamManager.h model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h)
 
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

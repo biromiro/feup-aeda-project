@@ -5,4 +5,10 @@
 #ifndef PROJECT_INITIALPAGE_H
 #define PROJECT_INITIALPAGE_H
 
+#include "ui/ui_manager.h"
+
+class InitialPage{
+    InitialPage();
+};
+
 #endif //PROJECT_INITIALPAGE_H

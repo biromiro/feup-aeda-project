@@ -57,6 +57,8 @@ public:
      */
     const std::string &getNickname() const;
 
+    const std::string &getPassword() const;
+
     /**
      * Sets/Updates the user's birthdate
      *
@@ -77,6 +79,8 @@ public:
      * @param newNickname new nickname
      */
     void updateNickname(const std::string& newNickname);
+
+    void updatePassword(const std::string &password);
 
     /**
      * Getter of the type of User

@@ -6,8 +6,9 @@
 #define PROJECT_UI_MANAGER_H
 
 #include "../model/streamZ/streamZ.h"
+#include "../auth/currentSession.h"
 
-enum CurrentView{
+enum class CurrentView{
     INITIAL_PAGE,
     LOGIN_PAGE,
     REGISTER_PAGE,
@@ -20,8 +21,10 @@ enum CurrentView{
 class UIManager{
 public:
     UIManager();
+    void run();
 private:
     StreamZ platform;
+    CurrentSession currentSession;
 };
 
 #endif //PROJECT_UI_MANAGER_H

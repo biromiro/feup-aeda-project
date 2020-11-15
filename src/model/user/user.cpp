@@ -111,6 +111,14 @@ void User::writeData(std::ofstream& ofs) {
     ofs << password << "\n";
 }
 
+const std::string &User::getPassword() const {
+    return password;
+}
+
+void User::updatePassword(const std::string &newPassword) {
+    password = newPassword;
+}
+
 bool charCmpEq(char a, char b) {
     return(toupper(a) == toupper(b));
 }

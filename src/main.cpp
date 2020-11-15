@@ -10,10 +10,6 @@ int main() {
 
     twitch.initialize();
 
-    Date birthDate("20/10/2001");
-
-    twitch.getAdminManager()->build(birthDate,"The Admin", "admin", "admin");
-
     std::cout << twitch.getLeaderboardManager()->sortStreamers();
     std::cout << twitch.getLeaderboardManager()->sortViewers();
     std::cout << twitch.getLeaderboardManager()->sortStreams();

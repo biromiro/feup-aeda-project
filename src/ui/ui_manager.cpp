@@ -4,7 +4,9 @@
 
 #include "ui_manager.h"
 
-UIManager::UIManager() {
+UIManager::UIManager(){
     platform = StreamZ();
     platform.initialize();
+    currentSession = CurrentSession(platform.getUserManager());
 }
+
