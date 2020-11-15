@@ -14,44 +14,46 @@ endif (WIN32)
 
 add_library(project
         main.cpp
-        streamZ/streamZ.h
-        user/user.h user/user.cpp
-        user/user_manager.h user/user_manager.cpp
-        stream/stream.h stream/stream.cpp
-        user/viewer/viewer.h user/viewer/viewer.cpp
-        user/viewer/viewer_manager.h user/viewer/viewer_manager.cpp
-        user/streamer/streamer.h user/streamer/streamer.cpp
-        user/streamer/streamer_manager.h user/streamer/streamer_manager.cpp
-        user/admin/admin.h user/admin/admin.cpp
-        user/admin/admin_manager.h user/admin/admin_manager.cpp
-        utils/date/date.h utils/date/date.cpp stream/privateStream/privateStream.h
-        stream/privateStream/privateStream.cpp stream/publicStream/publicStream.h
-        stream/publicStream/publicStream.cpp streamZ/streamZ.cpp
+        exception/invalidAge.h exception/invalidAge.cpp
+        model/streamZ/streamZ.h
+        model/user/user.h model/user/user.cpp
+        model/user/user_manager.h model/user/user_manager.cpp
+        model/stream/stream.h model/stream/stream.cpp
+        model/user/viewer/viewer.h model/user/viewer/viewer.cpp
+        model/user/viewer/viewer_manager.h model/user/viewer/viewer_manager.cpp
+        model/user/streamer/streamer.h model/user/streamer/streamer.cpp
+        model/user/streamer/streamer_manager.h model/user/streamer/streamer_manager.cpp
+        model/user/admin/admin.h model/user/admin/admin.cpp
+        model/user/admin/admin_manager.h model/user/admin/admin_manager.cpp
+        utils/date/date.h utils/date/date.cpp model/stream/privateStream/privateStream.h
+        model/stream/privateStream/privateStream.cpp model/stream/publicStream/publicStream.h
+        model/stream/publicStream/publicStream.cpp model/streamZ/streamZ.cpp
         utils/leaderboard/leaderboard.h
         utils/leaderboard/leaderboard_manager.h
         utils/leaderboard/leaderboard_manager.cpp
-        stream/streamManager.cpp stream/streamManager.h stream/finishedStream/finishedStream.cpp stream/finishedStream/finishedStream.h)
+        model/stream/streamManager.cpp model/stream/streamManager.h model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h)
 
 
 add_executable(application
         main.cpp
-        streamZ/streamZ.h
-        user/user.h user/user.cpp
-        user/user_manager.h user/user_manager.cpp
-        stream/stream.h stream/stream.cpp
-        user/viewer/viewer.h user/viewer/viewer.cpp
-        user/viewer/viewer_manager.h user/viewer/viewer_manager.cpp
-        user/streamer/streamer.h user/streamer/streamer.cpp
-        user/streamer/streamer_manager.h user/streamer/streamer_manager.cpp
-        user/admin/admin.h user/admin/admin.cpp
-        user/admin/admin_manager.h user/admin/admin_manager.cpp
-        utils/date/date.h utils/date/date.cpp stream/privateStream/privateStream.h
-        stream/privateStream/privateStream.cpp stream/publicStream/publicStream.h
-        stream/publicStream/publicStream.cpp streamZ/streamZ.cpp
+        exception/invalidAge.h exception/invalidAge.cpp
+        model/streamZ/streamZ.h
+        model/user/user.h model/user/user.cpp
+        model/user/user_manager.h model/user/user_manager.cpp
+        model/stream/stream.h model/stream/stream.cpp
+        model/user/viewer/viewer.h model/user/viewer/viewer.cpp
+        model/user/viewer/viewer_manager.h model/user/viewer/viewer_manager.cpp
+        model/user/streamer/streamer.h model/user/streamer/streamer.cpp
+        model/user/streamer/streamer_manager.h model/user/streamer/streamer_manager.cpp
+        model/user/admin/admin.h model/user/admin/admin.cpp
+        model/user/admin/admin_manager.h model/user/admin/admin_manager.cpp
+        utils/date/date.h utils/date/date.cpp model/stream/privateStream/privateStream.h
+        model/stream/privateStream/privateStream.cpp model/stream/publicStream/publicStream.h
+        model/stream/publicStream/publicStream.cpp model/streamZ/streamZ.cpp
         utils/leaderboard/leaderboard.h
         utils/leaderboard/leaderboard_manager.h
         utils/leaderboard/leaderboard_manager.cpp
-        stream/streamManager.cpp stream/streamManager.h stream/finishedStream/finishedStream.cpp stream/finishedStream/finishedStream.h)
+        model/stream/streamManager.cpp model/stream/streamManager.h model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h exception/invalidAge.h exception/invalidAge.cpp ui/initialPage.cpp ui/initialPage.h ui/ui_manager.h ui/ui_manager.cpp)
 
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

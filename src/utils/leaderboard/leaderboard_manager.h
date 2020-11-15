@@ -5,8 +5,8 @@
 #ifndef PROJECT_LEADERBOARD_MANAGER_H
 #define PROJECT_LEADERBOARD_MANAGER_H
 
-#include "../../user/viewer/viewer_manager.h"
-#include "../../user/streamer/streamer_manager.h"
+#include "../../model/user/viewer/viewer_manager.h"
+#include "../../model/user/streamer/streamer_manager.h"
 #include "leaderboard.h"
 
 

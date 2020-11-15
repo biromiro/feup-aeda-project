@@ -8,10 +8,10 @@
 
 
 #include <gtest/gtest.h>
-#include <user/user_manager.h>
-#include <user/viewer/viewer_manager.h>
-#include <user/streamer/streamer_manager.h>
-#include <stream/streamManager.h>
+#include <model/user/user_manager.h>
+#include <model/user/viewer/viewer_manager.h>
+#include <model/user/streamer/streamer_manager.h>
+#include <model/stream/streamManager.h>
 #include <utils/leaderboard/leaderboard_manager.h>
 
 
@@ -27,10 +27,10 @@ TEST(leaderboard_manager, sorts){
     streamManager->setStreamerManager(streamerManager);
 
     Date birthDate("2001/10/20");
-    viewerManager->build(birthDate,"André Moreira","Dustini");
-    viewerManager->build(birthDate,"André Pereira","dustibo");
-    streamerManager->build(birthDate, "Nuno Costa", "biromiro");
-    auto s = streamerManager->build(birthDate, "oscar ESteves", "biroadsadiro");
+    viewerManager->build(birthDate,"André Moreira","Dustini", "bitconnect!");
+    viewerManager->build(birthDate,"André Pereira","dustibo", "hehasdksa");
+    streamerManager->build(birthDate, "Nuno Costa", "biromiro", "dljekfchds");
+    auto s = streamerManager->build(birthDate, "oscar ESteves", "biroadsadiro", "fhikcdhcguvds");
     streamManager->build("jebcnhuwbwiu",PT_PT,18,PUBLIC,COOKING,s);
 
     auto streamers = leaderboardManager->sortStreamers();
@@ -46,12 +46,12 @@ TEST(leaderboard_manager, filters){
     streamManager->setStreamerManager(streamerManager);
 
     Date birthDate("2001/10/20");
-    viewerManager->build(birthDate,"André Moreira","Dustini");
-    viewerManager->build(birthDate,"André Pereira","dustibo");
-    auto s1 = streamerManager->build(birthDate, "Nuno Costa", "biromiro");
-    auto s2 = streamerManager->build(birthDate, "oscar ESteves", "biroadsadiro");
-    auto s3 = streamerManager->build(birthDate, "Paulo Costa", "vespa");
-    auto s4 = streamerManager->build(birthDate, "Carlos ESteves", "dustibo");
+    viewerManager->build(birthDate,"André Moreira","Dustini", "hehuebfghcudewc");
+    viewerManager->build(birthDate,"André Pereira","dustibo", "autofeito");
+    auto s1 = streamerManager->build(birthDate, "Nuno Costa", "biromiro", "hahduegvywbcs");
+    auto s2 = streamerManager->build(birthDate, "oscar ESteves", "biroadsadiro", "kekwjkaishduxyfasv");
+    auto s3 = streamerManager->build(birthDate, "Paulo Costa", "vespa", "kdfiocjikcs");
+    auto s4 = streamerManager->build(birthDate, "Carlos ESteves", "dustibo", "jkcdhusgvbcs");
     streamManager->build("jebcnhuwbwiu",PT_PT,18,PUBLIC, COOKING, s1);
     streamManager->build("esfw",AZ,10,PUBLIC, COOKING, s2);
     streamManager->build("asd",EN,15,PRIVATE, GAMING, s3);
