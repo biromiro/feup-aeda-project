@@ -9,7 +9,7 @@
 #include <vector>
 #include <memory>
 #include<type_traits>
-#include "../../stream/stream.h"
+#include "../../model/stream/stream.h"
 #include "../date/date.h"
 #include <ostream>
 

@@ -1,7 +1,7 @@
 #include <iostream>
-#include "./stream/stream.h"
-#include "./user/user.h"
-#include "./streamZ/streamZ.h"
+#include "./model/stream/stream.h"
+#include "./model/user/user.h"
+#include "./model/streamZ/streamZ.h"
 #include "./utils/date/date.h"
 #include "fstream"
 
