@@ -78,7 +78,9 @@ int main() {
 	    }
     #endif
 
-    UIManager twitchUI;
+    StreamZ twitch = StreamZ();
+        CurrentSession currentSession =  CurrentSession(twitch.getUserManager());
+        UIManager twitchUI(twitch, currentSession);
 
     twitchUI.setCurrent(new InitialPage(twitchUI));
     twitchUI.run();

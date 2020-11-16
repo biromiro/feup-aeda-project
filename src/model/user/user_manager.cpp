@@ -46,3 +46,4 @@ std::shared_ptr<User> UserManager::get(std::string nickname) const {
 std::unordered_set<std::shared_ptr<User>> UserManager::getUsers() const {
     return users;
 }
+

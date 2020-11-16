@@ -22,20 +22,20 @@ enum class CurrentView{
 
 class UIManager{
 public:
-    UIManager();
+    UIManager(StreamZ& platform, CurrentSession& currentSession);
 
-    const StreamZ &getPlatform() const;
+    StreamZ &getPlatform() const;
 
-    const CurrentSession &getCurrentSession() const;
+    CurrentSession &getCurrentSession() const;
 
-    UI *getCurrentUi() const;
+    UI *getCurrentUI() const;
 
     void run() const;
 
     void setCurrent(UI* ui);
 private:
-    StreamZ platform;
-    CurrentSession currentSession;
+    StreamZ& platform;
+    CurrentSession& currentSession;
     UI* currentUI = nullptr;
 };
 

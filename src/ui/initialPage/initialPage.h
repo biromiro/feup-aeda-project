@@ -6,6 +6,8 @@
 #define PROJECT_INITIALPAGE_H
 
 #include "../ui_manager.h"
+#include "../loginPage/loginPage.h"
+#include "../registerPage/registerPage.h"
 
 class InitialPage : public UI{
 public:

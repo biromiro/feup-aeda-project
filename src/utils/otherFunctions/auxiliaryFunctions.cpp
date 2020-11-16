@@ -4,6 +4,8 @@
 
 
 
+#include <algorithm>
+#include <sstream>
 #include "auxiliaryFunctions.h"
 
 static struct termios old, current;
@@ -41,4 +43,23 @@ char getch_(int echo)
 char getch(void)
 {
     return getch_(0);
+}
+
+bool is_number(const std::string& s)
+{
+    return !s.empty() && std::find_if(s.begin(),
+                                      s.end(), [](unsigned char c) { return !std::isdigit(c); }) == s.end();
+}
+
+unsigned int inputNumber(){
+    unsigned int num = 0;
+    std::string str = "";
+    getline(std::cin,str);
+    if(is_number(str)){
+        std::stringstream strs(str);
+        strs >> num;
+        return num;
+    }else{
+        return 0;
+    }
 }

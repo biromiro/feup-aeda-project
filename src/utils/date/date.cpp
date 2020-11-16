@@ -143,7 +143,7 @@ bool Date::isValid() const {
     unsigned int days = numberOfDays(year,month);
     if(day<0 || day>days)
         return false;
-    else return !(month < 0 || month > 12) && year >= 0;
+    else return !(month < 0 || month > 12) && (*this < Date()) && year >= 1900;
 }
 
 bool Date::isEqualTo(const Date &date) const {
