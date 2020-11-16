@@ -5,9 +5,9 @@
 #include "privateStream.h"
 #include "../../user/viewer/viewer.h"
 
-PrivateStream::PrivateStream() : Stream(PRIVATE){}
+PrivateStream::PrivateStream() : Stream(StreamType::PRIVATE){}
 
-PrivateStream::PrivateStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamGenre genre, std::shared_ptr<Streamer> streamer): Stream(std::move(title), lang, minAge, PRIVATE, genre, streamer){};
+PrivateStream::PrivateStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamGenre genre, std::shared_ptr<Streamer> streamer): Stream(std::move(title), lang, minAge, StreamType::PRIVATE, genre, streamer){};
 
 enum StreamType PrivateStream::getStreamType() const { return type; }
 

@@ -13,14 +13,14 @@ std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLangu
     if(streamer->isStreaming())
         return nullptr;
     switch(type) {
-        case PRIVATE: {
+        case StreamType::PRIVATE: {
             auto prv_stream = std::make_shared<PrivateStream>(title, lang, minAge, genre, streamer);
             auto stream_form = std::dynamic_pointer_cast<Stream>(prv_stream);
             add(stream_form);
             streamer->setStream(stream_form);
             return stream_form;
         }
-        case PUBLIC: {
+        case StreamType::PUBLIC: {
             auto pbl_stream = std::make_shared<PublicStream>(title, lang, minAge, genre, streamer);
             auto stream_form = std::dynamic_pointer_cast<Stream>(pbl_stream);
             add(stream_form);
@@ -34,12 +34,12 @@ std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLangu
 
 bool StreamManager::add(std::shared_ptr<Stream> streamToAdd) {
     if ((std::find(cacheOfFinishedStreams.begin(), cacheOfFinishedStreams.end(), streamToAdd) == cacheOfFinishedStreams.end())
-    && streamToAdd->getStreamType() == FINISHED){
+    && streamToAdd->getStreamType() == StreamType::FINISHED){
         cacheOfFinishedStreams.push_back(streamToAdd);
         return true;
     }
     else if (std::find(streams.begin(), streams.end(), streamToAdd) == streams.end()
-    && streamToAdd->getStreamType() != FINISHED){
+    && streamToAdd->getStreamType() != StreamType::FINISHED){
         streams.push_back(streamToAdd);
         return true;
     }
@@ -74,7 +74,7 @@ std::shared_ptr<Stream> StreamManager::get(unsigned int streamID) {
 }
 
 std::shared_ptr<FinishedStream> StreamManager::finish(const std::shared_ptr<Stream>& streamToFinish) {
-    if(streamToFinish->getStreamType() == FINISHED)
+    if(streamToFinish->getStreamType() == StreamType::FINISHED)
         return nullptr;
     if(!remove(streamToFinish)) return nullptr;
     auto res = std::make_shared<FinishedStream>(streamToFinish->getTitle(),streamToFinish->getLanguage(), streamToFinish->getMinAge(),
@@ -120,13 +120,13 @@ bool StreamManager::readData() {
     while (streamsSize--){
         file >> type;
         switch (type) {
-            case PUBLIC: {
+            case StreamType::PUBLIC: {
                 std::shared_ptr<PublicStream> newPublicStream = std::make_shared<PublicStream>();
                 newPublicStream->readData(file, streamerManager);
                 add(newPublicStream);
                 break;
             }
-            case PRIVATE: {
+            case StreamType::PRIVATE: {
                 std::shared_ptr<PrivateStream> newPrivateStream = std::make_shared<PrivateStream>();
                 newPrivateStream->readData(file, streamerManager);
                 add(newPrivateStream);
@@ -161,13 +161,13 @@ bool StreamManager::writeData() {
 
     for (const auto &elem: streams) {
         switch (elem->getStreamType()) {
-            case PRIVATE:{
+            case StreamType::PRIVATE:{
                 file << "PRIVATE" << "\n";
                 auto privateStream = std::dynamic_pointer_cast<PrivateStream>(elem);
                 privateStream->writeData(file);
                 break;
             }
-            case PUBLIC: {
+            case StreamType::PUBLIC: {
                 file << "PUBLIC" << "\n";
                 auto publicStream = std::dynamic_pointer_cast<PublicStream>(elem);
                 publicStream->writeData(file);

@@ -47,7 +47,7 @@ bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback) {
 }
 
 bool Viewer::giveFeedbackToStream(const std::string& comment) {
-    if(isWatchingStream() && currentStream->getStreamType() == PRIVATE ){
+    if(isWatchingStream() && currentStream->getStreamType() == StreamType::PRIVATE ){
         auto currentStreamPrivate = std::dynamic_pointer_cast<PrivateStream>(currentStream);
         currentStreamPrivate->addComment(comment);
         return true;

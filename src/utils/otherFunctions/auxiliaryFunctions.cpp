@@ -2,12 +2,11 @@
 // Created by biromiro on 15/11/20.
 //
 
-
-
 #include <algorithm>
 #include <sstream>
 #include "auxiliaryFunctions.h"
 
+#ifdef TERMIOS_GETCH
 static struct termios old, current;
 
 /* Initialize new terminal i/o settings */
@@ -44,6 +43,8 @@ char getch(void)
 {
     return getch_(0);
 }
+#endif
+
 
 bool is_number(const std::string& s)
 {

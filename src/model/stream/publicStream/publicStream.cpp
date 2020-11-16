@@ -4,9 +4,9 @@
 
 #include "publicStream.h"
 
-PublicStream::PublicStream() : Stream(PUBLIC){}
+PublicStream::PublicStream() : Stream(StreamType::PUBLIC){}
 
-PublicStream::PublicStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamGenre genre, std::shared_ptr<Streamer> streamer): Stream(std::move(title), lang, minAge, PUBLIC, genre, streamer){}
+PublicStream::PublicStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamGenre genre, std::shared_ptr<Streamer> streamer): Stream(std::move(title), lang, minAge, StreamType::PUBLIC, genre, streamer){}
 
 enum StreamType PublicStream::getStreamType() const {
     return type;

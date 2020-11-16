@@ -13,8 +13,8 @@ using testing::Eq;
 TEST(finishedStream, getters) {
     Date birthDate(1985,05,26);
     Streamer streamer1(birthDate, "Jogador Silva", "xXjogadorXx", "ijnaiuadsas");
-    FinishedStream stream1("Epic LoL Stream", EN, 13, GAMING, std::make_shared<Streamer>(streamer1), 500);
+    FinishedStream stream1("Epic LoL Stream", StreamLanguage::EN, 13, StreamGenre::GAMING, std::make_shared<Streamer>(streamer1), 500);
     std::shared_ptr<FinishedStream> stream1_ptr = std::make_shared<FinishedStream>(stream1);
-    EXPECT_EQ(stream1_ptr->getStreamType(), FINISHED);
+    EXPECT_EQ(stream1_ptr->getStreamType(), StreamType::FINISHED);
     EXPECT_EQ(stream1_ptr->getNumOfViews(), 500);
 }

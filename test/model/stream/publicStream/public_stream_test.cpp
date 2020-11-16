@@ -12,7 +12,7 @@ TEST(publicStream, constructor){
     Date birthDate(1985,05,26);
     Streamer streamer1(birthDate, "Jogador Silva", "xXjogadorXx", "ansjabdnsijouas");
     PublicStream stream_no_args;
-    PublicStream stream1("Epic LoL Stream", EN, 13, GAMING, std::make_shared<Streamer>(streamer1));
+    PublicStream stream1("Epic LoL Stream", StreamLanguage::EN, 13, StreamGenre::GAMING, std::make_shared<Streamer>(streamer1));
     EXPECT_EQ(stream_no_args.getStreamType(), StreamType::PUBLIC);
     EXPECT_EQ(stream1.getStreamType(), StreamType::PUBLIC);
 }

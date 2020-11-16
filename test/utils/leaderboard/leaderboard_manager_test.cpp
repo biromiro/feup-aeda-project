@@ -31,7 +31,7 @@ TEST(leaderboard_manager, sorts){
     viewerManager->build(birthDate,"André Pereira","dustibo", "hehasdksa");
     streamerManager->build(birthDate, "Nuno Costa", "biromiro", "dljekfchds");
     auto s = streamerManager->build(birthDate, "oscar ESteves", "biroadsadiro", "fhikcdhcguvds");
-    streamManager->build("jebcnhuwbwiu",PT_PT,18,PUBLIC,COOKING,s);
+    streamManager->build("jebcnhuwbwiu",StreamLanguage::PT_PT,18,StreamType::PUBLIC,StreamGenre::COOKING,s);
 
     auto streamers = leaderboardManager->sortStreamers();
     std::cout << streamers;
@@ -52,9 +52,9 @@ TEST(leaderboard_manager, filters){
     auto s2 = streamerManager->build(birthDate, "oscar ESteves", "biroadsadiro", "kekwjkaishduxyfasv");
     auto s3 = streamerManager->build(birthDate, "Paulo Costa", "vespa", "kdfiocjikcs");
     auto s4 = streamerManager->build(birthDate, "Carlos ESteves", "dustibo", "jkcdhusgvbcs");
-    streamManager->build("jebcnhuwbwiu",PT_PT,18,PUBLIC, COOKING, s1);
-    streamManager->build("esfw",AZ,10,PUBLIC, COOKING, s2);
-    streamManager->build("asd",EN,15,PRIVATE, GAMING, s3);
+    streamManager->build("jebcnhuwbwiu",StreamLanguage::PT_PT,18,StreamType::PUBLIC, StreamGenre::COOKING, s1);
+    streamManager->build("esfw",StreamLanguage::AZ,10,StreamType::PUBLIC, StreamGenre::COOKING, s2);
+    streamManager->build("asd",StreamLanguage::EN,15,StreamType::PRIVATE, StreamGenre::GAMING, s3);
 
     auto streamers = leaderboardManager->sortStreamers();
     std::cout << streamers;

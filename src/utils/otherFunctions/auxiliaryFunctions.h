@@ -5,7 +5,16 @@
 #ifndef PROJECT_AUXILIARYFUNCTIONS_H
 #define PROJECT_AUXILIARYFUNCTIONS_H
 
+#ifdef _WIN32
+#define CONIO_GETCH
+#include <conio.h>
+#endif
+
+#ifdef __linux__
+#define TERMIOS_GETCH
 #include <termios.h>
+#endif
+
 #include <stdio.h>
 #include <iostream>
 
@@ -26,10 +35,12 @@ constexpr const char *SHOW_CURSOR = "\x1b[?25h";
 constexpr const char *GO_TO_TOP = "\033[1;1H";
 constexpr const char *ESC = "\033";
 
+#ifdef TERMIOS_GETCH
 void initTermios(int echo);
 void resetTermios(void);
 char getch_(int echo);
 char getch(void);
+#endif
 bool is_number(const std::string& s);
 unsigned int inputNumber();
 

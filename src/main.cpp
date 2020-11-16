@@ -11,6 +11,7 @@
 #define MY_UNICODE
 #include <windows.h>
 #include <wincon.h>
+#include <conio.h>
 
 #ifndef DISABLE_NEWLINE_AUTO_RETURN
 #define DISABLE_NEWLINE_AUTO_RETURN 0x0008
@@ -72,7 +73,7 @@ int main() {
         if (!setUpConsole()) {
 		    std::cerr << "\n Something went wrong setting up the console. The display is compromised, please check the code." << std::endl;
 		    std::cout << "\n Press any key to leave.";
-		    if (char pressedKey = (char)_getch()) {
+		    if (char pressedKey = (char)getch()) {
 			    return (-1);
 		    }
 	    }
