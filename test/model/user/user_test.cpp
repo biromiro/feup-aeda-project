@@ -17,7 +17,7 @@ TEST(user, get_age){
     Admin admin(birthDate3, "Úrsula Maior", "urmaior", "kekw120");
     EXPECT_EQ(viewer.getAge(), 13);
     EXPECT_EQ(streamer.getAge(), 19);
-    EXPECT_EQ(admin.getAge(), 50);
+    EXPECT_EQ(admin.getAge(), 51);
 }
 
 TEST(user, get_name){
