@@ -25,9 +25,9 @@ TEST(stream, getNumOfViewers){
     Date birthDate1("1999/06/09"), birthDate2("2000/02/26");
     Streamer streamer1(birthDate1, "Oskar ÚltimoNome", "Autofeito", "olaamego");
     Streamer streamer2(birthDate2, "Homem Baseado", "Base", "muitofixemeu");
-    auto stream1 = std::dynamic_pointer_cast<PublicStream>(sm1->build("Epic LoL Stream", EN, 13, PUBLIC, GAMING, std::make_shared<Streamer>(streamer1)));
-    auto stream2 = std::dynamic_pointer_cast<PrivateStream>(sm1->build("Based Games", EN, 18, PRIVATE, GAMING, std::make_shared<Streamer>(streamer2)));
-    FinishedStream stream3 ("?????", PT_PT, 10, COOKING, std::make_shared<Streamer>(streamer2), 50);
+    auto stream1 = std::dynamic_pointer_cast<PublicStream>(sm1->build("Epic LoL Stream", StreamLanguage::EN, 13, StreamType::PUBLIC, StreamGenre::GAMING, std::make_shared<Streamer>(streamer1)));
+    auto stream2 = std::dynamic_pointer_cast<PrivateStream>(sm1->build("Based Games", StreamLanguage::EN, 18,  StreamType::PRIVATE, StreamGenre::GAMING, std::make_shared<Streamer>(streamer2)));
+    FinishedStream stream3 ("?????", StreamLanguage::PT_PT, 10, StreamGenre::COOKING, std::make_shared<Streamer>(streamer2), 50);
     auto viewer1 = vm1->build(birthDate2,"Visualizador Não Pog","Pogn't", "adknjsada");
     auto viewer2 = vm1->build(birthDate1,"Visualizador Pog","Pog", "hjkoasiodhnoaisd");
     viewer1->joinStream(stream1);

@@ -74,7 +74,7 @@ TEST(privateStream, canJoin){
     Date birthDate1("1999/06/09"), birthDate2("2000/02/26");
     auto streamer1 = stm1->build(birthDate1, "Oskar ÚltimoNome", "Autofeito", "jknadjkhnasida");
     auto streamer2 = stm1->build(birthDate2, "Homem Baseado", "Base", "knajkodhnaisda");
-    auto stream1 = std::dynamic_pointer_cast<PrivateStream>(sm1->build("Epic LoL Stream", EN, 13, PRIVATE, GAMING, streamer1));
+    auto stream1 = std::dynamic_pointer_cast<PrivateStream>(sm1->build("Epic LoL Stream", StreamLanguage::EN, 13, StreamType::PRIVATE, StreamGenre::GAMING, streamer1));
     auto viewer1 = vm1->build(birthDate2,"Visualizador Não Pog","Pogn't", "inasjkbndaisda");
     auto viewer2 = vm1->build(birthDate1,"Visualizador Pog","Pog", "knadiuohsndas");
     stream1->setMaxNumViewers(275);

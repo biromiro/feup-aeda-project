@@ -124,8 +124,8 @@ TEST(streamManager, getNumOfViewers){
     auto viewer1 = vm1->build(birthDate2,"Visualizador Não Pog","Pogn't", "ajnsioadsa");
     auto viewer2 = vm1->build(birthDate1,"Visualizador Pog","Pog", "dkmadnas");
     auto viewer3 = vm1->build(birthDate3,"Visualizador Pog 2","Pog 2", "knasdxaasw");
-    auto stream1 = std::dynamic_pointer_cast<PublicStream>(sm1->build("Epic LoL Stream", EN, 13, PUBLIC, GAMING, streamer1));
-    auto stream2 = std::dynamic_pointer_cast<PrivateStream>(sm1->build("Based Games", EN, 18, PRIVATE, GAMING, streamer2));
+    auto stream1 = std::dynamic_pointer_cast<PublicStream>(sm1->build("Epic LoL Stream", StreamLanguage::EN, 13, StreamType::PUBLIC, StreamGenre::GAMING, streamer1));
+    auto stream2 = std::dynamic_pointer_cast<PrivateStream>(sm1->build("Based Games", StreamLanguage::EN, 18, StreamType::PRIVATE, StreamGenre::GAMING, streamer2));
     stream2->setMaxNumViewers(10);
     stream2->addToWhitelist(viewer1);
     stream2->addToWhitelist(viewer2);
