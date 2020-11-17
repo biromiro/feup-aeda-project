@@ -4,12 +4,12 @@
 
 #include "streamView.h"
 
-streamView::streamView(UIManager &uiManager) : uiManager(uiManager){}
+StreamView::StreamView(UIManager &uiManager) : uiManager(uiManager){}
 
-void streamView::run() {
+void StreamView::run() {
 
 }
 
-void streamView::pageOutput() const {
+void StreamView::pageOutput() const {
 
 }

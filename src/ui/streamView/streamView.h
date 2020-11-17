@@ -8,9 +8,9 @@
 #include "../ui_manager.h"
 #include "../initialPage/initialPage.h"
 
-class streamView : public UI{
+class StreamView : public UI{
 public:
-    explicit streamView(UIManager& uiManager);
+    explicit StreamView(UIManager& uiManager);
     void run() override;
 private:
     UIManager& uiManager;

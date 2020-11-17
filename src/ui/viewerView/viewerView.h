@@ -7,6 +7,7 @@
 
 #include "../ui_manager.h"
 #include "../initialPage/initialPage.h"
+#include "../streamView/streamView.h"
 
 class ViewerView : public UI{
 public:

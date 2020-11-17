@@ -44,7 +44,24 @@ void ViewerView::pageOutput() const {
 }
 
 void ViewerView::chooseStream() {
-
+    std::cout << CLEAR_SCREEN << GO_TO_TOP << HIDE_CURSOR;
+    pageOutput();
+    auto user = uiManager.getCurrentSession().getCurrentUser();
+    /*auto thisViewer = std::dynamic_pointer_cast<Viewer>(user);
+    if(thisViewer->isWatchingStream()){
+        std::cout << "You are already watching a stream! Redirecting..." << std::endl;
+        getch();
+    } else {
+        unsigned int streamID;
+        std::cout << "Please input the streamID of which you wish to join: " << SHOW_CURSOR << std::endl;
+        streamID = inputNumber();
+        auto streamToJoin = uiManager.getPlatform().getStreamManager()->get(streamID);
+        if(streamToJoin != nullptr){
+            thisViewer->joinStream(streamToJoin);
+        }
+    }*/
+    uiManager.setCurrent(new StreamView(uiManager));
+    uiManager.run();
 }
 
 void ViewerView::searchNewStreamers() {
