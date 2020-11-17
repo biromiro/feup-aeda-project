@@ -43,6 +43,13 @@ public:
      */
     enum StreamType getStreamType() const override;
 
+    /**
+     * Getter of the ID the stream had when active
+     *
+     * @return ID the stream had when active
+     */
+    unsigned int getID() const;
+
     void readData(std::ifstream& ifs, std::shared_ptr<StreamerManager> streamerManager);
 
     void writeData(std::ofstream& ofs);

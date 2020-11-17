@@ -81,7 +81,7 @@ add_executable(application
         utils/leaderboard/leaderboard.h
         utils/leaderboard/leaderboard_manager.h
         utils/leaderboard/leaderboard_manager.cpp
-        model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h)
+        model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h exception/invalidFeedback.cpp exception/invalidFeedback.h)
 
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

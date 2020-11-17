@@ -15,6 +15,8 @@ enum StreamType FinishedStream::getStreamType() const { return type; }
 
 unsigned int FinishedStream::getNumOfViews() const { return numOfViews; }
 
+unsigned int FinishedStream::getID() const { return id; }
+
 void FinishedStream::readData(std::ifstream &ifs, std::shared_ptr<StreamerManager> streamerManager) {
     ifs >> numOfViews;
     Stream::readData(ifs, streamerManager);

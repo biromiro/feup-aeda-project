@@ -7,6 +7,7 @@
 #include <utility>
 #include "../../model/user/streamer/streamer_manager.h"
 #include <unordered_map>
+#include "../../exception/invalidFeedback.h"
 
 unsigned int Stream::nextID = 0;
 
@@ -45,7 +46,7 @@ bool Stream::addFeedback(enum FeedbackLikeSystem feedback) {
     else if(feedback == FeedbackLikeSystem::DISLIKE)
         votingSystem.second++;
     else
-        return false;
+        throw InvalidFeedback(feedback, "You can only LIKE or DISLIKE a stream!");
     return true;
 }
 
