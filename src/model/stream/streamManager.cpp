@@ -78,7 +78,7 @@ std::shared_ptr<FinishedStream> StreamManager::finish(const std::shared_ptr<Stre
         return nullptr;
     if(!remove(streamToFinish)) return nullptr;
     auto res = std::make_shared<FinishedStream>(streamToFinish->getTitle(),streamToFinish->getLanguage(), streamToFinish->getMinAge(),
-                                                streamToFinish->getGenre(), streamToFinish->getStreamer(), getNumOfViewers(streamToFinish));
+                                                streamToFinish->getGenre(), streamToFinish->getStreamer(), getNumOfViewers(streamToFinish), streamToFinish->getUniqueId());
     for(const auto& elem: viewerManager->getViewers()){
         if(elem->getCurrentStream() == streamToFinish)
             elem->leaveCurrentStream();
