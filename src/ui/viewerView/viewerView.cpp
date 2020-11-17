@@ -40,14 +40,14 @@ void ViewerView::pageOutput() const {
     std::cout << "1 - Choose a stream to watch!" << std::endl;
     std::cout << "2 - Search for new streamers" << std::endl;
     std::cout << "3 - Who am I following?" << std::endl;
-    std::cout << "0 - Logout - " << std::endl;
+    std::cout << "0 - Logout" << std::endl;
 }
 
 void ViewerView::chooseStream() {
     std::cout << CLEAR_SCREEN << GO_TO_TOP << HIDE_CURSOR;
     pageOutput();
     auto user = uiManager.getCurrentSession().getCurrentUser();
-    /*auto thisViewer = std::dynamic_pointer_cast<Viewer>(user);
+    auto thisViewer = uiManager.getPlatform().getViewerManager()->get(user->getNickname());
     if(thisViewer->isWatchingStream()){
         std::cout << "You are already watching a stream! Redirecting..." << std::endl;
         getch();
@@ -59,7 +59,7 @@ void ViewerView::chooseStream() {
         if(streamToJoin != nullptr){
             thisViewer->joinStream(streamToJoin);
         }
-    }*/
+    }
     uiManager.setCurrent(new StreamView(uiManager));
     uiManager.run();
 }
