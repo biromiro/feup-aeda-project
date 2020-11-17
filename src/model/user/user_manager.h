@@ -7,6 +7,7 @@
 #include <unordered_set>
 #include "user.h"
 #include "memory"
+#include "admin/admin.h"
 #include <fstream>
 
 class UserManager{
@@ -24,6 +25,8 @@ public:
      * @return True if the action was successful, false otherwise
      */
     bool add(const std::shared_ptr<User>& user);
+
+    void setAdmin(const std::shared_ptr<Admin> &admin);
 
     /**
      * Removes a user from the users unordered set

@@ -40,9 +40,9 @@ std::shared_ptr<Streamer> Stream::getStreamer() const { return streamer; }
 std::pair<unsigned int, unsigned int> Stream::getVotes() const { return votingSystem; }
 
 bool Stream::addFeedback(enum FeedbackLikeSystem feedback) {
-    if(feedback == LIKE)
+    if(feedback == FeedbackLikeSystem::LIKE)
         votingSystem.first++;
-    else if(feedback == DISLIKE)
+    else if(feedback == FeedbackLikeSystem::DISLIKE)
         votingSystem.second++;
     else
         return false;
@@ -144,27 +144,27 @@ void Stream::writeData(std::ofstream &ofs) {
     ofs << uniqueID << "\n";
     ofs << language << "\n";
     switch (type) {
-        case PUBLIC:
+        case StreamType::PUBLIC:
             ofs << "PUBLIC" << "\n";
             break;
-        case PRIVATE:
+        case StreamType::PRIVATE:
             ofs << "PRIVATE" << "\n";
             break;
-        case FINISHED:
+        case StreamType::FINISHED:
             ofs << "FINISHED" << "\n";
             break;
     }
     switch (genre) {
-        case GAMING:
+        case StreamGenre::GAMING:
             ofs << "GAMING" << "\n";
             break;
-        case COOKING:
+        case StreamGenre::COOKING:
             ofs << "COOKING" << "\n";
             break;
-        case TALKSHOW:
+        case StreamGenre::TALKSHOW:
             ofs << "TALKSHOW" << "\n";
             break;
-        case MUSIC:
+        case StreamGenre::MUSIC:
             ofs << "MUSIC" << "\n";
             break;
     }
@@ -188,22 +188,29 @@ void Stream::viewerLeft() {
 }
 
 std::ostream& operator<<(std::ostream& out, const StreamLanguage& f) {
-    std::array<std::string,80> e{{"AF","AR","AZ","BE","BG","CA","CZ","CY","DA","DE","EL","EN",
-                                    "EO","ES","ET","EU","FA","FI","FO","FR","GL","GU","HE","HI",
-                                    "HR","HU","HY","ID","IS","IT","JA","KA","KK","KN","KO","KOK",
-                                    "KY","LT","LV","MI ","MK","MN","MR", "MS","MT","NB","NL","NN",
-                                    "NS","PA","PL","PS","PT_BR","PT_PT","QU","RO","RU","SA","SE",
-                                    "SK","SL","SQ","SR","SV","SW","SYR","TA","TE","TH","TL","TN",
-                                    "TR","TT","TS","UK","UR","UZ","YI","XH","ZH"}};
-    out << e.at(f);
+    std::string returnValue;
+    std::unordered_map<std::string,StreamLanguage> const table{{"AF",StreamLanguage::AF},{"AR",StreamLanguage::AR},{"AZ",StreamLanguage::AZ},{"BE",StreamLanguage::BE},{"BG",StreamLanguage::BG},{"CA",StreamLanguage::CA},{"CZ",StreamLanguage::CZ},{"CY",StreamLanguage::CY},{"DA",StreamLanguage::DA},{"DE",StreamLanguage::DE},{"EL",StreamLanguage::EL},{"EN",StreamLanguage::EN},
+                                                               {"EO",StreamLanguage::EO},{"ES",StreamLanguage::ES},{"ET",StreamLanguage::ET},{"EU",StreamLanguage::EU},{"FA",StreamLanguage::FA},{"FI",StreamLanguage::FI},{"FO",StreamLanguage::FO},{"FR",StreamLanguage::FR},{"GL",StreamLanguage::GL},{"GU",StreamLanguage::GU},{"HE",StreamLanguage::HE},{"HI",StreamLanguage::HI},
+                                                               {"HR",StreamLanguage::HR},{"HU",StreamLanguage::HU},{"HY",StreamLanguage::HY},{"ID",StreamLanguage::ID},{"IS",StreamLanguage::IS},{"IT",StreamLanguage::IT},{"JA",StreamLanguage::JA},{"KA",StreamLanguage::KA},{"KK",StreamLanguage::KK},{"KN",StreamLanguage::KN},{"KO",StreamLanguage::KO},{"KOK",StreamLanguage::KOK},
+                                                               {"KY",StreamLanguage::KY},{"LT",StreamLanguage::LT},{"LV",StreamLanguage::LV},{"MI",StreamLanguage::MI},{"MK",StreamLanguage::MK},{"MN",StreamLanguage::MN},{"MR",StreamLanguage::MR}, {"MS",StreamLanguage::MS},{"MT",StreamLanguage::MT},{"NB",StreamLanguage::NB},{"NL",StreamLanguage::NL},{"NN",StreamLanguage::NN},
+                                                               {"NS",StreamLanguage::NS},{"PA",StreamLanguage::PA},{"PL",StreamLanguage::PL},{"PS",StreamLanguage::PS},{"PT_BR",StreamLanguage::PT_BR},{"PT_PT",StreamLanguage::PT_PT},{"QU",StreamLanguage::QU},{"RO",StreamLanguage::RO},{"RU",StreamLanguage::RU},{"SA",StreamLanguage::SA},{"SE",StreamLanguage::SE},
+                                                               {"SK",StreamLanguage::SK},{"SL",StreamLanguage::SL},{"SQ",StreamLanguage::SQ},{"SR",StreamLanguage::SR},{"SV",StreamLanguage::SV},{"SW",StreamLanguage::SW},{"SYR",StreamLanguage::SYR},{"TA",StreamLanguage::TA},{"TE",StreamLanguage::TE},{"TH",StreamLanguage::TH},{"TL",StreamLanguage::TL},{"TN",StreamLanguage::TN},
+                                                               {"TR",StreamLanguage::TR},{"TT",StreamLanguage::TT},{"TS",StreamLanguage::TS},{"UK",StreamLanguage::UK},{"UR",StreamLanguage::UR},{"UZ",StreamLanguage::UZ},{"YI",StreamLanguage::YI},{"XH",StreamLanguage::XH},{"ZH",StreamLanguage::ZH}};
+    for(const auto& elem: table){
+        if(elem.second == f) {
+            returnValue = elem.first;
+            break;
+        }
+    }
+    out << returnValue;
     return out;
 }
 
 std::ostream& operator<<(std::ostream& out, const StreamType& f) {
     switch (f) {
-        case PUBLIC: out << "Public"; break;
-        case PRIVATE: out << "Private"; break;
-        case FINISHED: out << "Finished"; break;
+        case StreamType::PUBLIC: out << "Public"; break;
+        case StreamType::PRIVATE: out << "Private"; break;
+        case StreamType::FINISHED: out << "Finished"; break;
         default: out << int(f); break;
     }
     return out;
@@ -211,10 +218,10 @@ std::ostream& operator<<(std::ostream& out, const StreamType& f) {
 
 std::ostream& operator<<(std::ostream& out, const StreamGenre& f) {
     switch (f) {
-        case MUSIC: out << "Music"; break;
-        case GAMING: out << "Gaming"; break;
-        case COOKING: out << "Cooking"; break;
-        case TALKSHOW: out << "Talkshow"; break;
+        case StreamGenre::MUSIC: out << "Music"; break;
+        case StreamGenre::GAMING: out << "Gaming"; break;
+        case StreamGenre::COOKING: out << "Cooking"; break;
+        case StreamGenre::TALKSHOW: out << "Talkshow"; break;
         default: out << int(f); break;
     }
     return out;
@@ -222,13 +229,13 @@ std::ostream& operator<<(std::ostream& out, const StreamGenre& f) {
 
 std::istream& operator>>(std::istream& inf, StreamLanguage& f){
     std::string language;
-    std::unordered_map<std::string,StreamLanguage> const table{{"AF",AF},{"AR",AR},{"AZ",AZ},{"BE",BE},{"BG",BG},{"CA",CA},{"CZ",CZ},{"CY",CY},{"DA",DA},{"DE",DE},{"EL",EL},{"EN",EN},
-                                                               {"EO",EO},{"ES",ES},{"ET",ET},{"EU",EU},{"FA",FA},{"FI",FI},{"FO",FO},{"FR",FR},{"GL",GL},{"GU",GU},{"HE",HE},{"HI",HI},
-                                                               {"HR",HR},{"HU",HU},{"HY",HY},{"ID",ID},{"IS",IS},{"IT",IT},{"JA",JA},{"KA",KA},{"KK",KK},{"KN",KN},{"KO",KO},{"KOK",KOK},
-                                                               {"KY",KY},{"LT",LT},{"LV",LV},{"MI",MI},{"MK",MK},{"MN",MN},{"MR",MR}, {"MS",MS},{"MT",MT},{"NB",NB},{"NL",NL},{"NN",NN},
-                                                               {"NS",NS},{"PA",PA},{"PL",PL},{"PS",PS},{"PT_BR",PT_BR},{"PT_PT",PT_PT},{"QU",QU},{"RO",RO},{"RU",RU},{"SA",SA},{"SE",SE},
-                                                               {"SK",SK},{"SL",SL},{"SQ",SQ},{"SR",SR},{"SV",SV},{"SW",SW},{"SYR",SYR},{"TA",TA},{"TE",TE},{"TH",TH},{"TL",TL},{"TN",TN},
-                                                               {"TR",TR},{"TT",TT},{"TS",TS},{"UK",UK},{"UR",UR},{"UZ",UZ},{"YI",YI},{"XH",XH},{"ZH",ZH}};
+    std::unordered_map<std::string,StreamLanguage> const table{{"AF",StreamLanguage::AF},{"AR",StreamLanguage::AR},{"AZ",StreamLanguage::AZ},{"BE",StreamLanguage::BE},{"BG",StreamLanguage::BG},{"CA",StreamLanguage::CA},{"CZ",StreamLanguage::CZ},{"CY",StreamLanguage::CY},{"DA",StreamLanguage::DA},{"DE",StreamLanguage::DE},{"EL",StreamLanguage::EL},{"EN",StreamLanguage::EN},
+                                                               {"EO",StreamLanguage::EO},{"ES",StreamLanguage::ES},{"ET",StreamLanguage::ET},{"EU",StreamLanguage::EU},{"FA",StreamLanguage::FA},{"FI",StreamLanguage::FI},{"FO",StreamLanguage::FO},{"FR",StreamLanguage::FR},{"GL",StreamLanguage::GL},{"GU",StreamLanguage::GU},{"HE",StreamLanguage::HE},{"HI",StreamLanguage::HI},
+                                                               {"HR",StreamLanguage::HR},{"HU",StreamLanguage::HU},{"HY",StreamLanguage::HY},{"ID",StreamLanguage::ID},{"IS",StreamLanguage::IS},{"IT",StreamLanguage::IT},{"JA",StreamLanguage::JA},{"KA",StreamLanguage::KA},{"KK",StreamLanguage::KK},{"KN",StreamLanguage::KN},{"KO",StreamLanguage::KO},{"KOK",StreamLanguage::KOK},
+                                                               {"KY",StreamLanguage::KY},{"LT",StreamLanguage::LT},{"LV",StreamLanguage::LV},{"MI",StreamLanguage::MI},{"MK",StreamLanguage::MK},{"MN",StreamLanguage::MN},{"MR",StreamLanguage::MR}, {"MS",StreamLanguage::MS},{"MT",StreamLanguage::MT},{"NB",StreamLanguage::NB},{"NL",StreamLanguage::NL},{"NN",StreamLanguage::NN},
+                                                               {"NS",StreamLanguage::NS},{"PA",StreamLanguage::PA},{"PL",StreamLanguage::PL},{"PS",StreamLanguage::PS},{"PT_BR",StreamLanguage::PT_BR},{"PT_PT",StreamLanguage::PT_PT},{"QU",StreamLanguage::QU},{"RO",StreamLanguage::RO},{"RU",StreamLanguage::RU},{"SA",StreamLanguage::SA},{"SE",StreamLanguage::SE},
+                                                               {"SK",StreamLanguage::SK},{"SL",StreamLanguage::SL},{"SQ",StreamLanguage::SQ},{"SR",StreamLanguage::SR},{"SV",StreamLanguage::SV},{"SW",StreamLanguage::SW},{"SYR",StreamLanguage::SYR},{"TA",StreamLanguage::TA},{"TE",StreamLanguage::TE},{"TH",StreamLanguage::TH},{"TL",StreamLanguage::TL},{"TN",StreamLanguage::TN},
+                                                               {"TR",StreamLanguage::TR},{"TT",StreamLanguage::TT},{"TS",StreamLanguage::TS},{"UK",StreamLanguage::UK},{"UR",StreamLanguage::UR},{"UZ",StreamLanguage::UZ},{"YI",StreamLanguage::YI},{"XH",StreamLanguage::XH},{"ZH",StreamLanguage::ZH}};
     getline(inf,language);
     auto it = table.find(language);
     if(it != table.end())
@@ -238,7 +245,7 @@ std::istream& operator>>(std::istream& inf, StreamLanguage& f){
 }
 std::istream& operator>>(std::istream& inf, StreamGenre& f){
     std::string genre;
-    std::unordered_map<std::string,StreamGenre> const table{{"MUSIC",MUSIC},{"GAMING",GAMING},{"COOKING",COOKING},{"TALKSHOW",TALKSHOW}};
+    std::unordered_map<std::string,StreamGenre> const table{{"MUSIC",StreamGenre::MUSIC},{"GAMING",StreamGenre::GAMING},{"COOKING",StreamGenre::COOKING},{"TALKSHOW",StreamGenre::TALKSHOW}};
     getline(inf,genre);
     auto it = table.find(genre);
     if(it != table.end())
@@ -248,7 +255,7 @@ std::istream& operator>>(std::istream& inf, StreamGenre& f){
 }
 std::istream& operator>>(std::istream& inf, StreamType& f){
     std::string type;
-    std::unordered_map<std::string,StreamType> const table{{"PRIVATE",PRIVATE},{"PUBLIC",PUBLIC},{"FINISHED",FINISHED}};
+    std::unordered_map<std::string,StreamType> const table{{"PRIVATE",StreamType::PRIVATE},{"PUBLIC",StreamType::PUBLIC},{"FINISHED",StreamType::FINISHED}};
     getline(inf,type);
     auto it = table.find(type);
     if(it != table.end())

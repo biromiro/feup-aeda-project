@@ -4,10 +4,10 @@
 
 #include "finishedStream.h"
 
-FinishedStream::FinishedStream() : Stream(FINISHED){}
+FinishedStream::FinishedStream() : Stream(StreamType::FINISHED){}
 
 FinishedStream::FinishedStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamGenre genre,
-                               std::shared_ptr<Streamer> streamer, unsigned int numOfViews): Stream(title,lang,minAge,FINISHED,genre,streamer), numOfViews(numOfViews){
+                               std::shared_ptr<Streamer> streamer, unsigned int numOfViews): Stream(title,lang,minAge,StreamType::FINISHED,genre,streamer), numOfViews(numOfViews){
 
 }
 

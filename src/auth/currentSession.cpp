@@ -27,3 +27,11 @@ bool CurrentSession::logout() {
     return false;
 }
 
+std::string CurrentSession::getNickname() const {
+    return currentUser->getNickname();
+}
+
+const std::shared_ptr<User> &CurrentSession::getCurrentUser() const {
+    return currentUser;
+}
+

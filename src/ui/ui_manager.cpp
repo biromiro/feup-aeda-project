@@ -4,9 +4,27 @@
 
 #include "ui_manager.h"
 
-UIManager::UIManager(){
-    platform = StreamZ();
+UIManager::UIManager(StreamZ& streamZ, CurrentSession& currentSession) : platform(streamZ), currentSession(currentSession) {
     platform.initialize();
-    currentSession = CurrentSession(platform.getUserManager());
+}
+
+void UIManager::run() const{
+    currentUI->run();
+}
+
+void UIManager::setCurrent(UI *ui) {
+    currentUI = ui;
+}
+
+StreamZ &UIManager::getPlatform() const {
+    return platform;
+}
+
+CurrentSession &UIManager::getCurrentSession() const {
+    return currentSession;
+}
+
+UI *UIManager::getCurrentUI() const {
+    return currentUI;
 }
 

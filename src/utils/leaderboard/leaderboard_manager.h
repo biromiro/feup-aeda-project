@@ -10,7 +10,7 @@
 #include "leaderboard.h"
 
 
-enum SortStream{
+enum class SortStream{
     MINIMUM_AGE,
     LANGUAGE,
     GENRE,
@@ -20,7 +20,7 @@ enum SortStream{
     TYPE
 };
 
-enum SortUser{
+enum class SortUser{
     NAME,
     NICKNAME,
     BIRTHDATE,
@@ -28,20 +28,20 @@ enum SortUser{
     USERTYPE
 };
 
-enum SortViewer{
-    NAME_V,
-    NICKNAME_V,
-    BIRTHDATE_V,
-    JOINDATE_V,
+enum class SortViewer{
+    NAME,
+    NICKNAME,
+    BIRTHDATE,
+    JOINDATE,
     WATCHING_STREAM,
     NUM_OF_WATCHED_STREAMS
 };
 
-enum SortStreamer{
-    NAME_S,
-    NICKNAME_S,
-    BIRTHDATE_S,
-    JOINDATE_S,
+enum class SortStreamer{
+    NAME,
+    NICKNAME,
+    BIRTHDATE,
+    JOINDATE,
     VIEWCOUNT,
     STREAMING,
     NUM_FOLLOWERS

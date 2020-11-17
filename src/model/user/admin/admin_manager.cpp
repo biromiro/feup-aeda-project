@@ -68,7 +68,8 @@ bool AdminManager::readData() {
 
     admin = std::make_shared<Admin>();
     admin->readData(file);
-
+    std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(admin);
+    userManager->add(user_form);
     file.close();
     return true;
 }

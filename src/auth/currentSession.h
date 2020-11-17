@@ -17,6 +17,10 @@ public:
     explicit CurrentSession(std::shared_ptr<UserManager> userManager);
     bool login(std::string nickname, std::string password);
     bool logout();
+
+    const std::shared_ptr<User> &getCurrentUser() const;
+
+    std::string getNickname() const;
 };
 
 #endif //PROJECT_CURRENTSESSION_H

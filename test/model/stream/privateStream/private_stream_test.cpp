@@ -16,7 +16,7 @@ TEST(privateStream, constructor){
     Date birthDate(1985,05,26);
     Streamer streamer1(birthDate, "Jogador Silva", "xXjogadorXx", "najkshndisakda");
     PrivateStream stream_no_args;
-    PrivateStream stream1("Epic LoL Stream", EN, 13, GAMING, std::make_shared<Streamer>(streamer1));
+    PrivateStream stream1("Epic LoL Stream", StreamLanguage::EN, 13, StreamGenre::GAMING, std::make_shared<Streamer>(streamer1));
     EXPECT_EQ(stream_no_args.getStreamType(), StreamType::PRIVATE);
     EXPECT_EQ(stream1.getStreamType(), StreamType::PRIVATE);
 }
@@ -27,8 +27,8 @@ TEST(privateStream, getWhitelist){
     Streamer streamer2(birthDate, "Funny Numbers Haha", "69420", "knadkonadsa");
     Viewer viewer1(birthDate, "Simp", "PokimaneLover", "knaskoja");
     Viewer viewer2(birthDate, "Simp2", "PokimaneLover2", "knodaijbnads");
-    PrivateStream stream1("Epic LoL Stream", EN, 13, GAMING, std::make_shared<Streamer>(streamer1));
-    PrivateStream stream2("Cringe LoL Stream", CZ, 21, GAMING, std::make_shared<Streamer>(streamer2));
+    PrivateStream stream1("Epic LoL Stream", StreamLanguage::EN, 13, StreamGenre::GAMING, std::make_shared<Streamer>(streamer1));
+    PrivateStream stream2("Cringe LoL Stream", StreamLanguage::CZ, 21, StreamGenre::GAMING, std::make_shared<Streamer>(streamer2));
     stream1.addToWhitelist(std::make_shared<Viewer>(viewer1));
     stream1.addToWhitelist(std::make_shared<Viewer>(viewer2));
     stream2.addToWhitelist(std::make_shared<Viewer>(viewer1));
@@ -45,7 +45,7 @@ TEST(privateStream, getMaxNumViewers){
     Date birthDate(1985,05,26);
     Streamer streamer1(birthDate, "Jogador Silva", "xXjogadorXx", "knasijkodhnas");
     PrivateStream stream_no_args;
-    PrivateStream stream1("Epic LoL Stream", EN, 13, GAMING, std::make_shared<Streamer>(streamer1));
+    PrivateStream stream1("Epic LoL Stream", StreamLanguage::EN, 13, StreamGenre::GAMING, std::make_shared<Streamer>(streamer1));
     stream_no_args.setMaxNumViewers(1000);
     stream1.setMaxNumViewers(275);
     EXPECT_EQ(stream_no_args.getMaxNumViewers(), 1000);
@@ -56,7 +56,7 @@ TEST(privateStream, getComments){
     Date birthDate(1985,05,26);
     Streamer streamer1(birthDate, "Jogador Silva", "xXjogadorXx", "kajshnasda");
     PrivateStream stream_no_args;
-    PrivateStream stream1("Epic LoL Stream", EN, 13, GAMING, std::make_shared<Streamer>(streamer1));
+    PrivateStream stream1("Epic LoL Stream", StreamLanguage::EN, 13, StreamGenre::GAMING, std::make_shared<Streamer>(streamer1));
     stream_no_args.addComment("WOW! This stream is so epic!!!");
     stream_no_args.addComment("How can I donate?");
     std::vector<std::string> expected_cm1 = {"WOW! This stream is so epic!!!", "How can I donate?"};

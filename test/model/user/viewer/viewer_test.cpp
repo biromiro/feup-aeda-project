@@ -33,7 +33,7 @@ TEST(viewer, constructor_test_invalid_age){
 TEST(viewer, joinStream){
     Date birthDate1(2000,11,18), birthDate2(2005,11,18);
     auto streamer = std::make_shared<Streamer>(birthDate1,"adasda adasda","ededfeqw", "sdasda");
-    auto stream = std::make_shared<PublicStream>("New Stream!",PT_PT,18,GAMING,streamer);
+    auto stream = std::make_shared<PublicStream>("New Stream!",StreamLanguage::PT_PT,18,StreamGenre::GAMING,streamer);
     auto viewer = std::make_shared<Viewer>(birthDate1,"André Moreira","Dustini", "dsfdfasdaq");
     auto viewer2 = std::make_shared<Viewer>(birthDate2,"Epic Man","epic", "nduijndoas");
     EXPECT_EQ(viewer->joinStream(std::dynamic_pointer_cast<Stream>(stream)),true);
@@ -43,7 +43,7 @@ TEST(viewer, joinStream){
 TEST(viewer, iswatchingstream_leave){
     Date birthDate1(2000,11,18), birthDate2(2005,11,18);
     auto streamer = std::make_shared<Streamer>(birthDate1,"adasda adasda","ededfeqw", "cdfjijssds");
-    auto stream = std::make_shared<PublicStream>("New Stream!",PT_PT,18, GAMING, streamer);
+    auto stream = std::make_shared<PublicStream>("New Stream!",StreamLanguage::PT_PT,18, StreamGenre::GAMING, streamer);
     auto viewer = std::make_shared<Viewer>(birthDate1,"André Moreira","Dustini", "iknsaidnasioda");
     auto viewer2 = std::make_shared<Viewer>(birthDate2,"Epic Man","epic", "knmakosdjna");
     EXPECT_EQ(viewer->isWatchingStream(),false);
@@ -59,19 +59,19 @@ TEST(viewer, iswatchingstream_leave){
 TEST(viewer, giveFeedback){
     Date birthDate1(2000,11,18), birthDate2(1998,11,18);
     auto streamer = std::make_shared<Streamer>(birthDate1,"adasda adasda","ededfeqw", "dsljiasdnias");
-    auto stream = std::make_shared<PublicStream>("New Stream!",PT_PT,18, GAMING,streamer);
+    auto stream = std::make_shared<PublicStream>("New Stream!",StreamLanguage::PT_PT,18, StreamGenre::GAMING,streamer);
     auto streamer2 = std::make_shared<Streamer>(birthDate1,"dsadsdasda","asdad", "ojsdijasdaswd");
-    auto stream2 = std::make_shared<PrivateStream>("New!",PT_BR,18, COOKING, streamer2);
+    auto stream2 = std::make_shared<PrivateStream>("New!",StreamLanguage::PT_BR,18, StreamGenre::COOKING, streamer2);
     auto viewer = std::make_shared<Viewer>(birthDate1,"André Moreira","Dustini", "aosjduijandas");
     auto viewer2 = std::make_shared<Viewer>(birthDate2,"Epic Man","epic", "iajsdiubhnasidas");
     stream2->addToWhitelist(viewer2);
     stream2->setMaxNumViewers(5);
-    EXPECT_EQ(viewer->giveFeedbackToStream(LIKE),false);
+    EXPECT_EQ(viewer->giveFeedbackToStream(FeedbackLikeSystem::LIKE),false);
     viewer->joinStream(std::dynamic_pointer_cast<Stream>(stream));
-    EXPECT_EQ(viewer->giveFeedbackToStream(LIKE),true);
+    EXPECT_EQ(viewer->giveFeedbackToStream(FeedbackLikeSystem::LIKE),true);
     EXPECT_EQ(viewer->giveFeedbackToStream("kekw"),false);
     EXPECT_EQ(viewer2->joinStream(std::dynamic_pointer_cast<Stream>(stream2)),true);
-    EXPECT_EQ(viewer2->giveFeedbackToStream(LIKE),true);
+    EXPECT_EQ(viewer2->giveFeedbackToStream(FeedbackLikeSystem::LIKE),true);
     EXPECT_EQ(viewer2->giveFeedbackToStream("kekw"),true);
 }
 

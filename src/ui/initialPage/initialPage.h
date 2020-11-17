@@ -5,10 +5,17 @@
 #ifndef PROJECT_INITIALPAGE_H
 #define PROJECT_INITIALPAGE_H
 
-#include "ui/ui_manager.h"
+#include "../ui_manager.h"
+#include "../loginPage/loginPage.h"
+#include "../registerPage/registerPage.h"
 
-class InitialPage{
-    InitialPage();
+class InitialPage : public UI{
+public:
+    explicit InitialPage(UIManager& uiManager);
+    void run() override;
+private:
+    UIManager& uiManager;
+    void pageOutput() const;
 };
 
 #endif //PROJECT_INITIALPAGE_H

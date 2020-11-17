@@ -18,7 +18,7 @@ class StreamerManager;
 /**
  * Defines the type of feedback that can be given to a stream
  */
-enum FeedbackLikeSystem{
+enum class FeedbackLikeSystem{
     LIKE,
     DISLIKE,
     INVALID_VOTE
@@ -27,7 +27,7 @@ enum FeedbackLikeSystem{
 /**
  * Defines what type of stream an instantiation of the Stream Class is
  */
-enum StreamType{
+enum class StreamType{
     PRIVATE,
     PUBLIC,
     FINISHED
@@ -36,7 +36,7 @@ enum StreamType{
 /**
  * Defines the genres a stream can be
  */
-enum StreamGenre{
+enum class StreamGenre{
     MUSIC,
     GAMING,
     COOKING,
@@ -46,7 +46,7 @@ enum StreamGenre{
 /**
  * Defines the languages a stream can be in
  */
-enum StreamLanguage{
+enum class StreamLanguage{
     AF, AR, AZ, BE, BG, CA, CZ, CY, DA, DE, EL, EN,
     EO, ES, ET, EU, FA ,FI, FO, FR, GL, GU, HE, HI,
     HR, HU, HY, ID, IS, IT, JA, KA, KK, KN, KO, KOK,

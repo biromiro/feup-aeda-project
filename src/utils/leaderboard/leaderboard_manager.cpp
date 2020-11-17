@@ -21,7 +21,7 @@ Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::filterStreamByLanguage(
     return Leaderboard<std::shared_ptr<Stream>>(newLB);
 }
 
-Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::filterStreamByGenre(enum StreamGenre genre){
+Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::filterStreamByGenre(StreamGenre genre){
     std::vector<std::shared_ptr<Stream>> newLB = streamManager->getStreams();
     newLB.insert(newLB.begin(),streamManager->getCacheOfFinishedStreams().begin(),streamManager->getCacheOfFinishedStreams().end());
     newLB.erase(std::remove_if(newLB.begin(),newLB.end(),[&genre](const std::shared_ptr<Stream>& stream){return stream->getGenre() != genre;}),newLB.end());
@@ -52,7 +52,7 @@ Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::filterStreamByDate(cons
 
 Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::filterStreamByType(enum StreamType type){
     std::vector<std::shared_ptr<Stream>> newLB;
-    if(type == FINISHED) {
+    if(type == StreamType::FINISHED) {
         newLB = streamManager->getCacheOfFinishedStreams();
         return Leaderboard<std::shared_ptr<Stream>>(newLB);
     }
@@ -119,25 +119,25 @@ Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::sortStreams(const Leade
 Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::sortStreamsBy(SortStream sorter) {
     std::vector<std::shared_ptr<Stream>> newLB = sortStreams().get();
     switch (sorter) {
-        case MINIMUM_AGE:
+        case SortStream::MINIMUM_AGE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getMinAge() < s2->getMinAge();});
             break;
-        case LANGUAGE:
+        case SortStream::LANGUAGE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getLanguage() < s2->getLanguage();});
             break;
-        case GENRE:
+        case SortStream::GENRE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getGenre() < s2->getGenre();});
             break;
-        case VIEWS:
+        case SortStream::VIEWS:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getNumOfViewers() < s2->getNumOfViewers();});
             break;
-        case LIKES:
+        case SortStream::LIKES:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getVotes().first < s2->getVotes().first;});
             break;
-        case DATE:
+        case SortStream::DATE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getStreamDate() < s2->getStreamDate();});
             break;
-        case TYPE:
+        case SortStream::TYPE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getStreamType() < s2->getStreamType();});
             break;
         default:
@@ -149,25 +149,25 @@ Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::sortStreamsBy(SortStrea
 Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::sortStreamerBy(SortStreamer sorter) {
     std::vector<std::shared_ptr<Streamer>> newLB = sortStreamers().get();
     switch (sorter) {
-        case NAME_S:
+        case SortStreamer::NAME:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return s1->getName() < s2->getName();});
             break;
-        case NICKNAME_S:
+        case SortStreamer::NICKNAME:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return s1->getNickname() < s2->getNickname();});
             break;
-        case BIRTHDATE_S:
+        case SortStreamer::BIRTHDATE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return s1->getBirthDate() < s2->getBirthDate();});
             break;
-        case JOINDATE_S:
+        case SortStreamer::JOINDATE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return s1->getJoinDate() < s2->getJoinDate();});
             break;
-        case VIEWCOUNT:
+        case SortStreamer::VIEWCOUNT:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return s1->getTotalViewCount() < s2->getTotalViewCount();});
             break;
-        case STREAMING:
+        case SortStreamer::STREAMING:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return s1->isStreaming() < s2->isStreaming();});
             break;
-        case NUM_FOLLOWERS:
+        case SortStreamer::NUM_FOLLOWERS:
             auto streamerPtr = streamerManager;
             std::sort(newLB.begin(),newLB.end(),[&streamerPtr](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return streamerPtr->getNumOfFollowers(s1) < streamerPtr->getNumOfFollowers(s2);});
             break;
@@ -178,22 +178,22 @@ Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::sortStreamerBy(SortSt
 Leaderboard<std::shared_ptr<Viewer>> LeaderboardManager::sortViewerBy(SortViewer sorter) {
     std::vector<std::shared_ptr<Viewer>> newLB = sortViewers().get();
     switch (sorter) {
-        case NAME_V:
+        case SortViewer::NAME:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Viewer>& s1, const std::shared_ptr<Viewer>& s2){return s1->getName() < s2->getName();});
             break;
-        case NICKNAME_V:
+        case SortViewer::NICKNAME:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Viewer>& s1, const std::shared_ptr<Viewer>& s2){return s1->getNickname() < s2->getNickname();});
             break;
-        case BIRTHDATE_V:
+        case SortViewer::BIRTHDATE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Viewer>& s1, const std::shared_ptr<Viewer>& s2){return s1->getBirthDate() < s2->getBirthDate();});
             break;
-        case JOINDATE_V:
+        case SortViewer::JOINDATE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Viewer>& s1, const std::shared_ptr<Viewer>& s2){return s1->getJoinDate() < s2->getJoinDate();});
             break;
-        case WATCHING_STREAM:
+        case SortViewer::WATCHING_STREAM:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Viewer>& s1, const std::shared_ptr<Viewer>& s2){return s1->isWatchingStream() < s2->isWatchingStream();});
             break;
-        case NUM_OF_WATCHED_STREAMS:
+        case SortViewer::NUM_OF_WATCHED_STREAMS:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Viewer>& s1, const std::shared_ptr<Viewer>& s2){return s1->getStreamHistory().size() < s2->getStreamHistory().size();});
             break;
     }
@@ -203,19 +203,19 @@ Leaderboard<std::shared_ptr<Viewer>> LeaderboardManager::sortViewerBy(SortViewer
 Leaderboard<std::shared_ptr<User>> LeaderboardManager::sortUserBy(SortUser sorter) {
     std::vector<std::shared_ptr<User>> newLB = sortUsers().get();
     switch (sorter) {
-        case NAME:
+        case SortUser::NAME:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<User>& s1, const std::shared_ptr<User>& s2){return s1->getName() < s2->getName();});
             break;
-        case NICKNAME:
+        case SortUser::NICKNAME:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<User>& s1, const std::shared_ptr<User>& s2){return s1->getNickname() < s2->getNickname();});
             break;
-        case BIRTHDATE:
+        case SortUser::BIRTHDATE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<User>& s1, const std::shared_ptr<User>& s2){return s1->getBirthDate() < s2->getBirthDate();});
             break;
-        case JOINDATE:
+        case SortUser::JOINDATE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<User>& s1, const std::shared_ptr<User>& s2){return s1->getJoinDate() < s2->getJoinDate();});
             break;
-        case USERTYPE:
+        case SortUser::USERTYPE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<User>& s1, const std::shared_ptr<User>& s2){return s1->getUserType() < s2->getUserType();});
             break;
     }
