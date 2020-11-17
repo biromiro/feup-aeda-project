@@ -7,7 +7,8 @@
 #include <utility>
 #include "../../model/user/streamer/streamer_manager.h"
 #include <unordered_map>
-#include "../../exception/invalidFeedback.h"
+#include "../../exception/invalidFeedback.cpp"
+
 
 unsigned int Stream::nextID = 0;
 

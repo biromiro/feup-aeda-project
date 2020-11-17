@@ -7,12 +7,11 @@
 
 #include <iostream>
 #include <exception>
-
-enum class FeedbackLikeSystem;
+#include "../model/stream/stream.h"
 
 class InvalidFeedback : std::invalid_argument {
 public:
-    InvalidFeedback(enum FeedbackLikeSystem fb, const std::string & message);
+    InvalidFeedback(FeedbackLikeSystem fb, const std::string & message);
     const std::string & getMessage();
 private:
     enum FeedbackLikeSystem fb;
