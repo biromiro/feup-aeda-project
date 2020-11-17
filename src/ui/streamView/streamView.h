@@ -2,20 +2,19 @@
 // Created by biromiro on 15/11/20.
 //
 
-#ifndef PROJECT_LEADERBOARDPAGE_H
-#define PROJECT_LEADERBOARDPAGE_H
+#ifndef PROJECT_STREAMVIEW_H
+#define PROJECT_STREAMVIEW_H
 
 #include "../ui_manager.h"
 #include "../initialPage/initialPage.h"
 
-class LeaderboardPage : public UI{
+class streamView : public UI{
 public:
-    explicit LeaderboardPage(UIManager& uiManager);
+    explicit streamView(UIManager& uiManager);
     void run() override;
 private:
     UIManager& uiManager;
     void pageOutput() const;
 };
 
-
-#endif //PROJECT_LEADERBOARDPAGE_H
+#endif //PROJECT_STREAMVIEW_H

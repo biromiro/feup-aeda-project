@@ -7,6 +7,9 @@
 
 #include "../ui_manager.h"
 #include "../initialPage/initialPage.h"
+#include "../viewerView/viewerView.h"
+#include "../streamerView/streamerView.h"
+#include "../adminView/adminView.h"
 
 class LoginPage : public UI{
 public:

@@ -5,6 +5,7 @@
 #include "loginPage.h"
 
 
+
 LoginPage::LoginPage(UIManager &uiManager) : uiManager(uiManager){}
 
 void LoginPage::run() {
@@ -22,11 +23,26 @@ void LoginPage::run() {
             std::cout << "Password: ";
             getline(std::cin, password);
             if (uiManager.getCurrentSession().login(nickname, password)){
-                std::cout << HIDE_CURSOR;
+                std::cout << CLEAR_SCREEN << GO_TO_TOP << HIDE_CURSOR;
+                switch (uiManager.getCurrentSession().getCurrentUser()->getUserType()) {
+                    case UserTypes::STREAMER:
+                        uiManager.setCurrent(new StreamerView(uiManager));
+                        uiManager.run();
+                        break;
+                    case UserTypes::VIEWER:
+                        uiManager.setCurrent(new ViewerView(uiManager));
+                        uiManager.run();
+                        break;
+                    case UserTypes::ADMIN:
+                        uiManager.setCurrent(new AdminView(uiManager));
+                        uiManager.run();
+                        break;
+                }
                 return;
             }
             else std::cout << "Invalid Combination! Try again.";
             started = true;
+
         }
         std::cout << HIDE_CURSOR;
     }while(answer != *ESC);

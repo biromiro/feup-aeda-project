@@ -32,6 +32,17 @@ void RegisterPage::run() {
                     started = true;
                     break;
             }
+            std::cout << CLEAR_SCREEN << GO_TO_TOP << HIDE_CURSOR;
+            switch (uiManager.getCurrentSession().getCurrentUser()->getUserType()) {
+                case UserTypes::STREAMER:
+                    uiManager.setCurrent(new StreamerView(uiManager));
+                    uiManager.run();
+                    return;
+                case UserTypes::VIEWER:
+                    uiManager.setCurrent(new ViewerView(uiManager));
+                    uiManager.run();
+                    return;
+            }
         }
     }while(answer != *ESC);
 }

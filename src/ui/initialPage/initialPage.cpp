@@ -17,7 +17,6 @@ void InitialPage::run() {
             case '1':
                 uiManager.setCurrent(new LoginPage(uiManager));
                 uiManager.run();
-                //uiManager.setCurrent(new AdminView(uiManager));
                 break;
             case '2':
                 uiManager.setCurrent(new RegisterPage(uiManager));

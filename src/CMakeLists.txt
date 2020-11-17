@@ -25,7 +25,7 @@ add_library(project
         ui/registerPage/registerPage.h ui/registerPage/registerPage.cpp
         ui/streamerView/streamerView.h ui/streamerView/streamerView.cpp
         ui/viewerView/viewerView.h ui/viewerView/viewerView.cpp
-        ui/watchingStream/watchingStream.h ui/watchingStream/watchingStream.cpp
+        ui/streamView/streamView.h ui/streamView/streamView.cpp
         auth/currentSession.h auth/currentSession.cpp
         exception/invalidAge.h exception/invalidAge.cpp
         model/streamZ/streamZ.h
@@ -61,7 +61,7 @@ add_executable(application
         ui/registerPage/registerPage.h ui/registerPage/registerPage.cpp
         ui/streamerView/streamerView.h ui/streamerView/streamerView.cpp
         ui/viewerView/viewerView.h ui/viewerView/viewerView.cpp
-        ui/watchingStream/watchingStream.h ui/watchingStream/watchingStream.cpp
+        ui/streamView/streamView.h ui/streamView/streamView.cpp
         auth/currentSession.h auth/currentSession.cpp
         exception/invalidAge.h exception/invalidAge.cpp
         model/streamZ/streamZ.h

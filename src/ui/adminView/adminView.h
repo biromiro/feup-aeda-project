@@ -5,10 +5,16 @@
 #ifndef PROJECT_ADMINVIEW_H
 #define PROJECT_ADMINVIEW_H
 
+#include "../ui_manager.h"
+#include "../initialPage/initialPage.h"
 
-class adminView {
-
+class AdminView : public UI{
+public:
+    explicit AdminView(UIManager& uiManager);
+    void run() override;
+private:
+    UIManager& uiManager;
+    void pageOutput() const;
 };
-
 
 #endif //PROJECT_ADMINVIEW_H
