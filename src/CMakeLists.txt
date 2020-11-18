@@ -81,7 +81,7 @@ add_executable(application
         utils/leaderboard/leaderboard.h
         utils/leaderboard/leaderboard_manager.h
         utils/leaderboard/leaderboard_manager.cpp
-        model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h exception/invalidFeedback.cpp exception/invalidFeedback.h exception/nicknameNotFound.cpp exception/nicknameNotFound.h exception/nicknameAlreadyAdded.cpp exception/nicknameAlreadyAdded.h exception/nicknameAlreadyAdded.cpp exception/nicknameAlreadyAdded.h exception/streamNotFound.cpp exception/streamNotFound.h exception/noStreamWithID.cpp exception/noStreamWithID.h exception/invalidStreamToAdd.cpp exception/invalidStreamToAdd.h exception/streamAlreadyFinished.cpp exception/streamAlreadyFinished.h)
+        model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h exception/invalidFeedback.cpp exception/invalidFeedback.h exception/nicknameNotFound.cpp exception/nicknameNotFound.h exception/nicknameAlreadyAdded.cpp exception/nicknameAlreadyAdded.h exception/nicknameAlreadyAdded.cpp exception/nicknameAlreadyAdded.h exception/streamNotFound.cpp exception/streamNotFound.h exception/noStreamWithID.cpp exception/noStreamWithID.h exception/invalidStreamToAdd.cpp exception/invalidStreamToAdd.h exception/streamAlreadyFinished.cpp exception/streamAlreadyFinished.h exception/streamerAlreadyStreaming.cpp exception/streamerAlreadyStreaming.h exception/invalidStreamBuild.cpp exception/invalidStreamBuild.h)
 
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

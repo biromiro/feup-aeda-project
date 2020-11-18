@@ -7,6 +7,8 @@
 #include "../../exception/noStreamWithID.cpp"
 #include "../../exception/invalidStreamToAdd.cpp"
 #include "../../exception/streamAlreadyFinished.cpp"
+#include "../../exception/streamerAlreadyStreaming.cpp"
+#include "../../exception/invalidStreamBuild.cpp"
 
 #include <utility>
 
@@ -15,7 +17,7 @@ viewerManager(std::move(viewerManager)), streamerManager(std::move(streamerManag
 
 std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer){
     if(streamer->isStreaming())
-        return nullptr;
+        throw StreamerAlreadyStreaming(streamer, "Streamer is already streaming right now!");
     switch(type) {
         case StreamType::PRIVATE: {
             auto prv_stream = std::make_shared<PrivateStream>(title, lang, minAge, genre, streamer);
@@ -32,7 +34,7 @@ std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLangu
             return stream_form;
         }
         default:
-            return nullptr;
+            throw InvalidStreamBuild("The stream you're trying to start is invalid!");
     }
 }
 

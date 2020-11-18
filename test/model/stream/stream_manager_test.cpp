@@ -15,6 +15,8 @@
 #include <exception/noStreamWithID.h>
 #include <exception/invalidStreamToAdd.h>
 #include <exception/streamAlreadyFinished.h>
+#include <exception/streamerAlreadyStreaming.h>
+#include <exception/invalidStreamBuild.h>
 
 using testing::Eq;
 
@@ -31,7 +33,12 @@ TEST(streamManager, build){
     auto streamer2_ptr = std::make_shared<Streamer> (streamer2);
     auto stream1 = sm1->build("Epic LoL Stream", StreamLanguage::EN, 13, StreamType::PUBLIC, StreamGenre::GAMING, streamer1_ptr);
     auto stream2 = sm1->build("Based Games", StreamLanguage::RU, 18, StreamType::PRIVATE, StreamGenre::MUSIC, streamer2_ptr);
-    EXPECT_EQ(sm1->build("Based Games Null Ptr", StreamLanguage::PT_BR, 16, StreamType::PRIVATE, StreamGenre::GAMING, streamer2_ptr), nullptr);
+    EXPECT_THROW(sm1->build("Based Games Null Ptr", StreamLanguage::PT_BR, 16, StreamType::PRIVATE, StreamGenre::GAMING, streamer2_ptr), StreamerAlreadyStreaming);
+    try {
+        sm1->build("Based Games Exception", StreamLanguage::PT_BR, 16, StreamType::PRIVATE, StreamGenre::GAMING, streamer2_ptr);
+    } catch (StreamerAlreadyStreaming &sas) {
+        EXPECT_EQ(sas.getMessage(), "Streamer is already streaming right now!");
+    }
     EXPECT_EQ(stream1->getTitle(), "Epic LoL Stream");
     EXPECT_EQ(stream2->getTitle(), "Based Games");
     EXPECT_EQ(stream1->getLanguage(), StreamLanguage::EN);
@@ -44,6 +51,14 @@ TEST(streamManager, build){
     EXPECT_EQ(stream2->getGenre(), StreamGenre::MUSIC);
     EXPECT_EQ(stream1->getStreamer(), streamer1_ptr);
     EXPECT_EQ(stream2->getStreamer(), streamer2_ptr);
+    auto streamer3 = srm1->build(birthDate1, "Exception Streamer", "ExceptS", "asdqwerty");
+    EXPECT_THROW(auto stream3 = sm1->build("Non Generic Title", StreamLanguage::CA, 21, StreamType::FINISHED, StreamGenre::MUSIC, streamer3), InvalidStreamBuild);
+    try {
+        auto stream3 = sm1->build("Non Generic Title", StreamLanguage::CA, 21, StreamType::FINISHED, StreamGenre::MUSIC, streamer3);
+    }
+    catch (InvalidStreamBuild &isb) {
+        EXPECT_EQ(isb.getMessage(), "The stream you're trying to start is invalid!");
+    }
 }
 
 TEST(streamManager, streams_vector_methods){
