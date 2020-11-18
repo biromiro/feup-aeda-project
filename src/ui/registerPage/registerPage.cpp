@@ -116,7 +116,7 @@ void RegisterPage::getUserInfo(Date& birthDate, std::string& name, std::string& 
         pageOutput();
         std::cout << "\nPlease enter the following information:" << std::endl;
         std::cout << "\nNickname: ";
-        getline(std::cin, nickname);
+        getlineCIN(nickname);
         if(uiManager.getPlatform().getUserManager()->has(nickname)){
             std::cout << "Nickname already taken!";
             getch();
@@ -125,12 +125,12 @@ void RegisterPage::getUserInfo(Date& birthDate, std::string& name, std::string& 
         break;
     }while (1);
     std::cout << "Name: ";
-    getline(std::cin,name);
+    getlineCIN(name);
     do{
         std::cout << "Password: ";
-        getline(std::cin,password);
+        getlineCIN(password);
         std::cout << "Please re-enter your password: ";
-        getline(std::cin, checkPassword);
+        getlineCIN(checkPassword);
         if(password != checkPassword){
             std::cout << "Passwords don't match!";
             getch();

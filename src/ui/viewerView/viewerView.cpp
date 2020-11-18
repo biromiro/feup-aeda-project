@@ -81,7 +81,6 @@ void ViewerView::chooseStream() {
                 }
             }
         }while (!(thisViewer->isWatchingStream()));
-
     }
     uiManager.setCurrent(new StreamView(uiManager));
     uiManager.run();
@@ -115,7 +114,7 @@ void ViewerView::newStreamerActions(){
                 auto thisViewer = uiManager.getPlatform().getViewerManager()->get(uiManager.getCurrentSession().getNickname());
                 std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
                 std::cout << "Who do you wish to follow?";
-                getline(std::cin,nicknameToFollow);
+                getlineCIN(nicknameToFollow);
                 auto streamerToFollow = uiManager.getPlatform().getStreamerManager()->get(nicknameToFollow);
 
                 if(streamerToFollow != nullptr){
@@ -137,7 +136,6 @@ void ViewerView::newStreamerActions(){
                     std::cout << "\n 1 - Follow a streamer!" << std::endl;
                     std::cout << "\n 0 - Go to main menu" << std::endl;
                 }
-
                 break;
         }
     }while (answer != '0' && answer != *ESC);
@@ -155,9 +153,8 @@ void ViewerView::followingStreamerActions(){
                 auto thisViewer = uiManager.getPlatform().getViewerManager()->get(uiManager.getCurrentSession().getNickname());
                 std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
                 std::cout << "Who do you wish to unfollow?";
-                getline(std::cin,nicknameToUnfollow);
+                getlineCIN(nicknameToUnfollow);
                 auto streamerToUnfollow = uiManager.getPlatform().getStreamerManager()->get(nicknameToUnfollow);
-
                 if(streamerToUnfollow != nullptr){
                     if(thisViewer->unfollowStreamer(streamerToUnfollow)){
                        std::cout << "Successfully unfollowed!";
@@ -177,7 +174,6 @@ void ViewerView::followingStreamerActions(){
                     std::cout << "\n 1 - Follow a streamer!" << std::endl;
                     std::cout << "\n 0 - Go to main menu" << std::endl;
                 }
-
                 break;
         }
     }while (answer != '0' && answer != *ESC);

@@ -55,7 +55,7 @@ bool is_number(const std::string& s)
 unsigned int inputNumber(){
     unsigned int num = 0;
     std::string str = "";
-    getline(std::cin,str);
+    getlineCIN(str);
     if(is_number(str)){
         std::stringstream strs(str);
         strs >> num;
@@ -63,4 +63,10 @@ unsigned int inputNumber(){
     }else{
         return 0;
     }
+}
+
+void getlineCIN(std::string& s){
+    std::cin >> std::ws;
+    getline(std::cin,s);
+
 }

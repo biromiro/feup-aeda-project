@@ -17,11 +17,10 @@ void LoginPage::run() {
         std::cout << CLEAR_SCREEN << GO_TO_TOP << SHOW_CURSOR;
         pageOutput();
         if(answer != *ESC) {
-            //std::cin.ignore();
             std::cout << "Nickname: ";
-            getline(std::cin, nickname);
+            getlineCIN(nickname);
             std::cout << "Password: ";
-            getline(std::cin, password);
+            getlineCIN(password);
             if (uiManager.getCurrentSession().login(nickname, password)){
                 std::cout << CLEAR_SCREEN << GO_TO_TOP << HIDE_CURSOR;
                 switch (uiManager.getCurrentSession().getCurrentUser()->getUserType()) {

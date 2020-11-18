@@ -43,6 +43,7 @@ char getch(void);
 #endif
 bool is_number(const std::string& s);
 unsigned int inputNumber();
+void getlineCIN(std::string& s);
 
 
 #endif //PROJECT_AUXILIARYFUNCTIONS_H

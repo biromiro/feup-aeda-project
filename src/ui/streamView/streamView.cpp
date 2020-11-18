@@ -7,11 +7,10 @@
 StreamView::StreamView(UIManager &uiManager) : uiManager(uiManager){}
 
 void StreamView::run() {
-    pageOutput();
-    char answer = getch();
-    bool first = false;
+    char answer = ' ';
     do{
-        if(first) answer = getch();
+        pageOutput();
+        answer = getch();
         switch (answer) {
             case '1':
                 feedbackToStream();
@@ -21,12 +20,12 @@ void StreamView::run() {
                 thisViewer = uiManager.getPlatform().getViewerManager()->get(
                         uiManager.getCurrentSession().getNickname());
                 thisViewer->leaveCurrentStream();
+                answer = '0';
                 break;
             }
             default:
                 break;
         }
-        first = true;
     }while (answer != *ESC && answer != '0');
 }
 
@@ -35,7 +34,7 @@ void StreamView::pageOutput() const {
     std::string nickname = uiManager.getCurrentSession().getNickname();
     auto currentStream = uiManager.getPlatform().getViewerManager()->get(nickname)->getCurrentStream();
     std::cout << "*****StreamZ*****" << nickname << "*****" << std::endl;
-    std::cout << "You're watching " << currentStream->getStreamer()->getNickname() << "'s stream!" << std::endl;
+    std::cout << "\nYou're watching " << currentStream->getStreamer()->getNickname() << "'s stream!" << std::endl;
     std::cout << "\n--Stream Info--\nTitle   " << currentStream->getTitle() << "\nGenre   " <<
                 currentStream->getGenre() << "\nLanguage   " << currentStream->getLanguage() << std::endl;
     std::cout << "\n1 - Give feedback!" << std::endl;
@@ -67,9 +66,12 @@ void StreamView::feedbackToStream() {
                     switch (feedbackAnswer) {
                         case '1':
                             thisViewer->getCurrentStream()->addFeedback(FeedbackLikeSystem::LIKE);
+                            std::cout << "Successfully liked the stream!" << std::endl;
                             break;
                         case '2':
                             thisViewer->getCurrentStream()->addFeedback(FeedbackLikeSystem::DISLIKE);
+                            std::cout << "Successfully disliked the stream!" << std::endl;
+                            break;
                     }
                 } while (feedbackAnswer != '0');
                 break;
@@ -80,7 +82,7 @@ void StreamView::feedbackToStream() {
                 bool confirm = false;
                 do {
                     std::cout << "Write your comment: ";
-                    getline(std::cin, comment);
+                    getlineCIN(comment);
                     std::cout << "Is this the comment you wish to add (y/n) -> " << comment << std::endl;
                     do {
                         answer = getch();
@@ -96,12 +98,12 @@ void StreamView::feedbackToStream() {
             }
         }
     }else{
-        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
+        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
         std::cout << "1 - Give Like/Dislike" << std::endl;
-        std::cout << "0 - Go back to the main menu" << std::endl;
+        std::cout << "0 - Go back" << std::endl;
         answer = getch();
         if(answer == '1') {
-                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE
+                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE
                           << GO_TO_BEGINNING_OF_LINE;
                 std::cout << "1 - LIKE" << std::endl;
                 std::cout << "2 - DISLIKE" << std::endl;
