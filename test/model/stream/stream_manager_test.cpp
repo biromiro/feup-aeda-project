@@ -13,6 +13,8 @@
 #include <model/user/streamer/streamer_manager.h>
 #include <exception/streamNotFound.h>
 #include <exception/noStreamWithID.h>
+#include <exception/invalidStreamToAdd.h>
+#include <exception/streamAlreadyFinished.h>
 
 using testing::Eq;
 
@@ -71,6 +73,13 @@ TEST(streamManager, streams_vector_methods){
     catch (StreamNotFound &snf) {
         EXPECT_EQ(snf.getMessage(), "Stream not found!");
     }
+    EXPECT_THROW(sm1.add(stream1_ptr), InvalidStreamToAdd);
+    try {
+        sm1.add(stream1_ptr);
+    }
+    catch (InvalidStreamToAdd & ista) {
+        EXPECT_EQ(ista.getMessage(), "Stream you're trying to add is invalid or already there!");
+    }
 }
 /* Só funciona isoladamente!
 TEST(streamManager, get){
@@ -107,6 +116,9 @@ TEST(streamManager, finish){
     auto streamer1 = stm1->build(birthDate1, "Oskar ÚltimoNome", "Autofeito", "indijubhfnads");
     auto streamer2 = stm1->build(birthDate2, "Homem Baseado", "Base", "knfiadjsads");
     auto streamer3 = stm1->build(birthDate2, "Generic Streamer", "GS", "mnasjkdnsa");
+    auto streamer4 = stm1->build(birthDate1, "Reddit Mod", "Wholesome 10000", "keanu<3");
+    PublicStream streamException("Not Epic LoL Stream", StreamLanguage::EN, 15, StreamGenre::GAMING, streamer4);
+    std::shared_ptr<PublicStream> stream_exception_ptr = std::make_shared<PublicStream>(streamException);
     auto stream1 = sm1->build("Epic LoL Stream", StreamLanguage::EN, 13, StreamType::PUBLIC, StreamGenre::GAMING, streamer1);
     auto stream2 = sm1->build("Based Games", StreamLanguage::EN, 18, StreamType::PRIVATE,StreamGenre::GAMING, streamer2);
     FinishedStream stream_3 ("?????", StreamLanguage::PT_PT, 10, StreamGenre::COOKING, streamer3, 50, 1);
@@ -115,7 +127,13 @@ TEST(streamManager, finish){
     auto viewer1 = vm1->build(birthDate2,"Visualizador Não Pog","Pogn't", "ajnsioadsa");
     viewer1->joinStream(stream1);
     EXPECT_EQ(viewer1->isWatchingStream(), true);
-    EXPECT_EQ(sm1->finish(stream3), nullptr);
+    EXPECT_THROW(sm1->finish(stream3), StreamAlreadyFinished);
+    try {
+        sm1->finish(stream3);
+    }
+    catch (StreamAlreadyFinished & saf){
+        EXPECT_EQ(saf.getMessage(), "Stream has already finished!");
+    }
     auto finished_stream1 = std::dynamic_pointer_cast<Stream>(sm1->finish(stream1));
     auto finished_stream2 = std::dynamic_pointer_cast<Stream>(sm1->finish(stream2));
     std::vector<std::shared_ptr<Stream>> expect_streams1 = {stream3, finished_stream1, finished_stream2};
@@ -125,6 +143,13 @@ TEST(streamManager, finish){
     EXPECT_EQ(std::dynamic_pointer_cast<FinishedStream>(finished_stream1)->getNumOfViews(), 1);
     EXPECT_EQ(std::dynamic_pointer_cast<FinishedStream>(finished_stream2)->getNumOfViews(), 0);
     EXPECT_EQ(viewer1->isWatchingStream(), false);
+    EXPECT_THROW(sm1->finish(stream_exception_ptr), StreamNotFound);
+    try {
+        sm1->finish(stream_exception_ptr);
+    }
+    catch (StreamNotFound &snf) {
+        EXPECT_EQ(snf.getMessage(), "Stream not found!");
+    }
 }
 
 TEST(streamManager, getNumOfViewers){

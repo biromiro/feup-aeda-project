@@ -98,19 +98,24 @@ TEST(stream, getGenre){
 
 /* Só funciona se for corrido isoladamente!
 TEST(stream, getUniqueID){
+    std::shared_ptr<UserManager> um1 =  std::make_shared<UserManager>();
+    std::shared_ptr<ViewerManager> vm1 = std::make_shared<ViewerManager>(um1);
+    std::shared_ptr<StreamManager> sm1 = std::make_shared<StreamManager>(vm1, std::make_shared<StreamerManager>());
+    std::shared_ptr<StreamerManager> stm1 = std::make_shared<StreamerManager>(sm1,vm1,um1);
+    sm1->setStreamerManager(stm1);
     Date birthDate1("1999/06/09"), birthDate2("2000/02/26");
-    Streamer streamer1(birthDate1, "Oskar ÚltimoNome", "Autofeito");
-    Streamer streamer2(birthDate2, "Homem Baseado", "Base");
-    PublicStream stream1("Epic LoL Stream", EN, 13, GAMING, std::make_shared<Streamer>(streamer1));
-    PrivateStream stream2("Based Games", EN, 18, TALKSHOW, std::make_shared<Streamer>(streamer2));
-    FinishedStream stream3 ("?????", PT_PT, 10, COOKING, std::make_shared<Streamer>(streamer2), 50);
-    PrivateStream stream4("Top Hits 1857", ES, 3, MUSIC, std::make_shared<Streamer>(streamer1));
-    EXPECT_EQ(stream1.getUniqueId(), 1);
-    EXPECT_EQ(stream2.getUniqueId(), 2);
-    EXPECT_EQ(stream3.getUniqueId(), 3);
-    EXPECT_EQ(stream4.getUniqueId(), 4);
-}
-*/
+    auto streamer1 = stm1->build(birthDate1, "Oskar ÚltimoNome", "Autofeito", "wersfgdfg");
+    auto streamer2 = stm1->build(birthDate2, "Homem Baseado", "Base", "dsfghjkj");
+    auto streamer3 = stm1->build(birthDate2, "Homem Baseado 2", "Base 2", "dsfghjkj2");
+    auto stream1 = sm1->build("Epic LoL Stream", StreamLanguage::EN, 13, StreamType::PRIVATE, StreamGenre::GAMING, streamer1);
+    auto stream2 = sm1->build("Based Games", StreamLanguage::AF, 18,StreamType::PRIVATE, StreamGenre::TALKSHOW, streamer2);
+    auto stream3 = sm1->build("Top Hits 1857", StreamLanguage::ES, 3, StreamType::PUBLIC, StreamGenre::MUSIC, streamer3);
+    EXPECT_EQ(stream1->getUniqueId(), 1);
+    EXPECT_EQ(stream2->getUniqueId(), 2);
+    EXPECT_EQ(stream3->getUniqueId(), 3);
+    auto finished1 = sm1->finish(stream1);
+    EXPECT_EQ(finished1->getID(), 1);
+} */
 
 TEST(stream, addFeedback){
     Date birthDate1("1999/06/09"), birthDate2("2000/02/26");

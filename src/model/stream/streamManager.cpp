@@ -5,6 +5,8 @@
 #include "streamManager.h"
 #include "../../exception/streamNotFound.cpp"
 #include "../../exception/noStreamWithID.cpp"
+#include "../../exception/invalidStreamToAdd.cpp"
+#include "../../exception/streamAlreadyFinished.cpp"
 
 #include <utility>
 
@@ -45,7 +47,7 @@ bool StreamManager::add(std::shared_ptr<Stream> streamToAdd) {
         streams.push_back(streamToAdd);
         return true;
     }
-    return false;
+    throw InvalidStreamToAdd(streamToAdd, "Stream you're trying to add is invalid or already there!");
 }
 
 bool StreamManager::remove(std::shared_ptr<Stream> streamToRemove) {
@@ -77,7 +79,7 @@ std::shared_ptr<Stream> StreamManager::get(unsigned int streamID) {
 
 std::shared_ptr<FinishedStream> StreamManager::finish(const std::shared_ptr<Stream>& streamToFinish) {
     if(streamToFinish->getStreamType() == StreamType::FINISHED)
-        return nullptr;
+        throw StreamAlreadyFinished(streamToFinish, "Stream has already finished!");
     if(!remove(streamToFinish)) return nullptr;
     auto res = std::make_shared<FinishedStream>(streamToFinish->getTitle(),streamToFinish->getLanguage(), streamToFinish->getMinAge(),
                                                 streamToFinish->getGenre(), streamToFinish->getStreamer(), getNumOfViewers(streamToFinish), streamToFinish->getUniqueId());

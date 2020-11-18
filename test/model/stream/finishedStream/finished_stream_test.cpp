@@ -27,6 +27,6 @@ TEST(finishedStream, getters) {
     auto stream1 = std::dynamic_pointer_cast<PublicStream>(sm1->build("Epic LoL Stream", StreamLanguage::EN, 13, StreamType::PUBLIC, StreamGenre::GAMING, std::make_shared<Streamer>(streamer1)));
     auto finished1 = sm1->finish(stream1);
     EXPECT_EQ(finished1->getStreamType(), StreamType::FINISHED);
-    EXPECT_EQ(finished1->getNumOfViews(), 500);
+    EXPECT_EQ(finished1->getNumOfViews(), 0);
     EXPECT_EQ(finished1->getID(), 1);
 } */
