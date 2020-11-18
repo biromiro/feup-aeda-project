@@ -9,9 +9,9 @@
 #include "../../stream/streamManager.h"
 
 
-Viewer::Viewer() : User(VIEWER) {}
+Viewer::Viewer() : User(UserTypes::VIEWER) {}
 
-Viewer::Viewer(Date birthDate, std::string name, std::string nickname, std::string password): User(birthDate,std::move(name),std::move(nickname), VIEWER, password){
+Viewer::Viewer(Date birthDate, std::string name, std::string nickname, std::string password): User(birthDate,std::move(name),std::move(nickname), UserTypes::VIEWER, password){
     if(getAge() < 12){
         throw InvalidAge(getAge(), "You have to be at least 12 years old!");
     }

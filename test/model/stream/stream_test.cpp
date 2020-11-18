@@ -12,7 +12,7 @@
 #include <model/user/viewer/viewer_manager.h>
 #include <model/stream/streamManager.h>
 #include <model/user/streamer/streamer_manager.h>
-#include <exception/invalidFeedback.h>
+#include <exception/invalidFeedback/invalidFeedback.h>
 
 
 using testing::Eq;

@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <exception>
-#include "../model/stream/stream.h"
+#include "../../model/stream/stream.h"
 
 class StreamNotFound : std::invalid_argument {
 public:

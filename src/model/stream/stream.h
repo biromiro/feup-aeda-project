@@ -5,13 +5,13 @@
 #ifndef PROJECT_STREAM_H
 #define PROJECT_STREAM_H
 
-
-#include "../../model/user/user.h"
 #include "../../utils/date/date.h"
 #include <utility>
 #include <iostream>
 #include <memory>
 #include <fstream>
+#include <unordered_map>
+
 
 class StreamerManager;
 

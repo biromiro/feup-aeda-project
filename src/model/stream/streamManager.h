@@ -10,6 +10,7 @@
 #include "publicStream/publicStream.h"
 #include "finishedStream/finishedStream.h"
 #include "../../model/user/streamer/streamer.h"
+#include "stream.h"
 #include <memory>
 
 class StreamManager{

@@ -9,7 +9,7 @@
 #include "../user.h"
 #include "../../stream/stream.h"
 #include "../streamer/streamer.h"
-#include "../../../exception/invalidAge.h"
+#include "../../../exception/invalidAge/invalidAge.h"
 #include <algorithm>
 #include <memory>
 #include <unordered_set>

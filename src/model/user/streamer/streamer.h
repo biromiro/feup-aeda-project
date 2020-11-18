@@ -6,7 +6,7 @@
 #include "memory"
 #include "../user.h"
 #include "../../stream/stream.h"
-#include "../../../exception/invalidAge.h"
+#include "../../../exception/invalidAge/invalidAge.h"
 
 
 #ifndef PROJECT_STREAMER_H

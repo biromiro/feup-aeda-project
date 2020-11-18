@@ -7,7 +7,8 @@
 
 #include <iostream>
 #include <exception>
-#include "../model/stream/stream.h"
+
+enum class FeedbackLikeSystem;
 
 class InvalidFeedback : std::invalid_argument {
 public:

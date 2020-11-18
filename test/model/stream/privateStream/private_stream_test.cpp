@@ -9,8 +9,8 @@
 #include <model/user/viewer/viewer_manager.h>
 #include <model/stream/streamManager.h>
 #include <model/user/streamer/streamer_manager.h>
-#include <exception/nicknameNotFound.h>
-#include <exception/nicknameAlreadyAdded.h>
+#include <exception/nicknameNotFound/nicknameNotFound.h>
+#include <exception/nicknameAlreadyAdded/nicknameAlreadyAdded.h>
 
 using testing::Eq;
 

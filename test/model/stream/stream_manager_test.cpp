@@ -11,12 +11,12 @@
 #include <model/user/viewer/viewer_manager.h>
 #include <model/stream/streamManager.h>
 #include <model/user/streamer/streamer_manager.h>
-#include <exception/streamNotFound.h>
-#include <exception/noStreamWithID.h>
-#include <exception/invalidStreamToAdd.h>
-#include <exception/streamAlreadyFinished.h>
-#include <exception/streamerAlreadyStreaming.h>
-#include <exception/invalidStreamBuild.h>
+#include <exception/streamNotFound/streamNotFound.h>
+#include <exception/noStreamWithID/noStreamWithID.h>
+#include <exception/invalidStreamAdd/invalidStreamToAdd.h>
+#include <exception/streamAlreadyFinished/streamAlreadyFinished.h>
+#include <exception/streamerAlreadyStreaming/streamerAlreadyStreaming.h>
+#include <exception/invalidStreamBuild/invalidStreamBuild.h>
 
 using testing::Eq;
 

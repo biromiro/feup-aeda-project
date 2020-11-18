@@ -3,12 +3,12 @@
 //
 
 #include "streamManager.h"
-#include "../../exception/streamNotFound.cpp"
-#include "../../exception/noStreamWithID.cpp"
-#include "../../exception/invalidStreamToAdd.cpp"
-#include "../../exception/streamAlreadyFinished.cpp"
-#include "../../exception/streamerAlreadyStreaming.cpp"
-#include "../../exception/invalidStreamBuild.cpp"
+#include "../../exception/streamerAlreadyStreaming/streamerAlreadyStreaming.h"
+#include "../../exception/invalidStreamBuild/invalidStreamBuild.h"
+#include "../../exception/invalidStreamAdd/invalidStreamToAdd.h"
+#include "../../exception/streamNotFound/streamNotFound.h"
+#include "../../exception/noStreamWithID/noStreamWithID.h"
+#include "../../exception/streamAlreadyFinished/streamAlreadyFinished.h"
 
 #include <utility>
 

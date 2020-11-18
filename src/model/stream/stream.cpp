@@ -2,12 +2,10 @@
 // Created by Danny on 15/10/2020.
 //
 #include "stream.h"
-#include "../../model/user/viewer/viewer.h"
-#include <iostream>
-#include <utility>
-#include "../../model/user/streamer/streamer_manager.h"
-#include <unordered_map>
-#include "../../exception/invalidFeedback.cpp"
+#include "../../exception/invalidFeedback/invalidFeedback.h"
+#include "../user/streamer/streamer.h"
+#include "../user/viewer/viewer.h"
+#include "../user/streamer/streamer_manager.h"
 
 unsigned int Stream::nextID = 0;
 

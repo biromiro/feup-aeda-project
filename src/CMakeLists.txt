@@ -27,7 +27,16 @@ add_library(project
         ui/viewerView/viewerView.h ui/viewerView/viewerView.cpp
         ui/streamView/streamView.h ui/streamView/streamView.cpp
         auth/currentSession.h auth/currentSession.cpp
-        exception/invalidAge.h exception/invalidAge.cpp
+        exception/invalidAge/invalidAge.h exception/invalidAge/invalidAge.cpp
+        exception/invalidFeedback/invalidFeedback.cpp exception/invalidFeedback/invalidFeedback.h
+        exception/nicknameNotFound/nicknameNotFound.cpp exception/nicknameNotFound/nicknameNotFound.h
+        exception/nicknameAlreadyAdded/nicknameAlreadyAdded.cpp exception/nicknameAlreadyAdded/nicknameAlreadyAdded.h
+        exception/streamNotFound/streamNotFound.cpp exception/streamNotFound/streamNotFound.h
+        exception/noStreamWithID/noStreamWithID.cpp exception/noStreamWithID/noStreamWithID.h
+        exception/invalidStreamAdd/invalidStreamToAdd.cpp exception/invalidStreamAdd/invalidStreamToAdd.h
+        exception/streamAlreadyFinished/streamAlreadyFinished.cpp exception/streamAlreadyFinished/streamAlreadyFinished.h
+        exception/streamerAlreadyStreaming/streamerAlreadyStreaming.cpp exception/streamerAlreadyStreaming/streamerAlreadyStreaming.h
+        exception/invalidStreamBuild/invalidStreamBuild.cpp exception/invalidStreamBuild/invalidStreamBuild.h
         model/streamZ/streamZ.h
         model/user/user.h model/user/user.cpp
         model/user/user_manager.h model/user/user_manager.cpp
@@ -63,7 +72,7 @@ add_executable(application
         ui/viewerView/viewerView.h ui/viewerView/viewerView.cpp
         ui/streamView/streamView.h ui/streamView/streamView.cpp
         auth/currentSession.h auth/currentSession.cpp
-        exception/invalidAge.h exception/invalidAge.cpp
+        exception/invalidAge/invalidAge.h exception/invalidAge/invalidAge.cpp
         model/streamZ/streamZ.h
         model/user/user.h model/user/user.cpp
         model/user/user_manager.h model/user/user_manager.cpp
@@ -81,7 +90,16 @@ add_executable(application
         utils/leaderboard/leaderboard.h
         utils/leaderboard/leaderboard_manager.h
         utils/leaderboard/leaderboard_manager.cpp
-        model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h exception/invalidFeedback.cpp exception/invalidFeedback.h exception/nicknameNotFound.cpp exception/nicknameNotFound.h exception/nicknameAlreadyAdded.cpp exception/nicknameAlreadyAdded.h exception/nicknameAlreadyAdded.cpp exception/nicknameAlreadyAdded.h exception/streamNotFound.cpp exception/streamNotFound.h exception/noStreamWithID.cpp exception/noStreamWithID.h exception/invalidStreamToAdd.cpp exception/invalidStreamToAdd.h exception/streamAlreadyFinished.cpp exception/streamAlreadyFinished.h exception/streamerAlreadyStreaming.cpp exception/streamerAlreadyStreaming.h exception/invalidStreamBuild.cpp exception/invalidStreamBuild.h)
+        model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h
+        exception/invalidFeedback/invalidFeedback.cpp exception/invalidFeedback/invalidFeedback.h
+        exception/nicknameNotFound/nicknameNotFound.cpp exception/nicknameNotFound/nicknameNotFound.h
+        exception/nicknameAlreadyAdded/nicknameAlreadyAdded.cpp exception/nicknameAlreadyAdded/nicknameAlreadyAdded.h
+        exception/streamNotFound/streamNotFound.cpp exception/streamNotFound/streamNotFound.h
+        exception/noStreamWithID/noStreamWithID.cpp exception/noStreamWithID/noStreamWithID.h
+        exception/invalidStreamAdd/invalidStreamToAdd.cpp exception/invalidStreamAdd/invalidStreamToAdd.h
+        exception/streamAlreadyFinished/streamAlreadyFinished.cpp exception/streamAlreadyFinished/streamAlreadyFinished.h
+        exception/streamerAlreadyStreaming/streamerAlreadyStreaming.cpp exception/streamerAlreadyStreaming/streamerAlreadyStreaming.h
+        exception/invalidStreamBuild/invalidStreamBuild.cpp exception/invalidStreamBuild/invalidStreamBuild.h)
 
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

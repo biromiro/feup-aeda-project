@@ -4,6 +4,8 @@
 
 #include "../stream.h"
 #include "../../user/viewer/viewer.h"
+#include "../../../exception/nicknameAlreadyAdded/nicknameAlreadyAdded.h"
+#include "../../../exception/nicknameNotFound/nicknameNotFound.h"
 #include <vector>
 #include <fstream>
 

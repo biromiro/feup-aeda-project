@@ -7,9 +7,9 @@
 #include <utility>
 #include <fstream>
 
-Streamer::Streamer() : User(STREAMER) {}
+Streamer::Streamer() : User(UserTypes::STREAMER) {}
 
-Streamer::Streamer(Date birthDate, std::string name, std::string nickname, std::string password): User(birthDate,std::move(name),std::move(nickname), STREAMER, password) {
+Streamer::Streamer(Date birthDate, std::string name, std::string nickname, std::string password): User(birthDate,std::move(name),std::move(nickname), UserTypes::STREAMER, password) {
     if(getAge() < 15){
         throw InvalidAge(getAge(), "You have to be at least 15 years old!");
     }

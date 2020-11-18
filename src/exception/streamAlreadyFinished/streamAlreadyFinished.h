@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <exception>
-#include "../model/stream/stream.h"
+#include "../../model/stream/stream.h"
 
 class StreamAlreadyFinished : std::invalid_argument {
 public:

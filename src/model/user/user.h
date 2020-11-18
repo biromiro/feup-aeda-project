@@ -13,7 +13,7 @@
 /**
  * Defines what type of user an instantiation of the User Class is
  */
-enum UserTypes{
+enum class UserTypes{
     STREAMER,
     VIEWER,
     ADMIN

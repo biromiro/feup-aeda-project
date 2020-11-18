@@ -3,9 +3,6 @@
 //
 
 #include "privateStream.h"
-#include "../../user/viewer/viewer.h"
-#include "../../../exception/nicknameNotFound.cpp"
-#include "../../../exception/nicknameAlreadyAdded.cpp"
 
 PrivateStream::PrivateStream() : Stream(StreamType::PRIVATE){}
 

@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <exception>
-#include "../model/user/streamer/streamer.h"
+#include "../../model/user/streamer/streamer.h"
 
 class StreamerAlreadyStreaming : std::invalid_argument {
 public:

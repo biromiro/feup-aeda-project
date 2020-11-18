@@ -7,14 +7,14 @@
 #include <utility>
 #include <fstream>
 
-User::User(enum UserTypes type) : type(type){
+User::User(UserTypes type) : type(type){
     birthDate = Date();
     joinDate = Date();
     name = "";
     nickname = "";
 }
 
-User::User(Date birthDate, std::string name, std::string nickname, enum UserTypes type, std::string password) :
+User::User(Date birthDate, std::string name, std::string nickname, UserTypes type, std::string password) :
         birthDate(birthDate), joinDate(Date()), name(std::move(name)), nickname(std::move(nickname)), type(type), password(password){}
 
 unsigned int User::getAge() const{
@@ -158,9 +158,9 @@ bool operator!=(std::string s1, std::string s2){
 
 std::ostream& operator<<(std::ostream& out, UserTypes f) {
     switch (f) {
-        case VIEWER: out << "Viewer"; break;
-        case STREAMER: out << "Streamer"; break;
-        case ADMIN: out << "Admin"; break;
+        case UserTypes::VIEWER: out << "Viewer"; break;
+        case UserTypes::STREAMER: out << "Streamer"; break;
+        case UserTypes::ADMIN: out << "Admin"; break;
         default: out << int(f); break;
     }
     return out;
