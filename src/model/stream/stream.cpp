@@ -9,7 +9,6 @@
 #include <unordered_map>
 #include "../../exception/invalidFeedback.cpp"
 
-
 unsigned int Stream::nextID = 0;
 
 Stream::Stream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer): title(std::move(title)), language(lang), minAge(minAge), type(type), genre(genre), streamer(std::move(streamer)) {

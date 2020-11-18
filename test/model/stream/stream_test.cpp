@@ -37,7 +37,7 @@ TEST(stream, getNumOfViewers){
     EXPECT_EQ(stream1->getNumOfViewers(), 1);
     EXPECT_EQ(stream2->getNumOfViewers(), 0);
     auto finished1 = sm1->finish(stream1);
-    EXPECT_EQ(finished1->getNumOfViews(), 50);
+    EXPECT_EQ(finished1->getNumOfViews(), 1);
 }
 
 TEST(stream, getMinAge){
