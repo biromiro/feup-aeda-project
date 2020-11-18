@@ -3,6 +3,8 @@
 //
 
 #include "streamManager.h"
+#include "../../exception/streamNotFound.cpp"
+#include "../../exception/noStreamWithID.cpp"
 
 #include <utility>
 
@@ -52,7 +54,7 @@ bool StreamManager::remove(std::shared_ptr<Stream> streamToRemove) {
         streams.erase(itr);
         return true;
     }
-    return false;
+    throw StreamNotFound(streamToRemove, "Stream not found!");
 }
 
 bool StreamManager::has(const std::shared_ptr<Stream>& streamToCheck) {
@@ -70,7 +72,7 @@ std::shared_ptr<Stream> StreamManager::get(unsigned int streamID) {
     if(itr != cacheOfFinishedStreams.end()){
         return *itr;
     }
-    return nullptr;
+    throw NoStreamWithID(streamID, "There's no stream with that ID!");
 }
 
 std::shared_ptr<FinishedStream> StreamManager::finish(const std::shared_ptr<Stream>& streamToFinish) {

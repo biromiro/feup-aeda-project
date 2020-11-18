@@ -11,6 +11,8 @@
 #include <model/user/viewer/viewer_manager.h>
 #include <model/stream/streamManager.h>
 #include <model/user/streamer/streamer_manager.h>
+#include <exception/streamNotFound.h>
+#include <exception/noStreamWithID.h>
 
 using testing::Eq;
 
@@ -62,24 +64,37 @@ TEST(streamManager, streams_vector_methods){
     EXPECT_EQ(sm1.getStreams(), expect_streams2);
     EXPECT_EQ(sm1.has(stream1_ptr), true);
     EXPECT_EQ(sm1.has(stream2_ptr), false);
+    EXPECT_THROW(sm1.remove(stream2_ptr), StreamNotFound);
+    try {
+        sm1.remove(stream2_ptr);
+    }
+    catch (StreamNotFound &snf) {
+        EXPECT_EQ(snf.getMessage(), "Stream not found!");
+    }
 }
 /* Só funciona isoladamente!
 TEST(streamManager, get){
     std::shared_ptr<UserManager> um1 =  std::make_shared<UserManager>();
     std::shared_ptr<ViewerManager> vm1 = std::make_shared<ViewerManager>(um1);
-    StreamManager sm1(vm1, std::make_shared<StreamerManager>());
+    std::shared_ptr<StreamManager> sm1 = std::make_shared<StreamManager>(vm1, std::make_shared<StreamerManager>());
+    std::shared_ptr<StreamerManager> stm1 = std::make_shared<StreamerManager>(sm1,vm1,um1);
+    sm1->setStreamerManager(stm1);
     Date birthDate1("1999/06/09"), birthDate2("2000/02/26");
-    Streamer streamer1(birthDate1, "Oskar ÚltimoNome", "Autofeito");
-    Streamer streamer2(birthDate2, "Homem Baseado", "Base");
-    PublicStream stream1("Epic LoL Stream", EN, 13, GAMING, std::make_shared<Streamer>(streamer1));
-    PrivateStream stream2("Based Games", EN, 18, GAMING, std::make_shared<Streamer>(streamer2));
-    std::shared_ptr<PublicStream> stream1_ptr = std::make_shared<PublicStream>(stream1);
-    std::shared_ptr<PrivateStream> stream2_ptr = std::make_shared<PrivateStream>(stream2);
-    sm1.add(stream1_ptr);
-    sm1.add(stream2_ptr);
-    EXPECT_EQ(sm1.get(1), stream1_ptr);
-    EXPECT_EQ(sm1.get(2), stream2_ptr);
-    EXPECT_EQ(sm1.get(3), nullptr);
+    auto streamer1 = stm1->build(birthDate1, "Oskar ÚltimoNome", "Autofeito", "indijubhfnads");
+    auto streamer2 = stm1->build(birthDate2, "Homem Baseado", "Base", "knfiadjsads");
+    auto stream1 = sm1->build("Epic LoL Stream", StreamLanguage::EN, 13, StreamType::PUBLIC, StreamGenre::GAMING, streamer1);
+    auto stream2 = sm1->build("Based Games", StreamLanguage::EN, 18, StreamType::PRIVATE, StreamGenre::GAMING, streamer2);
+    sm1->add(stream1);
+    sm1->add(stream2);
+    EXPECT_EQ(sm1->get(1), stream1);
+    EXPECT_EQ(sm1->get(2), stream2);
+    EXPECT_THROW(sm1->get(3), NoStreamWithID);
+    try {
+        sm1->get(3);
+    }
+    catch (NoStreamWithID &nswi) {
+        EXPECT_EQ(nswi.getMessage(), "There's no stream with that ID!");
+    }
 }*/
 
 TEST(streamManager, finish){
