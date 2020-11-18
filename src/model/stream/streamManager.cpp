@@ -3,6 +3,12 @@
 //
 
 #include "streamManager.h"
+#include "../../exception/streamNotFound.cpp"
+#include "../../exception/noStreamWithID.cpp"
+#include "../../exception/invalidStreamToAdd.cpp"
+#include "../../exception/streamAlreadyFinished.cpp"
+#include "../../exception/streamerAlreadyStreaming.cpp"
+#include "../../exception/invalidStreamBuild.cpp"
 
 #include <utility>
 
@@ -11,7 +17,7 @@ viewerManager(std::move(viewerManager)), streamerManager(std::move(streamerManag
 
 std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer){
     if(streamer->isStreaming())
-        return nullptr;
+        throw StreamerAlreadyStreaming(streamer, "Streamer is already streaming right now!");
     switch(type) {
         case StreamType::PRIVATE: {
             auto prv_stream = std::make_shared<PrivateStream>(title, lang, minAge, genre, streamer);
@@ -28,7 +34,7 @@ std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLangu
             return stream_form;
         }
         default:
-            return nullptr;
+            throw InvalidStreamBuild("The stream you're trying to start is invalid!");
     }
 }
 
@@ -43,7 +49,7 @@ bool StreamManager::add(std::shared_ptr<Stream> streamToAdd) {
         streams.push_back(streamToAdd);
         return true;
     }
-    return false;
+    throw InvalidStreamToAdd(streamToAdd, "Stream you're trying to add is invalid or already there!");
 }
 
 bool StreamManager::remove(std::shared_ptr<Stream> streamToRemove) {
@@ -52,7 +58,7 @@ bool StreamManager::remove(std::shared_ptr<Stream> streamToRemove) {
         streams.erase(itr);
         return true;
     }
-    return false;
+    throw StreamNotFound(streamToRemove, "Stream not found!");
 }
 
 bool StreamManager::has(const std::shared_ptr<Stream>& streamToCheck) {
@@ -70,15 +76,15 @@ std::shared_ptr<Stream> StreamManager::get(unsigned int streamID) {
     if(itr != cacheOfFinishedStreams.end()){
         return *itr;
     }
-    return nullptr;
+    throw NoStreamWithID(streamID, "There's no stream with that ID!");
 }
 
 std::shared_ptr<FinishedStream> StreamManager::finish(const std::shared_ptr<Stream>& streamToFinish) {
     if(streamToFinish->getStreamType() == StreamType::FINISHED)
-        return nullptr;
+        throw StreamAlreadyFinished(streamToFinish, "Stream has already finished!");
     if(!remove(streamToFinish)) return nullptr;
     auto res = std::make_shared<FinishedStream>(streamToFinish->getTitle(),streamToFinish->getLanguage(), streamToFinish->getMinAge(),
-                                                streamToFinish->getGenre(), streamToFinish->getStreamer(), getNumOfViewers(streamToFinish));
+                                                streamToFinish->getGenre(), streamToFinish->getStreamer(), getNumOfViewers(streamToFinish), streamToFinish->getUniqueId());
     for(const auto& elem: viewerManager->getViewers()){
         if(elem->getCurrentStream() == streamToFinish)
             elem->leaveCurrentStream();

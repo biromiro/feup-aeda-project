@@ -7,13 +7,14 @@
 #include <utility>
 #include "../../model/user/streamer/streamer_manager.h"
 #include <unordered_map>
+#include "../../exception/invalidFeedback.cpp"
 
 unsigned int Stream::nextID = 0;
 
 Stream::Stream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer): title(std::move(title)), language(lang), minAge(minAge), type(type), genre(genre), streamer(std::move(streamer)) {
 
     streamDate = Date();
-    uniqueID = ++nextID;
+    if(type != StreamType::FINISHED) { uniqueID = ++nextID; }
     votingSystem = std::pair<unsigned int,unsigned int>();
     numOfViewers = 0;
 }
@@ -45,7 +46,7 @@ bool Stream::addFeedback(enum FeedbackLikeSystem feedback) {
     else if(feedback == FeedbackLikeSystem::DISLIKE)
         votingSystem.second++;
     else
-        return false;
+        throw InvalidFeedback(feedback, "You can only LIKE or DISLIKE a stream!");
     return true;
 }
 

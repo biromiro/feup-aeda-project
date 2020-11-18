@@ -4,6 +4,8 @@
 
 #include "privateStream.h"
 #include "../../user/viewer/viewer.h"
+#include "../../../exception/nicknameNotFound.cpp"
+#include "../../../exception/nicknameAlreadyAdded.cpp"
 
 PrivateStream::PrivateStream() : Stream(StreamType::PRIVATE){}
 
@@ -23,7 +25,7 @@ bool PrivateStream::addToWhitelist(std::shared_ptr<Viewer> v){
         whitelist.push_back(v_nick);
         return true;
     }
-    return false;
+    throw NicknameAlreadyAdded(v_nick, "Viewer you're trying to add is already in the whitelist!");
 }
 
 bool PrivateStream::removeFromWhitelist(std::shared_ptr<Viewer> v){
@@ -33,7 +35,7 @@ bool PrivateStream::removeFromWhitelist(std::shared_ptr<Viewer> v){
         whitelist.erase(itr);
         return true;
     }
-    return false;
+    throw NicknameNotFound(v_nick, "Viewer is not in the whitelist!");
 }
 
 bool PrivateStream::setMaxNumViewers(unsigned int maxNumViewers) {

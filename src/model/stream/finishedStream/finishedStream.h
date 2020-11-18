@@ -27,7 +27,7 @@ public:
      * @param streamer streamer of the finished stream
      * @param numOfViews number of views registered at the end of the stream that originated the finished stream
      */
-    FinishedStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamGenre genre, std::shared_ptr<Streamer> streamer, unsigned int numOfViews);
+    FinishedStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamGenre genre, std::shared_ptr<Streamer> streamer, unsigned int numOfViews, unsigned int id);
 
     /**
      * Getter of the number of views
@@ -43,12 +43,20 @@ public:
      */
     enum StreamType getStreamType() const override;
 
+    /**
+     * Getter of the ID the stream had when active
+     *
+     * @return ID the stream had when active
+     */
+    unsigned int getID() const;
+
     void readData(std::ifstream& ifs, std::shared_ptr<StreamerManager> streamerManager);
 
     void writeData(std::ofstream& ofs);
 
 private:
     unsigned int numOfViews;
+    unsigned int id;
 };
 
 #endif //PROJECT_FINISHEDSTREAM_H
