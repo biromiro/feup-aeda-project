@@ -108,6 +108,11 @@ public:
      * @return sorted Leaderboard of streamers
      */
     Leaderboard<std::shared_ptr<Streamer>> sortStreamers();
+
+    Leaderboard<std::shared_ptr<Streamer>> getFollowingStreamersLeaderboard(std::shared_ptr<Viewer> viewer);
+
+    Leaderboard<std::shared_ptr<Streamer>> getNotFollowingStreamersLeaderboard(std::shared_ptr<Viewer> viewer);
+
     /**
      * Sorts the given Streamer Leaderboard by streamer's joindate > age > nickname > name
      *

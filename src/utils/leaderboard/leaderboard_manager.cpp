@@ -222,3 +222,31 @@ Leaderboard<std::shared_ptr<User>> LeaderboardManager::sortUserBy(SortUser sorte
     return Leaderboard<std::shared_ptr<User>>(newLB);
 }
 
+Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::getFollowingStreamersLeaderboard(std::shared_ptr<Viewer> viewer) {
+    auto followingStreamers = viewer->getFollowingStreamers();
+    std::vector<std::shared_ptr<Streamer>> streamers;
+    streamers.reserve(followingStreamers.size());
+    for(const auto& elem: followingStreamers){
+        streamers.push_back(streamerManager->get(elem));
+    }
+    return Leaderboard<std::shared_ptr<Streamer>>(streamers);
+}
+
+Leaderboard<std::shared_ptr<Streamer>>
+LeaderboardManager::getNotFollowingStreamersLeaderboard(std::shared_ptr<Viewer> viewer) {
+    auto followingStreamersNicknames = viewer->getFollowingStreamers();
+    auto allFollowingStreamers = streamerManager->getStreamers();
+    std::vector<std::shared_ptr<Streamer>> followingStreamers;
+    followingStreamers.reserve(followingStreamers.size());
+    for(const auto& elem: followingStreamersNicknames){
+        followingStreamers.push_back(streamerManager->get(elem));
+    }
+    std::vector<std::shared_ptr<Streamer>> notFollowingStreamers;
+    notFollowingStreamers.reserve(allFollowingStreamers.size()-followingStreamers.size());
+    for(const auto& elem: allFollowingStreamers){
+        if(find(followingStreamers.begin(),followingStreamers.end(),elem) == followingStreamers.end())
+            notFollowingStreamers.push_back(elem);
+    }
+    return Leaderboard<std::shared_ptr<Streamer>>(notFollowingStreamers);
+}
+

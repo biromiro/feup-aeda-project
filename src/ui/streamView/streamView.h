@@ -15,6 +15,7 @@ public:
 private:
     UIManager& uiManager;
     void pageOutput() const;
+    void feedbackToStream();
 };
 
 #endif //PROJECT_STREAMVIEW_H

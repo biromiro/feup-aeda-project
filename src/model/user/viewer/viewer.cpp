@@ -34,7 +34,8 @@ bool Viewer::isWatchingStream() const{
 
 bool Viewer::leaveCurrentStream() {
     if(isWatchingStream()){
-        streamHistory.push_back(currentStream);
+        if(find(streamHistory.begin(),streamHistory.end(),currentStream) == streamHistory.end())
+            streamHistory.push_back(currentStream);
         currentStream->viewerLeft();
         currentStream = nullptr;
         return true;

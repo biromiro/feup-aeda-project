@@ -17,6 +17,10 @@ private:
     void chooseStream();
     void searchNewStreamers();
     void followingStreamers();
+    void newStreamerActions();
+    void followingStreamerActions();
+    void showAvailableStreams();
+    void myViewHistory();
     UIManager& uiManager;
     void pageOutput() const;
 };
