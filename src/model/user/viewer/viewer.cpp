@@ -38,7 +38,6 @@ bool Viewer::leaveCurrentStream() {
             streamHistory.push_back(currentStream);
         currentStream->viewerLeft();
         currentStream = nullptr;
-        votedInStream = FeedbackLikeSystem::INVALID_VOTE;
         return true;
     }
     return false;
@@ -46,13 +45,13 @@ bool Viewer::leaveCurrentStream() {
 
 bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback) {
     if(votedInStream == FeedbackLikeSystem::INVALID_VOTE)
-        if(isWatchingStream() && currentStream->addFeedback(feedback)){
+        if(isWatchingStream() && currentStream->addFeedback(getNickname(),feedback)){
             votedInStream = feedback;
             return true;
         }else return false;
     else{
-        currentStream->removeFeedback(votedInStream);
-        if(isWatchingStream() && currentStream->addFeedback(feedback)){
+        currentStream->removeFeedback(getNickname(), votedInStream);
+        if(isWatchingStream() && currentStream->addFeedback(getNickname(),feedback)){
             votedInStream = feedback;
             return true;
         }else return false;

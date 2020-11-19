@@ -17,7 +17,8 @@ void StreamerView::run() {
         std::cout << "3 - Who is old enough to join my stream?" << std::endl;
         std::cout << "4 - Add viewers to the whitelist" << std::endl;
         std::cout << "5 - Finish current stream" << std::endl;
-        std::cout << "6 - Let me check the leaderboards!" << std::endl;
+        std::cout << "6 - Let me see my past streams!" << std::endl;
+        std::cout << "7 - Let me check the leaderboards!" << std::endl;
         std::cout << "0 - Logout" << std::endl;
         answer = getch();
         switch (answer) {
@@ -37,6 +38,9 @@ void StreamerView::run() {
                 finishCurrentStream();
                 break;
             case '6':
+                checkPastStreams();
+                break;
+            case '7':
                 uiManager.setCurrent(new LeaderboardPage(uiManager));
                 uiManager.run();
                 break;
@@ -201,4 +205,16 @@ void StreamerView::finishCurrentStream() {
         std::cout << exception.what();
         getch();
     }
+}
+
+void StreamerView::checkPastStreams() {
+    std::cout << CLEAR_SCREEN << GO_TO_TOP;
+    pageOutput();
+    auto currentStreamer = uiManager.getPlatform().getStreamerManager()->get(uiManager.getCurrentSession().getNickname());
+    std::vector<std::shared_ptr<Stream>> finishedStreams;
+    for(const auto& elem: currentStreamer->getPreviousStreamsIDs()){
+        finishedStreams.push_back(uiManager.getPlatform().getStreamManager()->get(elem));
+    }
+    std::cout << Leaderboard<std::shared_ptr<Stream>>(finishedStreams) << std::endl;
+    getch();
 }

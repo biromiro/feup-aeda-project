@@ -20,6 +20,7 @@ private:
     void oldEnoughViewerLB();
     void addViewersToWhitelist();
     void finishCurrentStream();
+    void checkPastStreams();
 };
 
 #endif //PROJECT_STREAMERVIEW_H

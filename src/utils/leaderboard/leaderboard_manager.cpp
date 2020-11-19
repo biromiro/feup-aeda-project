@@ -106,6 +106,7 @@ Leaderboard<std::shared_ptr<User>> LeaderboardManager::sortUsers(const Leaderboa
 Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::sortStreams() {
     std::vector<std::shared_ptr<Stream>> newLB;
     newLB = streamManager->getStreams();
+    newLB.insert(newLB.begin(),streamManager->getCacheOfFinishedStreams().begin(),streamManager->getCacheOfFinishedStreams().end());
     std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return (*s1)>(*s2);});
     return Leaderboard<std::shared_ptr<Stream>>(newLB);
 }
@@ -120,7 +121,7 @@ Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::sortStreamsBy(SortStrea
     std::vector<std::shared_ptr<Stream>> newLB = sortStreams().get();
     switch (sorter) {
         case SortStream::MINIMUM_AGE:
-            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getMinAge() < s2->getMinAge();});
+            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getMinAge() > s2->getMinAge();});
             break;
         case SortStream::LANGUAGE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getLanguage() < s2->getLanguage();});
@@ -129,10 +130,10 @@ Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::sortStreamsBy(SortStrea
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getGenre() < s2->getGenre();});
             break;
         case SortStream::VIEWS:
-            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getNumOfViewers() < s2->getNumOfViewers();});
+            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getNumOfViewers() > s2->getNumOfViewers();});
             break;
         case SortStream::LIKES:
-            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getVotes().first < s2->getVotes().first;});
+            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getVotes().first > s2->getVotes().first;});
             break;
         case SortStream::DATE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getStreamDate() < s2->getStreamDate();});
@@ -162,14 +163,14 @@ Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::sortStreamerBy(SortSt
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return s1->getJoinDate() < s2->getJoinDate();});
             break;
         case SortStreamer::VIEWCOUNT:
-            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return s1->getTotalViewCount() < s2->getTotalViewCount();});
+            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return s1->getTotalViewCount() > s2->getTotalViewCount();});
             break;
         case SortStreamer::STREAMING:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return s1->isStreaming() < s2->isStreaming();});
             break;
         case SortStreamer::NUM_FOLLOWERS:
             auto streamerPtr = streamerManager;
-            std::sort(newLB.begin(),newLB.end(),[&streamerPtr](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return streamerPtr->getNumOfFollowers(s1) < streamerPtr->getNumOfFollowers(s2);});
+            std::sort(newLB.begin(),newLB.end(),[&streamerPtr](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return streamerPtr->getNumOfFollowers(s1) > streamerPtr->getNumOfFollowers(s2);});
             break;
     }
     return Leaderboard<std::shared_ptr<Streamer>>(newLB);
@@ -255,4 +256,103 @@ Leaderboard<std::shared_ptr<Viewer>> LeaderboardManager::filterViewerByAge(unsig
     newLB.erase(std::remove_if(newLB.begin(),newLB.end(),[&age](const std::shared_ptr<Viewer>& viewer){return viewer->getAge() < age;}),newLB.end());
     return Leaderboard<std::shared_ptr<Viewer>>(newLB);
 }
+
+Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::top10StreamsBy(SortStream sorter) {
+    auto streamLB = sortStreamsBy(sorter).get();
+    if(streamLB.size() > 10)
+        streamLB.resize(10);
+    return Leaderboard<std::shared_ptr<Stream>>(streamLB);
+}
+
+Leaderboard<std::shared_ptr<Stream>>
+LeaderboardManager::sortStreamsBy(SortStream sorter, std::vector<std::shared_ptr<Stream>> newLB) {
+    switch (sorter) {
+        case SortStream::MINIMUM_AGE:
+            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getMinAge() < s2->getMinAge();});
+            break;
+        case SortStream::LANGUAGE:
+            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getLanguage() < s2->getLanguage();});
+            break;
+        case SortStream::GENRE:
+            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getGenre() < s2->getGenre();});
+            break;
+        case SortStream::VIEWS:
+            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getNumOfViewers() < s2->getNumOfViewers();});
+            break;
+        case SortStream::LIKES:
+            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getVotes().first < s2->getVotes().first;});
+            break;
+        case SortStream::DATE:
+            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getStreamDate() < s2->getStreamDate();});
+            break;
+        case SortStream::TYPE:
+            std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getStreamType() < s2->getStreamType();});
+            break;
+        default:
+            break;
+    }
+    return Leaderboard<std::shared_ptr<Stream>>(newLB);}
+
+unsigned int LeaderboardManager::totalNumberOfStreams() {
+    return streamManager->getStreams().size() + streamManager->getCacheOfFinishedStreams().size();
+}
+
+unsigned int LeaderboardManager::totalNumberOfPrivateStreams() {
+    return std::count_if(streamManager->getStreams().begin(),streamManager->getStreams().end(),
+                  [](const std::shared_ptr<Stream>& s){
+                      if (s->getStreamType() == StreamType::PRIVATE) return true;
+    }) ;
+}
+
+unsigned int LeaderboardManager::totalNumberOfPublicStreams() {
+    return streamManager->getStreams().size() - totalNumberOfPrivateStreams();
+}
+
+unsigned int LeaderboardManager::meanViewsPerStreamActive() {
+    unsigned int numOfStreams = streamManager->getStreams().size(), counter = 0;
+    for(const auto& elem: streamManager->getStreams()){
+        counter += elem->getNumOfViewers();
+    }
+    return counter/numOfStreams;
+}
+
+unsigned int LeaderboardManager::meanViewsPerStreamFinished(){
+    unsigned int numOfStreams = streamManager->getCacheOfFinishedStreams().size(), counter = 0;
+    for(const auto& elem: streamManager->getCacheOfFinishedStreams()){
+        counter += elem->getNumOfViewers();
+    }
+    return counter/numOfStreams;
+}
+
+StreamLanguage LeaderboardManager::mostCommonLanguage() {
+    std::map<StreamLanguage,unsigned int> commonMap;
+    for(const auto& elem: streamManager->getStreams()){
+        commonMap[elem->getLanguage()]++;
+    }
+    auto pr = std::max_element
+            (std::begin(commonMap), std::end(commonMap),
+                    [] (const std::pair<StreamLanguage,unsigned int>& p1, const std::pair<StreamLanguage,unsigned int> & p2) {
+                        return p1.second < p2.second;
+            });
+    return pr->first;
+}
+
+StreamType LeaderboardManager::mostCommonType() {
+    std::map<StreamType,unsigned int> commonMap;
+    for(const auto& elem: streamManager->getStreams()){
+        commonMap[elem->getStreamType()]++;
+    }
+    auto pr = std::max_element
+            (std::begin(commonMap), std::end(commonMap),
+             [] (const std::pair<StreamType,unsigned int>& p1, const std::pair<StreamType,unsigned int> & p2) {
+                 return p1.second < p2.second;
+             });
+    return pr->first;
+}
+
+std::string LeaderboardManager::mostViewsStreamer() {
+    auto streamerLB = sortStreamerBy(SortStreamer::VIEWCOUNT);
+    return streamerLB.get().front()->getNickname();
+}
+
 

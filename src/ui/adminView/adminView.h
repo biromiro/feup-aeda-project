@@ -15,6 +15,7 @@ public:
 private:
     UIManager& uiManager;
     void pageOutput() const;
+    void showStreamZStatistics() const;
 };
 
 #endif //PROJECT_ADMINVIEW_H

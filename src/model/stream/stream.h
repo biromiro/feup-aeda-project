@@ -11,6 +11,7 @@
 #include <memory>
 #include <fstream>
 #include <unordered_map>
+#include <map>
 
 
 class StreamerManager;
@@ -143,17 +144,19 @@ public:
      * Adds a vote to the stream's feedback
      *
      * @param feedback vote (like or dislike) to add
+     * @param nickname viewer to add feedback
      * @return true if feedback added is valid (like or dislike), false otherwise
      */
-    bool addFeedback(enum FeedbackLikeSystem feedback);
+    bool addFeedback(std::string nickname, enum FeedbackLikeSystem feedback);
 
     /**
      * Removes a vote to the stream's feedback
      *
      * @param feedback vote (like or dislike) to remove
+     * @param nickname viewer to remove feedback
      * @return true if feedback removed is valid (like or dislike), false otherwise
      */
-    bool removeFeedback(enum FeedbackLikeSystem feedback);
+    bool removeFeedback(std::string nickname, enum FeedbackLikeSystem feedback);
     /**
      * Getter of the unique ID of the stream
      *
@@ -207,6 +210,7 @@ protected:
     unsigned int numOfViewers;
     unsigned int uniqueID;
     static unsigned int nextID;
+    std::map<std::string,FeedbackLikeSystem> feedback;
 };
 
 std::ostream& operator<<(std::ostream& out, const StreamLanguage& f);

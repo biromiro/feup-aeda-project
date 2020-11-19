@@ -84,7 +84,7 @@ std::shared_ptr<FinishedStream> StreamManager::finish(const std::shared_ptr<Stre
         throw StreamAlreadyFinished(streamToFinish, "Stream has already finished!");
     if(!remove(streamToFinish)) return nullptr;
     auto res = std::make_shared<FinishedStream>(streamToFinish->getTitle(),streamToFinish->getLanguage(), streamToFinish->getMinAge(),
-                                                streamToFinish->getGenre(), streamToFinish->getStreamer(), getNumOfViewers(streamToFinish), streamToFinish->getUniqueId());
+                                                streamToFinish->getGenre(), streamToFinish->getStreamer(), getNumOfViewers(streamToFinish), streamToFinish->getUniqueId(), streamToFinish->getVotes());
     for(const auto& elem: viewerManager->getViewers()){
         if(elem->getCurrentStream() == streamToFinish)
             elem->leaveCurrentStream();
@@ -96,6 +96,7 @@ std::shared_ptr<FinishedStream> StreamManager::finish(const std::shared_ptr<Stre
         }
     }
     cacheOfFinishedStreams.push_back(res);
+    streamToFinish->getStreamer()->addToViewCount(streamToFinish->getNumOfViewers());
     return res;
 }
 

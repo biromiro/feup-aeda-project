@@ -45,28 +45,27 @@ TEST(leaderboard_manager, filters){
     std::shared_ptr<LeaderboardManager> leaderboardManager = std::make_shared<LeaderboardManager>(viewerManager,streamerManager,streamManager,userManager);
     streamManager->setStreamerManager(streamerManager);
 
-    Date birthDate("2001/10/20");
+    Date birthDate("2001/10/20"), birthDate2("2000/10/20");
     viewerManager->build(birthDate,"André Moreira","Dustini", "hehuebfghcudewc");
     viewerManager->build(birthDate,"André Pereira","dustibo", "autofeito");
     auto s1 = streamerManager->build(birthDate, "Nuno Costa", "biromiro", "hahduegvywbcs");
-    auto s2 = streamerManager->build(birthDate, "oscar ESteves", "biroadsadiro", "kekwjkaishduxyfasv");
-    auto s3 = streamerManager->build(birthDate, "Paulo Costa", "vespa", "kdfiocjikcs");
-    auto s4 = streamerManager->build(birthDate, "Carlos ESteves", "dustibo", "jkcdhusgvbcs");
+    auto s2 = streamerManager->build(birthDate2, "oscar ESteves", "biroadsadiro", "kekwjkaishduxyfasv");
+    auto s3 = streamerManager->build(birthDate2, "Paulo Costa", "vespa", "kdfiocjikcs");
+    auto s4 = streamerManager->build(birthDate, "Carlos ESteves", "epico", "jkcdhusgvbcs");
     streamManager->build("jebcnhuwbwiu",StreamLanguage::PT_PT,18,StreamType::PUBLIC, StreamGenre::COOKING, s1);
     streamManager->build("esfw",StreamLanguage::AZ,10,StreamType::PUBLIC, StreamGenre::COOKING, s2);
     streamManager->build("asd",StreamLanguage::EN,15,StreamType::PRIVATE, StreamGenre::GAMING, s3);
 
-    auto streamers = leaderboardManager->sortStreamers();
-    std::cout << streamers;
+    auto streamers1 = leaderboardManager->sortStreamerBy(SortStreamer::NAME);
+    auto streamers2 = leaderboardManager->sortStreamerBy(SortStreamer::NICKNAME);
+    auto streamers3 = leaderboardManager->sortStreamerBy(SortStreamer::JOINDATE);
+    auto streamers4 = leaderboardManager->sortStreamerBy(SortStreamer::BIRTHDATE);
+    auto streamers5 = leaderboardManager->sortStreamerBy(SortStreamer::NUM_FOLLOWERS);
+    auto streamers6 = leaderboardManager->sortStreamerBy(SortStreamer::STREAMING);
+    auto streamers7 = leaderboardManager->sortStreamerBy(SortStreamer::VIEWCOUNT);
 
-    auto viewers = leaderboardManager->sortViewers();
-    std::cout << viewers;
+    std::cout << streamers1  << streamers2 << streamers3  << streamers4 << streamers5  << streamers6 << streamers7 << std::endl;
 
-    auto users = leaderboardManager->sortUsers();
-    std::cout << users;
-
-    auto streams = leaderboardManager->sortStreams();
-    std::cout << streams;
 }
 
 TEST(leaderboard_manager, getFollowingList){

@@ -15,6 +15,7 @@ Stream::Stream(std::string title, enum StreamLanguage lang, unsigned int minAge,
     if(type != StreamType::FINISHED) { uniqueID = ++nextID; }
     votingSystem = std::pair<unsigned int,unsigned int>();
     numOfViewers = 0;
+    feedback = std::map<std::string,FeedbackLikeSystem>();
 }
 
 Stream::Stream(enum StreamType type) : type(type){}
@@ -38,23 +39,31 @@ std::shared_ptr<Streamer> Stream::getStreamer() const { return streamer; }
 
 std::pair<unsigned int, unsigned int> Stream::getVotes() const { return votingSystem; }
 
-bool Stream::addFeedback(enum FeedbackLikeSystem feedback) {
-    if(feedback == FeedbackLikeSystem::LIKE)
+bool Stream::addFeedback(std::string nickname, enum FeedbackLikeSystem newFeedback) {
+    if(feedback.find(nickname) != feedback.end()){
+        if(feedback[nickname] == FeedbackLikeSystem::LIKE)
+            votingSystem.first--;
+        else if(feedback[nickname] == FeedbackLikeSystem::DISLIKE)
+            votingSystem.second--;
+    }
+    feedback[nickname] = newFeedback;
+    if(newFeedback == FeedbackLikeSystem::LIKE)
         votingSystem.first++;
-    else if(feedback == FeedbackLikeSystem::DISLIKE)
+    else if(newFeedback == FeedbackLikeSystem::DISLIKE)
         votingSystem.second++;
     else
-        throw InvalidFeedback(feedback, "You can only LIKE or DISLIKE a stream!");
+        throw InvalidFeedback(newFeedback, "You can only LIKE or DISLIKE a stream!");
     return true;
 }
 
-bool Stream::removeFeedback(enum FeedbackLikeSystem feedback){
-    if(feedback == FeedbackLikeSystem::LIKE)
-        votingSystem.first--;
-    else if(feedback == FeedbackLikeSystem::DISLIKE)
-        votingSystem.second--;
-    else
-        throw InvalidFeedback(feedback, "You can't remove feedback if you haven't done one yet!");
+bool Stream::removeFeedback(std::string nickname, enum FeedbackLikeSystem newFeedback){
+    if(feedback.find(nickname) != feedback.end()){
+        if(feedback[nickname] == FeedbackLikeSystem::LIKE)
+            votingSystem.first--;
+        else if(feedback[nickname] == FeedbackLikeSystem::DISLIKE)
+            votingSystem.second--;
+    }else throw InvalidFeedback(newFeedback, "You can't remove feedback if you haven't done one yet!");
+    feedback.erase(nickname);
     return true;
 }
 
@@ -131,7 +140,9 @@ bool Stream::operator!=(const Stream &rhs) const {
 }
 
 void Stream::readData(std::ifstream &ifs, std::shared_ptr<StreamerManager> streamerManager) {
-    std::string streamerNickname;
+    std::string streamerNickname, viewerNickname;
+    unsigned int feedbackSize;
+    FeedbackLikeSystem vote;
 
     ifs >> nextID;
     ifs >> uniqueID;
@@ -147,6 +158,15 @@ void Stream::readData(std::ifstream &ifs, std::shared_ptr<StreamerManager> strea
     ifs >> votingSystem.second;
     ifs >> numOfViewers;
     ifs >> streamDate;
+
+    ifs >> feedbackSize;
+    ifs.ignore();
+
+    while (feedbackSize--){
+        getline(ifs,viewerNickname);
+        ifs >> vote;
+        feedback[viewerNickname] = vote;
+    }
 
 }
 
@@ -187,7 +207,12 @@ void Stream::writeData(std::ofstream &ofs) {
     ofs << numOfViewers << "\n";
     ofs << streamDate << "\n";
 
+    ofs << feedback.size() << "\n";
 
+    for(const auto& elem: feedback){
+        ofs << elem.first << "\n";
+        ofs << elem.second << "\n";
+    }
 }
 
 void Stream::newViewerJoin() {
