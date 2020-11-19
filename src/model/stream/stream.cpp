@@ -13,7 +13,7 @@ Stream::Stream(std::string title, enum StreamLanguage lang, unsigned int minAge,
 
     streamDate = Date();
     if(type != StreamType::FINISHED) { uniqueID = ++nextID; }
-    votingSystem = std::pair<unsigned int,unsigned int>();
+    votingSystem = std::make_pair<unsigned int,unsigned int>(0,0);
     numOfViewers = 0;
     feedback = std::map<std::string,FeedbackLikeSystem>();
 }
@@ -39,7 +39,7 @@ std::shared_ptr<Streamer> Stream::getStreamer() const { return streamer; }
 
 std::pair<unsigned int, unsigned int> Stream::getVotes() const { return votingSystem; }
 
-bool Stream::addFeedback(std::string nickname, enum FeedbackLikeSystem newFeedback) {
+bool Stream::addFeedback(const std::string& nickname, enum FeedbackLikeSystem newFeedback) {
     if(feedback.find(nickname) != feedback.end()){
         if(feedback[nickname] == FeedbackLikeSystem::LIKE)
             votingSystem.first--;
@@ -56,7 +56,7 @@ bool Stream::addFeedback(std::string nickname, enum FeedbackLikeSystem newFeedba
     return true;
 }
 
-bool Stream::removeFeedback(std::string nickname, enum FeedbackLikeSystem newFeedback){
+bool Stream::removeFeedback(const std::string& nickname, enum FeedbackLikeSystem newFeedback){
     if(feedback.find(nickname) != feedback.end()){
         if(feedback[nickname] == FeedbackLikeSystem::LIKE)
             votingSystem.first--;
@@ -67,7 +67,7 @@ bool Stream::removeFeedback(std::string nickname, enum FeedbackLikeSystem newFee
     return true;
 }
 
-bool Stream::operator==(std::shared_ptr<Stream> stream) const { return uniqueID == stream->getUniqueId(); }
+bool Stream::operator==(const std::shared_ptr<Stream>& stream) const { return uniqueID == stream->getUniqueId(); }
 
 unsigned int Stream::getUniqueId() const { return uniqueID; }
 
@@ -139,10 +139,10 @@ bool Stream::operator!=(const Stream &rhs) const {
     return !(rhs == *this);
 }
 
-void Stream::readData(std::ifstream &ifs, std::shared_ptr<StreamerManager> streamerManager) {
+void Stream::readData(std::ifstream &ifs, const std::shared_ptr<StreamerManager>& streamerManager) {
     std::string streamerNickname, viewerNickname;
-    unsigned int feedbackSize;
-    FeedbackLikeSystem vote;
+    unsigned int feedbackSize = 0;
+    FeedbackLikeSystem vote = FeedbackLikeSystem::INVALID_VOTE;
 
     ifs >> nextID;
     ifs >> uniqueID;
@@ -269,6 +269,7 @@ std::ostream& operator<<(std::ostream& out, const FeedbackLikeSystem& f){
         case FeedbackLikeSystem::DISLIKE: out << "DISLIKE"; break;
         case FeedbackLikeSystem::INVALID_VOTE: out << "INVALID_VOTE"; break;
     }
+    return out;
 }
 
 

@@ -14,7 +14,7 @@ public:
     void run() override;
 private:
     UIManager& uiManager;
-    void pageOutput() const;
+    static void pageOutput() ;
     void top10s();
     void showStreams();
     void showUsers();

@@ -6,14 +6,12 @@
 #include "../../../exception/adminAlreadySet/adminAlreadySet.h"
 #include "../../../exception/adminNotSet/adminNotSet.h"
 
-#include <utility>
-
 
 AdminManager::AdminManager(std::shared_ptr<UserManager> userManager) :
 userManager(std::move(userManager))
 {}
 
-bool AdminManager::build(Date birthDate, const std::string &name, const std::string &nickname, std::string password) {
+bool AdminManager::build(Date birthDate, const std::string &name, const std::string &nickname, const std::string& password) {
     if(userManager->has(nickname)|| noInstances > 0)
         throw AdminAlreadySet(admin,"Admin already set!");
     auto newAdmin = std::make_shared<Admin>(birthDate,name,nickname, password);
@@ -93,4 +91,5 @@ bool AdminManager::writeData() {
         admin->writeData(file);
 
     file.close();
+    return true;
 }

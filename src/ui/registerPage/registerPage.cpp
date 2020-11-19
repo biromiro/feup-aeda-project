@@ -47,7 +47,7 @@ void RegisterPage::run() {
     }while(answer != *ESC);
 }
 
-void RegisterPage::pageOutput() const {
+void RegisterPage::pageOutput() {
     std::cout << "***** Welcome to StreamZ! *****" << std::endl;
 }
 
@@ -55,7 +55,7 @@ bool RegisterPage::streamerRegister() {
     std::string nickname, name, password;
     Date birthDate = Date(), currentDate = Date();
     bool valid = false;
-    char answer;
+    char answer = 0;
     do{
         if(valid) answer = getch();
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
@@ -77,13 +77,14 @@ bool RegisterPage::streamerRegister() {
     if(answer == *ESC) return false;
     auto streamer = uiManager.getPlatform().getStreamerManager()->build(birthDate,name,nickname,password);
     uiManager.getCurrentSession().login(nickname,password);
+    return true;
 }
 
 bool RegisterPage::viewerRegister() {
     std::string nickname, name, password;
     Date birthDate = Date(), currentDate = Date();
     bool valid = false;
-    char answer;
+    char answer = 0;
     do{
         if(valid) answer = getch();
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
@@ -105,6 +106,7 @@ bool RegisterPage::viewerRegister() {
     if(answer == *ESC) return false;
     auto viewer = uiManager.getPlatform().getViewerManager()->build(birthDate,name,nickname,password);
     uiManager.getCurrentSession().login(nickname,password);
+    return true;
 }
 
 
@@ -123,7 +125,7 @@ void RegisterPage::getUserInfo(Date& birthDate, std::string& name, std::string& 
             continue;
         }
         break;
-    }while (1);
+    }while (true);
     std::cout << "Name: ";
     getlineCIN(name);
     do{
@@ -137,7 +139,7 @@ void RegisterPage::getUserInfo(Date& birthDate, std::string& name, std::string& 
             std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
             continue;
         }else break;
-    }while(1);
+    }while(true);
     do {
         std::cout << "Please insert your birthdate:" << std::endl;
         do{
@@ -162,6 +164,6 @@ void RegisterPage::getUserInfo(Date& birthDate, std::string& name, std::string& 
             std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  GO_TO_BEGINNING_OF_LINE;
             continue;
         }else break;
-    }while (1);
+    }while (true);
 }
 

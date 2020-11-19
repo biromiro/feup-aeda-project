@@ -6,16 +6,13 @@
 #include "../../../exception/nicknameAlreadyAdded/nicknameAlreadyAdded.h"
 #include "../../../exception/userNotFound/userNotFound.h"
 #include "../../../exception/userAlreadyExists/userAlreadyExists.h"
-#include "../../../exception/invalidAge/invalidAge.h"
-
-#include <utility>
 
 ViewerManager::ViewerManager(std::shared_ptr<UserManager> userManager):
 userManager(std::move(userManager)){
     viewers = std::vector<std::shared_ptr<Viewer>>();
 }
 
-std::shared_ptr<Viewer> ViewerManager::build(Date birthDate, const std::string& name, const std::string& nickname, std::string password) {
+std::shared_ptr<Viewer> ViewerManager::build(Date birthDate, const std::string& name, const std::string& nickname, const std::string& password) {
     if(userManager->has(nickname))
         throw NicknameAlreadyAdded(nickname,"Nickname already in use by another user!");
     std::shared_ptr<Viewer> viewer;
@@ -86,7 +83,7 @@ const std::vector<std::shared_ptr<Viewer>> &ViewerManager::getViewers() const {
 bool ViewerManager::readData(const std::shared_ptr<StreamManager>& streamManager) {
     //write object into the file
     std::ifstream file;
-    unsigned int viewersSize;
+    unsigned int viewersSize = 0;
 
     file.open("../../src/model/user/viewer/dataViewer.txt");
 
@@ -123,4 +120,5 @@ bool ViewerManager::writeData() {
         elem->writeData(file);
     }
     file.close();
+    return true;
 }

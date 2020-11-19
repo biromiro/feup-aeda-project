@@ -35,28 +35,28 @@ public:
      *
      * @return private stream's type
      */
-    enum StreamType getStreamType() const override;
+    [[nodiscard]] enum StreamType getStreamType() const override;
 
     /**
      * Getter of the private stream's whitelist (nickname of allowed viewers)
      *
      * @return private stream's whitelist
      */
-    std::vector<std::string> getWhitelist() const;
+    [[nodiscard]] std::vector<std::string> getWhitelist() const;
 
     /**
      * Getter of the private stream's maximum number of viewers
      *
      * @return private stream's maximum number of viewers
      */
-    unsigned int getMaxNumViewers() const;
+    [[nodiscard]] unsigned int getMaxNumViewers() const;
 
     /**
      * Getter of the private stream's comments
      *
      * @return vector of private stream's comments
      */
-    std::map<std::string,std::string> getComments() const;
+    [[nodiscard]] std::map<std::string,std::string> getComments() const;
 
     /**
      * Adds a viewer to the whitelist (using his nickname)
@@ -64,7 +64,7 @@ public:
      * @param v viewer whose nickname is to be added to the whitelist
      * @return true if viewer's nickname is successfully added, false if nickname is already in whitelist
      */
-    bool addToWhitelist(std::shared_ptr<Viewer> v);
+    bool addToWhitelist(const std::shared_ptr<Viewer>& v);
 
     /**
 
@@ -73,7 +73,7 @@ public:
      * @param v viewer whose nickname is to be removed from the whitelist
      * @return true if a viewer's nickname is successfully removed, false if nickname isn't in whitelist
      */
-    bool removeFromWhitelist(std::shared_ptr<Viewer> v);
+    bool removeFromWhitelist(const std::shared_ptr<Viewer>& v);
 
     /**
 
@@ -98,14 +98,14 @@ public:
      * @param newViewer viewer to check
      * @return true if the viewer can join the private stream, false otherwise
      */
-    bool canJoin(const std::shared_ptr<Viewer>& newViewer) const override;
+    [[nodiscard]] bool canJoin(const std::shared_ptr<Viewer>& newViewer) const override;
 
-    void readData(std::ifstream& ifs, std::shared_ptr<StreamerManager> streamerManager);
+    void readData(std::ifstream& ifs, const std::shared_ptr<StreamerManager>& streamerManager) override;
 
-    void writeData(std::ofstream& ofs);
+    void writeData(std::ofstream& ofs) override;
 private:
     std::vector<std::string> whitelist;
-    unsigned int maxNumViewers;
+    unsigned int maxNumViewers{};
     std::map<std::string,std::string> comments;
 };
 

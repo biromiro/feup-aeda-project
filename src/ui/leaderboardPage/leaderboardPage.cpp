@@ -32,7 +32,7 @@ void LeaderboardPage::run() {
     }while (answer != *ESC && answer != '0');
 }
 
-void LeaderboardPage::pageOutput() const {
+void LeaderboardPage::pageOutput() {
     std::cout << "*****StreamZ*****Leaderboards*****" << std::endl;
 }
 
@@ -89,7 +89,7 @@ void LeaderboardPage::showStreams() {
                 streamVec = uiManager.getPlatform().getLeaderboardManager()->filterStreamByGenre(genre).get();
                 break;
             }case '3':{
-                unsigned int age = 0;
+                unsigned int age;
                 do{
                     std::cout << "What age?" << std::endl;
                     age = inputNumber();
@@ -124,7 +124,7 @@ void LeaderboardPage::showStreams() {
                         std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  GO_TO_BEGINNING_OF_LINE;
                         continue;
                     }else break;
-                }while (1);
+                }while (true);
                 streamVec = uiManager.getPlatform().getLeaderboardManager()->filterStreamByDate(date).get();
                 break;
             }case '5':{
@@ -199,7 +199,7 @@ void LeaderboardPage::showStreams() {
 
 void LeaderboardPage::showUsers() {
 
-    char answer;
+    char answer, sortAnswer;
     do{
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
         pageOutput();
@@ -209,8 +209,8 @@ void LeaderboardPage::showUsers() {
         std::cout << "3 - ALL USERS" << std::endl;
         std::cout << "0 - Go back" << std::endl;
         answer = getch();
-    }while (answer != '0' && answer != '1' && answer != '2' && answer != '3');
-    if(answer == '0') return;
+        if(answer == '0') return;
+    }while (!(answer == 1 || answer == 2 || answer ==3));
     do{
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
         pageOutput();
@@ -224,10 +224,10 @@ void LeaderboardPage::showUsers() {
                 std::cout << "5 - WATCHING STREAM" << std::endl;
                 std::cout << "6 - NUM OF STREAMS WATCHED" << std::endl;
                 std::cout << "0 - Leave to main menu" << std::endl;
-                answer = getch();
+                sortAnswer = getch();
                 std::cout << CLEAR_SCREEN << GO_TO_TOP;
                 pageOutput();
-                switch (answer) {
+                switch (sortAnswer) {
                     case '1': {
                         std::cout << uiManager.getPlatform().getLeaderboardManager()->sortViewerBy(SortViewer::NAME);
                         getch();
@@ -238,7 +238,7 @@ void LeaderboardPage::showUsers() {
                         std::cout
                                 << uiManager.getPlatform().getLeaderboardManager()->sortViewerBy(SortViewer::NICKNAME);
                         getch();
-                        answer = 0;
+                        answer = '0';
                         break;
                     }
                     case '3': {
@@ -281,10 +281,10 @@ void LeaderboardPage::showUsers() {
                 std::cout << "6 - STREAMING" << std::endl;
                 std::cout << "6 - NUM OF FOLLOWERS" << std::endl;
                 std::cout << "0 - Leave to main menu" << std::endl;
-                answer = getch();
+                sortAnswer = getch();
                 std::cout << CLEAR_SCREEN << GO_TO_TOP;
                 pageOutput();
-                switch (answer) {
+                switch (sortAnswer) {
                     case '1': {
                         std::cout << uiManager.getPlatform().getLeaderboardManager()->sortStreamerBy(SortStreamer::NAME);
                         getch();
@@ -336,10 +336,10 @@ void LeaderboardPage::showUsers() {
                 std::cout << "4 - JOINDATE" << std::endl;
                 std::cout << "5 - USERTYPE" << std::endl;
                 std::cout << "0 - Leave to main menu" << std::endl;
-                answer = getch();
+                sortAnswer = getch();
                 std::cout << CLEAR_SCREEN << GO_TO_TOP;
                 pageOutput();
-                switch (answer) {
+                switch (sortAnswer) {
                     case '1': {
                         std::cout << uiManager.getPlatform().getLeaderboardManager()->sortUserBy(SortUser::NAME);
                         getch();

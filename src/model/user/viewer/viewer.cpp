@@ -3,8 +3,6 @@
 //
 #include "viewer.h"
 
-#include <utility>
-#include <fstream>
 #include "../../stream/privateStream/privateStream.h"
 #include "../../stream/streamManager.h"
 
@@ -12,7 +10,7 @@
 Viewer::Viewer() : User(UserTypes::VIEWER) {
 }
 
-Viewer::Viewer(Date birthDate, std::string name, std::string nickname, std::string password): User(birthDate,std::move(name),std::move(nickname), UserTypes::VIEWER, password){
+Viewer::Viewer(Date birthDate, std::string name, std::string nickname, std::string password): User(birthDate,std::move(name),std::move(nickname), UserTypes::VIEWER, std::move(password)){
     if(getAge() < 12){
         throw InvalidAge(getAge(), "You have to be at least 12 years old!");
     }
@@ -134,7 +132,7 @@ bool Viewer::operator!=(const Viewer &rhs) const {
 }
 
 void Viewer::readData(std::ifstream &ifs, const std::shared_ptr<StreamManager>& streamManager) {
-    unsigned int streamHistorySize, currentStreamID, streamIDFromHistory, followingStreamersSize;
+    unsigned int streamHistorySize = 0, currentStreamID = 0, streamIDFromHistory = 0, followingStreamersSize = 0;
     std::string newStreamerID;
     std::shared_ptr<Stream> streamInHistory;
     ifs >> currentStreamID;
@@ -144,7 +142,7 @@ void Viewer::readData(std::ifstream &ifs, const std::shared_ptr<StreamManager>& 
     while (streamHistorySize--){
         ifs >> streamIDFromHistory;
         streamInHistory = streamManager->get(streamIDFromHistory);
-        if(streamInHistory != 0)
+        if(streamInHistory != nullptr)
             streamHistory.push_back(streamInHistory);
     }
     ifs >> followingStreamersSize;

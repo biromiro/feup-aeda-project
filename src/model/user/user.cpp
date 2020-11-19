@@ -4,7 +4,6 @@
 
 #include "user.h"
 
-#include <utility>
 #include <fstream>
 
 User::User(UserTypes type) : type(type){
@@ -15,7 +14,7 @@ User::User(UserTypes type) : type(type){
 }
 
 User::User(Date birthDate, std::string name, std::string nickname, UserTypes type, std::string password) :
-        birthDate(birthDate), joinDate(Date()), name(std::move(name)), nickname(std::move(nickname)), type(type), password(password){}
+        birthDate(birthDate), joinDate(Date()), name(std::move(name)), nickname(std::move(nickname)), type(type), password(std::move(std::move(password))){}
 
 unsigned int User::getAge() const{
     unsigned int age = timeElapsed(birthDate,Date()).getYear();
@@ -149,11 +148,11 @@ bool operator<=(const std::string& s1, const std::string& s2){
 bool operator>=(const std::string& s1, const std::string& s2){
     return s1>s2 || s1==s2;
 }
-bool operator==(std::string s1, std::string s2){
+bool operator==(const std::string& s1, const std::string& s2){
     return !(s1<s2 || s2<s1);
 }
-bool operator!=(std::string s1, std::string s2){
-    return !(std::move(s1) == std::move(s2));
+bool operator!=(const std::string& s1, const std::string& s2){
+    return !(s1 == s2);
 }
 
 std::ostream& operator<<(std::ostream& out, UserTypes f) {
@@ -161,7 +160,6 @@ std::ostream& operator<<(std::ostream& out, UserTypes f) {
         case UserTypes::VIEWER: out << "Viewer"; break;
         case UserTypes::STREAMER: out << "Streamer"; break;
         case UserTypes::ADMIN: out << "Admin"; break;
-        default: out << int(f); break;
     }
     return out;
 }

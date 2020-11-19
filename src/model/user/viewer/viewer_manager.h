@@ -29,7 +29,7 @@ public:
      * @param nickname the nickname of the viewer
      * @return True if the action was successful, false otherwise
      */
-    std::shared_ptr<Viewer> build(Date birthDate, const std::string& name, const std::string& nickname, std::string password);
+    std::shared_ptr<Viewer> build(Date birthDate, const std::string& name, const std::string& nickname, const std::string& password);
 
     /**
      * Adds a new viewer to the viewers vector
@@ -55,7 +55,7 @@ public:
      * @param viewer viewer to be found
      * @return True if the action was successful, false otherwise
      */
-    bool has(const std::shared_ptr<Viewer>& viewer) const;
+    [[nodiscard]] bool has(const std::shared_ptr<Viewer>& viewer) const;
 
     /**
      * Checks, by nickname (which is unique), if the user exists in the viewers unordered set
@@ -63,7 +63,7 @@ public:
      * @param nickname the nickname of the viewer to be found
      * @return True if the action was successful, false otherwise
      */
-    bool has(std::string nickname) const;
+    [[nodiscard]] bool has(std::string nickname) const;
 
     /**
      * Returns the pointer to a viewer given his nickname
@@ -71,14 +71,14 @@ public:
      * @param nickname the nickname of the viewer to be found and returned
      * @return the viewer with the given nickname
      */
-    std::shared_ptr<Viewer> get(std::string nickname) const;
+    [[nodiscard]] std::shared_ptr<Viewer> get(std::string nickname) const;
 
     /**
      * Getter of the viewers vector
      *
      * @return the viewers vector
      */
-    const std::vector<std::shared_ptr<Viewer>> &getViewers() const;
+    [[nodiscard]] const std::vector<std::shared_ptr<Viewer>> &getViewers() const;
 
     bool readData(const std::shared_ptr<StreamManager>& streamManager);
 

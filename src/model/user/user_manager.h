@@ -26,8 +26,6 @@ public:
      */
     bool add(const std::shared_ptr<User>& user);
 
-    void setAdmin(const std::shared_ptr<Admin> &admin);
-
     /**
      * Removes a user from the users unordered set
      *

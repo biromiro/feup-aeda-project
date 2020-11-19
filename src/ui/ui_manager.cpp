@@ -24,7 +24,3 @@ CurrentSession &UIManager::getCurrentSession() const {
     return currentSession;
 }
 
-UI *UIManager::getCurrentUI() const {
-    return currentUI;
-}
-

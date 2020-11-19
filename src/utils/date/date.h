@@ -24,20 +24,20 @@ public:
     void setMinutes(unsigned int minutes);
     void setSeconds(unsigned int seconds);
     void setDate(unsigned int y, unsigned int m, unsigned int d);
-    unsigned int getYear() const;
-    unsigned int getMonth() const;
-    unsigned int getDay() const;
-    unsigned int getHours() const;
-    unsigned int getMinutes() const;
-    unsigned int getSeconds() const;
-    std::string getDate() const;
+    [[nodiscard]] unsigned int getYear() const;
+    [[nodiscard]] unsigned int getMonth() const;
+    [[nodiscard]] unsigned int getDay() const;
+    [[nodiscard]] unsigned int getHours() const;
+    [[nodiscard]] unsigned int getMinutes() const;
+    [[nodiscard]] unsigned int getSeconds() const;
+    [[nodiscard]] std::string getDate() const;
     void show() const;
-    unsigned int totalNumOfDays() const;
-    bool isValid() const;
-    bool isEqualTo(const Date &date) const;
-    bool isNotEqualTo(const Date &date) const;
-    bool isAfter(const Date &date) const;
-    bool isBefore(const Date &date) const;
+    [[nodiscard]] unsigned int totalNumOfDays() const;
+    [[nodiscard]] bool isValid() const;
+    [[nodiscard]] bool isEqualTo(const Date &date) const;
+
+    [[nodiscard]] bool isAfter(const Date &date) const;
+    [[nodiscard]] bool isBefore(const Date &date) const;
     friend std::ostream &operator<<(std::ostream &os, const Date &date);
     friend std::istream &operator>>(std::istream &os, Date &date);
     bool operator==(const Date &rhs) const;
@@ -47,9 +47,9 @@ public:
     bool operator<=(const Date &rhs) const;
     bool operator>=(const Date &rhs) const;
 private:
-    unsigned int year;
-    unsigned int month;
-    unsigned int day;
+    unsigned int year{};
+    unsigned int month{};
+    unsigned int day{};
     unsigned int hours;
     unsigned int minutes;
     unsigned int seconds;

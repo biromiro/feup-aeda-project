@@ -4,6 +4,6 @@
 
 #include "userAlreadyExists.h"
 
-UserAlreadyExists::UserAlreadyExists(std::shared_ptr<User> user, const std::string & message):user(user),message(message),std::invalid_argument(message){};
+UserAlreadyExists::UserAlreadyExists(std::shared_ptr<User> user, const std::string & message):user(std::move(std::move(user))),message(message),std::invalid_argument(message){}
 
 const std::string & UserAlreadyExists::getMessage() {return message;}

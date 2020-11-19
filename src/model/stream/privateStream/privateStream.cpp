@@ -6,7 +6,7 @@
 
 PrivateStream::PrivateStream() : Stream(StreamType::PRIVATE){}
 
-PrivateStream::PrivateStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamGenre genre, std::shared_ptr<Streamer> streamer): Stream(std::move(title), lang, minAge, StreamType::PRIVATE, genre, streamer){};
+PrivateStream::PrivateStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamGenre genre, std::shared_ptr<Streamer> streamer): Stream(std::move(title), lang, minAge, StreamType::PRIVATE, genre, std::move(streamer)){}
 
 enum StreamType PrivateStream::getStreamType() const { return type; }
 
@@ -16,7 +16,7 @@ unsigned int PrivateStream::getMaxNumViewers() const { return maxNumViewers; }
 
 std::map<std::string,std::string> PrivateStream::getComments() const { return comments; }
 
-bool PrivateStream::addToWhitelist(std::shared_ptr<Viewer> v){
+bool PrivateStream::addToWhitelist(const std::shared_ptr<Viewer>& v){
     std::string v_nick = v->getNickname();
     if (std::find(whitelist.begin(), whitelist.end(), v_nick) == whitelist.end()){
         whitelist.push_back(v_nick);
@@ -25,7 +25,7 @@ bool PrivateStream::addToWhitelist(std::shared_ptr<Viewer> v){
     throw NicknameAlreadyAdded(v_nick, "Viewer you're trying to add is already in the whitelist!");
 }
 
-bool PrivateStream::removeFromWhitelist(std::shared_ptr<Viewer> v){
+bool PrivateStream::removeFromWhitelist(const std::shared_ptr<Viewer>& v){
     std::string v_nick = v->getNickname();
     auto itr = std::find(whitelist.begin(), whitelist.end(), v_nick);
     if (itr != whitelist.end()){
@@ -47,14 +47,14 @@ void PrivateStream::addComment(const std::string& nickname, const std::string& c
 
 bool PrivateStream::canJoin(const std::shared_ptr<Viewer>& newViewer) const {
     if (newViewer->getAge() < minAge || maxNumViewers < (numOfViewers + 1)) { return false; }
-    for (auto nickname: whitelist) {
+    for (const auto& nickname: whitelist) {
         if (newViewer->getNickname() == nickname) { return true; }
     }
     return false;
 }
 
-void PrivateStream::readData(std::ifstream &ifs, std::shared_ptr<StreamerManager> streamerManager) {
-    unsigned int whitelistSize, commentsSize;
+void PrivateStream::readData(std::ifstream &ifs, const std::shared_ptr<StreamerManager>& streamerManager) {
+    unsigned int whitelistSize = 0, commentsSize = 0;
     std::string temp1,temp2;
 
     ifs >> whitelistSize;

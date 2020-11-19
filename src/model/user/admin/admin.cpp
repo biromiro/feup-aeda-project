@@ -6,7 +6,7 @@
 
 Admin::Admin() : User(UserTypes::ADMIN){}
 
-Admin::Admin(Date birthDate, std::string name, std::string nickname, std::string password): User(birthDate,std::move(name),std::move(nickname), UserTypes::ADMIN, password) {}
+Admin::Admin(Date birthDate, std::string name, std::string nickname, std::string password): User(birthDate,std::move(name),std::move(nickname), UserTypes::ADMIN, std::move(password)) {}
 
 void Admin::readData(std::ifstream &ifs) {
     User::readData(ifs);

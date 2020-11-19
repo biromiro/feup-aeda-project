@@ -36,7 +36,7 @@ Date::Date(unsigned int y, unsigned int m, unsigned int d, unsigned int h, unsig
 
 Date::Date(const std::string& yearMonthDay){
     std::istringstream inp(yearMonthDay);
-    char separator;
+    char separator = 0;
     inp >>  year >> separator >> month >> separator >> day;
     hours = 0;
     minutes = 0;
@@ -153,10 +153,6 @@ bool Date::isEqualTo(const Date &date) const {
     return false;
 }
 
-bool Date::isNotEqualTo(const Date &date) const {
-    return !(isEqualTo(date));
-}
-
 bool Date::isAfter(const Date &date) const {
     if (isEqualTo(date)) return false;
     else if (date.getYear() < getYear())
@@ -189,7 +185,7 @@ std::ostream &operator<<(std::ostream &os, const Date &date) {
 
 std::istream &operator>>(std::istream &is, Date &date) {
     std::string str;
-    char temp;
+    char temp = 0;
     is >> str;
     std::istringstream ss(str);
     ss >> date.year >> temp >> date.month >> temp >> date.day;

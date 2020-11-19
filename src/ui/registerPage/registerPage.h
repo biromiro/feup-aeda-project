@@ -14,7 +14,7 @@ public:
     void run() override;
 private:
     UIManager& uiManager;
-    void pageOutput() const;
+    static void pageOutput() ;
     bool streamerRegister();
     bool viewerRegister();
     void getUserInfo(Date& birthDate, std::string& name, std::string& nickname, std::string& password);

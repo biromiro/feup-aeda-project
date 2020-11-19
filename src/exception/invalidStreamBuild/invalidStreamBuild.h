@@ -10,7 +10,7 @@
 
 class InvalidStreamBuild : std::invalid_argument {
 public:
-    InvalidStreamBuild(const std::string & message);
+    explicit InvalidStreamBuild(const std::string & message);
     const std::string & getMessage();
 private:
     std::string message;

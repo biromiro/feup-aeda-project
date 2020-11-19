@@ -36,7 +36,7 @@ public:
      * @return pointer to the created stream
      */
 
-    std::shared_ptr<Stream> build(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer);
+    std::shared_ptr<Stream> build(const std::string& title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, const std::shared_ptr<Streamer>& streamer);
 
     /**
      * Adds a stream to the streams vector
@@ -44,7 +44,7 @@ public:
      * @param streamToAdd stream to be added to the vector
      * @return true if stream is added, false if it is already in the vector
      */
-    bool add(std::shared_ptr<Stream> streamToAdd);
+    bool add(const std::shared_ptr<Stream>& streamToAdd);
 
     /**
      * Removes a stream from the streams vector
@@ -52,7 +52,7 @@ public:
      * @param streamToRemove stream to be removed from the vector
      * @return true if stream is removed, false if it isn't in the vector
      */
-    bool remove(std::shared_ptr<Stream> streamToRemove);
+    bool remove(const std::shared_ptr<Stream>& streamToRemove);
 
     /**
      * Checks if a stream is in the streams vector
@@ -99,14 +99,14 @@ public:
      *
      * @return vector of streams
      */
-    const std::vector<std::shared_ptr<Stream>> &getStreams() const;
+    [[nodiscard]] const std::vector<std::shared_ptr<Stream>> &getStreams() const;
 
     /**
      * Getter of the cache of finished streams
      *
      * @return vector of cache of finished streams
      */
-    const std::vector<std::shared_ptr<Stream>> &getCacheOfFinishedStreams() const;
+    [[nodiscard]] const std::vector<std::shared_ptr<Stream>> &getCacheOfFinishedStreams() const;
 
     bool readData();
 

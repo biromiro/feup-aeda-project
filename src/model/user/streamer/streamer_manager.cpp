@@ -3,14 +3,10 @@
 //
 
 #include "streamer_manager.h"
-#include "../../../exception/nicknameAlreadyAdded/nicknameAlreadyAdded.h"
 #include "../../../exception/userNotFound/userNotFound.h"
 #include "../../../exception/userAlreadyExists/userAlreadyExists.h"
-#include "../../../exception/invalidAge/invalidAge.h"
 
-#include <utility>
-
-StreamerManager::StreamerManager() {}
+StreamerManager::StreamerManager() = default;
 
 
 StreamerManager::StreamerManager(std::shared_ptr<StreamManager> streamManager, std::shared_ptr<ViewerManager> viewerManager, std::shared_ptr<UserManager> userManager):
@@ -19,7 +15,7 @@ streamManager(std::move(streamManager)), viewerManager(std::move(viewerManager))
     streamers = std::vector<std::shared_ptr<Streamer>>();
 }
 
-std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::string &name, const std::string &nickname, std::string password) {
+std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::string &name, const std::string &nickname, const std::string& password) {
     if(userManager->has(nickname))
         throw NicknameAlreadyAdded(nickname,"Nickname already in use by another user!");
     std::shared_ptr<Streamer> streamer;
@@ -65,12 +61,6 @@ bool StreamerManager::remove(const std::shared_ptr<Streamer>& streamer) {
     throw UserNotFound(streamer,"The streamer you're trying to remove does not exist!");
 }
 
-bool StreamerManager::startStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, const std::shared_ptr<Streamer>& streamer) {
-    std::shared_ptr<Stream> stream = streamManager->build(std::move(title),lang,minAge,type,genre,streamer);
-    streamer->setStream(stream);
-    return false;
-}
-
 bool StreamerManager::endStream(const std::shared_ptr<Streamer>& streamer) {
     if(streamer->isStreaming()){
         streamManager->finish(streamManager->get(streamer->getCurrentStreamID()));
@@ -99,7 +89,10 @@ std::shared_ptr<Streamer> StreamerManager::get(std::string nickname) const {
 }
 
 unsigned int StreamerManager::getNumOfFollowers(const std::shared_ptr<Streamer> &streamer) const {
-    return std::count_if(streamers.begin(),streamers.end(),[&streamer](const std::shared_ptr<Streamer>& str){return streamer == str;});
+    return static_cast<unsigned int>(std::count_if(streamers.begin(), streamers.end(),
+                                                   [&streamer](const std::shared_ptr<Streamer> &str) {
+                                                       return streamer == str;
+                                                   }));
 }
 
 const std::vector<std::shared_ptr<Streamer>> &StreamerManager::getStreamers() const {
@@ -109,7 +102,7 @@ const std::vector<std::shared_ptr<Streamer>> &StreamerManager::getStreamers() co
 bool StreamerManager::readData() {
     //write object into the file
     std::ifstream file;
-    unsigned int streamersSize;
+    unsigned int streamersSize = 0;
 
     file.open("../../src/model/user/streamer/dataStreamer.txt");
 
@@ -146,6 +139,7 @@ bool StreamerManager::writeData() {
         elem->writeData(file);
     }
     file.close();
+    return true;
 }
 
 

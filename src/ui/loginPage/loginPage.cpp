@@ -47,7 +47,7 @@ void LoginPage::run() {
     }while(answer != *ESC);
 }
 
-void LoginPage::pageOutput() const {
+void LoginPage::pageOutput() {
     std::cout << "***** Welcome to StreamZ! *****" << std::endl;
 }
 

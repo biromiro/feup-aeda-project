@@ -5,12 +5,9 @@
 #include "streamer.h"
 
 
-#include <utility>
-#include <fstream>
-
 Streamer::Streamer() : User(UserTypes::STREAMER) {}
 
-Streamer::Streamer(Date birthDate, std::string name, std::string nickname, std::string password): User(birthDate,std::move(name),std::move(nickname), UserTypes::STREAMER, password) {
+Streamer::Streamer(Date birthDate, std::string name, std::string nickname, std::string password): User(birthDate,std::move(name),std::move(nickname), UserTypes::STREAMER, std::move(password)) {
     if(getAge() < 15){
         throw InvalidAge(getAge(), "You have to be at least 15 years old!");
     }
@@ -19,7 +16,7 @@ Streamer::Streamer(Date birthDate, std::string name, std::string nickname, std::
     totalViewCount = 0;
 }
 
-bool Streamer::isStreaming(){
+bool Streamer::isStreaming() const{
     return currentStreamID != 0;
 }
 
@@ -86,7 +83,7 @@ bool Streamer::operator!=(const Streamer &rhs) const {
 }
 
 void Streamer::readData(std::ifstream& ifs) {
-    unsigned int previousStreamSize, streamID;
+    unsigned int previousStreamSize = 0, streamID = 0;
     ifs >> previousStreamSize;
 
     while (previousStreamSize--){

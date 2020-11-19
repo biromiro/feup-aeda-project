@@ -27,7 +27,7 @@ public:
      * @param nickname the nickname of the admin
      * @return True if the action was successful, false otherwise
      */
-    bool build(Date birthDate, const std::string& name, const std::string& nickname, std::string password);
+    bool build(Date birthDate, const std::string& name, const std::string& nickname, const std::string& password);
 
     /**
      * Adds/Updates the admin to manage
@@ -51,7 +51,7 @@ public:
      * @param admin the admin to check
      * @return True if the action was successful, false otherwise
      */
-    bool is(const std::shared_ptr<Admin>& admin) const;
+    [[nodiscard]] [[nodiscard]] bool is(const std::shared_ptr<Admin>& admin) const;
 
     /**
      * Checks if the admin has the nickname (which is unique) given as parameter
@@ -59,14 +59,14 @@ public:
      * @param nickname the nickname to check
      * @return True if the action was successful, false otherwise
      */
-    bool is(const std::string& nickname) const;
+    [[nodiscard]] bool is(const std::string& nickname) const;
 
     /**
      * Getter of the admin
      *
      * @return the current admin
      */
-    std::shared_ptr<Admin> get() const;
+    [[nodiscard]] std::shared_ptr<Admin> get() const;
 
     bool readData();
 

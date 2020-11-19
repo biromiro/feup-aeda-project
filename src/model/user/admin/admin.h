@@ -19,9 +19,9 @@ public:
      */
     Admin(Date birthDate, std::string name, std::string nickname, std::string password);
 
-    void readData(std::ifstream& ifs);
+    void readData(std::ifstream& ifs) override;
 
-    void writeData(std::ofstream& ofs);
+    void writeData(std::ofstream& ofs) override;
 };
 
 #define PROJECT_ADMIN_H

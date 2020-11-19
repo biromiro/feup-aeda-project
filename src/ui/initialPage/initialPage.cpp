@@ -32,7 +32,7 @@ void InitialPage::run() {
     }while(answer != '0');
 }
 
-void InitialPage::pageOutput() const{
+void InitialPage::pageOutput() {
     std::cout << "***** Welcome to StreamZ! *****" << std::endl;
     std::cout << "\n\t1 - Login" << std::endl;
     std::cout << "\t2 - Register" << std::endl;

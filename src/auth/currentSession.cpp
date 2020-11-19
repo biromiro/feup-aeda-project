@@ -4,15 +4,13 @@
 
 #include "currentSession.h"
 
-#include <utility>
-
 CurrentSession::CurrentSession() : currentUser(nullptr), userManager(nullptr){}
 
 CurrentSession::CurrentSession(std::shared_ptr<UserManager> userManager): userManager(std::move(userManager)), currentUser(nullptr) {}
 
-bool CurrentSession::login(std::string nickname, std::string password) {
+bool CurrentSession::login(std::string nickname, const std::string& password) {
     auto user = userManager->get(std::move(nickname));
-    if(user != nullptr && user->getPassword() == std::move(password)){
+    if(user != nullptr && user->getPassword() == password){
         currentUser = user;
         return true;
     }

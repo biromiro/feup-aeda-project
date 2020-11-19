@@ -40,8 +40,6 @@ public:
 
     std::shared_ptr<StreamerManager> getStreamerManager();
 
-    std::shared_ptr<AdminManager> getAdminManager();
-
     std::shared_ptr<LeaderboardManager> getLeaderboardManager();
 };
 

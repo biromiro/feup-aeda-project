@@ -29,7 +29,7 @@ public:
      * @param nickname the nickname of the streamer
      * @return True if the action was successful, false otherwise
      */
-    std::shared_ptr<Streamer> build(Date birthDate, const std::string& name, const std::string& nickname, std::string password);
+    std::shared_ptr<Streamer> build(Date birthDate, const std::string& name, const std::string& nickname, const std::string& password);
 
     /**
      * Adds a new streamer to the streamer vector
@@ -50,18 +50,6 @@ public:
     bool remove(const std::shared_ptr<Streamer>& streamer);
 
     /**
-     * Starts a stream for a given streamer
-     *
-     * @param streamer the streamer to which the stream is to be started
-     * @param title the title of the stream
-     * @param lang the language of the stream
-     * @param minAge the minimum age of the stream
-     * @param type the type of the stream
-     * @return True if the action was successful, false otherwise
-     */
-    bool startStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, const std::shared_ptr<Streamer>& streamer);
-
-    /**
      * Ends the stream of a given streamer
      *
      * @param streamer the stream to which the stream is to be finished
@@ -75,7 +63,7 @@ public:
      * @param streamer streamer to be found
      * @return True if the action was successful, false otherwise
      */
-    bool has(const std::shared_ptr<Streamer>& streamer) const;
+    [[nodiscard]] bool has(const std::shared_ptr<Streamer>& streamer) const;
 
     /**
      * Checks, by nickname (which is unique), if the user exists in the streamers unordered set
@@ -83,7 +71,7 @@ public:
      * @param nickname the nickname of the streamer to be found
      * @return True if the action was successful, false otherwise
      */
-    bool has(std::string nickname) const;
+    [[nodiscard]] bool has(std::string nickname) const;
 
     /**
     * Returns the pointer to a streamer given his nickname
@@ -91,11 +79,11 @@ public:
     * @param nickname the nickname of the streamer to be found and returned
     * @return the streamer with the given nickname
     */
-    std::shared_ptr<Streamer> get(std::string nickname) const;
+    [[nodiscard]] std::shared_ptr<Streamer> get(std::string nickname) const;
 
-    unsigned int getNumOfFollowers(const std::shared_ptr<Streamer>& streamer) const;
+    [[nodiscard]] unsigned int getNumOfFollowers(const std::shared_ptr<Streamer>& streamer) const;
 
-    const std::vector<std::shared_ptr<Streamer>> &getStreamers() const;
+    [[nodiscard]] const std::vector<std::shared_ptr<Streamer>> &getStreamers() const;
 
     bool readData();
 

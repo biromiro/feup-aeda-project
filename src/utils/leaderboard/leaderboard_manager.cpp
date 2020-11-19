@@ -4,8 +4,6 @@
 
 #include "leaderboard_manager.h"
 
-#include <utility>
-
 
 LeaderboardManager::LeaderboardManager(std::shared_ptr<ViewerManager> viewerManager, std::shared_ptr<StreamerManager> streamerManager,
                                        std::shared_ptr<StreamManager> streamManager, std::shared_ptr<UserManager> userManager):
@@ -64,12 +62,6 @@ Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::filterStreamByType(enum
 Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::sortStreamers() {
     std::vector<std::shared_ptr<Streamer>> newLB;
     newLB = streamerManager->getStreamers();
-    std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return (*s1)>(*s2);});
-    return Leaderboard<std::shared_ptr<Streamer>>(newLB);
-}
-
-Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::sortStreamers(const Leaderboard<std::shared_ptr<Streamer>>& lb) {
-    std::vector<std::shared_ptr<Streamer>> newLB = lb.get();
     std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return (*s1)>(*s2);});
     return Leaderboard<std::shared_ptr<Streamer>>(newLB);
 }
@@ -140,8 +132,6 @@ Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::sortStreamsBy(SortStrea
             break;
         case SortStream::TYPE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getStreamType() < s2->getStreamType();});
-            break;
-        default:
             break;
     }
     return Leaderboard<std::shared_ptr<Stream>>(newLB);
@@ -223,7 +213,7 @@ Leaderboard<std::shared_ptr<User>> LeaderboardManager::sortUserBy(SortUser sorte
     return Leaderboard<std::shared_ptr<User>>(newLB);
 }
 
-Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::getFollowingStreamersLeaderboard(std::shared_ptr<Viewer> viewer) {
+Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::getFollowingStreamersLeaderboard(const std::shared_ptr<Viewer>& viewer) {
     auto followingStreamers = viewer->getFollowingStreamers();
     std::vector<std::shared_ptr<Streamer>> streamers;
     streamers.reserve(followingStreamers.size());
@@ -234,7 +224,7 @@ Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::getFollowingStreamers
 }
 
 Leaderboard<std::shared_ptr<Streamer>>
-LeaderboardManager::getNotFollowingStreamersLeaderboard(std::shared_ptr<Viewer> viewer) {
+LeaderboardManager::getNotFollowingStreamersLeaderboard(const std::shared_ptr<Viewer>& viewer) {
     auto followingStreamersNicknames = viewer->getFollowingStreamers();
     auto allFollowingStreamers = streamerManager->getStreamers();
     std::vector<std::shared_ptr<Streamer>> followingStreamers;
@@ -288,28 +278,28 @@ LeaderboardManager::sortStreamsBy(SortStream sorter, std::vector<std::shared_ptr
         case SortStream::TYPE:
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getStreamType() < s2->getStreamType();});
             break;
-        default:
-            break;
     }
     return Leaderboard<std::shared_ptr<Stream>>(newLB);}
 
 unsigned int LeaderboardManager::totalNumberOfStreams() {
-    return streamManager->getStreams().size() + streamManager->getCacheOfFinishedStreams().size();
+    return static_cast<unsigned int>(streamManager->getStreams().size() +
+                                     streamManager->getCacheOfFinishedStreams().size());
 }
 
 unsigned int LeaderboardManager::totalNumberOfPrivateStreams() {
-    return std::count_if(streamManager->getStreams().begin(),streamManager->getStreams().end(),
-                  [](const std::shared_ptr<Stream>& s){
-                      if (s->getStreamType() == StreamType::PRIVATE) return true;
-    }) ;
+    return static_cast<unsigned int>(std::count_if(streamManager->getStreams().begin(),
+                                                   streamManager->getStreams().end(),
+                                                   [](const std::shared_ptr<Stream> &s) {
+                                                       return s->getStreamType() == StreamType::PRIVATE;
+                                                   }));
 }
 
 unsigned int LeaderboardManager::totalNumberOfPublicStreams() {
-    return streamManager->getStreams().size() - totalNumberOfPrivateStreams();
+    return static_cast<unsigned int>(streamManager->getStreams().size() - totalNumberOfPrivateStreams());
 }
 
 unsigned int LeaderboardManager::meanViewsPerStreamActive() {
-    unsigned int numOfStreams = streamManager->getStreams().size(), counter = 0;
+    unsigned int numOfStreams = static_cast<unsigned int>(streamManager->getStreams().size()), counter = 0;
     for(const auto& elem: streamManager->getStreams()){
         counter += elem->getNumOfViewers();
     }
@@ -317,7 +307,7 @@ unsigned int LeaderboardManager::meanViewsPerStreamActive() {
 }
 
 unsigned int LeaderboardManager::meanViewsPerStreamFinished(){
-    unsigned int numOfStreams = streamManager->getCacheOfFinishedStreams().size(), counter = 0;
+    unsigned int numOfStreams = static_cast<unsigned int>(streamManager->getCacheOfFinishedStreams().size()), counter = 0;
     for(const auto& elem: streamManager->getCacheOfFinishedStreams()){
         counter += elem->getNumOfViewers();
     }

@@ -27,37 +27,37 @@ public:
      *
      * @return user's birth date
      */
-    const Date& getBirthDate() const;
+    [[nodiscard]] const Date& getBirthDate() const;
 
     /**
      * Gets the age of the user in years
      *
      * @return user's age
      */
-    unsigned int getAge() const;
+    [[nodiscard]] unsigned int getAge() const;
 
     /**
      * Getter of the join date of the User on the platform
      *
      * @return user's join date
      */
-    const Date& getJoinDate() const;
+    [[nodiscard]] const Date& getJoinDate() const;
 
     /**
      * Getter of the name of the user
      *
      * @return user's name
      */
-    const std::string &getName() const;
+    [[nodiscard]] const std::string &getName() const;
 
     /**
      * Getter of the nickname of the user
      *
      * @return user's nickname
      */
-    const std::string &getNickname() const;
+    [[nodiscard]] const std::string &getNickname() const;
 
-    const std::string &getPassword() const;
+    [[nodiscard]] const std::string &getPassword() const;
 
     /**
      * Sets/Updates the user's birthdate
@@ -87,11 +87,11 @@ public:
      *
      * @return the user's type
      */
-    enum UserTypes getUserType() const;
+    [[nodiscard]] enum UserTypes getUserType() const;
 
-    void readData(std::ifstream& ifs);
+    virtual void readData(std::ifstream& ifs);
 
-    void writeData(std::ofstream& ofs);
+    virtual void writeData(std::ofstream& ofs);
 
     bool operator<(const User &rhs) const;
     bool operator>(const User &rhs) const;
@@ -100,7 +100,7 @@ public:
     bool operator!=(const User &rhs) const;
     bool operator>=(const User &rhs) const;
 protected:
-    User(enum UserTypes type);
+    explicit User(enum UserTypes type);
 
     /**
      * Constructor of the User class
@@ -124,8 +124,8 @@ bool operator<(std::string s1, std::string s2);
 bool operator>(const std::string& s1, const std::string& s2);
 bool operator<=(const std::string& s1, const std::string& s2);
 bool operator>=(const std::string& s1, const std::string& s2);
-bool operator==(std::string s1, std::string s2);
-bool operator!=(std::string s1, std::string s2);
+bool operator==(const std::string& s1, const std::string& s2);
+bool operator!=(const std::string& s1, const std::string& s2);
 std::ostream& operator<<(std::ostream& out, UserTypes f);
 
 #endif //PROJECT_USER_H

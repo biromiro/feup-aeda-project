@@ -1,9 +1,5 @@
 #include <iostream>
 #include "./ui/initialPage/initialPage.h"
-#include "./model/stream/stream.h"
-#include "./model/user/user.h"
-#include "./model/streamZ/streamZ.h"
-#include "./ui/ui_manager.h"
 
 //==================================================
 

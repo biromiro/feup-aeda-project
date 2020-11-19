@@ -13,6 +13,7 @@ enum class FeedbackLikeSystem;
 class InvalidFeedback : std::invalid_argument {
 public:
     InvalidFeedback(FeedbackLikeSystem fb, const std::string & message);
+
     const std::string & getMessage();
 private:
     enum FeedbackLikeSystem fb;

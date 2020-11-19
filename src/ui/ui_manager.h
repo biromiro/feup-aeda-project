@@ -10,25 +10,13 @@
 #include "../auth/currentSession.h"
 #include "ui.h"
 
-enum class CurrentView{
-    INITIAL_PAGE,
-    LOGIN_PAGE,
-    REGISTER_PAGE,
-    STREAMER_VIEW,
-    VIEWER_VIEW,
-    ADMIN_VIEW,
-    LEADERBOARD_VIEW
-};
-
 class UIManager{
 public:
     UIManager(StreamZ& platform, CurrentSession& currentSession);
 
-    StreamZ &getPlatform() const;
+    [[nodiscard]] StreamZ &getPlatform() const;
 
-    CurrentSession &getCurrentSession() const;
-
-    UI *getCurrentUI() const;
+    [[nodiscard]] CurrentSession &getCurrentSession() const;
 
     void run() const;
 

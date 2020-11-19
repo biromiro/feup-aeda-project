@@ -31,7 +31,7 @@ public:
      *
      * @return True if the streamer is, in fact, streaming, false otherwise
      */
-    bool isStreaming();
+    [[nodiscard]] bool isStreaming() const;
 
     /**
      * Sets the stream
@@ -47,15 +47,15 @@ public:
 
     void addToViewCount(unsigned int value);
 
-    unsigned int getTotalViewCount() const;
+    [[nodiscard]] unsigned int getTotalViewCount() const;
 
-    unsigned int getCurrentStreamID() const;
+    [[nodiscard]] unsigned int getCurrentStreamID() const;
 
-    const std::vector<unsigned int> &getPreviousStreamsIDs() const;
+    [[nodiscard]] const std::vector<unsigned int> &getPreviousStreamsIDs() const;
 
-    void readData(std::ifstream& ifs);
+    void readData(std::ifstream& ifs) override;
 
-    void writeData(std::ofstream& ofs);
+    void writeData(std::ofstream& ofs) override;
 
     bool operator<(const Streamer &rhs) const;
     bool operator>(const Streamer &rhs) const;
@@ -66,8 +66,8 @@ public:
 
 private:
     std::vector<unsigned int> previousStreamsIDs;
-    unsigned int currentStreamID;
-    unsigned int totalViewCount;
+    unsigned int currentStreamID{};
+    unsigned int totalViewCount{};
 };
 
 #define PROJECT_STREAMER_H

@@ -33,11 +33,11 @@ public:
      *
      * @return public stream's type
      */
-    enum StreamType getStreamType() const override;
+    [[nodiscard]] enum StreamType getStreamType() const override;
 
-    void readData(std::ifstream& ifs,std::shared_ptr<StreamerManager> streamerManager);
+    void readData(std::ifstream& ifs,const std::shared_ptr<StreamerManager>& streamerManager) override;
 
-    void writeData(std::ofstream& ofs);
+    void writeData(std::ofstream& ofs) override;
 };
 
 

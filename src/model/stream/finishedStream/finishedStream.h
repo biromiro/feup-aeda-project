@@ -34,22 +34,22 @@ public:
      *
      * @return number of views
      */
-    unsigned int getNumOfViews() const;
+    [[nodiscard]] unsigned int getNumOfViews() const;
 
     /**
      * Getter of the finished stream's type
      *
      * @return finished stream's type
      */
-    enum StreamType getStreamType() const override;
+    [[nodiscard]] enum StreamType getStreamType() const override;
 
 
-    void readData(std::ifstream& ifs, std::shared_ptr<StreamerManager> streamerManager);
+    void readData(std::ifstream& ifs, const std::shared_ptr<StreamerManager>& streamerManager) override;
 
-    void writeData(std::ofstream& ofs);
+    void writeData(std::ofstream& ofs) override;
 
 private:
-    unsigned int numOfViews;
+    unsigned int numOfViews{};
 };
 
 #endif //PROJECT_FINISHEDSTREAM_H

@@ -24,7 +24,7 @@ void initTermios(int echo)
 }
 
 /* Restore old terminal i/o settings */
-void resetTermios(void)
+void resetTermios()
 {
     tcsetattr(0, TCSANOW, &old);
 }
@@ -40,7 +40,7 @@ char getch_(int echo)
     return ch;
 }
 
-char getch(void)
+char getch()
 {
     return getch_(0);
 }
@@ -55,7 +55,7 @@ bool is_number(const std::string& s)
 
 unsigned int inputNumber(){
     unsigned int num = 0;
-    std::string str = "";
+    std::string str;
     getlineCIN(str);
     if(is_number(str)){
         std::stringstream strs(str);

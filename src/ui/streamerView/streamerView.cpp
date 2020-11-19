@@ -76,7 +76,7 @@ void StreamerView::startStream() {
         do{
             std::string title;
             StreamLanguage language = StreamLanguage::INVALID;
-            unsigned int minimumAge = 0, maxNumOfViewers = 0;
+            unsigned int minimumAge, maxNumOfViewers = 0;
             StreamType type = StreamType::INVALID;
             StreamGenre genre = StreamGenre::INVALID;
             std::cout << CLEAR_SCREEN << GO_TO_TOP;

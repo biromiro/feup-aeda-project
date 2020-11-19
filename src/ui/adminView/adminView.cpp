@@ -32,7 +32,7 @@ void AdminView::run() {
     }while (answer != *ESC && answer != '0');
 }
 
-void AdminView::pageOutput() const {
+void AdminView::pageOutput() {
     std::cout << "*****StreamZ*****ADMINISTRATION*****" << std::endl;
 }
 

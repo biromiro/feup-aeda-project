@@ -86,7 +86,7 @@ void StreamView::feedbackToStream() {
                             break;
                         }else if(answer == 'n' or answer == 'N')
                             break;
-                    } while (1);
+                    } while (true);
                 } while (!confirm);
                 break;
             }

@@ -109,17 +109,9 @@ public:
      */
     Leaderboard<std::shared_ptr<Streamer>> sortStreamers();
 
-    Leaderboard<std::shared_ptr<Streamer>> getFollowingStreamersLeaderboard(std::shared_ptr<Viewer> viewer);
+    Leaderboard<std::shared_ptr<Streamer>> getFollowingStreamersLeaderboard(const std::shared_ptr<Viewer>& viewer);
 
-    Leaderboard<std::shared_ptr<Streamer>> getNotFollowingStreamersLeaderboard(std::shared_ptr<Viewer> viewer);
-
-    /**
-     * Sorts the given Streamer Leaderboard by streamer's joindate > age > nickname > name
-     *
-     * @param lb Leaderboard of Streamers to sort
-     * @return sorted Leaderboard of streamers
-     */
-    Leaderboard<std::shared_ptr<Streamer>> sortStreamers(const Leaderboard<std::shared_ptr<Streamer>>& lb);
+    Leaderboard<std::shared_ptr<Streamer>> getNotFollowingStreamersLeaderboard(const std::shared_ptr<Viewer>& viewer);
 
     Leaderboard<std::shared_ptr<Streamer>> sortStreamerBy(SortStreamer sorter);
   
@@ -136,7 +128,7 @@ public:
      * @param lb Leaderboard of viewers to sort
      * @return sorted Leaderboard of viewers
      */
-    Leaderboard<std::shared_ptr<Viewer>> sortViewers(const Leaderboard<std::shared_ptr<Viewer>>& lb);
+    static Leaderboard<std::shared_ptr<Viewer>> sortViewers(const Leaderboard<std::shared_ptr<Viewer>>& lb);
 
     Leaderboard<std::shared_ptr<Viewer>> sortViewerBy(SortViewer sorter);
 
@@ -155,7 +147,7 @@ public:
      * @param lb Leaderboard of viewers to sort
      * @return sorted Leaderboard of viewers
      */
-    Leaderboard<std::shared_ptr<User>> sortUsers(const Leaderboard<std::shared_ptr<User>>& lb);
+    static Leaderboard<std::shared_ptr<User>> sortUsers(const Leaderboard<std::shared_ptr<User>>& lb);
 
     Leaderboard<std::shared_ptr<User>> sortUserBy(SortUser sorter);
   
@@ -173,9 +165,9 @@ public:
      * @return sorted Leaderboard of streams
      */
   
-    Leaderboard<std::shared_ptr<Stream>> sortStreams(const Leaderboard<std::shared_ptr<Stream>>& lb);
+    static Leaderboard<std::shared_ptr<Stream>> sortStreams(const Leaderboard<std::shared_ptr<Stream>>& lb);
     Leaderboard<std::shared_ptr<Stream>> sortStreamsBy(SortStream sorter);
-    Leaderboard<std::shared_ptr<Stream>> sortStreamsBy(SortStream sorter, std::vector<std::shared_ptr<Stream>> newLB);
+    static Leaderboard<std::shared_ptr<Stream>> sortStreamsBy(SortStream sorter, std::vector<std::shared_ptr<Stream>> newLB);
     Leaderboard<std::shared_ptr<Stream>> top10StreamsBy(SortStream sorter);
 
     unsigned int totalNumberOfStreams();

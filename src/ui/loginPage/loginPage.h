@@ -17,7 +17,7 @@ public:
     void run() override;
 private:
     UIManager& uiManager;
-    void pageOutput() const;
+    static void pageOutput() ;
 };
 
 #endif //PROJECT_LOGINPAGE_H

@@ -109,7 +109,7 @@ public:
 
     void readData(std::ifstream &ist, const std::shared_ptr<StreamManager>& streamManager);
 
-    void writeData(std::ofstream &ost);
+    void writeData(std::ofstream &ost) override;
 
     bool operator<(const Viewer &rhs) const;
     bool operator>(const Viewer &rhs) const;

@@ -10,12 +10,10 @@
 #include "../../exception/noStreamWithID/noStreamWithID.h"
 #include "../../exception/streamAlreadyFinished/streamAlreadyFinished.h"
 
-#include <utility>
-
 StreamManager::StreamManager(std::shared_ptr<ViewerManager> viewerManager, std::shared_ptr<StreamerManager> streamerManager) :
 viewerManager(std::move(viewerManager)), streamerManager(std::move(streamerManager)) {}
 
-std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, std::shared_ptr<Streamer> streamer){
+std::shared_ptr<Stream> StreamManager::build(const std::string& title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, const std::shared_ptr<Streamer>& streamer){
     if(streamer->isStreaming())
         throw StreamerAlreadyStreaming(streamer, "Streamer is already streaming right now!");
     switch(type) {
@@ -38,7 +36,7 @@ std::shared_ptr<Stream> StreamManager::build(std::string title, enum StreamLangu
     }
 }
 
-bool StreamManager::add(std::shared_ptr<Stream> streamToAdd) {
+bool StreamManager::add(const std::shared_ptr<Stream>& streamToAdd) {
     if ((std::find(cacheOfFinishedStreams.begin(), cacheOfFinishedStreams.end(), streamToAdd) == cacheOfFinishedStreams.end())
     && streamToAdd->getStreamType() == StreamType::FINISHED){
         cacheOfFinishedStreams.push_back(streamToAdd);
@@ -52,7 +50,7 @@ bool StreamManager::add(std::shared_ptr<Stream> streamToAdd) {
     throw InvalidStreamToAdd(streamToAdd, "Stream you're trying to add is invalid or already there!");
 }
 
-bool StreamManager::remove(std::shared_ptr<Stream> streamToRemove) {
+bool StreamManager::remove(const std::shared_ptr<Stream>& streamToRemove) {
     auto itr = std::find(streams.begin(), streams.end(), streamToRemove);
     if (itr != streams.end()) {
         streams.erase(itr);
@@ -101,7 +99,11 @@ std::shared_ptr<FinishedStream> StreamManager::finish(const std::shared_ptr<Stre
 }
 
 unsigned int StreamManager::getNumOfViewers(const std::shared_ptr<Stream> &streamToFinish) {
-    return std::count_if(viewerManager->getViewers().begin(),viewerManager->getViewers().end(),[&streamToFinish](const std::shared_ptr<Viewer>& v){return v->getCurrentStream()==streamToFinish;});
+    return static_cast<unsigned int>(std::count_if(viewerManager->getViewers().begin(),
+                                                   viewerManager->getViewers().end(),
+                                                   [&streamToFinish](const std::shared_ptr<Viewer> &v) {
+                                                       return v->getCurrentStream() == streamToFinish;
+                                                   }));
 }
 
 const std::vector<std::shared_ptr<Stream>> &StreamManager::getStreams() const {
@@ -117,9 +119,9 @@ bool StreamManager::readData() {
     //open file again
     std::ifstream file;
 
-    unsigned int streamsSize, cacheOfFinishedStreamsSize;
+    unsigned int streamsSize = 0, cacheOfFinishedStreamsSize = 0;
 
-    StreamType type;
+    StreamType type = StreamType::PUBLIC;
 
     file.open("../../src/model/stream/dataStream.txt");
     if(!file){
@@ -196,6 +198,7 @@ bool StreamManager::writeData() {
         finishedStream->writeData(file);
     }
     file.close();
+    return true;
 }
 
 void StreamManager::setStreamerManager(std::shared_ptr<StreamerManager> newStreamerManager) {

@@ -12,6 +12,9 @@ class NoStreamWithID : std::invalid_argument {
 public:
     NoStreamWithID(unsigned int streamID, const std::string & message);
     const std::string & getMessage();
+
+    [[nodiscard]] unsigned int getStreamId() const;
+
 private:
     unsigned int streamID;
     std::string message;

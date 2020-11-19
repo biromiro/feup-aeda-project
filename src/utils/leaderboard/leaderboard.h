@@ -21,7 +21,7 @@ public:
      *
      * @param vec the vector representing the leaderboard
      */
-    Leaderboard(const std::vector<N>& vec): leaderboard(vec){};
+    explicit Leaderboard(const std::vector<N>& vec): leaderboard(vec){};
 
     /**
      * Output Stream operator overload
