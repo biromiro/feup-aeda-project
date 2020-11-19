@@ -5,6 +5,7 @@
 #include "streamer_manager.h"
 #include "../../../exception/userNotFound/userNotFound.h"
 #include "../../../exception/userAlreadyExists/userAlreadyExists.h"
+#include "../../../exception/streamerNotStreaming/streamerNotStreaming.h"
 
 StreamerManager::StreamerManager() = default;
 
@@ -23,7 +24,7 @@ std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::stri
         streamer = std::make_shared<Streamer>(birthDate,name,nickname,password);
     } catch (InvalidAge& invalidAge) {
         unsigned  int age = streamer->getAge();
-        std::cout << invalidAge.getMessage();
+        std::cout << invalidAge.what();
         streamer.reset();
         throw InvalidAge(age,"You have to be at least 15 years old!");
     }
@@ -67,7 +68,7 @@ bool StreamerManager::endStream(const std::shared_ptr<Streamer>& streamer) {
         streamer->removeStream();
         return true;
     }
-    return false;
+    throw StreamerNotStreaming("There is not stream to finish!");
 }
 
 bool StreamerManager::has(const std::shared_ptr<Streamer>& streamer) const {

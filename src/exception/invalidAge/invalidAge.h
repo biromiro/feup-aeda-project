@@ -8,13 +8,14 @@
 #include <iostream>
 #include <exception>
 
-class InvalidAge : std::invalid_argument{
+class InvalidAge : public std::invalid_argument{
 public:
     InvalidAge(unsigned int age, const std::string &message);
-    const std::string& getMessage();
+
+    unsigned int getAge() const;
+
 private:
     unsigned int age;
-    std::string message;
 };
 
 #endif //PROJECT_INVALIDAGE_H

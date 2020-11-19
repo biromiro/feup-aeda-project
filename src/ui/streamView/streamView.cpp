@@ -67,7 +67,7 @@ void StreamView::feedbackToStream() {
                         thisViewer->giveFeedbackToStream(FeedbackLikeSystem::LIKE);
                         break;
                     case '2':
-                            thisViewer->giveFeedbackToStream(FeedbackLikeSystem::DISLIKE);
+                        thisViewer->giveFeedbackToStream(FeedbackLikeSystem::DISLIKE);
                     }
                 break;
             }

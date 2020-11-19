@@ -1,6 +1,7 @@
 //
 // Created by biromiro on 18/10/20.
 //
+#include "../../../exception/streamAlreadyFinished/streamAlreadyFinished.h"
 #include "viewer.h"
 
 #include "../../stream/privateStream/privateStream.h"
@@ -21,6 +22,7 @@ Viewer::Viewer(Date birthDate, std::string name, std::string nickname, std::stri
 bool Viewer::joinStream(const std::shared_ptr<Stream>& stream){
     std::shared_ptr<Viewer> thisViewer = shared_from_this();
     if (!stream->canJoin(thisViewer) || currentStream != nullptr) return false;
+    if(stream->getStreamType() == StreamType::FINISHED) throw StreamAlreadyFinished(stream, "The stream you're trying to join has already ended!");
     stream->newViewerJoin();
     currentStream = stream;
     return true;

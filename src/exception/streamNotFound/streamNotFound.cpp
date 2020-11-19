@@ -4,6 +4,8 @@
 
 #include "streamNotFound.h"
 
-StreamNotFound::StreamNotFound(std::shared_ptr<Stream> stream, const std::string &message) : stream(std::move(std::move(stream))), message(message), std::invalid_argument(message) {}
+StreamNotFound::StreamNotFound(std::shared_ptr<Stream> stream, const std::string &message) : stream(std::move(stream)), std::invalid_argument(message) {}
 
-const std::string & StreamNotFound::getMessage() { return message; }
+const std::shared_ptr<Stream> &StreamNotFound::getStream() const {
+    return stream;
+}

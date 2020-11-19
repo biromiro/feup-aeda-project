@@ -10,13 +10,13 @@
 #include <memory>
 #include "../../model/user/user.h"
 
-class UserAlreadyExists : std::invalid_argument{
+class UserAlreadyExists : public std::invalid_argument{
 public:
     UserAlreadyExists(std::shared_ptr<User> user, const std::string & message);
-    const std::string & getMessage();
+    [[nodiscard]] const std::shared_ptr<User> &getUser() const;
+
 private:
     std::shared_ptr<User> user;
-    std::string message;
 };
 
 #endif //PROJECT_USERALREADYEXISTS_H

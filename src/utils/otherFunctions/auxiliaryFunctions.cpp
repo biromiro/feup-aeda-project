@@ -69,5 +69,14 @@ unsigned int inputNumber(){
 void getlineCIN(std::string& s){
     std::cin >> std::ws;
     getline(std::cin,s);
+}
 
+
+std::string shrinkToColumnSize(std::string value){
+    std::string shrinked;
+    if(value.size() > WIDTH){
+        shrinked = value.substr(0, WIDTH-5) + "...";
+        return shrinked;
+    }
+    else return value;
 }

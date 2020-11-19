@@ -39,7 +39,7 @@ void LoginPage::run() {
                 }
                 return;
             }
-            else std::cout << "Invalid Combination! Try again.";
+            else std::cerr << "Invalid Combination! Try again.";
             started = true;
 
         }

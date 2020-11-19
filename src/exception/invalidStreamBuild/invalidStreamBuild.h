@@ -8,12 +8,9 @@
 #include <iostream>
 #include <exception>
 
-class InvalidStreamBuild : std::invalid_argument {
+class InvalidStreamBuild : public std::runtime_error {
 public:
     explicit InvalidStreamBuild(const std::string & message);
-    const std::string & getMessage();
-private:
-    std::string message;
 };
 
 #endif //PROJECT_INVALIDSTREAMBUILD_H

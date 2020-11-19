@@ -8,13 +8,14 @@
 #include <iostream>
 #include <exception>
 
-class NicknameNotFound : std::invalid_argument {
+class NicknameNotFound : public std::invalid_argument {
 public:
     NicknameNotFound(std::string nickname, const std::string & message);
-    const std::string & getMessage();
+
+    const std::string &getNickname() const;
+
 private:
     std::string nickname;
-    std::string message;
 };
 
 #endif //PROJECT_NICKNAMENOTFOUND_H

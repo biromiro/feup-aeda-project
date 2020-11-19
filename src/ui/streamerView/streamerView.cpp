@@ -69,7 +69,7 @@ void StreamerView::startStream() {
     if(thisStreamer->isStreaming()){
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
         pageOutput();
-        std::cout << "You are already streaming! Press any key to go back" << std::endl;
+        std::cerr << "You are already streaming! Press any key to go back" << std::endl;
         getch();
     }else{
         char answer;
@@ -85,7 +85,7 @@ void StreamerView::startStream() {
             std::cout << "\nTitle: ";
             getlineCIN(title);
             do{
-                std::cout << "Language: ";
+                std::cout << "Language (Abbreviation, like PT_PT for Portugal's Portuguese or EN for English): ";
                 std::cin >> language;
                 std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  GO_TO_BEGINNING_OF_LINE;
             }while (language == StreamLanguage::INVALID);
@@ -97,7 +97,7 @@ void StreamerView::startStream() {
             }while(minimumAge == 0);
 
             do{
-                std::cout << "Stream Type: ";
+                std::cout << "Stream Type (Private or Public): ";
                 std::cin >> type;
                 std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  GO_TO_BEGINNING_OF_LINE;
             }while (type == StreamType::INVALID);
@@ -111,7 +111,7 @@ void StreamerView::startStream() {
             }
 
             do{
-                std::cout << "Stream Genre: ";
+                std::cout << "Stream Genre (GAMING, TALKSHOW, MUSIC, COOKING) : ";
                 std::cin >> genre;
                 std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  GO_TO_BEGINNING_OF_LINE;
             }while (genre == StreamGenre::INVALID);
@@ -139,8 +139,17 @@ void StreamerView::startStream() {
 }
 
 void StreamerView::seeStreamStatistics() {
-    auto currentStreamer = uiManager.getPlatform().getStreamerManager()->get(uiManager.getCurrentSession().getNickname());
-    auto currentStream = uiManager.getPlatform().getStreamManager()->get(currentStreamer->getCurrentStreamID());
+    std::shared_ptr<Streamer> currentStreamer;
+    std::shared_ptr<Stream> currentStream;
+
+    try{
+        currentStreamer = uiManager.getPlatform().getStreamerManager()->get(uiManager.getCurrentSession().getNickname());
+        currentStream = uiManager.getPlatform().getStreamManager()->get(currentStreamer->getCurrentStreamID());
+    }catch(std::exception& exception){
+        std::cerr << exception.what() << std::endl;
+        getch();
+        return;
+    }
     std::cout << CLEAR_SCREEN << GO_TO_TOP;
     pageOutput();
     std::cout << "\nCurrent number of viewers -> " << currentStream->getNumOfViewers() << std::endl;
@@ -158,10 +167,18 @@ void StreamerView::seeStreamStatistics() {
 }
 
 void StreamerView::oldEnoughViewerLB() {
-    std::cout << CLEAR_SCREEN << GO_TO_TOP;
-    pageOutput();
-    auto currentStreamer = uiManager.getPlatform().getStreamerManager()->get(uiManager.getCurrentSession().getNickname());
-    auto currentStream = uiManager.getPlatform().getStreamManager()->get(currentStreamer->getCurrentStreamID());
+    std::shared_ptr<Streamer> currentStreamer;
+    std::shared_ptr<Stream> currentStream;
+
+    try{
+        currentStreamer = uiManager.getPlatform().getStreamerManager()->get(uiManager.getCurrentSession().getNickname());
+        currentStream = uiManager.getPlatform().getStreamManager()->get(currentStreamer->getCurrentStreamID());
+    }catch(std::exception& exception){
+        std::cerr << exception.what() << std::endl;
+        getch();
+        return;
+    }
+
     auto oldEnoughViewerLB = uiManager.getPlatform().getLeaderboardManager()->filterViewerByAge(currentStream->getMinAge());
     std::cout << oldEnoughViewerLB;
     std::cout << "Press any key to leave!" << std::endl;
@@ -171,10 +188,19 @@ void StreamerView::oldEnoughViewerLB() {
 void StreamerView::addViewersToWhitelist() {
     std::cout << CLEAR_SCREEN << GO_TO_TOP;
     std::string nicknameToAdd;
-    pageOutput();
-    auto currentStreamer = uiManager.getPlatform().getStreamerManager()->get(uiManager.getCurrentSession().getNickname());
-    auto currentStream = uiManager.getPlatform().getStreamManager()->get(currentStreamer->getCurrentStreamID());
+    std::shared_ptr<Streamer> currentStreamer;
+    std::shared_ptr<Stream> currentStream;
+
+    try{
+        currentStreamer = uiManager.getPlatform().getStreamerManager()->get(uiManager.getCurrentSession().getNickname());
+        currentStream = uiManager.getPlatform().getStreamManager()->get(currentStreamer->getCurrentStreamID());
+    }catch(std::exception& exception){
+        std::cerr << exception.what() << std::endl;
+        getch();
+        return;
+    }
     if(currentStream->getStreamType() == StreamType::PRIVATE){
+        pageOutput();
         std::cout << "What nickname do you wish to add to the whitelist? ";
         getlineCIN(nicknameToAdd);
         auto currentStreamPrivate = std::dynamic_pointer_cast<PrivateStream>(currentStream);
@@ -185,11 +211,11 @@ void StreamerView::addViewersToWhitelist() {
             }
             getch();
         } catch (std::exception& exception) {
-            std::cout << exception.what();
+            std::cerr << exception.what();
             getch();
         }
     }else{
-        std::cout << "\nThe current stream is Public! There's no whitelist!" << std::endl;
+        std::cerr << "\nThe current stream is Public! There's no whitelist!" << std::endl;
         getch();
     }
 
@@ -202,7 +228,7 @@ void StreamerView::finishCurrentStream() {
     try{
         uiManager.getPlatform().getStreamerManager()->endStream(currentStreamer);
     } catch (std::exception& exception) {
-        std::cout << exception.what();
+        std::cerr << exception.what();
         getch();
     }
 }

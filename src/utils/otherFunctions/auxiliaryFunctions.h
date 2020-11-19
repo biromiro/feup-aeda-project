@@ -28,6 +28,7 @@ constexpr const char *HIDE_CURSOR = "\x1b[?25l";
 constexpr const char *SHOW_CURSOR = "\x1b[?25h";
 constexpr const char *GO_TO_TOP = "\033[1;1H";
 constexpr const char *ESC = "\033";
+constexpr const int WIDTH = 15;
 
 #ifdef TERMIOS_GETCH
 void initTermios(int echo);
@@ -38,6 +39,7 @@ char getch();
 bool is_number(const std::string& s);
 unsigned int inputNumber();
 void getlineCIN(std::string& s);
+std::string shrinkToColumnSize(std::string value);
 
 
 #endif //PROJECT_AUXILIARYFUNCTIONS_H

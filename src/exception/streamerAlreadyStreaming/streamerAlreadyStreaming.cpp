@@ -4,6 +4,8 @@
 
 #include "streamerAlreadyStreaming.h"
 
-StreamerAlreadyStreaming::StreamerAlreadyStreaming(std::shared_ptr<Streamer> streamer, const std::string &message) : streamer(std::move(std::move(streamer))), message(message), std::invalid_argument(message) {}
+StreamerAlreadyStreaming::StreamerAlreadyStreaming(std::shared_ptr<Streamer> streamer, const std::string &message) : streamer(std::move(streamer)), std::logic_error(message) {}
 
-const std::string & StreamerAlreadyStreaming::getMessage() { return message; }
+const std::shared_ptr<Streamer> &StreamerAlreadyStreaming::getStreamer() const {
+    return streamer;
+}

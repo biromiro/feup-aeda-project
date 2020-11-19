@@ -5,8 +5,9 @@
 #include "invalidAge.h"
 
 
-InvalidAge::InvalidAge(unsigned int age, const std::string &arg) : invalid_argument(arg), age(age), message(arg) {}
+InvalidAge::InvalidAge(unsigned int age, const std::string &arg) : invalid_argument(arg), age(age) {}
 
-const std::string &InvalidAge::getMessage() {
-    return message;
+unsigned int InvalidAge::getAge() const {
+    return age;
 }
+

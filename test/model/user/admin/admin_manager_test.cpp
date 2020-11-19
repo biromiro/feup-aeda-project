@@ -15,28 +15,10 @@ TEST(admin_manager,build_add_remove){
     Date birthDate(2001,10,20);
     //auto admin2 = adminManager->build(birthDate,"vruh momento 2","cao manteiga", "callonmeeeee");
     EXPECT_THROW(adminManager->remove(),AdminNotSet);
-    try{
-        adminManager->remove();
-    }
-    catch (AdminNotSet &ans) {
-        EXPECT_EQ(ans.getMessage(),"Admin not set, can't remove!");
-    }
     EXPECT_EQ(adminManager->build(birthDate,"Bruh momento", "buttah dog", "tenso"),true);
     auto admin3 = std::make_shared<Admin>(birthDate,"catal inodoro","que habla","ahbhjajf");
     EXPECT_THROW(adminManager->add(admin3), AdminAlreadySet);
-    try{
-        adminManager->add(admin3);
-    }
-    catch(AdminAlreadySet &aas){
-        EXPECT_EQ(aas.getMessage(),"Admin already set!");
-    }
     EXPECT_THROW(adminManager->build(birthDate,"bruj momento 3","catal inodoro", "muitotriste"),AdminAlreadySet);
-    try{
-        adminManager->build(birthDate,"bruj momento 3","catal inodoro", "muitotriste");
-    }
-    catch(AdminAlreadySet &aas2){
-        EXPECT_EQ(aas2.getMessage(),"Admin already set!");
-    }
     EXPECT_EQ(adminManager->remove(),true);
     EXPECT_EQ(adminManager->add(admin3),true);
 }

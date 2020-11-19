@@ -20,7 +20,7 @@ std::shared_ptr<Viewer> ViewerManager::build(Date birthDate, const std::string& 
         viewer = std::make_shared<Viewer>(birthDate,name,nickname,password);
     } catch (InvalidAge& invalidAge) {
         unsigned int age = viewer->getAge();
-        std::cout << invalidAge.getMessage();
+        std::cout << invalidAge.what();
         viewer.reset();
         throw InvalidAge(age,"You have to be at least 12 years old!");
     }

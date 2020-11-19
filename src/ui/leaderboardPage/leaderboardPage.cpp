@@ -73,7 +73,7 @@ void LeaderboardPage::showStreams() {
             case '1':{
                 StreamLanguage language = StreamLanguage::INVALID;
                 do {
-                    std::cout << "What language?" << std::endl;
+                    std::cout << "What language (Abbreviation, like PT_PT for Portugal's Portuguese or EN for English) ?" << std::endl;
                     std::cin >> language;
                     std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
                 } while (language == StreamLanguage::INVALID);
@@ -82,7 +82,7 @@ void LeaderboardPage::showStreams() {
             }case '2': {
                 StreamGenre genre = StreamGenre::INVALID;
                 do {
-                    std::cout << "What genre?" << std::endl;
+                    std::cout << "What genre (MUSIC, GAMING, COOKING, TALKSHOW)?" << std::endl;
                     std::cin >> genre;
                     std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
                 } while (genre == StreamGenre::INVALID);
@@ -119,7 +119,7 @@ void LeaderboardPage::showStreams() {
                     }while (day == 0);
                     date.setDate(year,month,day);
                     if(!date.isValid()){
-                        std::cout << "That birth date is not valid!";
+                        std::cerr << "That birth date is not valid!";
                         getch();
                         std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  GO_TO_BEGINNING_OF_LINE;
                         continue;
@@ -130,7 +130,7 @@ void LeaderboardPage::showStreams() {
             }case '5':{
                 StreamType type = StreamType::INVALID;
                 do{
-                    std::cout << "What type?" << std::endl;
+                    std::cout << "What type (PRIVATE, PUBLIC)?" << std::endl;
                     std::cin >> type;
                     std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
 
@@ -203,14 +203,14 @@ void LeaderboardPage::showUsers() {
     do{
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
         pageOutput();
-        std::cout <<  "Who do you wish to sort? (Y to accept)" << std::endl;
+        std::cout <<  "Who do you wish to sort?" << std::endl;
         std::cout << "1 - VIEWERS" << std::endl;
         std::cout << "2 - STREAMERS" << std::endl;
         std::cout << "3 - ALL USERS" << std::endl;
         std::cout << "0 - Go back" << std::endl;
         answer = getch();
         if(answer == '0') return;
-    }while (!(answer == 1 || answer == 2 || answer ==3));
+    }while (!(answer == '1' || answer == '2'|| answer == '3'));
     do{
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
         pageOutput();

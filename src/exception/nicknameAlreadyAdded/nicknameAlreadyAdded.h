@@ -8,13 +8,14 @@
 #include <iostream>
 #include <exception>
 
-class NicknameAlreadyAdded : std::invalid_argument {
+class NicknameAlreadyAdded : public std::invalid_argument {
 public:
     NicknameAlreadyAdded(std::string nickname, const std::string & message);
-    const std::string & getMessage();
+
+    const std::string &getNickname() const;
+
 private:
     std::string nickname;
-    std::string message;
 };
 
 #endif //PROJECT_NICKNAMEALREADYADDED_H

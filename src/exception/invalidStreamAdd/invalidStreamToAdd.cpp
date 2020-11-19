@@ -4,6 +4,8 @@
 
 #include "invalidStreamToAdd.h"
 
-InvalidStreamToAdd::InvalidStreamToAdd(std::shared_ptr<Stream> stream, const std::string &message) : stream(std::move(std::move(stream))), message(message), std::invalid_argument(message) {}
+InvalidStreamToAdd::InvalidStreamToAdd(std::shared_ptr<Stream> stream, const std::string &message) : stream(std::move(std::move(stream))), std::invalid_argument(message) {}
 
-const std::string & InvalidStreamToAdd::getMessage() { return message; }
+const std::shared_ptr<Stream> &InvalidStreamToAdd::getStream() const {
+    return stream;
+}

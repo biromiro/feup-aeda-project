@@ -9,13 +9,12 @@
 #include <exception>
 #include "../../model/stream/stream.h"
 
-class StreamNotFound : std::invalid_argument {
+class StreamNotFound : public std::invalid_argument {
 public:
     StreamNotFound(std::shared_ptr<Stream> stream, const std::string & message);
-    const std::string & getMessage();
+    [[nodiscard]] const std::shared_ptr<Stream> &getStream() const;
 private:
     std::shared_ptr<Stream> stream;
-    std::string message;
 };
 
 

@@ -33,12 +33,6 @@ TEST(privateStream, getWhitelist){
     PrivateStream stream2("Cringe LoL Stream", StreamLanguage::CZ, 21, StreamGenre::GAMING, std::make_shared<Streamer>(streamer2));
     stream1.addToWhitelist(std::make_shared<Viewer>(viewer1));
     EXPECT_THROW(stream1.addToWhitelist(std::make_shared<Viewer>(viewer1)), NicknameAlreadyAdded);
-    try {
-        stream1.addToWhitelist(std::make_shared<Viewer>(viewer1));
-    }
-    catch (NicknameAlreadyAdded &naa) {
-        EXPECT_EQ(naa.getMessage(), "Viewer you're trying to add is already in the whitelist!");
-    }
     stream1.addToWhitelist(std::make_shared<Viewer>(viewer2));
     stream2.addToWhitelist(std::make_shared<Viewer>(viewer1));
     std::vector<std::string> expected_wl1 = {"PokimaneLover", "PokimaneLover2"};
@@ -49,12 +43,6 @@ TEST(privateStream, getWhitelist){
     std::vector<std::string> expected_wl3;
     EXPECT_EQ(stream2.getWhitelist(), expected_wl3);
     EXPECT_THROW(stream2.removeFromWhitelist(std::make_shared<Viewer>(viewer2)), NicknameNotFound);
-    try {
-        stream2.removeFromWhitelist(std::make_shared<Viewer>(viewer2));
-    }
-    catch (NicknameNotFound &nnf) {
-        EXPECT_EQ(nnf.getMessage(), "Viewer is not in the whitelist!");
-    }
 }
 
 TEST(privateStream, getMaxNumViewers){

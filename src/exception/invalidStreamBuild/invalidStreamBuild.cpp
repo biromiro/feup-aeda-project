@@ -4,6 +4,4 @@
 
 #include "invalidStreamBuild.h"
 
-InvalidStreamBuild::InvalidStreamBuild(const std::string &message) : message(message), std::invalid_argument(message) {}
-
-const std::string & InvalidStreamBuild::getMessage() { return message; }
+InvalidStreamBuild::InvalidStreamBuild(const std::string &message) : std::runtime_error(message) {}

@@ -47,6 +47,5 @@ void AdminView::showStreamZStatistics() const {
     std::cout << uiManager.getPlatform().getLeaderboardManager()->mostCommonLanguage() << " is the most common language among streams." << std::endl;
     std::cout << uiManager.getPlatform().getLeaderboardManager()->mostCommonType() << " is the most common type of stream." << std::endl;
     std::cout << uiManager.getPlatform().getLeaderboardManager()->mostViewsStreamer() << " is the streamer with the most total views." << std::endl;
-
     getch();
 }

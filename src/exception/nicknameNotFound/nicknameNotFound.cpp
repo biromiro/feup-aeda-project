@@ -6,6 +6,8 @@
 
 #include <utility>
 
-NicknameNotFound::NicknameNotFound(std::string nickname, const std::string &message): nickname(std::move(std::move(nickname))), message(message), std::invalid_argument(message) {}
+NicknameNotFound::NicknameNotFound(std::string nickname, const std::string &message): nickname(std::move(nickname)), std::invalid_argument(message) {}
 
-const std::string & NicknameNotFound::getMessage() { return message; }
+const std::string &NicknameNotFound::getNickname() const {
+    return nickname;
+}

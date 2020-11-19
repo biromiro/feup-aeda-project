@@ -24,10 +24,10 @@ void RegisterPage::run() {
             switch (answer) {
                 case '1':
                     viewerRegister();
-                    return;
+                    break;
                 case '2':
                     streamerRegister();
-                    return;
+                    break;
                 default:
                     started = true;
                     break;
@@ -61,7 +61,7 @@ bool RegisterPage::streamerRegister() {
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
         getUserInfo(birthDate,name,nickname,password);
         if(timeElapsed(currentDate,birthDate).getYear() < 15){
-            std::cout << "You have to be at least 15 years old!" << std::endl;
+            std::cerr << "You have to be at least 15 years old!" << std::endl;
             getch();
             continue;
         }
@@ -75,7 +75,11 @@ bool RegisterPage::streamerRegister() {
         valid = true;
     }while (answer != *ESC);
     if(answer == *ESC) return false;
-    auto streamer = uiManager.getPlatform().getStreamerManager()->build(birthDate,name,nickname,password);
+    try{
+        auto streamer = uiManager.getPlatform().getStreamerManager()->build(birthDate,name,nickname,password);
+    }catch(std::exception& e){
+        std::cerr << e.what();
+    }
     uiManager.getCurrentSession().login(nickname,password);
     return true;
 }
@@ -90,7 +94,7 @@ bool RegisterPage::viewerRegister() {
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
         getUserInfo(birthDate,name,nickname,password);
         if(timeElapsed(currentDate,birthDate).getYear() < 12){
-            std::cout << "You have to be at least 12 years old!" << std::endl;
+            std::cerr << "You have to be at least 12 years old!" << std::endl;
             getch();
             continue;
         }
@@ -104,7 +108,13 @@ bool RegisterPage::viewerRegister() {
         valid = true;
     }while (answer != *ESC);
     if(answer == *ESC) return false;
-    auto viewer = uiManager.getPlatform().getViewerManager()->build(birthDate,name,nickname,password);
+    try{
+        auto viewer = uiManager.getPlatform().getViewerManager()->build(birthDate,name,nickname,password);
+    }catch(std::exception& e){
+        std::cerr << e.what();
+        getch();
+        return false;
+    }
     uiManager.getCurrentSession().login(nickname,password);
     return true;
 }
@@ -120,7 +130,7 @@ void RegisterPage::getUserInfo(Date& birthDate, std::string& name, std::string& 
         std::cout << "\nNickname: ";
         getlineCIN(nickname);
         if(uiManager.getPlatform().getUserManager()->has(nickname)){
-            std::cout << "Nickname already taken!";
+            std::cerr << "Nickname already taken!";
             getch();
             continue;
         }
@@ -134,7 +144,7 @@ void RegisterPage::getUserInfo(Date& birthDate, std::string& name, std::string& 
         std::cout << "Please re-enter your password: ";
         getlineCIN(checkPassword);
         if(password != checkPassword){
-            std::cout << "Passwords don't match!";
+            std::cerr << "Passwords don't match!";
             getch();
             std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
             continue;
@@ -159,7 +169,7 @@ void RegisterPage::getUserInfo(Date& birthDate, std::string& name, std::string& 
         }while (day == 0);
         birthDate.setDate(year,month,day);
         if(!birthDate.isValid()){
-            std::cout << "That birth date is not valid!";
+            std::cerr << "That birth date is not valid!";
             getch();
             std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  GO_TO_BEGINNING_OF_LINE;
             continue;

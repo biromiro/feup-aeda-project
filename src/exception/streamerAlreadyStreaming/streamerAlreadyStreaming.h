@@ -9,13 +9,14 @@
 #include <exception>
 #include "../../model/user/streamer/streamer.h"
 
-class StreamerAlreadyStreaming : std::invalid_argument {
+class StreamerAlreadyStreaming : public std::logic_error {
 public:
     StreamerAlreadyStreaming(std::shared_ptr<Streamer> streamer, const std::string & message);
-    const std::string & getMessage();
+
+    [[nodiscard]] const std::shared_ptr<Streamer> &getStreamer() const;
+
 private:
     std::shared_ptr<Streamer> streamer;
-    std::string message;
 };
 
 #endif //PROJECT_STREAMERALREADYSTREAMING_H

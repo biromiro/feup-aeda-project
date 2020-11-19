@@ -11,13 +11,13 @@
 #include <memory>
 #include "../../model/user/admin/admin.h"
 
-class AdminAlreadySet: std::invalid_argument{
+class AdminAlreadySet: public std::invalid_argument{
 public:
+    const std::shared_ptr<Admin> &getAdmin() const;
+
     AdminAlreadySet(std::shared_ptr<Admin> admin,const std::string & message);
-    const std::string & getMessage();
 private:
     std::shared_ptr<Admin> admin;
-    std::string message;
 };
 
 #endif //PROJECT_ADMINALREADYSET_H

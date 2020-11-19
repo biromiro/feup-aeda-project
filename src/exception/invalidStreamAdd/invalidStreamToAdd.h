@@ -9,13 +9,14 @@
 #include <exception>
 #include "../../model/stream/stream.h"
 
-class InvalidStreamToAdd : std::invalid_argument {
+class InvalidStreamToAdd : public std::invalid_argument {
 public:
     InvalidStreamToAdd(std::shared_ptr<Stream> stream, const std::string & message);
-    const std::string & getMessage();
+
+    const std::shared_ptr<Stream> &getStream() const;
+
 private:
     std::shared_ptr<Stream> stream;
-    std::string message;
 };
 
 #endif //PROJECT_INVALIDSTREAMTOADD_H

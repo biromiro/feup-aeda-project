@@ -10,13 +10,14 @@
 #include <memory>
 #include "../../model/user/admin/admin.h"
 
-class AdminNotSet : std::invalid_argument{
+class AdminNotSet : public std::runtime_error{
 public:
     AdminNotSet(std::shared_ptr<Admin> admin,const std::string & message);
-    const std::string & getMessage();
+
+    const std::shared_ptr<Admin> &getAdmin() const;
+
 private:
     std::shared_ptr<Admin> admin;
-    std::string message;
 };
 
 

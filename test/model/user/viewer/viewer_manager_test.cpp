@@ -19,12 +19,6 @@ TEST(viewer_manager, build_add){
     EXPECT_EQ(viewerManager.build(birthDate, "Nuno Costa", "biromiro", "hehe") != nullptr, true);
     EXPECT_EQ(viewerManager.getViewers().size(), 1);
     EXPECT_THROW(viewerManager.build(birthDate, "Pedro Costa", "biromiro", "mekiepessoal"), NicknameAlreadyAdded);
-    try{
-        viewerManager.build(birthDate, "Pedro Costa", "biromiro", "mekiepessoal");
-    }
-    catch(NicknameAlreadyAdded &naa){
-        EXPECT_EQ(naa.getMessage(),"Nickname already in use by another user!");
-    }
 }
 
 TEST(viewer_manager, remove){
@@ -36,12 +30,6 @@ TEST(viewer_manager, remove){
     EXPECT_EQ(viewerManager.getViewers().size(), 1);
     EXPECT_EQ(viewerManager.remove(viewer1), true);
     EXPECT_THROW(viewerManager.remove(viewer1), UserNotFound);
-    try{
-        viewerManager.remove(viewer1);
-    }
-    catch (UserNotFound & unt) {
-        EXPECT_EQ(unt.getMessage(),"The viewer you're trying to remove does not exist!");
-    }
     EXPECT_EQ(viewerManager.getViewers().size(), 0);
 }
 

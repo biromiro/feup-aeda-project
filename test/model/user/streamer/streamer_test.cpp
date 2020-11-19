@@ -20,7 +20,7 @@ TEST(streamer, constructor_invalid_age){
         Streamer streamer(birthDate,"Cao manteiga","dog", "aaaaaaaa");
     }
     catch(InvalidAge &ia){
-        std::string message = ia.getMessage();
+        std::string message = ia.what();
         EXPECT_EQ(message,"You have to be at least 15 years old!");
     }
 }

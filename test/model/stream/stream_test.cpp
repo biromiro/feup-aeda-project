@@ -133,12 +133,6 @@ TEST(stream, addFeedback){
     stream3.addFeedback("marco6",FeedbackLikeSystem::LIKE);
     stream3.addFeedback("marco7",FeedbackLikeSystem::DISLIKE);
     EXPECT_THROW(stream3.addFeedback("marco8",FeedbackLikeSystem::INVALID_VOTE), InvalidFeedback);
-    try {
-        stream3.addFeedback("marco8",FeedbackLikeSystem::INVALID_VOTE);
-    }
-    catch (InvalidFeedback &e) {
-        EXPECT_EQ(e.getMessage(), "You can only LIKE or DISLIKE a stream!");
-    }
     EXPECT_EQ(stream1.getVotes().first, 3);
     EXPECT_EQ(stream1.getVotes().second, 1);
     EXPECT_EQ(stream2.getVotes().first, 0);

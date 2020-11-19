@@ -4,7 +4,8 @@
 
 #include "invalidFeedback.h"
 
-InvalidFeedback::InvalidFeedback(FeedbackLikeSystem fb, const std::string &message) : std::invalid_argument(message), fb(fb), message(message) {}
+InvalidFeedback::InvalidFeedback(FeedbackLikeSystem fb, const std::string &message) : std::invalid_argument(message), fb(fb) {}
 
-const std::string & InvalidFeedback::getMessage() { return message; }
-
+FeedbackLikeSystem InvalidFeedback::getFb() const {
+    return fb;
+}

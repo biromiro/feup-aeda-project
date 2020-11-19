@@ -25,7 +25,7 @@ TEST(viewer, constructor_test_invalid_age){
         Viewer viewer(birthDate,"Palpa","Palps", "aikonsdian");
     }
     catch (InvalidAge &ia) {
-        std::string message = ia.getMessage();
+        std::string message = ia.what();
         EXPECT_EQ(message, "You have to be at least 12 years old!");
     }
 }
