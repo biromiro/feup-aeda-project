@@ -34,6 +34,7 @@ char getch_(int echo)
 {
     char ch;
     initTermios(echo);
+    std::cin >> std::ws;
     ch = getchar();
     resetTermios();
     return ch;

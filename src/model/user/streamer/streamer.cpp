@@ -41,6 +41,9 @@ unsigned int Streamer::getCurrentStreamID() const {
     return currentStreamID;
 }
 
+const std::vector<unsigned int> &Streamer::getPreviousStreamsIDs() const {
+    return previousStreamsIDs;
+}
 
 bool Streamer::operator<(const Streamer &rhs) const {
     if (joinDate < rhs.joinDate)
@@ -104,4 +107,8 @@ void Streamer::writeData(std::ofstream& ofs) {
     ofs << currentStreamID << "\n";
     ofs << totalViewCount << "\n";
     User::writeData(ofs);
+}
+
+void Streamer::addToViewCount(unsigned int viewCount) {
+    totalViewCount += viewCount;
 }

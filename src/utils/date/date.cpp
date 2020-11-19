@@ -268,7 +268,7 @@ Date daysToDate(unsigned int totalDays) {
             result.setYear(result.getYear()+1);
 
         result.setMonth(result.getMonth()%12 + 1);
-        lastMonthDays = numberOfDays(result.getYear(),result.getMonth());;
+        lastMonthDays = numberOfDays(result.getYear(),result.getMonth());
     }
     result.setDay(totalDays);
     return result;

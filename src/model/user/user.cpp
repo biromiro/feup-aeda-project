@@ -129,15 +129,15 @@ bool charCmpSmaller(char a, char b) {
 
 bool operator<(std::string s1, std::string s2){
     if(s1.size()>s2.size())
-        return !(s2<s1 || s2==s1);
+        return !(s2<s1);
     for(size_t index = 0; index<s1.size(); ++index){
         if(charCmpEq(s1[index],s2[index]))
             continue;
-        if(charCmpSmaller(s1[index],s2[index])){
+        else if(charCmpSmaller(s1[index],s2[index])){
             return true;
-        }
+        }else return false;
     }
-    return true;
+    return false;
 }
 
 bool operator>(const std::string& s1, const std::string& s2){
@@ -150,7 +150,7 @@ bool operator>=(const std::string& s1, const std::string& s2){
     return s1>s2 || s1==s2;
 }
 bool operator==(std::string s1, std::string s2){
-    return((s1.size() == s2.size()) && std::equal(s1.begin(), s1.end(), s2.begin(), charCmpEq));
+    return !(s1<s2 || s2<s1);
 }
 bool operator!=(std::string s1, std::string s2){
     return !(std::move(s1) == std::move(s2));

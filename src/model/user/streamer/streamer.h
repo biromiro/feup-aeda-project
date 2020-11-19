@@ -45,9 +45,13 @@ public:
      */
     void removeStream();
 
+    void addToViewCount(unsigned int value);
+
     unsigned int getTotalViewCount() const;
 
     unsigned int getCurrentStreamID() const;
+
+    const std::vector<unsigned int> &getPreviousStreamsIDs() const;
 
     void readData(std::ifstream& ifs);
 
