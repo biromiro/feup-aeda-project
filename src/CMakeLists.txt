@@ -37,6 +37,8 @@ add_library(project
         exception/streamAlreadyFinished/streamAlreadyFinished.cpp exception/streamAlreadyFinished/streamAlreadyFinished.h
         exception/streamerAlreadyStreaming/streamerAlreadyStreaming.cpp exception/streamerAlreadyStreaming/streamerAlreadyStreaming.h
         exception/invalidStreamBuild/invalidStreamBuild.cpp exception/invalidStreamBuild/invalidStreamBuild.h
+        exception/userAlreadyExists/userAlreadyExists.cpp exception/userAlreadyExists/userAlreadyExists.h
+        exception/userNotFound/userNotFound.cpp exception/userNotFound/userNotFound.h
         model/streamZ/streamZ.h
         model/user/user.h model/user/user.cpp
         model/user/user_manager.h model/user/user_manager.cpp
@@ -99,7 +101,7 @@ add_executable(application
         exception/invalidStreamAdd/invalidStreamToAdd.cpp exception/invalidStreamAdd/invalidStreamToAdd.h
         exception/streamAlreadyFinished/streamAlreadyFinished.cpp exception/streamAlreadyFinished/streamAlreadyFinished.h
         exception/streamerAlreadyStreaming/streamerAlreadyStreaming.cpp exception/streamerAlreadyStreaming/streamerAlreadyStreaming.h
-        exception/invalidStreamBuild/invalidStreamBuild.cpp exception/invalidStreamBuild/invalidStreamBuild.h)
+        exception/invalidStreamBuild/invalidStreamBuild.cpp exception/invalidStreamBuild/invalidStreamBuild.h exception/userAlreadyExists/userAlreadyExists.cpp exception/userAlreadyExists/userAlreadyExists.h exception/userNotFound/userNotFound.cpp exception/userNotFound/userNotFound.h)
 
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

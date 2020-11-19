@@ -33,8 +33,8 @@ bool AdminManager::add(const std::shared_ptr<Admin>& adminToAdd) {
 
 bool AdminManager::remove() {
     if(admin != nullptr){
-        admin.reset();
         userManager->remove(std::dynamic_pointer_cast<User>(admin));
+        admin.reset();
         noInstances--;
         return true;
     }
