@@ -3,6 +3,10 @@
 //
 
 #include "viewer_manager.h"
+#include "../../../exception/nicknameAlreadyAdded/nicknameAlreadyAdded.h"
+#include "../../../exception/userNotFound/userNotFound.h"
+#include "../../../exception/userAlreadyExists/userAlreadyExists.h"
+#include "../../../exception/invalidAge/invalidAge.h"
 
 #include <utility>
 
@@ -13,14 +17,15 @@ userManager(std::move(userManager)){
 
 std::shared_ptr<Viewer> ViewerManager::build(Date birthDate, const std::string& name, const std::string& nickname, std::string password) {
     if(userManager->has(nickname))
-        return nullptr;
+        throw NicknameAlreadyAdded(nickname,"Nickname already in use by another user!");
     std::shared_ptr<Viewer> viewer;
     try{
         viewer = std::make_shared<Viewer>(birthDate,name,nickname,password);
     } catch (InvalidAge& invalidAge) {
+        unsigned int age = viewer->getAge();
         std::cout << invalidAge.getMessage();
         viewer.reset();
-        return nullptr;
+        throw InvalidAge(age,"You have to be at least 12 years old!");
     }
     add(viewer);
     std::shared_ptr<User> user_form = std::dynamic_pointer_cast<Viewer>(viewer);
@@ -32,13 +37,13 @@ bool ViewerManager::add(const std::shared_ptr<Viewer>& viewer) {
     if (std::find(viewers.begin(),viewers.end(),viewer) == viewers.end()){
         viewers.push_back(viewer);
         return true;
-    }else
-        return false;
+    }
+    throw UserAlreadyExists(viewer,"The viewer you're trying to add already exists!");
 }
 
 bool ViewerManager::reload(const std::shared_ptr<Viewer>& viewer){
     if(userManager->has(viewer->getNickname())){
-        return false;
+        throw NicknameAlreadyAdded(viewer->getNickname(),"Nickname already in use by another user!");
     }else{
         std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(viewer);
         userManager->add(user_form);
@@ -52,8 +57,8 @@ bool ViewerManager::remove(const std::shared_ptr<Viewer>& viewer) {
         viewers.erase(it);
         userManager->remove(std::dynamic_pointer_cast<User>(viewer));
         return true;
-    }else
-        return false;
+    }
+    throw UserNotFound(viewer,"The viewer you're trying to remove does not exist!");
 }
 
 bool ViewerManager::has(const std::shared_ptr<Viewer>& viewer) const {

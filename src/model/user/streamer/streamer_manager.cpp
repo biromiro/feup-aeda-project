@@ -3,6 +3,10 @@
 //
 
 #include "streamer_manager.h"
+#include "../../../exception/nicknameAlreadyAdded/nicknameAlreadyAdded.h"
+#include "../../../exception/userNotFound/userNotFound.h"
+#include "../../../exception/userAlreadyExists/userAlreadyExists.h"
+#include "../../../exception/invalidAge/invalidAge.h"
 
 #include <utility>
 
@@ -17,14 +21,15 @@ streamManager(std::move(streamManager)), viewerManager(std::move(viewerManager))
 
 std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::string &name, const std::string &nickname, std::string password) {
     if(userManager->has(nickname))
-        return nullptr;
+        throw NicknameAlreadyAdded(nickname,"Nickname already in use by another user!");
     std::shared_ptr<Streamer> streamer;
     try{
         streamer = std::make_shared<Streamer>(birthDate,name,nickname,password);
     } catch (InvalidAge& invalidAge) {
+        unsigned  int age = streamer->getAge();
         std::cout << invalidAge.getMessage();
         streamer.reset();
-        return nullptr;
+        throw InvalidAge(age,"You have to be at least 15 years old!");
     }
     add(streamer);
     std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(streamer);
@@ -36,13 +41,13 @@ bool StreamerManager::add(const std::shared_ptr<Streamer>& streamer) {
     if (std::find(streamers.begin(),streamers.end(),streamer) == streamers.end()){
         streamers.push_back(streamer);
         return true;
-    }else
-        return false;
+    }
+    throw UserAlreadyExists(streamer,"The streamer you're trying to add already exists!");
 }
 
 bool StreamerManager::reload(const std::shared_ptr<Streamer>& streamer){
     if(userManager->has(streamer->getNickname())){
-        return false;
+        throw NicknameAlreadyAdded(streamer->getNickname(),"Nickname already in use by another user!");
     }else{
         std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(streamer);
         userManager->add(user_form);
@@ -56,8 +61,8 @@ bool StreamerManager::remove(const std::shared_ptr<Streamer>& streamer) {
         streamers.erase(it);
         userManager->remove(std::dynamic_pointer_cast<User>(streamer));
         return true;
-    }else
-        return false;
+    }
+    throw UserNotFound(streamer,"The streamer you're trying to remove does not exist!");
 }
 
 bool StreamerManager::startStream(std::string title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, const std::shared_ptr<Streamer>& streamer) {
