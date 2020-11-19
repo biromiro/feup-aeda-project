@@ -14,7 +14,7 @@ std::vector<std::string> PrivateStream::getWhitelist() const { return whitelist;
 
 unsigned int PrivateStream::getMaxNumViewers() const { return maxNumViewers; }
 
-std::vector<std::string> PrivateStream::getComments() const { return comments; }
+std::map<std::string,std::string> PrivateStream::getComments() const { return comments; }
 
 bool PrivateStream::addToWhitelist(std::shared_ptr<Viewer> v){
     std::string v_nick = v->getNickname();
@@ -41,8 +41,8 @@ bool PrivateStream::setMaxNumViewers(unsigned int maxNumViewers) {
     else { return false; }
 }
 
-void PrivateStream::addComment(const std::string& comment) {
-    comments.push_back(comment);
+void PrivateStream::addComment(const std::string& nickname, const std::string& comment) {
+    comments.insert(std::pair<std::string,std::string>(nickname,comment));
 }
 
 bool PrivateStream::canJoin(const std::shared_ptr<Viewer>& newViewer) const {
@@ -55,20 +55,21 @@ bool PrivateStream::canJoin(const std::shared_ptr<Viewer>& newViewer) const {
 
 void PrivateStream::readData(std::ifstream &ifs, std::shared_ptr<StreamerManager> streamerManager) {
     unsigned int whitelistSize, commentsSize;
-    std::string temp;
+    std::string temp1,temp2;
 
     ifs >> whitelistSize;
     ifs.ignore();
     while(whitelistSize--) {
-        getline(ifs, temp);
-        whitelist.push_back(temp);
+        getline(ifs, temp1);
+        whitelist.push_back(temp1);
     }
 
     ifs >> commentsSize;
     ifs.ignore();
     while (commentsSize--){
-        getline(ifs,temp);
-        comments.push_back(temp);
+        getline(ifs,temp1);
+        getline(ifs, temp2);
+        comments.insert(std::pair<std::string,std::string>(temp1,temp2));
     }
 
     ifs >> maxNumViewers;
@@ -85,9 +86,9 @@ void PrivateStream::writeData(std::ofstream &ofs) {
     ofs << comments.size() << "\n";
 
     for(const auto& elem: comments)
-        ofs << elem << "\n";
+        ofs << elem.first << "\n" << elem.second << "\n";
 
-    ofs << maxNumViewers;
+    ofs << maxNumViewers << "\n";
     Stream::writeData(ofs);
 }
 

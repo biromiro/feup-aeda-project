@@ -9,23 +9,23 @@
 #include "../../stream/streamManager.h"
 
 
-Viewer::Viewer() : User(UserTypes::VIEWER) {}
+Viewer::Viewer() : User(UserTypes::VIEWER) {
+}
 
 Viewer::Viewer(Date birthDate, std::string name, std::string nickname, std::string password): User(birthDate,std::move(name),std::move(nickname), UserTypes::VIEWER, password){
     if(getAge() < 12){
         throw InvalidAge(getAge(), "You have to be at least 12 years old!");
     }
     currentStream = nullptr;
+    votedInStream = FeedbackLikeSystem::INVALID_VOTE;
 }
 
 bool Viewer::joinStream(const std::shared_ptr<Stream>& stream){
     std::shared_ptr<Viewer> thisViewer = shared_from_this();
-    if(stream->canJoin(thisViewer) && currentStream == nullptr){
-        stream->newViewerJoin();
-        currentStream = stream;
-        return true;
-    }
-    return false;
+    if (!stream->canJoin(thisViewer) || currentStream != nullptr) return false;
+    stream->newViewerJoin();
+    currentStream = stream;
+    return true;
 }
 
 bool Viewer::isWatchingStream() const{
@@ -38,19 +38,31 @@ bool Viewer::leaveCurrentStream() {
             streamHistory.push_back(currentStream);
         currentStream->viewerLeft();
         currentStream = nullptr;
+        votedInStream = FeedbackLikeSystem::INVALID_VOTE;
         return true;
     }
     return false;
 }
 
 bool Viewer::giveFeedbackToStream(enum FeedbackLikeSystem feedback) {
-    return isWatchingStream() && currentStream->addFeedback(feedback);
+    if(votedInStream == FeedbackLikeSystem::INVALID_VOTE)
+        if(isWatchingStream() && currentStream->addFeedback(feedback)){
+            votedInStream = feedback;
+            return true;
+        }else return false;
+    else{
+        currentStream->removeFeedback(votedInStream);
+        if(isWatchingStream() && currentStream->addFeedback(feedback)){
+            votedInStream = feedback;
+            return true;
+        }else return false;
+    }
 }
 
 bool Viewer::giveFeedbackToStream(const std::string& comment) {
     if(isWatchingStream() && currentStream->getStreamType() == StreamType::PRIVATE ){
         auto currentStreamPrivate = std::dynamic_pointer_cast<PrivateStream>(currentStream);
-        currentStreamPrivate->addComment(comment);
+        currentStreamPrivate->addComment(getNickname(),comment);
         return true;
     }else
         return false;
@@ -74,7 +86,7 @@ const std::shared_ptr<Stream> &Viewer::getCurrentStream() const {
     return currentStream;
 }
 
-const std::vector<std::shared_ptr<Stream>> &Viewer::getStreamHistory() const {
+std::vector<std::shared_ptr<Stream>>& Viewer::getStreamHistory() {
     return streamHistory;
 }
 
@@ -133,7 +145,7 @@ void Viewer::readData(std::ifstream &ifs, const std::shared_ptr<StreamManager>& 
     while (streamHistorySize--){
         ifs >> streamIDFromHistory;
         streamInHistory = streamManager->get(streamIDFromHistory);
-        if(streamInHistory != nullptr)
+        if(streamInHistory != 0)
             streamHistory.push_back(streamInHistory);
     }
     ifs >> followingStreamersSize;
@@ -142,6 +154,7 @@ void Viewer::readData(std::ifstream &ifs, const std::shared_ptr<StreamManager>& 
         getline(ifs,newStreamerID);
         followingStreamers.insert(newStreamerID);
     }
+    ifs >> votedInStream;
     User::readData(ifs);
 }
 
@@ -155,5 +168,6 @@ void Viewer::writeData(std::ofstream &ofs) {
     for(const auto& elem: followingStreamers){
         ofs << elem << "\n";
     }
+    ofs << votedInStream << "\n";
     User::writeData(ofs);
 }

@@ -48,6 +48,16 @@ bool Stream::addFeedback(enum FeedbackLikeSystem feedback) {
     return true;
 }
 
+bool Stream::removeFeedback(enum FeedbackLikeSystem feedback){
+    if(feedback == FeedbackLikeSystem::LIKE)
+        votingSystem.first--;
+    else if(feedback == FeedbackLikeSystem::DISLIKE)
+        votingSystem.second--;
+    else
+        throw InvalidFeedback(feedback, "You can't remove feedback if you haven't done one yet!");
+    return true;
+}
+
 bool Stream::operator==(std::shared_ptr<Stream> stream) const { return uniqueID == stream->getUniqueId(); }
 
 unsigned int Stream::getUniqueId() const { return uniqueID; }
@@ -123,6 +133,7 @@ bool Stream::operator!=(const Stream &rhs) const {
 void Stream::readData(std::ifstream &ifs, std::shared_ptr<StreamerManager> streamerManager) {
     std::string streamerNickname;
 
+    ifs >> nextID;
     ifs >> uniqueID;
     ifs.ignore();
     ifs >> language;
@@ -140,6 +151,7 @@ void Stream::readData(std::ifstream &ifs, std::shared_ptr<StreamerManager> strea
 }
 
 void Stream::writeData(std::ofstream &ofs) {
+    ofs << nextID << "\n";
     ofs << uniqueID << "\n";
     ofs << language << "\n";
     switch (type) {
@@ -207,9 +219,9 @@ std::ostream& operator<<(std::ostream& out, const StreamLanguage& f) {
 
 std::ostream& operator<<(std::ostream& out, const StreamType& f) {
     switch (f) {
-        case StreamType::PUBLIC: out << "Public"; break;
-        case StreamType::PRIVATE: out << "Private"; break;
-        case StreamType::FINISHED: out << "Finished"; break;
+        case StreamType::PUBLIC: out << "PUBLIC"; break;
+        case StreamType::PRIVATE: out << "PRIVATE"; break;
+        case StreamType::FINISHED: out << "FINISHED"; break;
         default: out << int(f); break;
     }
     return out;
@@ -217,14 +229,23 @@ std::ostream& operator<<(std::ostream& out, const StreamType& f) {
 
 std::ostream& operator<<(std::ostream& out, const StreamGenre& f) {
     switch (f) {
-        case StreamGenre::MUSIC: out << "Music"; break;
-        case StreamGenre::GAMING: out << "Gaming"; break;
-        case StreamGenre::COOKING: out << "Cooking"; break;
-        case StreamGenre::TALKSHOW: out << "Talkshow"; break;
+        case StreamGenre::MUSIC: out << "MUSIC"; break;
+        case StreamGenre::GAMING: out << "GAMING"; break;
+        case StreamGenre::COOKING: out << "COOKING"; break;
+        case StreamGenre::TALKSHOW: out << "TALKSHOW"; break;
         default: out << int(f); break;
     }
     return out;
 }
+
+std::ostream& operator<<(std::ostream& out, const FeedbackLikeSystem& f){
+    switch (f) {
+        case FeedbackLikeSystem::LIKE: out << "LIKE"; break;
+        case FeedbackLikeSystem::DISLIKE: out << "DISLIKE"; break;
+        case FeedbackLikeSystem::INVALID_VOTE: out << "INVALID_VOTE"; break;
+    }
+}
+
 
 std::istream& operator>>(std::istream& inf, StreamLanguage& f){
     std::string language;
@@ -255,6 +276,16 @@ std::istream& operator>>(std::istream& inf, StreamGenre& f){
 std::istream& operator>>(std::istream& inf, StreamType& f){
     std::string type;
     std::unordered_map<std::string,StreamType> const table{{"PRIVATE",StreamType::PRIVATE},{"PUBLIC",StreamType::PUBLIC},{"FINISHED",StreamType::FINISHED}};
+    getline(inf,type);
+    auto it = table.find(type);
+    if(it != table.end())
+        f = it->second;
+    return inf;
+}
+
+std::istream& operator>>(std::istream& inf, FeedbackLikeSystem& f){
+    std::string type;
+    std::unordered_map<std::string,FeedbackLikeSystem> const table{{"LIKE",FeedbackLikeSystem::LIKE},{"DISLIKE",FeedbackLikeSystem::DISLIKE},{"INVALID_VOTE",FeedbackLikeSystem::INVALID_VOTE}};
     getline(inf,type);
     auto it = table.find(type);
     if(it != table.end())

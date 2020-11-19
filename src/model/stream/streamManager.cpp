@@ -88,8 +88,12 @@ std::shared_ptr<FinishedStream> StreamManager::finish(const std::shared_ptr<Stre
     for(const auto& elem: viewerManager->getViewers()){
         if(elem->getCurrentStream() == streamToFinish)
             elem->leaveCurrentStream();
-        auto viewerStreamHistory = elem->getStreamHistory();
-        viewerStreamHistory.erase(find(viewerStreamHistory.begin(),viewerStreamHistory.end(),streamToFinish));
+        std::vector<std::shared_ptr<Stream>>& viewerStreamHistory = elem->getStreamHistory();
+        auto it = find(viewerStreamHistory.begin(),viewerStreamHistory.end(),streamToFinish);
+        if(it != viewerStreamHistory.end()){
+            viewerStreamHistory.erase(it);
+            viewerStreamHistory.push_back(res);
+        }
     }
     cacheOfFinishedStreams.push_back(res);
     return res;

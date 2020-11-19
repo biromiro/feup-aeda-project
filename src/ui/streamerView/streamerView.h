@@ -15,6 +15,11 @@ public:
 private:
     UIManager& uiManager;
     void pageOutput() const;
+    void startStream();
+    void seeStreamStatistics();
+    void oldEnoughViewerLB();
+    void addViewersToWhitelist();
+    void finishCurrentStream();
 };
 
 #endif //PROJECT_STREAMERVIEW_H

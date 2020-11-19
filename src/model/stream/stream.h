@@ -30,7 +30,8 @@ enum class FeedbackLikeSystem{
 enum class StreamType{
     PRIVATE,
     PUBLIC,
-    FINISHED
+    FINISHED,
+    INVALID
 };
 
 /**
@@ -40,7 +41,8 @@ enum class StreamGenre{
     MUSIC,
     GAMING,
     COOKING,
-    TALKSHOW
+    TALKSHOW,
+    INVALID
 };
 
 /**
@@ -53,7 +55,7 @@ enum class StreamLanguage{
     KY, LT, LV, MI ,MK, MN, MR, MS, MT, NB, NL, NN,
     NS, PA, PL, PS, PT_BR, PT_PT, QU, RO, RU, SA ,SE,
     SK, SL, SQ, SR, SV, SW, SYR, TA, TE, TH, TL, TN,
-    TR, TT, TS, UK, UR, UZ, YI, XH, ZH
+    TR, TT, TS, UK, UR, UZ, YI, XH, ZH,INVALID
 };
 
 class Viewer;
@@ -146,12 +148,12 @@ public:
     bool addFeedback(enum FeedbackLikeSystem feedback);
 
     /**
-     * Sets/Updates the number of viewers of the stream
+     * Removes a vote to the stream's feedback
      *
-     * @param numOfViewers stream's new number of viewers
+     * @param feedback vote (like or dislike) to remove
+     * @return true if feedback removed is valid (like or dislike), false otherwise
      */
-    void setNumOfViewers(unsigned int numOfViewers);
-
+    bool removeFeedback(enum FeedbackLikeSystem feedback);
     /**
      * Getter of the unique ID of the stream
      *
@@ -210,7 +212,9 @@ protected:
 std::ostream& operator<<(std::ostream& out, const StreamLanguage& f);
 std::ostream& operator<<(std::ostream& out, const StreamGenre& f);
 std::ostream& operator<<(std::ostream& out, const StreamType& f);
+std::ostream& operator<<(std::ostream& out, const FeedbackLikeSystem& f);
 std::istream& operator>>(std::istream& inf, StreamLanguage& f);
 std::istream& operator>>(std::istream& inf, StreamGenre& f);
 std::istream& operator>>(std::istream& inf, StreamType& f);
+std::istream& operator>>(std::istream& inf, FeedbackLikeSystem& f);
 #endif //PROJECT_STREAM_H

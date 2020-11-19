@@ -73,10 +73,10 @@ TEST(privateStream, getComments){
     Streamer streamer1(birthDate, "Jogador Silva", "xXjogadorXx", "kajshnasda");
     PrivateStream stream_no_args;
     PrivateStream stream1("Epic LoL Stream", StreamLanguage::EN, 13, StreamGenre::GAMING, std::make_shared<Streamer>(streamer1));
-    stream_no_args.addComment("WOW! This stream is so epic!!!");
-    stream_no_args.addComment("How can I donate?");
-    std::vector<std::string> expected_cm1 = {"WOW! This stream is so epic!!!", "How can I donate?"};
-    std::vector<std::string> expected_cm2;
+    stream_no_args.addComment(streamer1.getNickname(),"WOW! This stream is so epic!!!");
+    stream_no_args.addComment(streamer1.getNickname(), "How can I donate?");
+    std::map<std::string,std::string> expected_cm1 = {{"xXjogadorXx","WOW! This stream is so epic!!!"}, {"xXjogadorXx","How can I donate?"}};
+    std::map<std::string,std::string> expected_cm2;
     EXPECT_EQ(stream_no_args.getComments(), expected_cm1);
     EXPECT_EQ(stream1.getComments(), expected_cm2);
 }

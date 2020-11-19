@@ -250,3 +250,9 @@ LeaderboardManager::getNotFollowingStreamersLeaderboard(std::shared_ptr<Viewer> 
     return Leaderboard<std::shared_ptr<Streamer>>(notFollowingStreamers);
 }
 
+Leaderboard<std::shared_ptr<Viewer>> LeaderboardManager::filterViewerByAge(unsigned int age) {
+    std::vector<std::shared_ptr<Viewer>> newLB = viewerManager->getViewers();
+    newLB.erase(std::remove_if(newLB.begin(),newLB.end(),[&age](const std::shared_ptr<Viewer>& viewer){return viewer->getAge() < age;}),newLB.end());
+    return Leaderboard<std::shared_ptr<Viewer>>(newLB);
+}
+

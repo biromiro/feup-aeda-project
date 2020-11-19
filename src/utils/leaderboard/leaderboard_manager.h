@@ -140,6 +140,8 @@ public:
 
     Leaderboard<std::shared_ptr<Viewer>> sortViewerBy(SortViewer sorter);
 
+    Leaderboard<std::shared_ptr<Viewer>> filterViewerByAge(unsigned int age);
+
     /**
      * Sorts the Leaderboard by user's joindate > age > nickname > name
      *
