@@ -124,17 +124,17 @@ TEST(stream, addFeedback){
     PublicStream stream1("Epic LoL Stream", StreamLanguage::EN, 13, StreamGenre::GAMING, std::make_shared<Streamer>(streamer1));
     PrivateStream stream2("Based Games", StreamLanguage::EN, 18, StreamGenre::GAMING, std::make_shared<Streamer>(streamer2));
     PrivateStream stream3 ("?????", StreamLanguage::PT_PT, 10, StreamGenre::COOKING, std::make_shared<Streamer>(streamer2));
-    stream1.addFeedback(FeedbackLikeSystem::LIKE);
-    stream1.addFeedback(FeedbackLikeSystem::LIKE);
-    stream1.addFeedback(FeedbackLikeSystem::LIKE);
-    stream1.addFeedback(FeedbackLikeSystem::DISLIKE);
-    stream2.addFeedback(FeedbackLikeSystem::DISLIKE);
-    stream2.addFeedback(FeedbackLikeSystem::DISLIKE);
-    stream3.addFeedback(FeedbackLikeSystem::LIKE);
-    stream3.addFeedback(FeedbackLikeSystem::DISLIKE);
-    EXPECT_THROW(stream3.addFeedback(FeedbackLikeSystem::INVALID_VOTE), InvalidFeedback);
+    stream1.addFeedback("marco",FeedbackLikeSystem::LIKE);
+    stream1.addFeedback("marco1",FeedbackLikeSystem::LIKE);
+    stream1.addFeedback("marco2",FeedbackLikeSystem::LIKE);
+    stream1.addFeedback("marco3",FeedbackLikeSystem::DISLIKE);
+    stream2.addFeedback("marco4",FeedbackLikeSystem::DISLIKE);
+    stream2.addFeedback("marco5",FeedbackLikeSystem::DISLIKE);
+    stream3.addFeedback("marco6",FeedbackLikeSystem::LIKE);
+    stream3.addFeedback("marco7",FeedbackLikeSystem::DISLIKE);
+    EXPECT_THROW(stream3.addFeedback("marco8",FeedbackLikeSystem::INVALID_VOTE), InvalidFeedback);
     try {
-        stream3.addFeedback(FeedbackLikeSystem::INVALID_VOTE);
+        stream3.addFeedback("marco8",FeedbackLikeSystem::INVALID_VOTE);
     }
     catch (InvalidFeedback &e) {
         EXPECT_EQ(e.getMessage(), "You can only LIKE or DISLIKE a stream!");
