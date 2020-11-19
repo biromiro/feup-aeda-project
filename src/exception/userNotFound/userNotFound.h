@@ -2,8 +2,8 @@
 // Created by emanu on 19-Nov-20.
 //
 
-#ifndef STREAMER_MANAGER_TEST_CPP_USERNOTFOUND_H
-#define STREAMER_MANAGER_TEST_CPP_USERNOTFOUND_H
+#ifndef PROJECT_USERNOTFOUND_H
+#define PROJECT_USERNOTFOUND_H
 
 #include <iostream>
 #include <exception>
@@ -21,4 +21,4 @@ private:
 };
 
 
-#endif //STREAMER_MANAGER_TEST_CPP_USERNOTFOUND_H
+#endif //PROJECT_USERNOTFOUND_H
