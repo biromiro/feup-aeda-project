@@ -3,6 +3,8 @@
 //
 
 #include "admin_manager.h"
+#include "../../../exception/adminAlreadySet/adminAlreadySet.h"
+#include "../../../exception/adminNotSet/adminNotSet.h"
 
 #include <utility>
 
@@ -13,7 +15,7 @@ userManager(std::move(userManager))
 
 bool AdminManager::build(Date birthDate, const std::string &name, const std::string &nickname, std::string password) {
     if(userManager->has(nickname)|| noInstances > 0)
-        return false;
+        throw AdminAlreadySet(admin,"Admin already set!");
     auto newAdmin = std::make_shared<Admin>(birthDate,name,nickname, password);
     add(newAdmin);
     std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(newAdmin);
@@ -27,18 +29,18 @@ bool AdminManager::add(const std::shared_ptr<Admin>& adminToAdd) {
         noInstances++;
         admin = adminToAdd;
         return true;
-    }else
-        return false;
+    }
+    throw AdminAlreadySet(admin,"Admin already set!");
 }
 
 bool AdminManager::remove() {
     if(admin != nullptr){
-        admin.reset();
         userManager->remove(std::dynamic_pointer_cast<User>(admin));
+        admin.reset();
         noInstances--;
         return true;
     }
-    return false;
+    throw AdminNotSet(admin,"Admin not set, can't remove!");
 }
 
 bool AdminManager::is(const std::shared_ptr<Admin>& adminToCompare) const {

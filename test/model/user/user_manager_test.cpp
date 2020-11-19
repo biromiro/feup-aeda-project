@@ -7,6 +7,8 @@
 #include <model/user/viewer/viewer.h>
 #include <model/user/streamer/streamer.h>
 #include <model/user/admin/admin.h>
+#include <exception/userAlreadyExists/userAlreadyExists.h>
+#include <exception/userNotFound/userNotFound.h>
 
 using testing::Eq;
 
@@ -20,10 +22,22 @@ TEST(user_manager, add){
     auto admin = std::make_shared<Admin>(birthDate, "Úrsula Maior", "urmaior", "aisdhdiouasd");
     EXPECT_EQ(userManager.add(std::dynamic_pointer_cast<User>(viewer)), true);
     EXPECT_EQ(userManager.add(std::dynamic_pointer_cast<User>(streamer)), true);
-    EXPECT_EQ(userManager.add(std::dynamic_pointer_cast<User>(viewer)), false);
+    EXPECT_THROW(userManager.add(std::dynamic_pointer_cast<User>(viewer)), UserAlreadyExists);
+    try{
+        userManager.add(std::dynamic_pointer_cast<User>(viewer));
+    }
+    catch(UserAlreadyExists &uae){
+        EXPECT_EQ(uae.getMessage(),"The user you're trying to add already exists!");
+    }
     EXPECT_EQ(userManager.add(std::dynamic_pointer_cast<User>(viewer2)), true);
     EXPECT_EQ(userManager.add(std::dynamic_pointer_cast<User>(admin)), true);
-    EXPECT_EQ(userManager.add(std::dynamic_pointer_cast<User>(admin)), false);
+    EXPECT_THROW(userManager.add(std::dynamic_pointer_cast<User>(admin)), UserAlreadyExists);
+    try{
+        userManager.add(std::dynamic_pointer_cast<User>(admin));
+    }
+    catch(UserAlreadyExists &uae2){
+        EXPECT_EQ(uae2.getMessage(),"The user you're trying to add already exists!");
+    }
     EXPECT_EQ(userManager.getUsers().size(),4);
 }
 
@@ -37,7 +51,13 @@ TEST(user_manager, remove){
     userManager.add(std::dynamic_pointer_cast<User>(viewer));
     userManager.add(std::dynamic_pointer_cast<User>(viewer2));
     EXPECT_EQ(userManager.getUsers().size(),2);
-    EXPECT_EQ(userManager.remove(std::dynamic_pointer_cast<User>(streamer)), false);
+    EXPECT_THROW(userManager.remove(std::dynamic_pointer_cast<User>(streamer)),UserNotFound);
+    try{
+        userManager.remove(std::dynamic_pointer_cast<User>(streamer));
+    }
+    catch (UserNotFound &unt) {
+        EXPECT_EQ(unt.getMessage(),"The user you're looking for does not exist!");
+    }
     EXPECT_EQ(userManager.remove(std::dynamic_pointer_cast<User>(viewer)), true);
     userManager.add(std::dynamic_pointer_cast<User>(admin));
     EXPECT_EQ(userManager.remove(std::dynamic_pointer_cast<User>(admin)), true);

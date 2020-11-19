@@ -4,6 +4,8 @@
 
 #include <algorithm>
 #include "user_manager.h"
+#include "../../exception/userAlreadyExists/userAlreadyExists.h"
+#include "../../exception/userNotFound/userNotFound.h"
 
 UserManager::UserManager() {
     users = std::unordered_set<std::shared_ptr<User>>();
@@ -13,16 +15,16 @@ bool UserManager::add(const std::shared_ptr<User>& user) {
     if (users.find(user) == users.end()){
         users.insert(user);
         return true;
-    }else
-        return false;
+    }
+    throw UserAlreadyExists(user,"The user you're trying to add already exists!");
 }
 
 bool UserManager::remove(const std::shared_ptr<User>& user) {
     if (users.find(user) != users.end()) {
         users.erase(user);
         return true;
-    }else
-        return false;
+    }
+    throw UserNotFound(user,"The user you're looking for does not exist!");
 }
 
 bool UserManager::has(const std::shared_ptr<User>& user) const {
