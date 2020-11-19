@@ -13,6 +13,10 @@
 #include <model/user/streamer/streamer_manager.h>
 #include <model/stream/streamManager.h>
 #include <utils/leaderboard/leaderboard_manager.h>
+#include <exception/userAlreadyExists/userAlreadyExists.h>
+#include <exception/userNotFound/userNotFound.h>
+#include <exception/nicknameAlreadyAdded/nicknameAlreadyAdded.h>
+#include <exception/invalidAge/invalidAge.h>
 
 
 using testing::Eq;
@@ -49,10 +53,10 @@ TEST(leaderboard_manager, filters){
     viewerManager->build(birthDate,"André Moreira","Dustini", "hehuebfghcudewc");
     viewerManager->build(birthDate,"André Pereira","dustibo", "autofeito");
     auto s1 = streamerManager->build(birthDate, "Nuno Costa", "biromiro", "hahduegvywbcs");
-    auto s2 = streamerManager->build(birthDate2, "oscar ESteves", "biroadsadiro", "kekwjkaishduxyfasv");
-    auto s3 = streamerManager->build(birthDate2, "Paulo Costa", "vespa", "kdfiocjikcs");
-    auto s4 = streamerManager->build(birthDate, "Carlos ESteves", "epico", "jkcdhusgvbcs");
-    streamManager->build("jebcnhuwbwiu",StreamLanguage::PT_PT,18,StreamType::PUBLIC, StreamGenre::COOKING, s1);
+    auto s2 = streamerManager->build(birthDate, "oscar ESteves", "biroadsadiro", "kekwjkaishduxyfasv");
+    auto s3 = streamerManager->build(birthDate, "Paulo Costa", "vespa", "kdfiocjikcs");
+    auto s4 = streamerManager->build(birthDate, "Carlos ESteves", "dustibruh", "jkcdhusgvbcs");
+    streamManager->build("jebcnhuwbwiu", StreamLanguage::PT_PT, 18, StreamType::PUBLIC, StreamGenre::COOKING, s1);
     streamManager->build("esfw",StreamLanguage::AZ,10,StreamType::PUBLIC, StreamGenre::COOKING, s2);
     streamManager->build("asd",StreamLanguage::EN,15,StreamType::PRIVATE, StreamGenre::GAMING, s3);
 
@@ -82,7 +86,7 @@ TEST(leaderboard_manager, getFollowingList){
     auto s1 = streamerManager->build(birthDate, "Nuno Costa", "biromiro", "hahduegvywbcs");
     auto s2 = streamerManager->build(birthDate, "oscar ESteves", "biroadsadiro", "kekwjkaishduxyfasv");
     auto s3 = streamerManager->build(birthDate, "Paulo Costa", "vespa", "kdfiocjikcs");
-    auto s4 = streamerManager->build(birthDate, "Carlos ESteves", "dustibo", "jkcdhusgvbcs");
+    auto s4 = streamerManager->build(birthDate, "Carlos ESteves", "dustibruh", "jkcdhusgvbcs");
     streamManager->build("jebcnhuwbwiu",StreamLanguage::PT_PT,18,StreamType::PUBLIC, StreamGenre::COOKING, s1);
     streamManager->build("esfw",StreamLanguage::AZ,10,StreamType::PUBLIC, StreamGenre::COOKING, s2);
     streamManager->build("asd",StreamLanguage::EN,15,StreamType::PRIVATE, StreamGenre::GAMING, s3);

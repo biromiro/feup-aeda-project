@@ -4,6 +4,9 @@
 
 #include <gtest/gtest.h>
 #include <model/user/viewer/viewer_manager.h>
+#include <exception/nicknameAlreadyAdded/nicknameAlreadyAdded.h>
+#include <exception/userAlreadyExists/userAlreadyExists.h>
+#include <exception/userNotFound/userNotFound.h>
 
 using testing::Eq;
 
@@ -15,7 +18,13 @@ TEST(viewer_manager, build_add){
     EXPECT_EQ(viewerManager.getViewers().size(), 0);
     EXPECT_EQ(viewerManager.build(birthDate, "Nuno Costa", "biromiro", "hehe") != nullptr, true);
     EXPECT_EQ(viewerManager.getViewers().size(), 1);
-    EXPECT_EQ(viewerManager.build(birthDate, "Pedro Costa", "biromiro", "mekiepessoal"), nullptr);
+    EXPECT_THROW(viewerManager.build(birthDate, "Pedro Costa", "biromiro", "mekiepessoal"), NicknameAlreadyAdded);
+    try{
+        viewerManager.build(birthDate, "Pedro Costa", "biromiro", "mekiepessoal");
+    }
+    catch(NicknameAlreadyAdded &naa){
+        EXPECT_EQ(naa.getMessage(),"Nickname already in use by another user!");
+    }
 }
 
 TEST(viewer_manager, remove){
@@ -26,7 +35,13 @@ TEST(viewer_manager, remove){
     auto viewer1 = viewerManager.build(birthDate, "Nuno Costa", "biromiro", "olakekwk");
     EXPECT_EQ(viewerManager.getViewers().size(), 1);
     EXPECT_EQ(viewerManager.remove(viewer1), true);
-    EXPECT_EQ(viewerManager.remove(viewer1), false);
+    EXPECT_THROW(viewerManager.remove(viewer1), UserNotFound);
+    try{
+        viewerManager.remove(viewer1);
+    }
+    catch (UserNotFound & unt) {
+        EXPECT_EQ(unt.getMessage(),"The viewer you're trying to remove does not exist!");
+    }
     EXPECT_EQ(viewerManager.getViewers().size(), 0);
 }
 
