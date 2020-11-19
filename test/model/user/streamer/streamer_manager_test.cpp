@@ -24,12 +24,6 @@ TEST(streamer_manager, build){
     srm1->build(birthdate,"rhaast gaming","rhaast gaming","obey!");
     EXPECT_EQ(srm1->getStreamers().size(), 1);
     EXPECT_THROW(srm1->build(birthdate,"kayn gaming","rhaast gaming","bruh"),NicknameAlreadyAdded);
-    try{
-        srm1->build(birthdate,"kayn gaming","rhaast gaming","bruh");
-    }
-    catch (NicknameAlreadyAdded &naa) {
-        EXPECT_EQ(naa.getMessage(),"Nickname already in use by another user!");
-    }
 }
 
 TEST(streamer_manager, add_remove){
@@ -42,20 +36,8 @@ TEST(streamer_manager, add_remove){
     auto streamer2 = srm1->build(birthdate,"swaaaain","whitout love","swaaaain");
     EXPECT_EQ(srm1->add(streamer),true);
     EXPECT_THROW(srm1->add(streamer),UserAlreadyExists);
-    try{
-        srm1->add(streamer);
-    }
-    catch (UserAlreadyExists & uae) {
-        EXPECT_EQ(uae.getMessage(),"The streamer you're trying to add already exists!");
-    }
     EXPECT_EQ(srm1->remove(streamer2),true);
     EXPECT_THROW(srm1->remove(streamer2),UserNotFound);
-    try{
-        srm1->remove(streamer2);
-    }
-    catch(UserNotFound & unf){
-        EXPECT_EQ(unf.getMessage(),"The streamer you're trying to remove does not exist!");
-    }
 }
 
 TEST(streamer_manager,has_get){
