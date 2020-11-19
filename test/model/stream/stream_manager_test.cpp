@@ -136,7 +136,7 @@ TEST(streamManager, finish){
     std::shared_ptr<PublicStream> stream_exception_ptr = std::make_shared<PublicStream>(streamException);
     auto stream1 = sm1->build("Epic LoL Stream", StreamLanguage::EN, 13, StreamType::PUBLIC, StreamGenre::GAMING, streamer1);
     auto stream2 = sm1->build("Based Games", StreamLanguage::EN, 18, StreamType::PRIVATE,StreamGenre::GAMING, streamer2);
-    FinishedStream stream_3 ("?????", StreamLanguage::PT_PT, 10, StreamGenre::COOKING, streamer3, 50, 1);
+    FinishedStream stream_3 ("?????", StreamLanguage::PT_PT, 10, StreamGenre::COOKING, streamer3, 50, 1,std::pair<unsigned int,unsigned int>(1,1));
     sm1->add(std::dynamic_pointer_cast<Stream>(std::make_shared<FinishedStream>(stream_3)));
     auto stream3 = sm1->get(stream_3.getUniqueId());
     auto viewer1 = vm1->build(birthDate2,"Visualizador Não Pog","Pogn't", "ajnsioadsa");

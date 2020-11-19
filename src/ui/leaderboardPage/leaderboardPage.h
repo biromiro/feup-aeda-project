@@ -15,6 +15,9 @@ public:
 private:
     UIManager& uiManager;
     void pageOutput() const;
+    void top10s();
+    void showStreams();
+    void showUsers();
 };
 
 

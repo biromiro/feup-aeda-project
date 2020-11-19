@@ -8,6 +8,7 @@
 #include "../../../exception/nicknameNotFound/nicknameNotFound.h"
 #include <vector>
 #include <fstream>
+#include <map>
 
 #ifndef PROJECT_PRIVATESTREAM_H
 #define PROJECT_PRIVATESTREAM_H
@@ -55,7 +56,7 @@ public:
      *
      * @return vector of private stream's comments
      */
-    std::vector<std::string> getComments() const;
+    std::map<std::string,std::string> getComments() const;
 
     /**
      * Adds a viewer to the whitelist (using his nickname)
@@ -84,11 +85,12 @@ public:
     bool setMaxNumViewers(unsigned int maxNumViewers);
 
     /**
-     * Adds a comment to the vector of the private stream's comments
+     * Adds a comment to the map of the private stream's comments
      *
      * @param comment comment to add to the vector
+     * @param nickname who's commenting
      */
-    void addComment(const std::string& comment);
+    void addComment(const std::string& nickname, const std::string& comment);
 
     /**
      * Checks if a viewer can join the private stream
@@ -104,7 +106,7 @@ public:
 private:
     std::vector<std::string> whitelist;
     unsigned int maxNumViewers;
-    std::vector<std::string> comments;
+    std::map<std::string,std::string> comments;
 };
 
 #endif //PROJECT_PRIVATESTREAM_H

@@ -16,7 +16,7 @@ public:
     Date();
     Date(unsigned int y, unsigned int m, unsigned int d);
     Date(unsigned int y, unsigned int m, unsigned int d, unsigned int h, unsigned int min, unsigned int sec);
-    Date(const std::string& yearMonthDay);  //yearMonthDay must be in format yyyy/MM/dd
+    explicit Date(const std::string& yearMonthDay);  //yearMonthDay must be in format yyyy/MM/dd
     void setYear(unsigned int y);
     void setMonth(unsigned int m);
     void setDay(unsigned int d);
@@ -36,7 +36,7 @@ public:
     bool isValid() const;
     bool isEqualTo(const Date &date) const;
     bool isNotEqualTo(const Date &date) const;
-        bool isAfter(const Date &date) const;
+    bool isAfter(const Date &date) const;
     bool isBefore(const Date &date) const;
     friend std::ostream &operator<<(std::ostream &os, const Date &date);
     friend std::istream &operator>>(std::istream &os, Date &date);

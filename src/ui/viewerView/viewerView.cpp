@@ -8,7 +8,7 @@
 ViewerView::ViewerView(UIManager &uiManager) : uiManager(uiManager){}
 
 void ViewerView::run() {
-    char answer = ' ';
+    char answer;
     do{
         std::cout << CLEAR_SCREEN << GO_TO_TOP << HIDE_CURSOR;
         pageOutput();
@@ -103,7 +103,7 @@ void ViewerView::followingStreamers() {
 }
 
 void ViewerView::newStreamerActions(){
-    char answer = ' ';
+    char answer;
     std::cout << "\n 1 - Follow a streamer!" << std::endl;
     std::cout << "\n 0 - Go to main menu" << std::endl;
     do{
@@ -142,8 +142,8 @@ void ViewerView::newStreamerActions(){
 }
 
 void ViewerView::followingStreamerActions(){
-    char answer = ' ';
-    std::cout << "\n 1 - Follow a streamer!" << std::endl;
+    char answer;
+    std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
     std::cout << "\n 0 - Go to main menu" << std::endl;
     do{
         answer = getch();
@@ -164,14 +164,14 @@ void ViewerView::followingStreamerActions(){
                         std::cout << "You do not follow this streamer!" << std::endl;
                         getch();
                         std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
-                        std::cout << "\n 1 - Follow a streamer!" << std::endl;
+                        std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
                         std::cout << "\n 0 - Go to main menu" << std::endl;
                     }
                 }else{
                     std::cout << "There's no such streamer!" << std::endl;
                     getch();
                     std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
-                    std::cout << "\n 1 - Follow a streamer!" << std::endl;
+                    std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
                     std::cout << "\n 0 - Go to main menu" << std::endl;
                 }
                 break;

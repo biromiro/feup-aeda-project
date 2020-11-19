@@ -140,6 +140,8 @@ public:
 
     Leaderboard<std::shared_ptr<Viewer>> sortViewerBy(SortViewer sorter);
 
+    Leaderboard<std::shared_ptr<Viewer>> filterViewerByAge(unsigned int age);
+
     /**
      * Sorts the Leaderboard by user's joindate > age > nickname > name
      *
@@ -173,6 +175,17 @@ public:
   
     Leaderboard<std::shared_ptr<Stream>> sortStreams(const Leaderboard<std::shared_ptr<Stream>>& lb);
     Leaderboard<std::shared_ptr<Stream>> sortStreamsBy(SortStream sorter);
+    Leaderboard<std::shared_ptr<Stream>> sortStreamsBy(SortStream sorter, std::vector<std::shared_ptr<Stream>> newLB);
+    Leaderboard<std::shared_ptr<Stream>> top10StreamsBy(SortStream sorter);
+
+    unsigned int totalNumberOfStreams();
+    unsigned int totalNumberOfPrivateStreams();
+    unsigned int totalNumberOfPublicStreams();
+    unsigned int meanViewsPerStreamActive();
+    unsigned int meanViewsPerStreamFinished();
+    StreamLanguage mostCommonLanguage();
+    StreamType mostCommonType();
+    std::string mostViewsStreamer();
 
 private:
     std::shared_ptr<ViewerManager> viewerManager;
