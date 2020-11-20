@@ -1,0 +1,19 @@
+<map id="ui/streamView/streamView.h" name="ui/streamView/streamView.h">
+<area shape="rect" id="node1" title=" " alt="" coords="509,5,719,32"/>
+<area shape="rect" id="node2" href="$viewer_view_8h.html" title=" " alt="" coords="750,80,955,107"/>
+<area shape="rect" id="node17" href="$stream_view_8cpp.html" title="Deals with the Stream View Page in the UI." alt="" coords="502,80,726,107"/>
+<area shape="rect" id="node3" href="$login_page_8h.html" title=" " alt="" coords="581,155,761,181"/>
+<area shape="rect" id="node12" href="$viewer_view_8cpp.html" title="Deals with the Viewer View Page in the UI." alt="" coords="972,401,1192,427"/>
+<area shape="rect" id="node4" href="$initial_page_8h.html" title=" " alt="" coords="404,229,595,256"/>
+<area shape="rect" id="node16" href="$login_page_8cpp.html" title="Deals with the Login Page in the UI." alt="" coords="619,229,814,256"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title=" " alt="" coords="26,311,109,338"/>
+<area shape="rect" id="node6" href="$streamer_view_8h.html" title=" " alt="" coords="781,304,973,345"/>
+<area shape="rect" id="node8" href="$admin_view_8h.html" title=" " alt="" coords="47,401,245,427"/>
+<area shape="rect" id="node10" href="$leaderboard_page_8h.html" title=" " alt="" coords="610,304,757,345"/>
+<area shape="rect" id="node13" href="$register_page_8h.html" title=" " alt="" coords="413,304,586,345"/>
+<area shape="rect" id="node15" href="$initial_page_8cpp.html" title="Deals with the Initial Page in the UI." alt="" coords="183,311,389,338"/>
+<area shape="rect" id="node7" href="$streamer_view_8cpp.html" title="Deals with the Streamer Page in the UI." alt="" coords="755,393,947,435"/>
+<area shape="rect" id="node9" href="$admin_view_8cpp.html" title="Deals with the Admin&#39;s View in the UI." alt="" coords="39,483,253,509"/>
+<area shape="rect" id="node11" href="$leaderboard_page_8cpp.html" title="Deals with the Leaderboard Page in the UI." alt="" coords="569,393,731,435"/>
+<area shape="rect" id="node14" href="$register_page_8cpp.html" title="Deals with the Register Page in the UI." alt="" coords="371,393,545,435"/>
+</map>

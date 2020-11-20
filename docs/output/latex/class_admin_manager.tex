@@ -1,0 +1,202 @@
+\hypertarget{class_admin_manager}{}\doxysection{Admin\+Manager Class Reference}
+\label{class_admin_manager}\index{AdminManager@{AdminManager}}
+
+
+{\ttfamily \#include $<$admin\+\_\+manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_admin_manager_a2b559374509f06570caad838d79e9778}{Admin\+Manager}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_manager}{User\+Manager}} $>$ user\+Manager)
+\item 
+bool \mbox{\hyperlink{class_admin_manager_a26628c5b77d58fa8b0135aa16ca243d2}{build}} (\mbox{\hyperlink{class_date}{Date}} birth\+Date, const std\+::string \&name, const std\+::string \&nickname, const std\+::string \&password)
+\item 
+bool \mbox{\hyperlink{class_admin_manager_aba49eda8a416b02ed4a383dd2c7a85d1}{add}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_admin}{Admin}} $>$ \&admin)
+\item 
+bool \mbox{\hyperlink{class_admin_manager_a69eda7c3fab7f2920fa65c08bca30df8}{remove}} ()
+\item 
+bool \mbox{\hyperlink{class_admin_manager_a6a23092b845903c10f4cbcab421a1f95}{is}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_admin}{Admin}} $>$ \&admin) const
+\item 
+bool \mbox{\hyperlink{class_admin_manager_adc6efda84d1c4f95830873c398ea7b85}{is}} (const std\+::string \&nickname) const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_admin}{Admin}} $>$ \mbox{\hyperlink{class_admin_manager_a847f4998940d8d8b63f681e6b0d9151f}{get}} () const
+\item 
+bool \mbox{\hyperlink{class_admin_manager_aa406934296b59e613f8677ec5211cecf}{read\+Data}} ()
+\item 
+bool \mbox{\hyperlink{class_admin_manager_a95947166bc0f0eff9eccc2c33bcf46c1}{write\+Data}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 13 of file admin\+\_\+manager.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_admin_manager_a2b559374509f06570caad838d79e9778}\label{class_admin_manager_a2b559374509f06570caad838d79e9778}} 
+\index{AdminManager@{AdminManager}!AdminManager@{AdminManager}}
+\index{AdminManager@{AdminManager}!AdminManager@{AdminManager}}
+\doxysubsubsection{\texorpdfstring{AdminManager()}{AdminManager()}}
+{\footnotesize\ttfamily Admin\+Manager\+::\+Admin\+Manager (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_manager}{User\+Manager}} $>$}]{user\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Constructor of \mbox{\hyperlink{class_admin}{Admin}} Manager class
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Manager} & the user manager \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 10 of file admin\+\_\+manager.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_admin_manager_aba49eda8a416b02ed4a383dd2c7a85d1}\label{class_admin_manager_aba49eda8a416b02ed4a383dd2c7a85d1}} 
+\index{AdminManager@{AdminManager}!add@{add}}
+\index{add@{add}!AdminManager@{AdminManager}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily bool Admin\+Manager\+::add (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_admin}{Admin}} $>$ \&}]{admin }\end{DoxyParamCaption})}
+
+Adds/\+Updates the admin to manage
+
+
+\begin{DoxyParams}{Parameters}
+{\em admin} & the admin to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file admin\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_admin_manager_a26628c5b77d58fa8b0135aa16ca243d2}\label{class_admin_manager_a26628c5b77d58fa8b0135aa16ca243d2}} 
+\index{AdminManager@{AdminManager}!build@{build}}
+\index{build@{build}!AdminManager@{AdminManager}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily bool Admin\+Manager\+::build (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_date}{Date}}}]{birth\+Date,  }\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{nickname,  }\item[{const std\+::string \&}]{password }\end{DoxyParamCaption})}
+
+Creates an object of class \mbox{\hyperlink{class_admin}{Admin}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em birth\+Date} & the birthdate of the admin \\
+\hline
+{\em name} & the name of the admin \\
+\hline
+{\em nickname} & the nickname of the admin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 14 of file admin\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_admin_manager_a847f4998940d8d8b63f681e6b0d9151f}\label{class_admin_manager_a847f4998940d8d8b63f681e6b0d9151f}} 
+\index{AdminManager@{AdminManager}!get@{get}}
+\index{get@{get}!AdminManager@{AdminManager}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_admin}{Admin}} $>$ Admin\+Manager\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the admin
+
+\begin{DoxyReturn}{Returns}
+the current admin 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file admin\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_admin_manager_a6a23092b845903c10f4cbcab421a1f95}\label{class_admin_manager_a6a23092b845903c10f4cbcab421a1f95}} 
+\index{AdminManager@{AdminManager}!is@{is}}
+\index{is@{is}!AdminManager@{AdminManager}}
+\doxysubsubsection{\texorpdfstring{is()}{is()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Admin\+Manager\+::is (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_admin}{Admin}} $>$ \&}]{admin }\end{DoxyParamCaption}) const}
+
+Checks if the admin is the one given as parameter
+
+
+\begin{DoxyParams}{Parameters}
+{\em admin} & the admin to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file admin\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_admin_manager_adc6efda84d1c4f95830873c398ea7b85}\label{class_admin_manager_adc6efda84d1c4f95830873c398ea7b85}} 
+\index{AdminManager@{AdminManager}!is@{is}}
+\index{is@{is}!AdminManager@{AdminManager}}
+\doxysubsubsection{\texorpdfstring{is()}{is()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Admin\+Manager\+::is (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nickname }\end{DoxyParamCaption}) const}
+
+Checks if the admin has the nickname (which is unique) given as parameter
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & the nickname to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file admin\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_admin_manager_aa406934296b59e613f8677ec5211cecf}\label{class_admin_manager_aa406934296b59e613f8677ec5211cecf}} 
+\index{AdminManager@{AdminManager}!readData@{readData}}
+\index{readData@{readData}!AdminManager@{AdminManager}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily bool Admin\+Manager\+::read\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 57 of file admin\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_admin_manager_a69eda7c3fab7f2920fa65c08bca30df8}\label{class_admin_manager_a69eda7c3fab7f2920fa65c08bca30df8}} 
+\index{AdminManager@{AdminManager}!remove@{remove}}
+\index{remove@{remove}!AdminManager@{AdminManager}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily bool Admin\+Manager\+::remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Removes the current admin
+
+
+\begin{DoxyParams}{Parameters}
+{\em admin} & the admin to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file admin\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_admin_manager_a95947166bc0f0eff9eccc2c33bcf46c1}\label{class_admin_manager_a95947166bc0f0eff9eccc2c33bcf46c1}} 
+\index{AdminManager@{AdminManager}!writeData@{writeData}}
+\index{writeData@{writeData}!AdminManager@{AdminManager}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}}
+{\footnotesize\ttfamily bool Admin\+Manager\+::write\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 78 of file admin\+\_\+manager.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+model/user/admin/\mbox{\hyperlink{admin__manager_8h}{admin\+\_\+manager.\+h}}\item 
+model/user/admin/\mbox{\hyperlink{admin__manager_8cpp}{admin\+\_\+manager.\+cpp}}\end{DoxyCompactItemize}

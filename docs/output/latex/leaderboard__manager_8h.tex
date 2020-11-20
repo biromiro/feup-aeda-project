@@ -1,0 +1,221 @@
+\hypertarget{leaderboard__manager_8h}{}\doxysection{utils/leaderboard/leaderboard\+\_\+manager.h File Reference}
+\label{leaderboard__manager_8h}\index{utils/leaderboard/leaderboard\_manager.h@{utils/leaderboard/leaderboard\_manager.h}}
+{\ttfamily \#include \char`\"{}../../model/user/viewer/viewer\+\_\+manager.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../model/user/streamer/streamer\+\_\+manager.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}leaderboard.\+h\char`\"{}}\newline
+Include dependency graph for leaderboard\+\_\+manager.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{leaderboard__manager_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{leaderboard__manager_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_leaderboard_manager}{Leaderboard\+Manager}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840c}{Sort\+Stream}} \{ \newline
+\mbox{\hyperlink{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca705d94625799fb7a685e5924c9bf3893}{Sort\+Stream\+::\+M\+I\+N\+I\+M\+U\+M\+\_\+\+A\+GE}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca5b64a5253f843da2950972747ac9a3b0}{Sort\+Stream\+::\+L\+A\+N\+G\+U\+A\+GE}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840cadd491b2538cbf3a30c33edf37aa419db}{Sort\+Stream\+::\+G\+E\+N\+RE}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca8f56a72923a6ca8ff53462533d89e567}{Sort\+Stream\+::\+V\+I\+E\+WS}}, 
+\newline
+\mbox{\hyperlink{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca70a42e7beb52242289c7e51d8765307c}{Sort\+Stream\+::\+L\+I\+K\+ES}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca633a6c7a6b9958f8174250094daf1e6a}{Sort\+Stream\+::\+D\+A\+TE}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca948495146facadfe8859789036313d79}{Sort\+Stream\+::\+T\+Y\+PE}}
+ \}
+\item 
+enum \mbox{\hyperlink{leaderboard__manager_8h_a07589879588146d3b4415a10398e55eb}{Sort\+User}} \{ \newline
+\mbox{\hyperlink{leaderboard__manager_8h_a07589879588146d3b4415a10398e55ebaad32e604e17467fc435538334fbddf3e}{Sort\+User\+::\+N\+A\+ME}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a07589879588146d3b4415a10398e55eba4ed324309f996b76707fbeed9e29cd5e}{Sort\+User\+::\+N\+I\+C\+K\+N\+A\+ME}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a07589879588146d3b4415a10398e55ebac75db99cf0bc7e4652f521ce718ffd57}{Sort\+User\+::\+B\+I\+R\+T\+H\+D\+A\+TE}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a07589879588146d3b4415a10398e55ebac663c28c2d64d9d935c16fa9df59b460}{Sort\+User\+::\+J\+O\+I\+N\+D\+A\+TE}}, 
+\newline
+\mbox{\hyperlink{leaderboard__manager_8h_a07589879588146d3b4415a10398e55eba0db107273231ecb4e657a489d6f34c32}{Sort\+User\+::\+U\+S\+E\+R\+T\+Y\+PE}}
+ \}
+\item 
+enum \mbox{\hyperlink{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578}{Sort\+Viewer}} \{ \newline
+\mbox{\hyperlink{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578aad32e604e17467fc435538334fbddf3e}{Sort\+Viewer\+::\+N\+A\+ME}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578a4ed324309f996b76707fbeed9e29cd5e}{Sort\+Viewer\+::\+N\+I\+C\+K\+N\+A\+ME}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578ac75db99cf0bc7e4652f521ce718ffd57}{Sort\+Viewer\+::\+B\+I\+R\+T\+H\+D\+A\+TE}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578ac663c28c2d64d9d935c16fa9df59b460}{Sort\+Viewer\+::\+J\+O\+I\+N\+D\+A\+TE}}, 
+\newline
+\mbox{\hyperlink{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578a18862efc3f4062fb0c92ca6bafebf35e}{Sort\+Viewer\+::\+W\+A\+T\+C\+H\+I\+N\+G\+\_\+\+S\+T\+R\+E\+AM}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578a705e218249c26fcc77798d4ee5a2711b}{Sort\+Viewer\+::\+N\+U\+M\+\_\+\+O\+F\+\_\+\+W\+A\+T\+C\+H\+E\+D\+\_\+\+S\+T\+R\+E\+A\+MS}}
+ \}
+\item 
+enum \mbox{\hyperlink{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633}{Sort\+Streamer}} \{ \newline
+\mbox{\hyperlink{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633aad32e604e17467fc435538334fbddf3e}{Sort\+Streamer\+::\+N\+A\+ME}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633a4ed324309f996b76707fbeed9e29cd5e}{Sort\+Streamer\+::\+N\+I\+C\+K\+N\+A\+ME}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ac75db99cf0bc7e4652f521ce718ffd57}{Sort\+Streamer\+::\+B\+I\+R\+T\+H\+D\+A\+TE}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ac663c28c2d64d9d935c16fa9df59b460}{Sort\+Streamer\+::\+J\+O\+I\+N\+D\+A\+TE}}, 
+\newline
+\mbox{\hyperlink{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ae47f3d7b8892488d67ac6bd925eb9657}{Sort\+Streamer\+::\+V\+I\+E\+W\+C\+O\+U\+NT}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ab8f87bd0ae829f0fa0fcaa1a0a2bf91e}{Sort\+Streamer\+::\+S\+T\+R\+E\+A\+M\+I\+NG}}, 
+\mbox{\hyperlink{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ac83ac8b1f470e44bdaa7f70ff25f14d0}{Sort\+Streamer\+::\+N\+U\+M\+\_\+\+F\+O\+L\+L\+O\+W\+E\+RS}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840c}\label{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840c}} 
+\index{leaderboard\_manager.h@{leaderboard\_manager.h}!SortStream@{SortStream}}
+\index{SortStream@{SortStream}!leaderboard\_manager.h@{leaderboard\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SortStream}{SortStream}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840c}{Sort\+Stream}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MINIMUM\_AGE@{MINIMUM\_AGE}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!MINIMUM\_AGE@{MINIMUM\_AGE}}}\mbox{\Hypertarget{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca705d94625799fb7a685e5924c9bf3893}\label{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca705d94625799fb7a685e5924c9bf3893}} 
+M\+I\+N\+I\+M\+U\+M\+\_\+\+A\+GE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LANGUAGE@{LANGUAGE}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!LANGUAGE@{LANGUAGE}}}\mbox{\Hypertarget{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca5b64a5253f843da2950972747ac9a3b0}\label{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca5b64a5253f843da2950972747ac9a3b0}} 
+L\+A\+N\+G\+U\+A\+GE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GENRE@{GENRE}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!GENRE@{GENRE}}}\mbox{\Hypertarget{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840cadd491b2538cbf3a30c33edf37aa419db}\label{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840cadd491b2538cbf3a30c33edf37aa419db}} 
+G\+E\+N\+RE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIEWS@{VIEWS}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!VIEWS@{VIEWS}}}\mbox{\Hypertarget{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca8f56a72923a6ca8ff53462533d89e567}\label{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca8f56a72923a6ca8ff53462533d89e567}} 
+V\+I\+E\+WS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LIKES@{LIKES}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!LIKES@{LIKES}}}\mbox{\Hypertarget{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca70a42e7beb52242289c7e51d8765307c}\label{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca70a42e7beb52242289c7e51d8765307c}} 
+L\+I\+K\+ES&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DATE@{DATE}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!DATE@{DATE}}}\mbox{\Hypertarget{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca633a6c7a6b9958f8174250094daf1e6a}\label{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca633a6c7a6b9958f8174250094daf1e6a}} 
+D\+A\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TYPE@{TYPE}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!TYPE@{TYPE}}}\mbox{\Hypertarget{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca948495146facadfe8859789036313d79}\label{leaderboard__manager_8h_a9c6bbd0ecc49cd4ff8f4f0688f99840ca948495146facadfe8859789036313d79}} 
+T\+Y\+PE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 13 of file leaderboard\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633}\label{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633}} 
+\index{leaderboard\_manager.h@{leaderboard\_manager.h}!SortStreamer@{SortStreamer}}
+\index{SortStreamer@{SortStreamer}!leaderboard\_manager.h@{leaderboard\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SortStreamer}{SortStreamer}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633}{Sort\+Streamer}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NAME@{NAME}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!NAME@{NAME}}}\mbox{\Hypertarget{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633aad32e604e17467fc435538334fbddf3e}\label{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633aad32e604e17467fc435538334fbddf3e}} 
+N\+A\+ME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NICKNAME@{NICKNAME}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!NICKNAME@{NICKNAME}}}\mbox{\Hypertarget{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633a4ed324309f996b76707fbeed9e29cd5e}\label{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633a4ed324309f996b76707fbeed9e29cd5e}} 
+N\+I\+C\+K\+N\+A\+ME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BIRTHDATE@{BIRTHDATE}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!BIRTHDATE@{BIRTHDATE}}}\mbox{\Hypertarget{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ac75db99cf0bc7e4652f521ce718ffd57}\label{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ac75db99cf0bc7e4652f521ce718ffd57}} 
+B\+I\+R\+T\+H\+D\+A\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{JOINDATE@{JOINDATE}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!JOINDATE@{JOINDATE}}}\mbox{\Hypertarget{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ac663c28c2d64d9d935c16fa9df59b460}\label{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ac663c28c2d64d9d935c16fa9df59b460}} 
+J\+O\+I\+N\+D\+A\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIEWCOUNT@{VIEWCOUNT}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!VIEWCOUNT@{VIEWCOUNT}}}\mbox{\Hypertarget{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ae47f3d7b8892488d67ac6bd925eb9657}\label{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ae47f3d7b8892488d67ac6bd925eb9657}} 
+V\+I\+E\+W\+C\+O\+U\+NT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STREAMING@{STREAMING}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!STREAMING@{STREAMING}}}\mbox{\Hypertarget{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ab8f87bd0ae829f0fa0fcaa1a0a2bf91e}\label{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ab8f87bd0ae829f0fa0fcaa1a0a2bf91e}} 
+S\+T\+R\+E\+A\+M\+I\+NG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_FOLLOWERS@{NUM\_FOLLOWERS}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!NUM\_FOLLOWERS@{NUM\_FOLLOWERS}}}\mbox{\Hypertarget{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ac83ac8b1f470e44bdaa7f70ff25f14d0}\label{leaderboard__manager_8h_a682b6d1e260e18ec31148136f487d633ac83ac8b1f470e44bdaa7f70ff25f14d0}} 
+N\+U\+M\+\_\+\+F\+O\+L\+L\+O\+W\+E\+RS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 40 of file leaderboard\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{leaderboard__manager_8h_a07589879588146d3b4415a10398e55eb}\label{leaderboard__manager_8h_a07589879588146d3b4415a10398e55eb}} 
+\index{leaderboard\_manager.h@{leaderboard\_manager.h}!SortUser@{SortUser}}
+\index{SortUser@{SortUser}!leaderboard\_manager.h@{leaderboard\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SortUser}{SortUser}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{leaderboard__manager_8h_a07589879588146d3b4415a10398e55eb}{Sort\+User}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NAME@{NAME}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!NAME@{NAME}}}\mbox{\Hypertarget{leaderboard__manager_8h_a07589879588146d3b4415a10398e55ebaad32e604e17467fc435538334fbddf3e}\label{leaderboard__manager_8h_a07589879588146d3b4415a10398e55ebaad32e604e17467fc435538334fbddf3e}} 
+N\+A\+ME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NICKNAME@{NICKNAME}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!NICKNAME@{NICKNAME}}}\mbox{\Hypertarget{leaderboard__manager_8h_a07589879588146d3b4415a10398e55eba4ed324309f996b76707fbeed9e29cd5e}\label{leaderboard__manager_8h_a07589879588146d3b4415a10398e55eba4ed324309f996b76707fbeed9e29cd5e}} 
+N\+I\+C\+K\+N\+A\+ME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BIRTHDATE@{BIRTHDATE}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!BIRTHDATE@{BIRTHDATE}}}\mbox{\Hypertarget{leaderboard__manager_8h_a07589879588146d3b4415a10398e55ebac75db99cf0bc7e4652f521ce718ffd57}\label{leaderboard__manager_8h_a07589879588146d3b4415a10398e55ebac75db99cf0bc7e4652f521ce718ffd57}} 
+B\+I\+R\+T\+H\+D\+A\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{JOINDATE@{JOINDATE}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!JOINDATE@{JOINDATE}}}\mbox{\Hypertarget{leaderboard__manager_8h_a07589879588146d3b4415a10398e55ebac663c28c2d64d9d935c16fa9df59b460}\label{leaderboard__manager_8h_a07589879588146d3b4415a10398e55ebac663c28c2d64d9d935c16fa9df59b460}} 
+J\+O\+I\+N\+D\+A\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USERTYPE@{USERTYPE}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!USERTYPE@{USERTYPE}}}\mbox{\Hypertarget{leaderboard__manager_8h_a07589879588146d3b4415a10398e55eba0db107273231ecb4e657a489d6f34c32}\label{leaderboard__manager_8h_a07589879588146d3b4415a10398e55eba0db107273231ecb4e657a489d6f34c32}} 
+U\+S\+E\+R\+T\+Y\+PE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 23 of file leaderboard\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578}\label{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578}} 
+\index{leaderboard\_manager.h@{leaderboard\_manager.h}!SortViewer@{SortViewer}}
+\index{SortViewer@{SortViewer}!leaderboard\_manager.h@{leaderboard\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SortViewer}{SortViewer}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578}{Sort\+Viewer}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NAME@{NAME}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!NAME@{NAME}}}\mbox{\Hypertarget{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578aad32e604e17467fc435538334fbddf3e}\label{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578aad32e604e17467fc435538334fbddf3e}} 
+N\+A\+ME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NICKNAME@{NICKNAME}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!NICKNAME@{NICKNAME}}}\mbox{\Hypertarget{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578a4ed324309f996b76707fbeed9e29cd5e}\label{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578a4ed324309f996b76707fbeed9e29cd5e}} 
+N\+I\+C\+K\+N\+A\+ME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BIRTHDATE@{BIRTHDATE}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!BIRTHDATE@{BIRTHDATE}}}\mbox{\Hypertarget{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578ac75db99cf0bc7e4652f521ce718ffd57}\label{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578ac75db99cf0bc7e4652f521ce718ffd57}} 
+B\+I\+R\+T\+H\+D\+A\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{JOINDATE@{JOINDATE}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!JOINDATE@{JOINDATE}}}\mbox{\Hypertarget{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578ac663c28c2d64d9d935c16fa9df59b460}\label{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578ac663c28c2d64d9d935c16fa9df59b460}} 
+J\+O\+I\+N\+D\+A\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WATCHING\_STREAM@{WATCHING\_STREAM}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!WATCHING\_STREAM@{WATCHING\_STREAM}}}\mbox{\Hypertarget{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578a18862efc3f4062fb0c92ca6bafebf35e}\label{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578a18862efc3f4062fb0c92ca6bafebf35e}} 
+W\+A\+T\+C\+H\+I\+N\+G\+\_\+\+S\+T\+R\+E\+AM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_OF\_WATCHED\_STREAMS@{NUM\_OF\_WATCHED\_STREAMS}!leaderboard\_manager.h@{leaderboard\_manager.h}}\index{leaderboard\_manager.h@{leaderboard\_manager.h}!NUM\_OF\_WATCHED\_STREAMS@{NUM\_OF\_WATCHED\_STREAMS}}}\mbox{\Hypertarget{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578a705e218249c26fcc77798d4ee5a2711b}\label{leaderboard__manager_8h_a3298a91f8eaa830adfb3f76c6d00f578a705e218249c26fcc77798d4ee5a2711b}} 
+N\+U\+M\+\_\+\+O\+F\+\_\+\+W\+A\+T\+C\+H\+E\+D\+\_\+\+S\+T\+R\+E\+A\+MS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 31 of file leaderboard\+\_\+manager.\+h.
+

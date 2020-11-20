@@ -1,0 +1,453 @@
+\hypertarget{class_user}{}\doxysection{User Class Reference}
+\label{class_user}\index{User@{User}}
+
+
+{\ttfamily \#include $<$user.\+h$>$}
+
+
+
+Inheritance diagram for User\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{class_user__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for User\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=146pt]{class_user__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_date}{Date}} \& \mbox{\hyperlink{class_user_a3d027f4eb08a0bfd4aca307323968172}{get\+Birth\+Date}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_user_a7cb83cbd05e67d0632b792253c278c17}{get\+Age}} () const
+\item 
+const \mbox{\hyperlink{class_date}{Date}} \& \mbox{\hyperlink{class_user_a83cbd6e42b18fe8b3bb33d1a8b25df62}{get\+Join\+Date}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_user_ae332af7a6fbb36879fa401b1b98e5027}{get\+Name}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_user_a3043a8f0ab4457040e4bdfa1c0997965}{get\+Nickname}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_user_aee6af833e24993ff1056538c2c34e99c}{get\+Password}} () const
+\item 
+void \mbox{\hyperlink{class_user_a29e68e341a377c09066735a8854ba852}{update\+Birth\+Date}} (const \mbox{\hyperlink{class_date}{Date}} \&d1)
+\item 
+void \mbox{\hyperlink{class_user_abdf2524a81919e8ee7f190b838c0704d}{update\+Name}} (const std\+::string \&new\+Name)
+\item 
+void \mbox{\hyperlink{class_user_a93427544cf311661fd9a8648a6735d72}{update\+Nickname}} (const std\+::string \&new\+Nickname)
+\item 
+void \mbox{\hyperlink{class_user_a25f8c04beb502c9a164e4b8d1e193996}{update\+Password}} (const std\+::string \&\mbox{\hyperlink{class_user_ac2f2e75b15e8eb6cbb030fc85a6cd59f}{password}})
+\item 
+enum \mbox{\hyperlink{user_8h_a7f554175f6a21ca8a2175ee9d9bec6d8}{User\+Types}} \mbox{\hyperlink{class_user_aad95bad2bd0d71a92f35ad7a649adbd8}{get\+User\+Type}} () const
+\item 
+virtual void \mbox{\hyperlink{class_user_adca54595d50308841bcc2d5091f4081c}{read\+Data}} (std\+::ifstream \&ifs)
+\item 
+virtual void \mbox{\hyperlink{class_user_a3efd848398bcda7686ed2ae03ec1f99a}{write\+Data}} (std\+::ofstream \&ofs)
+\item 
+bool \mbox{\hyperlink{class_user_a0695266429d1228ddfbdf91ebe3a1179}{operator$<$}} (const \mbox{\hyperlink{class_user}{User}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_user_af03f566ebd2d847c51db859a7add200f}{operator$>$}} (const \mbox{\hyperlink{class_user}{User}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_user_ac168c3e5356a5ecb4f28c8c6820454b6}{operator$<$=}} (const \mbox{\hyperlink{class_user}{User}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_user_a5c40dcaf40d4672f862ea42a7275d4bc}{operator==}} (const \mbox{\hyperlink{class_user}{User}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_user_ac85b60c6ceaae348feb9eb589bf33795}{operator!=}} (const \mbox{\hyperlink{class_user}{User}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_user_abd166d40837a934dcdf843d5d9d5aa4e}{operator$>$=}} (const \mbox{\hyperlink{class_user}{User}} \&rhs) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_user_a1bb521e52a6fb4ad915fbe2bd852cf69}{User}} (enum \mbox{\hyperlink{user_8h_a7f554175f6a21ca8a2175ee9d9bec6d8}{User\+Types}} \mbox{\hyperlink{class_user_ae219485aedc068a290fa4c581dd41026}{type}})
+\item 
+\mbox{\hyperlink{class_user_a28406743a3827352af9d1773eb1dd480}{User}} (\mbox{\hyperlink{class_date}{Date}} \mbox{\hyperlink{class_user_ab7c87186af8bdb92822402b2e93e9b64}{birth\+Date}}, std\+::string \mbox{\hyperlink{class_user_a085d8d69282b6298964eab8351584536}{name}}, std\+::string \mbox{\hyperlink{class_user_aebdb6953485740c33307118f91156832}{nickname}}, enum \mbox{\hyperlink{user_8h_a7f554175f6a21ca8a2175ee9d9bec6d8}{User\+Types}} \mbox{\hyperlink{class_user_ae219485aedc068a290fa4c581dd41026}{type}}, std\+::string \mbox{\hyperlink{class_user_ac2f2e75b15e8eb6cbb030fc85a6cd59f}{password}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_date}{Date}} \mbox{\hyperlink{class_user_ab7c87186af8bdb92822402b2e93e9b64}{birth\+Date}}
+\item 
+\mbox{\hyperlink{class_date}{Date}} \mbox{\hyperlink{class_user_a8511b8fc40afe4cdf37079e34eac7b17}{join\+Date}}
+\item 
+std\+::string \mbox{\hyperlink{class_user_a085d8d69282b6298964eab8351584536}{name}}
+\item 
+std\+::string \mbox{\hyperlink{class_user_aebdb6953485740c33307118f91156832}{nickname}}
+\item 
+enum \mbox{\hyperlink{user_8h_a7f554175f6a21ca8a2175ee9d9bec6d8}{User\+Types}} \mbox{\hyperlink{class_user_ae219485aedc068a290fa4c581dd41026}{type}}
+\item 
+std\+::string \mbox{\hyperlink{class_user_ac2f2e75b15e8eb6cbb030fc85a6cd59f}{password}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 22 of file user.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_user_a1bb521e52a6fb4ad915fbe2bd852cf69}\label{class_user_a1bb521e52a6fb4ad915fbe2bd852cf69}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{enum \mbox{\hyperlink{user_8h_a7f554175f6a21ca8a2175ee9d9bec6d8}{User\+Types}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 9 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_a28406743a3827352af9d1773eb1dd480}\label{class_user_a28406743a3827352af9d1773eb1dd480}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_date}{Date}}}]{birth\+Date,  }\item[{std\+::string}]{name,  }\item[{std\+::string}]{nickname,  }\item[{enum \mbox{\hyperlink{user_8h_a7f554175f6a21ca8a2175ee9d9bec6d8}{User\+Types}}}]{type,  }\item[{std\+::string}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Constructor of the \mbox{\hyperlink{class_user}{User}} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em birth\+Date} & the date of birth of the user \\
+\hline
+{\em name} & the name of the user \\
+\hline
+{\em nickname} & the nickname of the user \\
+\hline
+{\em type} & the type of user \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 16 of file user.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_user_a7cb83cbd05e67d0632b792253c278c17}\label{class_user_a7cb83cbd05e67d0632b792253c278c17}} 
+\index{User@{User}!getAge@{getAge}}
+\index{getAge@{getAge}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getAge()}{getAge()}}
+{\footnotesize\ttfamily unsigned int User\+::get\+Age (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the age of the user in years
+
+\begin{DoxyReturn}{Returns}
+user\textquotesingle{}s age 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_a3d027f4eb08a0bfd4aca307323968172}\label{class_user_a3d027f4eb08a0bfd4aca307323968172}} 
+\index{User@{User}!getBirthDate@{getBirthDate}}
+\index{getBirthDate@{getBirthDate}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getBirthDate()}{getBirthDate()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_date}{Date}} \& User\+::get\+Birth\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the birth date of the \mbox{\hyperlink{class_user}{User}}
+
+\begin{DoxyReturn}{Returns}
+user\textquotesingle{}s birth date 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_a83cbd6e42b18fe8b3bb33d1a8b25df62}\label{class_user_a83cbd6e42b18fe8b3bb33d1a8b25df62}} 
+\index{User@{User}!getJoinDate@{getJoinDate}}
+\index{getJoinDate@{getJoinDate}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getJoinDate()}{getJoinDate()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_date}{Date}} \& User\+::get\+Join\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the join date of the \mbox{\hyperlink{class_user}{User}} on the platform
+
+\begin{DoxyReturn}{Returns}
+user\textquotesingle{}s join date 
+\end{DoxyReturn}
+
+
+Definition at line 36 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_ae332af7a6fbb36879fa401b1b98e5027}\label{class_user_ae332af7a6fbb36879fa401b1b98e5027}} 
+\index{User@{User}!getName@{getName}}
+\index{getName@{getName}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const std\+::string \& User\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the name of the user
+
+\begin{DoxyReturn}{Returns}
+user\textquotesingle{}s name 
+\end{DoxyReturn}
+
+
+Definition at line 24 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_a3043a8f0ab4457040e4bdfa1c0997965}\label{class_user_a3043a8f0ab4457040e4bdfa1c0997965}} 
+\index{User@{User}!getNickname@{getNickname}}
+\index{getNickname@{getNickname}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getNickname()}{getNickname()}}
+{\footnotesize\ttfamily const std\+::string \& User\+::get\+Nickname (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the nickname of the user
+
+\begin{DoxyReturn}{Returns}
+user\textquotesingle{}s nickname 
+\end{DoxyReturn}
+
+
+Definition at line 28 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_aee6af833e24993ff1056538c2c34e99c}\label{class_user_aee6af833e24993ff1056538c2c34e99c}} 
+\index{User@{User}!getPassword@{getPassword}}
+\index{getPassword@{getPassword}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getPassword()}{getPassword()}}
+{\footnotesize\ttfamily const std\+::string \& User\+::get\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 113 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_aad95bad2bd0d71a92f35ad7a649adbd8}\label{class_user_aad95bad2bd0d71a92f35ad7a649adbd8}} 
+\index{User@{User}!getUserType@{getUserType}}
+\index{getUserType@{getUserType}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getUserType()}{getUserType()}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{user_8h_a7f554175f6a21ca8a2175ee9d9bec6d8}{User\+Types}} User\+::get\+User\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the type of \mbox{\hyperlink{class_user}{User}}
+
+\begin{DoxyReturn}{Returns}
+the user\textquotesingle{}s type 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_ac85b60c6ceaae348feb9eb589bf33795}\label{class_user_ac85b60c6ceaae348feb9eb589bf33795}} 
+\index{User@{User}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!User@{User}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool User\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 92 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_a0695266429d1228ddfbdf91ebe3a1179}\label{class_user_a0695266429d1228ddfbdf91ebe3a1179}} 
+\index{User@{User}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!User@{User}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool User\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 56 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_ac168c3e5356a5ecb4f28c8c6820454b6}\label{class_user_ac168c3e5356a5ecb4f28c8c6820454b6}} 
+\index{User@{User}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!User@{User}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool User\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 80 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_a5c40dcaf40d4672f862ea42a7275d4bc}\label{class_user_a5c40dcaf40d4672f862ea42a7275d4bc}} 
+\index{User@{User}!operator==@{operator==}}
+\index{operator==@{operator==}!User@{User}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool User\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 88 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_af03f566ebd2d847c51db859a7add200f}\label{class_user_af03f566ebd2d847c51db859a7add200f}} 
+\index{User@{User}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!User@{User}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool User\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 76 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_abd166d40837a934dcdf843d5d9d5aa4e}\label{class_user_abd166d40837a934dcdf843d5d9d5aa4e}} 
+\index{User@{User}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!User@{User}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool User\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 84 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_adca54595d50308841bcc2d5091f4081c}\label{class_user_adca54595d50308841bcc2d5091f4081c}} 
+\index{User@{User}!readData@{readData}}
+\index{readData@{readData}!User@{User}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily void User\+::read\+Data (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{ifs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_streamer_a420c27c9b9ff3bd299ee16b154ed041e}{Streamer}}, and \mbox{\hyperlink{class_admin_a070333ad9c833f04bcf019c14649533d}{Admin}}.
+
+
+
+Definition at line 96 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_a29e68e341a377c09066735a8854ba852}\label{class_user_a29e68e341a377c09066735a8854ba852}} 
+\index{User@{User}!updateBirthDate@{updateBirthDate}}
+\index{updateBirthDate@{updateBirthDate}!User@{User}}
+\doxysubsubsection{\texorpdfstring{updateBirthDate()}{updateBirthDate()}}
+{\footnotesize\ttfamily void User\+::update\+Birth\+Date (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{d1 }\end{DoxyParamCaption})}
+
+Sets/\+Updates the user\textquotesingle{}s birthdate
+
+
+\begin{DoxyParams}{Parameters}
+{\em d1} & new birth\+Date \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 40 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_abdf2524a81919e8ee7f190b838c0704d}\label{class_user_abdf2524a81919e8ee7f190b838c0704d}} 
+\index{User@{User}!updateName@{updateName}}
+\index{updateName@{updateName}!User@{User}}
+\doxysubsubsection{\texorpdfstring{updateName()}{updateName()}}
+{\footnotesize\ttfamily void User\+::update\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{new\+Name }\end{DoxyParamCaption})}
+
+Sets/\+Updates the user\textquotesingle{}s name
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Name} & new name \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 44 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_a93427544cf311661fd9a8648a6735d72}\label{class_user_a93427544cf311661fd9a8648a6735d72}} 
+\index{User@{User}!updateNickname@{updateNickname}}
+\index{updateNickname@{updateNickname}!User@{User}}
+\doxysubsubsection{\texorpdfstring{updateNickname()}{updateNickname()}}
+{\footnotesize\ttfamily void User\+::update\+Nickname (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{new\+Nickname }\end{DoxyParamCaption})}
+
+Sets/\+Updates the user\textquotesingle{}s nickname
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Nickname} & new nickname \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 48 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_a25f8c04beb502c9a164e4b8d1e193996}\label{class_user_a25f8c04beb502c9a164e4b8d1e193996}} 
+\index{User@{User}!updatePassword@{updatePassword}}
+\index{updatePassword@{updatePassword}!User@{User}}
+\doxysubsubsection{\texorpdfstring{updatePassword()}{updatePassword()}}
+{\footnotesize\ttfamily void User\+::update\+Password (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{password }\end{DoxyParamCaption})}
+
+
+
+Definition at line 117 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_a3efd848398bcda7686ed2ae03ec1f99a}\label{class_user_a3efd848398bcda7686ed2ae03ec1f99a}} 
+\index{User@{User}!writeData@{writeData}}
+\index{writeData@{writeData}!User@{User}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}}
+{\footnotesize\ttfamily void User\+::write\+Data (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{ofs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_viewer_a2e6b392f622fa1db1d3c9824088ed5ac}{Viewer}}, \mbox{\hyperlink{class_streamer_ae4308cd91d596ae423fbd8df7a366e24}{Streamer}}, and \mbox{\hyperlink{class_admin_aaf6eeca138931c000ffe0609e5373e9c}{Admin}}.
+
+
+
+Definition at line 105 of file user.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_user_ab7c87186af8bdb92822402b2e93e9b64}\label{class_user_ab7c87186af8bdb92822402b2e93e9b64}} 
+\index{User@{User}!birthDate@{birthDate}}
+\index{birthDate@{birthDate}!User@{User}}
+\doxysubsubsection{\texorpdfstring{birthDate}{birthDate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_date}{Date}} User\+::birth\+Date\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 115 of file user.\+h.
+
+\mbox{\Hypertarget{class_user_a8511b8fc40afe4cdf37079e34eac7b17}\label{class_user_a8511b8fc40afe4cdf37079e34eac7b17}} 
+\index{User@{User}!joinDate@{joinDate}}
+\index{joinDate@{joinDate}!User@{User}}
+\doxysubsubsection{\texorpdfstring{joinDate}{joinDate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_date}{Date}} User\+::join\+Date\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 116 of file user.\+h.
+
+\mbox{\Hypertarget{class_user_a085d8d69282b6298964eab8351584536}\label{class_user_a085d8d69282b6298964eab8351584536}} 
+\index{User@{User}!name@{name}}
+\index{name@{name}!User@{User}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily std\+::string User\+::name\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 117 of file user.\+h.
+
+\mbox{\Hypertarget{class_user_aebdb6953485740c33307118f91156832}\label{class_user_aebdb6953485740c33307118f91156832}} 
+\index{User@{User}!nickname@{nickname}}
+\index{nickname@{nickname}!User@{User}}
+\doxysubsubsection{\texorpdfstring{nickname}{nickname}}
+{\footnotesize\ttfamily std\+::string User\+::nickname\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 118 of file user.\+h.
+
+\mbox{\Hypertarget{class_user_ac2f2e75b15e8eb6cbb030fc85a6cd59f}\label{class_user_ac2f2e75b15e8eb6cbb030fc85a6cd59f}} 
+\index{User@{User}!password@{password}}
+\index{password@{password}!User@{User}}
+\doxysubsubsection{\texorpdfstring{password}{password}}
+{\footnotesize\ttfamily std\+::string User\+::password\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 120 of file user.\+h.
+
+\mbox{\Hypertarget{class_user_ae219485aedc068a290fa4c581dd41026}\label{class_user_ae219485aedc068a290fa4c581dd41026}} 
+\index{User@{User}!type@{type}}
+\index{type@{type}!User@{User}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{user_8h_a7f554175f6a21ca8a2175ee9d9bec6d8}{User\+Types}} User\+::type\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 119 of file user.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+model/user/\mbox{\hyperlink{user_8h}{user.\+h}}\item 
+model/user/\mbox{\hyperlink{user_8cpp}{user.\+cpp}}\end{DoxyCompactItemize}

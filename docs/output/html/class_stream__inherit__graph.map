@@ -1,0 +1,6 @@
+<map id="Stream" name="Stream">
+<area shape="rect" id="node1" title=" " alt="" coords="175,5,244,32"/>
+<area shape="rect" id="node2" href="$class_finished_stream.html" title=" " alt="" coords="5,80,128,107"/>
+<area shape="rect" id="node3" href="$class_private_stream.html" title=" " alt="" coords="152,80,267,107"/>
+<area shape="rect" id="node4" href="$class_public_stream.html" title=" " alt="" coords="291,80,399,107"/>
+</map>

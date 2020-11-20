@@ -10,6 +10,7 @@
 #include "leaderboard.h"
 
 
+
 enum class SortStream{
     MINIMUM_AGE,
     LANGUAGE,
@@ -47,6 +48,20 @@ enum class SortStreamer{
     NUM_FOLLOWERS
 };
 
+
+/**
+ * @file leaderboard_manager.cpp
+ *
+ * @brief Manages the leaderboards of the platform
+ *
+ * @ingroup utils
+ */
+
+/**
+ * Implementation of a Leaderboard Manager Class
+ *
+ * Wraps information of a vector and overloads the output operator for a better and clearer print
+ */
 class LeaderboardManager{
 public:
     /**

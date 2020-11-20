@@ -1,0 +1,21 @@
+<map id="model/user/user_manager.cpp" name="model/user/user_manager.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="402,5,621,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="231,80,317,107"/>
+<area shape="rect" id="node3" href="$user__manager_8h.html" title=" " alt="" coords="341,80,468,107"/>
+<area shape="rect" id="node17" href="$user_already_exists_8h.html" title=" " alt="" coords="589,155,783,196"/>
+<area shape="rect" id="node19" href="$user_not_found_8h.html" title=" " alt="" coords="808,155,1012,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,162,81,189"/>
+<area shape="rect" id="node5" title=" " alt="" coords="106,162,221,189"/>
+<area shape="rect" id="node6" href="$user_8h.html" title=" " alt="" coords="485,244,546,271"/>
+<area shape="rect" id="node14" title=" " alt="" coords="633,244,710,271"/>
+<area shape="rect" id="node15" href="$admin_8h.html" title=" " alt="" coords="394,162,514,189"/>
+<area shape="rect" id="node16" title=" " alt="" coords="245,162,319,189"/>
+<area shape="rect" id="node7" title=" " alt="" coords="710,393,790,420"/>
+<area shape="rect" id="node8" title=" " alt="" coords="347,393,406,420"/>
+<area shape="rect" id="node9" title=" " alt="" coords="415,319,477,345"/>
+<area shape="rect" id="node10" href="$date_8h.html" title=" " alt="" coords="502,319,654,345"/>
+<area shape="rect" id="node11" title=" " alt="" coords="430,393,505,420"/>
+<area shape="rect" id="node12" title=" " alt="" coords="529,393,603,420"/>
+<area shape="rect" id="node13" title=" " alt="" coords="627,393,686,420"/>
+<area shape="rect" id="node18" title=" " alt="" coords="785,244,872,271"/>
+</map>

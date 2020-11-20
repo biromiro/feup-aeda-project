@@ -14,8 +14,19 @@
 #include "../date/date.h"
 #include <ostream>
 
+/**
+ * @file leaderboard.h
+ *
+ * @brief The leaderboard template class (wrapper function for a vector of Streams, Viewers, Streamers or Users)
+ *
+ * @ingroup utils
+ */
 
-
+/**
+ * Implementation of a Leaderboard Class
+ *
+ * Wraps information of a vector and overloads the output operator for a better and clearer print
+ */
 template <class N>
 class Leaderboard{
 public:

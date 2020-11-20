@@ -1,0 +1,39 @@
+<map id="model/stream/streamManager.cpp" name="model/stream/streamManager.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="2107,5,2354,32"/>
+<area shape="rect" id="node2" href="$stream_manager_8h.html" title=" " alt="" coords="1232,80,1368,107"/>
+<area shape="rect" id="node32" href="$streamer_already_streaming_8h.html" title=" " alt="" coords="2450,244,2702,300"/>
+<area shape="rect" id="node33" href="$invalid_stream_build_8h.html" title=" " alt="" coords="2539,445,2744,486"/>
+<area shape="rect" id="node34" href="$invalid_stream_to_add_8h.html" title=" " alt="" coords="2376,348,2581,389"/>
+<area shape="rect" id="node35" href="$stream_not_found_8h.html" title=" " alt="" coords="1899,348,2085,389"/>
+<area shape="rect" id="node36" href="$no_stream_with_i_d_8h.html" title=" " alt="" coords="2123,445,2312,486"/>
+<area shape="rect" id="node37" href="$stream_already_finished_8h.html" title=" " alt="" coords="2109,348,2352,389"/>
+<area shape="rect" id="node3" href="$viewer__manager_8h.html" title=" " alt="" coords="421,155,587,196"/>
+<area shape="rect" id="node15" title=" " alt="" coords="325,541,403,568"/>
+<area shape="rect" id="node19" href="$stream_8h.html" title=" " alt="" coords="1431,452,1585,479"/>
+<area shape="rect" id="node23" href="$streamer_8h.html" title=" " alt="" coords="891,355,1058,382"/>
+<area shape="rect" id="node27" href="$private_stream_8h.html" title=" " alt="" coords="1597,162,1821,189"/>
+<area shape="rect" id="node30" href="$public_stream_8h.html" title=" " alt="" coords="1363,162,1573,189"/>
+<area shape="rect" id="node31" href="$finished_stream_8h.html" title=" " alt="" coords="1235,355,1469,382"/>
+<area shape="rect" id="node4" href="$user__manager_8h.html" title=" " alt="" coords="287,259,425,285"/>
+<area shape="rect" id="node17" title=" " alt="" coords="1265,541,1338,568"/>
+<area shape="rect" id="node18" href="$viewer_8h.html" title=" " alt="" coords="785,259,863,285"/>
+<area shape="rect" id="node5" title=" " alt="" coords="145,355,221,382"/>
+<area shape="rect" id="node6" title=" " alt="" coords="541,355,656,382"/>
+<area shape="rect" id="node7" href="$user_8h.html" title=" " alt="" coords="781,452,843,479"/>
+<area shape="rect" id="node16" href="$admin_8h.html" title=" " alt="" coords="296,355,416,382"/>
+<area shape="rect" id="node8" title=" " alt="" coords="2107,616,2187,643"/>
+<area shape="rect" id="node9" title=" " alt="" coords="669,616,728,643"/>
+<area shape="rect" id="node10" title=" " alt="" coords="963,541,1026,568"/>
+<area shape="rect" id="node11" href="$date_8h.html" title=" " alt="" coords="736,541,888,568"/>
+<area shape="rect" id="node12" title=" " alt="" coords="933,616,1008,643"/>
+<area shape="rect" id="node13" title=" " alt="" coords="752,616,827,643"/>
+<area shape="rect" id="node14" title=" " alt="" coords="851,616,909,643"/>
+<area shape="rect" id="node24" href="$invalid_age_8h.html" title=" " alt="" coords="1125,445,1305,486"/>
+<area shape="rect" id="node26" title=" " alt="" coords="781,355,867,382"/>
+<area shape="rect" id="node20" title=" " alt="" coords="1362,541,1422,568"/>
+<area shape="rect" id="node21" title=" " alt="" coords="1446,541,1570,568"/>
+<area shape="rect" id="node22" title=" " alt="" coords="1645,541,1696,568"/>
+<area shape="rect" id="node25" title=" " alt="" coords="2306,541,2393,568"/>
+<area shape="rect" id="node28" href="$nickname_already_added_8h.html" title=" " alt="" coords="1661,437,1854,493"/>
+<area shape="rect" id="node29" href="$nickname_not_found_8h.html" title=" " alt="" coords="1878,437,2098,493"/>
+</map>
