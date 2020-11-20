@@ -14,7 +14,7 @@ void AdminView::run() {
         std::cout << "\n1 - Check StreamZ statistics" << std::endl;
         std::cout << "2 - Go to leaderboards" << std::endl;
         std::cout << "0 - Logout" << std::endl;
-        answer = getch();
+        answer = _getch_();
         switch (answer) {
             case '1':
                 showStreamZStatistics();
@@ -47,5 +47,5 @@ void AdminView::showStreamZStatistics() const {
     std::cout << uiManager.getPlatform().getLeaderboardManager()->mostCommonLanguage() << " is the most common language among streams." << std::endl;
     std::cout << uiManager.getPlatform().getLeaderboardManager()->mostCommonType() << " is the most common type of stream." << std::endl;
     std::cout << uiManager.getPlatform().getLeaderboardManager()->mostViewsStreamer() << " is the streamer with the most total views." << std::endl;
-    getch();
+    _getch_();
 }

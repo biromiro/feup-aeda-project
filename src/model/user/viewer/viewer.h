@@ -98,7 +98,7 @@ public:
      *
      * @return the stream history
      */
-    std::vector<std::shared_ptr<Stream>> &getStreamHistory();
+    std::map<std::shared_ptr<Stream>,FeedbackLikeSystem> &getStreamHistory();
 
     /**
      * Getter of the following streamers unordered set
@@ -120,7 +120,7 @@ public:
 
 private:
     std::shared_ptr<Stream> currentStream;
-    std::vector<std::shared_ptr<Stream>> streamHistory;
+    std::map<std::shared_ptr<Stream>, FeedbackLikeSystem> streamHistory;
     std::unordered_set<std::string> followingStreamers;
     FeedbackLikeSystem votedInStream;
 };

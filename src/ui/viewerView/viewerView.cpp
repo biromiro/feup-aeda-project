@@ -19,7 +19,7 @@ void ViewerView::run() {
         std::cout << "5 - My stream history" << std::endl;
         std::cout << "6 - Let me check the leaderboards!" << std::endl;
         std::cout << "0 - Logout" << std::endl;
-        answer = getch();
+        answer = _getch_();
         switch (answer) {
             case '1':
                 chooseStream();
@@ -63,7 +63,7 @@ void ViewerView::chooseStream() {
         std::cout << CLEAR_SCREEN << GO_TO_TOP << HIDE_CURSOR;
         pageOutput();
         std::cout << "You are already watching a stream! Redirecting..." << std::endl;
-        getch();
+        _getch_();
     } else {
         unsigned int streamID;
         do{
@@ -78,11 +78,11 @@ void ViewerView::chooseStream() {
                     thisViewer->joinStream(streamToJoin);
                 }catch(std::exception& e){
                     std::cerr << e.what();
-                    getch();
+                    _getch_();
                 }
                 if(streamToJoin->getStreamType() == StreamType::PRIVATE && !thisViewer->isWatchingStream()){
                     std::cerr << HIDE_CURSOR << "You're not in the whitelist of this stream!" << std::endl;
-                    getch();
+                    _getch_();
                 }
             }
         }while (!(thisViewer->isWatchingStream()));
@@ -112,7 +112,7 @@ void ViewerView::newStreamerActions(){
     std::cout << "\n 1 - Follow a streamer!" << std::endl;
     std::cout << "\n 0 - Go to main menu" << std::endl;
     do{
-        answer = getch();
+        answer = _getch_();
         switch (answer) {
             case '1':
                 std::string nicknameToFollow;
@@ -125,18 +125,18 @@ void ViewerView::newStreamerActions(){
                 if(streamerToFollow != nullptr){
                     if(thisViewer->followStreamer(streamerToFollow)){
                         std::cout << "Successfully followed!";
-                        getch();
+                        _getch_();
                         answer = '0';
                     }else{
                         std::cerr << "You already follow this streamer!" << std::endl;
-                        getch();
+                        _getch_();
                         std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                         std::cout << "\n 1 - Follow a streamer!" << std::endl;
                         std::cout << "\n 0 - Go to main menu" << std::endl;
                     }
                 }else{
                     std::cerr << "There's no such streamer!" << std::endl;
-                    getch();
+                    _getch_();
                     std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                     std::cout << "\n 1 - Follow a streamer!" << std::endl;
                     std::cout << "\n 0 - Go to main menu" << std::endl;
@@ -151,7 +151,7 @@ void ViewerView::followingStreamerActions(){
     std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
     std::cout << "\n 0 - Go to main menu" << std::endl;
     do{
-        answer = getch();
+        answer = _getch_();
         switch (answer) {
             case '1':
                 std::string nicknameToUnfollow;
@@ -163,18 +163,18 @@ void ViewerView::followingStreamerActions(){
                 if(streamerToUnfollow != nullptr){
                     if(thisViewer->unfollowStreamer(streamerToUnfollow)){
                        std::cout << "Successfully unfollowed!";
-                        getch();
+                        _getch_();
                         answer = '0';
                     }else{
                         std::cerr << "You do not follow this streamer!" << std::endl;
-                        getch();
+                        _getch_();
                         std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                         std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
                         std::cout << "\n 0 - Go to main menu" << std::endl;
                     }
                 }else{
                     std::cerr << "There's no such streamer!" << std::endl;
-                    getch();
+                    _getch_();
                     std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                     std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
                     std::cout << "\n 0 - Go to main menu" << std::endl;
@@ -189,15 +189,18 @@ void ViewerView::showAvailableStreams() {
     pageOutput();
     std::cout << Leaderboard<std::shared_ptr<Stream>>(uiManager.getPlatform().getStreamManager()->getStreams());
     std::cout << "Press any key to go to the main menu!" << std::endl;
-    getch();
+    _getch_();
 }
 
 void ViewerView::myViewHistory() {
     auto thisViewer = uiManager.getPlatform().getViewerManager()->get(uiManager.getCurrentSession().getNickname());
     std::cout << CLEAR_SCREEN << GO_TO_TOP;
     pageOutput();
-    auto viewerHistory = Leaderboard<std::shared_ptr<Stream>>(thisViewer->getStreamHistory());
+    std::vector<std::shared_ptr<Stream>> keys;
+    for(auto it = thisViewer->getStreamHistory().begin(); it != thisViewer->getStreamHistory().end(); ++it)
+        keys.push_back(it->first);
+    auto viewerHistory = Leaderboard<std::shared_ptr<Stream>>(keys);
     std::cout << viewerHistory;
     std::cout << "Press any key to go to the main menu!" << std::endl;
-    getch();
+    _getch_();
 }

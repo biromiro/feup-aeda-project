@@ -86,11 +86,12 @@ std::shared_ptr<FinishedStream> StreamManager::finish(const std::shared_ptr<Stre
     for(const auto& elem: viewerManager->getViewers()){
         if(elem->getCurrentStream() == streamToFinish)
             elem->leaveCurrentStream();
-        std::vector<std::shared_ptr<Stream>>& viewerStreamHistory = elem->getStreamHistory();
-        auto it = find(viewerStreamHistory.begin(),viewerStreamHistory.end(),streamToFinish);
+        std::map<std::shared_ptr<Stream>,FeedbackLikeSystem>& viewerStreamHistory = elem->getStreamHistory();
+        auto it = viewerStreamHistory.find(streamToFinish);
         if(it != viewerStreamHistory.end()){
+            FeedbackLikeSystem vote = (*it).second;
             viewerStreamHistory.erase(it);
-            viewerStreamHistory.push_back(res);
+            viewerStreamHistory.insert(std::pair<std::shared_ptr<Stream>,FeedbackLikeSystem>(res,vote));
         }
     }
     cacheOfFinishedStreams.push_back(res);

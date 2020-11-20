@@ -40,12 +40,20 @@ char getch_(int echo)
     return ch;
 }
 
-char getch()
+char _getch_()
 {
     return getch_(0);
 }
 #endif
 
+#ifdef _WIN32
+char _getch_()
+{
+    std::cin >> std::ws;
+    char ch = std::cin.get();
+    return ch;
+}
+#endif
 
 bool is_number(const std::string& s)
 {

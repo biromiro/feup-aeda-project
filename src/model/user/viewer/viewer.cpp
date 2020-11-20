@@ -24,6 +24,8 @@ bool Viewer::joinStream(const std::shared_ptr<Stream>& stream){
     if (!stream->canJoin(thisViewer) || currentStream != nullptr) return false;
     if(stream->getStreamType() == StreamType::FINISHED) throw StreamAlreadyFinished(stream, "The stream you're trying to join has already ended!");
     stream->newViewerJoin();
+    auto it = streamHistory.find(stream);
+    if(it != streamHistory.end()) votedInStream = (*it).second;
     currentStream = stream;
     return true;
 }
@@ -34,10 +36,11 @@ bool Viewer::isWatchingStream() const{
 
 bool Viewer::leaveCurrentStream() {
     if(isWatchingStream()){
-        if(find(streamHistory.begin(),streamHistory.end(),currentStream) == streamHistory.end())
-            streamHistory.push_back(currentStream);
+        if(streamHistory.find(currentStream) == streamHistory.end())
+            streamHistory[currentStream] = votedInStream;
         currentStream->viewerLeft();
         currentStream = nullptr;
+        votedInStream = FeedbackLikeSystem::INVALID_VOTE;
         return true;
     }
     return false;
@@ -85,7 +88,7 @@ const std::shared_ptr<Stream> &Viewer::getCurrentStream() const {
     return currentStream;
 }
 
-std::vector<std::shared_ptr<Stream>>& Viewer::getStreamHistory() {
+std::map<std::shared_ptr<Stream>,FeedbackLikeSystem>& Viewer::getStreamHistory() {
     return streamHistory;
 }
 
@@ -137,15 +140,17 @@ void Viewer::readData(std::ifstream &ifs, const std::shared_ptr<StreamManager>& 
     unsigned int streamHistorySize = 0, currentStreamID = 0, streamIDFromHistory = 0, followingStreamersSize = 0;
     std::string newStreamerID;
     std::shared_ptr<Stream> streamInHistory;
+    FeedbackLikeSystem vote;
     ifs >> currentStreamID;
     if(currentStreamID != 0)
         currentStream = streamManager->get(currentStreamID);
     ifs >> streamHistorySize;
     while (streamHistorySize--){
         ifs >> streamIDFromHistory;
+        ifs >> vote;
         streamInHistory = streamManager->get(streamIDFromHistory);
         if(streamInHistory != nullptr)
-            streamHistory.push_back(streamInHistory);
+            streamHistory[streamInHistory] = vote;
     }
     ifs >> followingStreamersSize;
     ifs.ignore();
@@ -161,7 +166,8 @@ void Viewer::writeData(std::ofstream &ofs) {
     ofs << ((currentStream != nullptr) ? currentStream->getUniqueId() : 0) << "\n";
     ofs << streamHistory.size() << "\n";
     for(const auto& elem: streamHistory){
-        ofs << elem->getUniqueId() << "\n";
+        ofs << elem.first->getUniqueId() << "\n";
+        ofs << elem.second << "\n";
     }
     ofs << followingStreamers.size() << "\n";
     for(const auto& elem: followingStreamers){

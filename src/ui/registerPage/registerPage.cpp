@@ -11,7 +11,7 @@ void RegisterPage::run() {
     bool started = false;
     std::string nickname, password;
     do{
-        if(started) answer = getch();
+        if(started) answer = _getch_();
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
         pageOutput();
         if(answer != *ESC) {
@@ -19,7 +19,7 @@ void RegisterPage::run() {
             std::cout << "\n1 - Just a regular viewer!" << std::endl;
             std::cout << "\n2 - I want to stream!" << std::endl;
             std::cout << HIDE_CURSOR;
-            answer = getch();
+            answer = _getch_();
             std::cout << SHOW_CURSOR;
             switch (answer) {
                 case '1':
@@ -57,12 +57,12 @@ bool RegisterPage::streamerRegister() {
     bool valid = false;
     char answer = 0;
     do{
-        if(valid) answer = getch();
+        if(valid) answer = _getch_();
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
         getUserInfo(birthDate,name,nickname,password);
         if(timeElapsed(currentDate,birthDate).getYear() < 15){
             std::cerr << "You have to be at least 15 years old!" << std::endl;
-            getch();
+            _getch_();
             continue;
         }
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
@@ -70,7 +70,7 @@ bool RegisterPage::streamerRegister() {
         std::cout << "Birth date:" <<  birthDate << "\t" << "Name: " << name << "\n" << "Nickname :" << nickname << "\t" << "Password: " << password << "\n";
         std::cout << "\n1 - I wish to redo my choices" << std::endl;
         std::cout << "PRESS ANY OTHER KEY TO PROCEED" << std::endl;
-        answer = getch();
+        answer = _getch_();
         if(answer != '1') break;
         valid = true;
     }while (answer != *ESC);
@@ -90,12 +90,12 @@ bool RegisterPage::viewerRegister() {
     bool valid = false;
     char answer = 0;
     do{
-        if(valid) answer = getch();
+        if(valid) answer = _getch_();
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
         getUserInfo(birthDate,name,nickname,password);
         if(timeElapsed(currentDate,birthDate).getYear() < 12){
             std::cerr << "You have to be at least 12 years old!" << std::endl;
-            getch();
+            _getch_();
             continue;
         }
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
@@ -103,7 +103,7 @@ bool RegisterPage::viewerRegister() {
         std::cout << "Birth date:" <<  birthDate << "\t" << "Name: " << name << "\n" << "Nickname :" << nickname << "\t" << "Password: " << password << "\n";
         std::cout << "\n1 - I wish to redo my choices" << std::endl;
         std::cout << "PRESS ANY OTHER KEY TO PROCEED" << std::endl;
-        answer = getch();
+        answer = _getch_();
         if(answer != '1') break;
         valid = true;
     }while (answer != *ESC);
@@ -112,7 +112,7 @@ bool RegisterPage::viewerRegister() {
         auto viewer = uiManager.getPlatform().getViewerManager()->build(birthDate,name,nickname,password);
     }catch(std::exception& e){
         std::cerr << e.what();
-        getch();
+        _getch_();
         return false;
     }
     uiManager.getCurrentSession().login(nickname,password);
@@ -131,7 +131,7 @@ void RegisterPage::getUserInfo(Date& birthDate, std::string& name, std::string& 
         getlineCIN(nickname);
         if(uiManager.getPlatform().getUserManager()->has(nickname)){
             std::cerr << "Nickname already taken!";
-            getch();
+            _getch_();
             continue;
         }
         break;
@@ -145,7 +145,7 @@ void RegisterPage::getUserInfo(Date& birthDate, std::string& name, std::string& 
         getlineCIN(checkPassword);
         if(password != checkPassword){
             std::cerr << "Passwords don't match!";
-            getch();
+            _getch_();
             std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
             continue;
         }else break;
@@ -170,7 +170,7 @@ void RegisterPage::getUserInfo(Date& birthDate, std::string& name, std::string& 
         birthDate.setDate(year,month,day);
         if(!birthDate.isValid()){
             std::cerr << "That birth date is not valid!";
-            getch();
+            _getch_();
             std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  GO_TO_BEGINNING_OF_LINE;
             continue;
         }else break;

@@ -10,7 +10,7 @@ void StreamView::run() {
     char answer ;
     do{
         pageOutput();
-        answer = getch();
+        answer = _getch_();
         switch (answer) {
             case '1':
                 feedbackToStream();
@@ -53,7 +53,7 @@ void StreamView::feedbackToStream() {
         std::cout << "1 - Give Like/Dislike" << std::endl;
         std::cout << "2 - Make a comment" << std::endl;
         std::cout << "0 - Go back to the main menu" << std::endl;
-        answer = getch();
+        answer = _getch_();
         char feedbackAnswer;
         switch (answer) {
             case '1': {
@@ -61,7 +61,7 @@ void StreamView::feedbackToStream() {
                 LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
                 std::cout << "1 - LIKE" << std::endl;
                 std::cout << "2 - DISLIKE" << std::endl;
-                feedbackAnswer = getch();
+                feedbackAnswer = _getch_();
                 switch (feedbackAnswer) {
                     case '1':
                         thisViewer->giveFeedbackToStream(FeedbackLikeSystem::LIKE);
@@ -79,7 +79,7 @@ void StreamView::feedbackToStream() {
                     getlineCIN(comment);
                     std::cout << "Is this the comment you wish to add (y/n) -> " << comment << std::endl;
                     do {
-                        answer = getch();
+                        answer = _getch_();
                         if (answer == 'y' or answer == 'Y') {
                             thisViewer->giveFeedbackToStream(comment);
                             confirm = true;
@@ -95,13 +95,13 @@ void StreamView::feedbackToStream() {
         std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
         std::cout << "1 - Give Like/Dislike" << std::endl;
         std::cout << "0 - Go back " << std::endl;
-        answer = getch();
+        answer = _getch_();
         if(answer == '1') {
                 std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE
                           << GO_TO_BEGINNING_OF_LINE;
                 std::cout << "1 - LIKE" << std::endl;
                 std::cout << "2 - DISLIKE" << std::endl;
-                char feedbackAnswer = getch();
+                char feedbackAnswer = _getch_();
                 switch (feedbackAnswer) {
                     case '1':
                         thisViewer->giveFeedbackToStream(FeedbackLikeSystem::LIKE);

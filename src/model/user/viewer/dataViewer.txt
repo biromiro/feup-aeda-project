@@ -2,6 +2,7 @@
 0
 1
 1
+LIKE
 0
 INVALID_VOTE
 1995/08/19
@@ -11,6 +12,7 @@ ptrv2001
 muitofixemieu
 0
 1
+DISLIKE
 1
 0
 INVALID_VOTE
@@ -40,10 +42,12 @@ kekw29xd
 3
 2
 1
+LIKE
 2
+LIKE
 2
-mkay
 biromiro
+mkay
 LIKE
 2001/08/21
 2020/11/16

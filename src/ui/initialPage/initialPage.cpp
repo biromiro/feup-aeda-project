@@ -12,7 +12,7 @@ void InitialPage::run() {
     do{
         pageOutput();
         std::cout << HIDE_CURSOR;
-        answer = getch();
+        answer = _getch_();
         switch (answer) {
             case '1':
                 uiManager.setCurrent(new LoginPage(uiManager));

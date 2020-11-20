@@ -13,7 +13,7 @@ void LoginPage::run() {
     bool started = false;
     std::string nickname, password;
     do{
-        if(started) answer = getch();
+        if(started) answer = _getch_();
         std::cout << CLEAR_SCREEN << GO_TO_TOP << SHOW_CURSOR;
         pageOutput();
         if(answer != *ESC) {

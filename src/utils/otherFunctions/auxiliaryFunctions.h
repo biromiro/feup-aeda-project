@@ -5,11 +5,6 @@
 #ifndef PROJECT_AUXILIARYFUNCTIONS_H
 #define PROJECT_AUXILIARYFUNCTIONS_H
 
-#ifdef _WIN32
-#define CONIO_GETCH
-#include <conio.h>
-#endif
-
 #ifdef __linux__
 #define TERMIOS_GETCH
 #include <termios.h>
@@ -34,8 +29,8 @@ constexpr const int WIDTH = 15;
 void initTermios(int echo);
 void resetTermios();
 char getch_(int echo);
-char getch();
 #endif
+char _getch_();
 bool is_number(const std::string& s);
 unsigned int inputNumber();
 void getlineCIN(std::string& s);

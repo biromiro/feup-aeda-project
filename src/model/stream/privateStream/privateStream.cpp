@@ -3,6 +3,7 @@
 //
 
 #include "privateStream.h"
+#include "../../../exception/userNotFound/userNotFound.h"
 
 PrivateStream::PrivateStream() : Stream(StreamType::PRIVATE){}
 
@@ -17,6 +18,7 @@ unsigned int PrivateStream::getMaxNumViewers() const { return maxNumViewers; }
 std::map<std::string,std::string> PrivateStream::getComments() const { return comments; }
 
 bool PrivateStream::addToWhitelist(const std::shared_ptr<Viewer>& v){
+    if(v == nullptr) throw UserNotFound(std::dynamic_pointer_cast<User>(v), "That user is invalid!");
     std::string v_nick = v->getNickname();
     if (std::find(whitelist.begin(), whitelist.end(), v_nick) == whitelist.end()){
         whitelist.push_back(v_nick);
