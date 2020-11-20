@@ -26,20 +26,51 @@ private:
     std::shared_ptr<LeaderboardManager> leaderboardManager;
 
 public:
+    /**
+     * Constructor of the streamZ class
+     *
+     * Sets empty managers
+     * */
     StreamZ();
 
+    /**
+     * Initializes the objects saved in files by reading them using the managers
+     * */
     void initialize();
 
+    /**
+     * Updates and saves objects created in the respective files
+     * */
     void finish();
 
+    /**
+     * Method to obtain the userManager
+     * @return pointer to current userManager
+     * */
     std::shared_ptr<UserManager> getUserManager();
 
+    /**
+    * Method to obtain the viewerManager
+    * @return pointer to current viewerManager
+     * */
     std::shared_ptr<ViewerManager> getViewerManager();
 
+    /**
+    * Method to obtain the streamManager
+    * @return pointer to current streamManager
+     * */
     std::shared_ptr<StreamManager> getStreamManager();
 
+    /**
+    * Method to obtain the streamerManager
+    * @return pointer to current streamerManager
+     * */
     std::shared_ptr<StreamerManager> getStreamerManager();
 
+    /**
+    * Method to obtain the leaderboardManager
+    * @return pointer to current leaderboardManager
+     * */
     std::shared_ptr<LeaderboardManager> getLeaderboardManager();
 };
 

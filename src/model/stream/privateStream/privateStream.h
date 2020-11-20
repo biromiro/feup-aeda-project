@@ -100,8 +100,19 @@ public:
      */
     [[nodiscard]] bool canJoin(const std::shared_ptr<Viewer>& newViewer) const override;
 
+    /**
+     * Loads privateStreams from file and relates them to the respective streamer
+     *
+     * @param ifs File to read from
+     * @param streamerManager streamerManager to update streamers with added streams
+     * */
     void readData(std::ifstream& ifs, const std::shared_ptr<StreamerManager>& streamerManager) override;
 
+    /**
+    * Updates and saves to file the privateStreams
+    *
+    * @param ofs File to save privateStreams to
+    * */
     void writeData(std::ofstream& ofs) override;
 private:
     std::vector<std::string> whitelist;

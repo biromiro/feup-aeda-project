@@ -35,8 +35,19 @@ public:
      */
     [[nodiscard]] enum StreamType getStreamType() const override;
 
+    /**
+    * Loads publicStreams from file and relates them to the respective streamer
+    *
+    * @param ifs File to read from
+    * @param streamerManager streamerManager to update streamers with added streams
+     * */
     void readData(std::ifstream& ifs,const std::shared_ptr<StreamerManager>& streamerManager) override;
 
+    /**
+     * Updates and saves to file the publicStreams
+    *
+     * @param ofs File to save publicStreams to
+    * */
     void writeData(std::ofstream& ofs) override;
 };
 
