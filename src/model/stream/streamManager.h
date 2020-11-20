@@ -108,8 +108,18 @@ public:
      */
     [[nodiscard]] const std::vector<std::shared_ptr<Stream>> &getCacheOfFinishedStreams() const;
 
+    /**
+     * Reads stream from file
+     *
+     * @return read successfull
+     * */
     bool readData();
 
+    /**
+     * Writes stream from file
+     *
+     * @return write successfull
+     * */
     bool writeData();
 
 private:

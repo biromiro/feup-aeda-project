@@ -45,23 +45,92 @@ public:
      */
     void removeStream();
 
+    /**
+     * Increases the streamer's view count by given amount
+     *
+     * @param value number of views to add to total view count
+     * */
     void addToViewCount(unsigned int value);
 
+    /**
+     * Getter of streamer's total view count
+     *
+     * @return the streamer's total view count
+     * */
     [[nodiscard]] unsigned int getTotalViewCount() const;
 
+    /**
+     * Getter of streamer's current streamID
+     *
+     * @return the current stream's ID*/
     [[nodiscard]] unsigned int getCurrentStreamID() const;
 
+    /**
+     * Getter of streamer's past streamIDs
+     *
+     * @return vector of IDs of previous streams
+     * */
     [[nodiscard]] const std::vector<unsigned int> &getPreviousStreamsIDs() const;
 
+    /**
+     * Reads streamer data from file
+     *
+     * @param ifs File to read streamers from
+     * */
     void readData(std::ifstream& ifs) override;
 
+    /**
+     * Writes and updates streamer data to file
+     *
+     * @param ofs File to write streamers to
+     * */
     void writeData(std::ofstream& ofs) override;
 
+    /**
+     * Overload of operator  < to streamers
+     *
+     * @param rhs given streamer to compare
+     * @return self < given streamer
+     * */
     bool operator<(const Streamer &rhs) const;
+
+    /**
+    * Overload of operator > to streamers
+    *
+    * @param rhs given streamer to compare
+    * @return self > given streamer
+     * */
     bool operator>(const Streamer &rhs) const;
+
+    /**
+    * Overload of operator <= to streamers
+    *
+    * @param rhs given streamer to compare
+    * @return self <= given streamer
+     * */
     bool operator<=(const Streamer &rhs) const;
+
+    /**
+    * Overload of operator == to streamers
+    *
+    * @param rhs given streamer to compare
+    * @return self == given streamer
+     * */
     bool operator==(const Streamer &rhs) const;
+
+    /**
+    * Overload of operator != to streamers
+    *
+    * @param rhs given streamer to compare
+    * @return self != given streamer
+     * */
     bool operator!=(const Streamer &rhs) const;
+
+    /**
+    * Overload of operator >= to streamers
+    *
+    * @param rhs given streamer to compare
+    * @return self >= given streamer*/
     bool operator>=(const Streamer &rhs) const;
 
 private:

@@ -68,8 +68,18 @@ public:
      */
     [[nodiscard]] std::shared_ptr<Admin> get() const;
 
+    /**
+    * Reads saved admins from File
+    *
+    * @return read successfull
+    * */
     bool readData();
 
+    /**
+     * Writes and Updates admins to File
+     *
+     * @return write successfull
+     * */
     bool writeData();
 
 private:
