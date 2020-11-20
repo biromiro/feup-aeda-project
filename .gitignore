@@ -147,5 +147,3 @@ fabric.properties
 
 # vscode
 **.vscode/**
-
-*.html
