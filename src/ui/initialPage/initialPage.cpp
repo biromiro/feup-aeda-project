@@ -36,7 +36,7 @@ void InitialPage::pageOutput() {
     std::cout << "***** Welcome to StreamZ! *****" << std::endl;
     std::cout << "\n\t1 - Login" << std::endl;
     std::cout << "\t2 - Register" << std::endl;
-    std::cout << "\t0 - Exit" << std::endl;
+    std::cout << "\t0 - Quit and Save" << std::endl;
     std::cout << "\n********************************" << std::endl;
 }
 

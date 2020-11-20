@@ -23,10 +23,8 @@ std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::stri
     try{
         streamer = std::make_shared<Streamer>(birthDate,name,nickname,password);
     } catch (InvalidAge& invalidAge) {
-        unsigned  int age = streamer->getAge();
-        std::cout << invalidAge.what();
         streamer.reset();
-        throw InvalidAge(age,"You have to be at least 15 years old!");
+        throw InvalidAge(invalidAge.getAge(),invalidAge.what());
     }
     add(streamer);
     std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(streamer);

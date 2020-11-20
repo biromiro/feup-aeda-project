@@ -3,7 +3,6 @@
 //
 
 #include "adminView.h"
-#include "../leaderboardPage/leaderboardPage.h"
 
 AdminView::AdminView(UIManager &uiManager) : uiManager(uiManager){}
 
@@ -39,6 +38,9 @@ void AdminView::pageOutput() {
 void AdminView::showStreamZStatistics() const {
     std::cout << CLEAR_SCREEN << GO_TO_TOP;
     pageOutput();
+
+    //gets all info from the leaderboard manager
+
     std::cout << uiManager.getPlatform().getLeaderboardManager()->totalNumberOfStreams() << " streams were created in total." << std::endl;
     std::cout << uiManager.getPlatform().getLeaderboardManager()->meanViewsPerStreamActive() << " is the mean of views per stream." << std::endl;
     std::cout << uiManager.getPlatform().getLeaderboardManager()->meanViewsPerStreamFinished() << " is the mean of views per finished stream." << std::endl;
@@ -47,5 +49,6 @@ void AdminView::showStreamZStatistics() const {
     std::cout << uiManager.getPlatform().getLeaderboardManager()->mostCommonLanguage() << " is the most common language among streams." << std::endl;
     std::cout << uiManager.getPlatform().getLeaderboardManager()->mostCommonType() << " is the most common type of stream." << std::endl;
     std::cout << uiManager.getPlatform().getLeaderboardManager()->mostViewsStreamer() << " is the streamer with the most total views." << std::endl;
+
     _getch_();
 }

@@ -21,9 +21,14 @@ void LoginPage::run() {
             getlineCIN(nickname);
             std::cout << "Password: ";
             getlineCIN(password);
+
+            //tries to login
             if (uiManager.getCurrentSession().login(nickname, password)){
                 std::cout << CLEAR_SCREEN << GO_TO_TOP << HIDE_CURSOR;
+
+                //sets up the page according to the user who logged in
                 switch (uiManager.getCurrentSession().getCurrentUser()->getUserType()) {
+
                     case UserTypes::STREAMER:
                         uiManager.setCurrent(new StreamerView(uiManager));
                         uiManager.run();
@@ -39,6 +44,8 @@ void LoginPage::run() {
                 }
                 return;
             }
+
+            //could not login
             else std::cerr << "Invalid Combination! Try again.";
             started = true;
 

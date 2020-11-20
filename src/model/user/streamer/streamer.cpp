@@ -8,8 +8,9 @@
 Streamer::Streamer() : User(UserTypes::STREAMER) {}
 
 Streamer::Streamer(Date birthDate, std::string name, std::string nickname, std::string password): User(birthDate,std::move(name),std::move(nickname), UserTypes::STREAMER, std::move(password)) {
-    if(getAge() < 15){
-        throw InvalidAge(getAge(), "You have to be at least 15 years old!");
+    unsigned int age = getAge();
+    if(age < 15){
+        throw InvalidAge(age, "You have to be at least 15 years old!");
     }
     currentStreamID = 0;
     previousStreamsIDs = std::vector<unsigned int>();

@@ -10,29 +10,28 @@ void RegisterPage::run() {
     char answer = ' ';
     bool started = false;
     std::string nickname, password;
-    do{
-        if(started) answer = _getch_();
-        std::cout << CLEAR_SCREEN << GO_TO_TOP;
+    do{std::cout << CLEAR_SCREEN << GO_TO_TOP;
         pageOutput();
-        if(answer != *ESC) {
-            std::cout << "What type of account do you wish to create?" << std::endl;
-            std::cout << "\n1 - Just a regular viewer!" << std::endl;
-            std::cout << "\n2 - I want to stream!" << std::endl;
-            std::cout << HIDE_CURSOR;
-            answer = _getch_();
-            std::cout << SHOW_CURSOR;
-            switch (answer) {
-                case '1':
-                    viewerRegister();
-                    break;
-                case '2':
-                    streamerRegister();
-                    break;
-                default:
-                    started = true;
-                    break;
-            }
-            std::cout << CLEAR_SCREEN << GO_TO_TOP << HIDE_CURSOR;
+        std::cout << "What type of account do you wish to create?" << std::endl;
+        std::cout << "\n1 - Just a regular viewer!" << std::endl;
+        std::cout << "\n2 - I want to stream!" << std::endl;
+        std::cout << HIDE_CURSOR;
+        answer = _getch_();
+        std::cout << SHOW_CURSOR;
+        switch (answer) {
+            case '1':
+                if(viewerRegister()) break;
+                else return;
+            case '2':
+                if(streamerRegister()) break;
+                else return;
+            default:
+                break;
+        }
+        std::cout << CLEAR_SCREEN << GO_TO_TOP << HIDE_CURSOR;
+
+        if(answer == '1' || answer == '2'){
+            //after a successful register, logs in and sends user to the corret UI page (not that ADMIN cannot be formed, so it is not handled)
             switch (uiManager.getCurrentSession().getCurrentUser()->getUserType()) {
                 case UserTypes::STREAMER:
                     uiManager.setCurrent(new StreamerView(uiManager));
@@ -53,32 +52,31 @@ void RegisterPage::pageOutput() {
 
 bool RegisterPage::streamerRegister() {
     std::string nickname, name, password;
-    Date birthDate = Date(), currentDate = Date();
+    Date birthDate = Date();
     bool valid = false;
     char answer = 0;
     do{
-        if(valid) answer = _getch_();
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
         getUserInfo(birthDate,name,nickname,password);
-        if(timeElapsed(currentDate,birthDate).getYear() < 15){
-            std::cerr << "You have to be at least 15 years old!" << std::endl;
-            _getch_();
-            continue;
-        }
+
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
         std::cout << "Are you happy with your choices?" << std::endl;
         std::cout << "Birth date:" <<  birthDate << "\t" << "Name: " << name << "\n" << "Nickname :" << nickname << "\t" << "Password: " << password << "\n";
         std::cout << "\n1 - I wish to redo my choices" << std::endl;
+        std::cout << "0 - Leave and do not save" << std::endl;
         std::cout << "PRESS ANY OTHER KEY TO PROCEED" << std::endl;
         answer = _getch_();
         if(answer != '1') break;
         valid = true;
-    }while (answer != *ESC);
-    if(answer == *ESC) return false;
+
+    }while (answer != '0');
+    if(answer == '0') return false;
     try{
         auto streamer = uiManager.getPlatform().getStreamerManager()->build(birthDate,name,nickname,password);
     }catch(std::exception& e){
         std::cerr << e.what();
+        _getch_();
+        return false;
     }
     uiManager.getCurrentSession().login(nickname,password);
     return true;
@@ -93,11 +91,7 @@ bool RegisterPage::viewerRegister() {
         if(valid) answer = _getch_();
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
         getUserInfo(birthDate,name,nickname,password);
-        if(timeElapsed(currentDate,birthDate).getYear() < 12){
-            std::cerr << "You have to be at least 12 years old!" << std::endl;
-            _getch_();
-            continue;
-        }
+
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
         std::cout << "Are you happy with your choices?" << std::endl;
         std::cout << "Birth date:" <<  birthDate << "\t" << "Name: " << name << "\n" << "Nickname :" << nickname << "\t" << "Password: " << password << "\n";
