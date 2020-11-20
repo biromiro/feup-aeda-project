@@ -97,7 +97,7 @@ void StreamerView::startStream() {
             }while(minimumAge == 0);
 
             do{
-                std::cout << "Stream Type (Private or Public): ";
+                std::cout << "Stream Type (PRIVATE or PUBLIC): ";
                 std::cin >> type;
                 std::cout << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  GO_TO_BEGINNING_OF_LINE;
             }while (type == StreamType::INVALID);

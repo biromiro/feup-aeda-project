@@ -72,7 +72,13 @@ void ViewerView::chooseStream() {
             std::cout << "Please input the streamID of which you wish to join (0 to return to main menu): " << SHOW_CURSOR << std::endl;
             streamID = inputNumber();
             if(streamID == 0) return;
-            auto streamToJoin = uiManager.getPlatform().getStreamManager()->get(streamID);
+            std::shared_ptr<Stream> streamToJoin;
+            try{
+                auto streamToJoin = uiManager.getPlatform().getStreamManager()->get(streamID);
+            } catch (std::exception& exception) {
+                std::cerr << exception.what();
+                _getch_();
+            }
             if(streamToJoin != nullptr){
                 try{
                     thisViewer->joinStream(streamToJoin);
