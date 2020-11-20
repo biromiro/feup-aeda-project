@@ -1,4 +1,4 @@
-5
+6
 0
 1
 1
@@ -11,9 +11,11 @@ Pedro Costa
 ptrv2001
 muitofixemieu
 0
+2
+4
+LIKE
 1
 DISLIKE
-1
 0
 INVALID_VOTE
 2000/10/18
@@ -46,11 +48,20 @@ LIKE
 2
 LIKE
 2
-biromiro
 mkay
+biromiro
 LIKE
 2001/08/21
 2020/11/16
 Margarida Oliveira
 pardal
 toutodapardaleca
+0
+0
+0
+INVALID_VOTE
+2001/02/04
+2020/11/20
+Olá amigos
+muitofixe
+123456

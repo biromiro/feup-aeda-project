@@ -147,6 +147,7 @@ void Viewer::readData(std::ifstream &ifs, const std::shared_ptr<StreamManager>& 
     ifs >> streamHistorySize;
     while (streamHistorySize--){
         ifs >> streamIDFromHistory;
+        ifs.ignore();
         ifs >> vote;
         streamInHistory = streamManager->get(streamIDFromHistory);
         if(streamInHistory != nullptr)
