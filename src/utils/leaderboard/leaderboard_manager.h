@@ -10,7 +10,9 @@
 #include "leaderboard.h"
 
 
-
+/**
+ * Defines the ways a stream can be sorted
+ */
 enum class SortStream{
     MINIMUM_AGE,
     LANGUAGE,
@@ -21,6 +23,9 @@ enum class SortStream{
     TYPE
 };
 
+/*
+ * Defines the ways a user can be sorted
+ */
 enum class SortUser{
     NAME,
     NICKNAME,
@@ -29,6 +34,9 @@ enum class SortUser{
     USERTYPE
 };
 
+/*
+ * Defines the ways a viewe can be sorted
+ */
 enum class SortViewer{
     NAME,
     NICKNAME,
@@ -38,6 +46,9 @@ enum class SortViewer{
     NUM_OF_WATCHED_STREAMS
 };
 
+/*
+ * Defines the ways a streamer can be sorted
+ */
 enum class SortStreamer{
     NAME,
     NICKNAME,
@@ -117,6 +128,7 @@ public:
      * @return Leaderboard of streams of the selected type
      */
     Leaderboard<std::shared_ptr<Stream>> filterStreamByType(StreamType type);
+
     /**
      * Sorts Leaderboard by streamer's joindate > age > nickname > name
      *
@@ -124,10 +136,28 @@ public:
      */
     Leaderboard<std::shared_ptr<Streamer>> sortStreamers();
 
+    /**
+     * Gets the leaderboard showing the streamer a given viewer follows
+     *
+     * @param viewer the viewer
+     * @return a leaderboard with the following streamers
+     */
     Leaderboard<std::shared_ptr<Streamer>> getFollowingStreamersLeaderboard(const std::shared_ptr<Viewer>& viewer);
 
+    /**
+     * Gets the leaderboard showing the streamer a given viewer does not follow
+     *
+     * @param viewer the viewer
+     * @return a leaderboard with the not following streamers
+     */
     Leaderboard<std::shared_ptr<Streamer>> getNotFollowingStreamersLeaderboard(const std::shared_ptr<Viewer>& viewer);
 
+    /**
+     * Sorts all streamers with a given sorter
+     *
+     * @param sorter the sorter
+     * @return the sorted streamer leaderboard
+     */
     Leaderboard<std::shared_ptr<Streamer>> sortStreamerBy(SortStreamer sorter);
   
     /**
