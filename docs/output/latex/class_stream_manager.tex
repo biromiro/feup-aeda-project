@@ -1,0 +1,290 @@
+\hypertarget{class_stream_manager}{}\doxysection{Stream\+Manager Class Reference}
+\label{class_stream_manager}\index{StreamManager@{StreamManager}}
+
+
+{\ttfamily \#include $<$stream\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_stream_manager_a0f71127d3f7795bab9ca87483e8284bb}{Stream\+Manager}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer_manager}{Viewer\+Manager}} $>$ viewer\+Manager, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer_manager}{Streamer\+Manager}} $>$ streamer\+Manager)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \mbox{\hyperlink{class_stream_manager_a80c2c77a12dc973380c089b0bd1914fd}{build}} (const std\+::string \&title, enum \mbox{\hyperlink{stream_8h_a9883873f20a172b9474ee43f231ba57d}{Stream\+Language}} lang, unsigned int min\+Age, enum \mbox{\hyperlink{stream_8h_a8a65141d9ea4bf9d2e2377ed6b888a1d}{Stream\+Type}} type, enum \mbox{\hyperlink{stream_8h_a50c657d7a1d55d9ab32aa729de847e79}{Stream\+Genre}} genre, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&streamer)
+\item 
+bool \mbox{\hyperlink{class_stream_manager_a8d10abd088ad4c3b6aeb5b034cfd4a09}{add}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \&stream\+To\+Add)
+\item 
+bool \mbox{\hyperlink{class_stream_manager_a6b03129db42b9e3200f7a13401af321b}{remove}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \&stream\+To\+Remove)
+\item 
+bool \mbox{\hyperlink{class_stream_manager_af0786c35537060f665857e917bd502f5}{has}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \&stream\+To\+Check)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \mbox{\hyperlink{class_stream_manager_adedc26ebcef4ced3216c93f7bb54f05d}{get}} (unsigned int stream\+ID)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_finished_stream}{Finished\+Stream}} $>$ \mbox{\hyperlink{class_stream_manager_a9ef46bf6f9004d2565da1c3e90f6434a}{finish}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \&stream\+To\+Finish)
+\item 
+unsigned int \mbox{\hyperlink{class_stream_manager_a561cfe476176b4132e1ef24cae6312a9}{get\+Num\+Of\+Viewers}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \&stream\+To\+Finish)
+\item 
+void \mbox{\hyperlink{class_stream_manager_acfc80749d45134d8064416fd3b43f2c3}{set\+Streamer\+Manager}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer_manager}{Streamer\+Manager}} $>$ new\+Streamer\+Manager)
+\item 
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ $>$ \& \mbox{\hyperlink{class_stream_manager_a967a563f32d327fab89f926de2bccde1}{get\+Streams}} () const
+\item 
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ $>$ \& \mbox{\hyperlink{class_stream_manager_aa92f7c0d5bb9366fa3f3662c14ff47cd}{get\+Cache\+Of\+Finished\+Streams}} () const
+\item 
+bool \mbox{\hyperlink{class_stream_manager_ad15ef878f0903bd9f44b1f3506451539}{read\+Data}} ()
+\item 
+bool \mbox{\hyperlink{class_stream_manager_accfe888b95aa5b47e1681c965180ce99}{write\+Data}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 16 of file stream\+Manager.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_stream_manager_a0f71127d3f7795bab9ca87483e8284bb}\label{class_stream_manager_a0f71127d3f7795bab9ca87483e8284bb}} 
+\index{StreamManager@{StreamManager}!StreamManager@{StreamManager}}
+\index{StreamManager@{StreamManager}!StreamManager@{StreamManager}}
+\doxysubsubsection{\texorpdfstring{StreamManager()}{StreamManager()}}
+{\footnotesize\ttfamily Stream\+Manager\+::\+Stream\+Manager (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer_manager}{Viewer\+Manager}} $>$}]{viewer\+Manager,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer_manager}{Streamer\+Manager}} $>$}]{streamer\+Manager }\end{DoxyParamCaption})}
+
+Constructor of the \mbox{\hyperlink{class_stream_manager}{Stream\+Manager}} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em viewer\+Manager} & the manager of the Viewers \\
+\hline
+{\em streamer\+Manaager} & the manager of the Streamers \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file stream\+Manager.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_stream_manager_a8d10abd088ad4c3b6aeb5b034cfd4a09}\label{class_stream_manager_a8d10abd088ad4c3b6aeb5b034cfd4a09}} 
+\index{StreamManager@{StreamManager}!add@{add}}
+\index{add@{add}!StreamManager@{StreamManager}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily bool Stream\+Manager\+::add (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \&}]{stream\+To\+Add }\end{DoxyParamCaption})}
+
+Adds a stream to the streams vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream\+To\+Add} & stream to be added to the vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if stream is added, false if it is already in the vector 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file stream\+Manager.\+cpp.
+
+\mbox{\Hypertarget{class_stream_manager_a80c2c77a12dc973380c089b0bd1914fd}\label{class_stream_manager_a80c2c77a12dc973380c089b0bd1914fd}} 
+\index{StreamManager@{StreamManager}!build@{build}}
+\index{build@{build}!StreamManager@{StreamManager}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ Stream\+Manager\+::build (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title,  }\item[{enum \mbox{\hyperlink{stream_8h_a9883873f20a172b9474ee43f231ba57d}{Stream\+Language}}}]{lang,  }\item[{unsigned int}]{min\+Age,  }\item[{enum \mbox{\hyperlink{stream_8h_a8a65141d9ea4bf9d2e2377ed6b888a1d}{Stream\+Type}}}]{type,  }\item[{enum \mbox{\hyperlink{stream_8h_a50c657d7a1d55d9ab32aa729de847e79}{Stream\+Genre}}}]{genre,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&}]{streamer }\end{DoxyParamCaption})}
+
+Creates a \mbox{\hyperlink{class_public_stream}{Public\+Stream}} or \mbox{\hyperlink{class_private_stream}{Private\+Stream}} object using the given parameters
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & title of the stream \\
+\hline
+{\em lang} & language the stream is in \\
+\hline
+{\em min\+Age} & minimum viewer age allowed \\
+\hline
+{\em type} & type of the stream \\
+\hline
+{\em genre} & genre of the stream \\
+\hline
+{\em streamer} & streamer of the stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the created stream 
+\end{DoxyReturn}
+
+
+Definition at line 16 of file stream\+Manager.\+cpp.
+
+\mbox{\Hypertarget{class_stream_manager_a9ef46bf6f9004d2565da1c3e90f6434a}\label{class_stream_manager_a9ef46bf6f9004d2565da1c3e90f6434a}} 
+\index{StreamManager@{StreamManager}!finish@{finish}}
+\index{finish@{finish}!StreamManager@{StreamManager}}
+\doxysubsubsection{\texorpdfstring{finish()}{finish()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_finished_stream}{Finished\+Stream}} $>$ Stream\+Manager\+::finish (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \&}]{stream\+To\+Finish }\end{DoxyParamCaption})}
+
+Creates a \mbox{\hyperlink{class_finished_stream}{Finished\+Stream}} object through downcasting, marking the end of a stream
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream\+To\+Finish} & stream that is downcast as a \mbox{\hyperlink{class_finished_stream}{Finished\+Stream}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if \mbox{\hyperlink{class_finished_stream}{Finished\+Stream}} is successfully created, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file stream\+Manager.\+cpp.
+
+\mbox{\Hypertarget{class_stream_manager_adedc26ebcef4ced3216c93f7bb54f05d}\label{class_stream_manager_adedc26ebcef4ced3216c93f7bb54f05d}} 
+\index{StreamManager@{StreamManager}!get@{get}}
+\index{get@{get}!StreamManager@{StreamManager}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ Stream\+Manager\+::get (\begin{DoxyParamCaption}\item[{unsigned int}]{stream\+ID }\end{DoxyParamCaption})}
+
+Gets the stream of a given unique\+ID
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream\+ID} & the unique\+ID of the stream to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the stream that has parameter stream\+ID 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file stream\+Manager.\+cpp.
+
+\mbox{\Hypertarget{class_stream_manager_aa92f7c0d5bb9366fa3f3662c14ff47cd}\label{class_stream_manager_aa92f7c0d5bb9366fa3f3662c14ff47cd}} 
+\index{StreamManager@{StreamManager}!getCacheOfFinishedStreams@{getCacheOfFinishedStreams}}
+\index{getCacheOfFinishedStreams@{getCacheOfFinishedStreams}!StreamManager@{StreamManager}}
+\doxysubsubsection{\texorpdfstring{getCacheOfFinishedStreams()}{getCacheOfFinishedStreams()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ $>$ \& Stream\+Manager\+::get\+Cache\+Of\+Finished\+Streams (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the cache of finished streams
+
+\begin{DoxyReturn}{Returns}
+vector of cache of finished streams 
+\end{DoxyReturn}
+
+
+Definition at line 114 of file stream\+Manager.\+cpp.
+
+\mbox{\Hypertarget{class_stream_manager_a561cfe476176b4132e1ef24cae6312a9}\label{class_stream_manager_a561cfe476176b4132e1ef24cae6312a9}} 
+\index{StreamManager@{StreamManager}!getNumOfViewers@{getNumOfViewers}}
+\index{getNumOfViewers@{getNumOfViewers}!StreamManager@{StreamManager}}
+\doxysubsubsection{\texorpdfstring{getNumOfViewers()}{getNumOfViewers()}}
+{\footnotesize\ttfamily unsigned int Stream\+Manager\+::get\+Num\+Of\+Viewers (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \&}]{stream\+To\+Finish }\end{DoxyParamCaption})}
+
+Getter of the number of viewers of a stream that is to be finished at its end
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream\+To\+Finish} & stream that is to be finished \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of viewers of stream\+To\+Finish at its end 
+\end{DoxyReturn}
+
+
+Definition at line 102 of file stream\+Manager.\+cpp.
+
+\mbox{\Hypertarget{class_stream_manager_a967a563f32d327fab89f926de2bccde1}\label{class_stream_manager_a967a563f32d327fab89f926de2bccde1}} 
+\index{StreamManager@{StreamManager}!getStreams@{getStreams}}
+\index{getStreams@{getStreams}!StreamManager@{StreamManager}}
+\doxysubsubsection{\texorpdfstring{getStreams()}{getStreams()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ $>$ \& Stream\+Manager\+::get\+Streams (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the streams vector
+
+\begin{DoxyReturn}{Returns}
+vector of streams 
+\end{DoxyReturn}
+
+
+Definition at line 110 of file stream\+Manager.\+cpp.
+
+\mbox{\Hypertarget{class_stream_manager_af0786c35537060f665857e917bd502f5}\label{class_stream_manager_af0786c35537060f665857e917bd502f5}} 
+\index{StreamManager@{StreamManager}!has@{has}}
+\index{has@{has}!StreamManager@{StreamManager}}
+\doxysubsubsection{\texorpdfstring{has()}{has()}}
+{\footnotesize\ttfamily bool Stream\+Manager\+::has (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \&}]{stream\+To\+Check }\end{DoxyParamCaption})}
+
+Checks if a stream is in the streams vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream\+To\+Check} & stream to look for in the vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if stream is in the vector, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file stream\+Manager.\+cpp.
+
+\mbox{\Hypertarget{class_stream_manager_ad15ef878f0903bd9f44b1f3506451539}\label{class_stream_manager_ad15ef878f0903bd9f44b1f3506451539}} 
+\index{StreamManager@{StreamManager}!readData@{readData}}
+\index{readData@{readData}!StreamManager@{StreamManager}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily bool Stream\+Manager\+::read\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 119 of file stream\+Manager.\+cpp.
+
+\mbox{\Hypertarget{class_stream_manager_a6b03129db42b9e3200f7a13401af321b}\label{class_stream_manager_a6b03129db42b9e3200f7a13401af321b}} 
+\index{StreamManager@{StreamManager}!remove@{remove}}
+\index{remove@{remove}!StreamManager@{StreamManager}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily bool Stream\+Manager\+::remove (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \&}]{stream\+To\+Remove }\end{DoxyParamCaption})}
+
+Removes a stream from the streams vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream\+To\+Remove} & stream to be removed from the vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if stream is removed, false if it isn\textquotesingle{}t in the vector 
+\end{DoxyReturn}
+
+
+Definition at line 53 of file stream\+Manager.\+cpp.
+
+\mbox{\Hypertarget{class_stream_manager_acfc80749d45134d8064416fd3b43f2c3}\label{class_stream_manager_acfc80749d45134d8064416fd3b43f2c3}} 
+\index{StreamManager@{StreamManager}!setStreamerManager@{setStreamerManager}}
+\index{setStreamerManager@{setStreamerManager}!StreamManager@{StreamManager}}
+\doxysubsubsection{\texorpdfstring{setStreamerManager()}{setStreamerManager()}}
+{\footnotesize\ttfamily void Stream\+Manager\+::set\+Streamer\+Manager (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer_manager}{Streamer\+Manager}} $>$}]{new\+Streamer\+Manager }\end{DoxyParamCaption})}
+
+Sets/\+Updates the \mbox{\hyperlink{class_stream_manager}{Stream\+Manager}}\textquotesingle{}s streamer manager
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Streamer\+Manager} & new streamer manager \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 205 of file stream\+Manager.\+cpp.
+
+\mbox{\Hypertarget{class_stream_manager_accfe888b95aa5b47e1681c965180ce99}\label{class_stream_manager_accfe888b95aa5b47e1681c965180ce99}} 
+\index{StreamManager@{StreamManager}!writeData@{writeData}}
+\index{writeData@{writeData}!StreamManager@{StreamManager}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}}
+{\footnotesize\ttfamily bool Stream\+Manager\+::write\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 165 of file stream\+Manager.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+model/stream/\mbox{\hyperlink{stream_manager_8h}{stream\+Manager.\+h}}\item 
+model/stream/\mbox{\hyperlink{stream_manager_8cpp}{stream\+Manager.\+cpp}}\end{DoxyCompactItemize}

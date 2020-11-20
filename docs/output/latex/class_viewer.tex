@@ -1,0 +1,379 @@
+\hypertarget{class_viewer}{}\doxysection{Viewer Class Reference}
+\label{class_viewer}\index{Viewer@{Viewer}}
+
+
+{\ttfamily \#include $<$viewer.\+h$>$}
+
+
+
+Inheritance diagram for Viewer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{class_viewer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Viewer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{class_viewer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_viewer_aaedebacb31cba87de6e7d448ed8d6586}{Viewer}} ()
+\item 
+\mbox{\hyperlink{class_viewer_a2679997b52f8f77fc43c417596550bd6}{Viewer}} (\mbox{\hyperlink{class_date}{Date}} \mbox{\hyperlink{class_user_ab7c87186af8bdb92822402b2e93e9b64}{birth\+Date}}, std\+::string \mbox{\hyperlink{class_user_a085d8d69282b6298964eab8351584536}{name}}, std\+::string \mbox{\hyperlink{class_user_aebdb6953485740c33307118f91156832}{nickname}}, std\+::string \mbox{\hyperlink{class_user_ac2f2e75b15e8eb6cbb030fc85a6cd59f}{password}})
+\item 
+bool \mbox{\hyperlink{class_viewer_a669c1e0f55e415465b3ba8c88dfff0d7}{join\+Stream}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \&stream)
+\item 
+bool \mbox{\hyperlink{class_viewer_a6e34790e0352be2473e94f3ba23baeaf}{is\+Watching\+Stream}} () const
+\item 
+bool \mbox{\hyperlink{class_viewer_a05fe20c0b78f0539930eca0ad0e67f05}{leave\+Current\+Stream}} ()
+\item 
+bool \mbox{\hyperlink{class_viewer_a665507d163b48d7ec66e6d88b6ef56d4}{give\+Feedback\+To\+Stream}} (enum \mbox{\hyperlink{stream_8h_acc1bd428b88d5491352f4fadc1eccd6e}{Feedback\+Like\+System}} feedback)
+\item 
+bool \mbox{\hyperlink{class_viewer_adbd92f8cddd5f74fe128c13b8b8418c1}{give\+Feedback\+To\+Stream}} (const std\+::string \&comment)
+\item 
+bool \mbox{\hyperlink{class_viewer_abf65cbba6d953d882ab77e7cb9bb56ff}{follow\+Streamer}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&streamer)
+\item 
+bool \mbox{\hyperlink{class_viewer_a51c1d5e2583a05f1132f2b4e7325bab2}{unfollow\+Streamer}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&streamer)
+\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \& \mbox{\hyperlink{class_viewer_acb60572fbf42fba81b227ad8468ab0cd}{get\+Current\+Stream}} () const
+\item 
+std\+::map$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$, \mbox{\hyperlink{stream_8h_acc1bd428b88d5491352f4fadc1eccd6e}{Feedback\+Like\+System}} $>$ \& \mbox{\hyperlink{class_viewer_af3f5c79df5dc47663e2f09dac396eb5c}{get\+Stream\+History}} ()
+\item 
+const std\+::unordered\+\_\+set$<$ std\+::string $>$ \& \mbox{\hyperlink{class_viewer_af7902e4ef5bb35e4806b319361292ee3}{get\+Following\+Streamers}} () const
+\item 
+void \mbox{\hyperlink{class_viewer_afc0e136ded90c3ff15116f0f3b722eb7}{read\+Data}} (std\+::ifstream \&ist, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream_manager}{Stream\+Manager}} $>$ \&stream\+Manager)
+\item 
+void \mbox{\hyperlink{class_viewer_a2e6b392f622fa1db1d3c9824088ed5ac}{write\+Data}} (std\+::ofstream \&ost) override
+\item 
+bool \mbox{\hyperlink{class_viewer_a3a1450fc80b4c9364260365ffe02285c}{operator$<$}} (const \mbox{\hyperlink{class_viewer}{Viewer}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_viewer_a06757b91211d3c027737a15b1bdb3b93}{operator$>$}} (const \mbox{\hyperlink{class_viewer}{Viewer}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_viewer_a81490b7f58b621c97086adc5c83fd8c9}{operator$<$=}} (const \mbox{\hyperlink{class_viewer}{Viewer}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_viewer_a5ccc6bc69d3e5249f67c5ed3d3802f9a}{operator==}} (const \mbox{\hyperlink{class_viewer}{Viewer}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_viewer_a2c84b5dbd1052fd321945be3557aaa83}{operator!=}} (const \mbox{\hyperlink{class_viewer}{Viewer}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_viewer_acb814683a5b9f7a002e7883d17f6e935}{operator$>$=}} (const \mbox{\hyperlink{class_viewer}{Viewer}} \&rhs) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 21 of file viewer.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_viewer_aaedebacb31cba87de6e7d448ed8d6586}\label{class_viewer_aaedebacb31cba87de6e7d448ed8d6586}} 
+\index{Viewer@{Viewer}!Viewer@{Viewer}}
+\index{Viewer@{Viewer}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{Viewer()}{Viewer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Viewer\+::\+Viewer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_a2679997b52f8f77fc43c417596550bd6}\label{class_viewer_a2679997b52f8f77fc43c417596550bd6}} 
+\index{Viewer@{Viewer}!Viewer@{Viewer}}
+\index{Viewer@{Viewer}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{Viewer()}{Viewer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Viewer\+::\+Viewer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_date}{Date}}}]{birth\+Date,  }\item[{std\+::string}]{name,  }\item[{std\+::string}]{nickname,  }\item[{std\+::string}]{password }\end{DoxyParamCaption})}
+
+Constructor of the \mbox{\hyperlink{class_viewer}{Viewer}} Class
+
+
+\begin{DoxyParams}{Parameters}
+{\em birth\+Date} & the birth date of the viewer \\
+\hline
+{\em name} & the name of the viewer \\
+\hline
+{\em nickname} & the nickname of the viewer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 14 of file viewer.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_viewer_abf65cbba6d953d882ab77e7cb9bb56ff}\label{class_viewer_abf65cbba6d953d882ab77e7cb9bb56ff}} 
+\index{Viewer@{Viewer}!followStreamer@{followStreamer}}
+\index{followStreamer@{followStreamer}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{followStreamer()}{followStreamer()}}
+{\footnotesize\ttfamily bool Viewer\+::follow\+Streamer (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&}]{streamer }\end{DoxyParamCaption})}
+
+Follows a new streamer
+
+
+\begin{DoxyParams}{Parameters}
+{\em streamer} & the streamer to follow \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the viewer can follow the given streamer, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 73 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_acb60572fbf42fba81b227ad8468ab0cd}\label{class_viewer_acb60572fbf42fba81b227ad8468ab0cd}} 
+\index{Viewer@{Viewer}!getCurrentStream@{getCurrentStream}}
+\index{getCurrentStream@{getCurrentStream}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{getCurrentStream()}{getCurrentStream()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \& Viewer\+::get\+Current\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of current stream
+
+\begin{DoxyReturn}{Returns}
+the current stream 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_af7902e4ef5bb35e4806b319361292ee3}\label{class_viewer_af7902e4ef5bb35e4806b319361292ee3}} 
+\index{Viewer@{Viewer}!getFollowingStreamers@{getFollowingStreamers}}
+\index{getFollowingStreamers@{getFollowingStreamers}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{getFollowingStreamers()}{getFollowingStreamers()}}
+{\footnotesize\ttfamily const std\+::unordered\+\_\+set$<$ std\+::string $>$ \& Viewer\+::get\+Following\+Streamers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the following streamers unordered set
+
+\begin{DoxyReturn}{Returns}
+the unordered set of the following streamers 
+\end{DoxyReturn}
+
+
+Definition at line 95 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_af3f5c79df5dc47663e2f09dac396eb5c}\label{class_viewer_af3f5c79df5dc47663e2f09dac396eb5c}} 
+\index{Viewer@{Viewer}!getStreamHistory@{getStreamHistory}}
+\index{getStreamHistory@{getStreamHistory}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{getStreamHistory()}{getStreamHistory()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$, \mbox{\hyperlink{stream_8h_acc1bd428b88d5491352f4fadc1eccd6e}{Feedback\+Like\+System}} $>$ \& Viewer\+::get\+Stream\+History (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter of the stream history
+
+\begin{DoxyReturn}{Returns}
+the stream history 
+\end{DoxyReturn}
+
+
+Definition at line 91 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_adbd92f8cddd5f74fe128c13b8b8418c1}\label{class_viewer_adbd92f8cddd5f74fe128c13b8b8418c1}} 
+\index{Viewer@{Viewer}!giveFeedbackToStream@{giveFeedbackToStream}}
+\index{giveFeedbackToStream@{giveFeedbackToStream}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{giveFeedbackToStream()}{giveFeedbackToStream()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Viewer\+::give\+Feedback\+To\+Stream (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{comment }\end{DoxyParamCaption})}
+
+Gives a comment to a given stream
+
+
+\begin{DoxyParams}{Parameters}
+{\em comment} & the comment to be given to a stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the comment was given successfully, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_a665507d163b48d7ec66e6d88b6ef56d4}\label{class_viewer_a665507d163b48d7ec66e6d88b6ef56d4}} 
+\index{Viewer@{Viewer}!giveFeedbackToStream@{giveFeedbackToStream}}
+\index{giveFeedbackToStream@{giveFeedbackToStream}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{giveFeedbackToStream()}{giveFeedbackToStream()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Viewer\+::give\+Feedback\+To\+Stream (\begin{DoxyParamCaption}\item[{enum \mbox{\hyperlink{stream_8h_acc1bd428b88d5491352f4fadc1eccd6e}{Feedback\+Like\+System}}}]{feedback }\end{DoxyParamCaption})}
+
+Gives feedback to a given stream
+
+
+\begin{DoxyParams}{Parameters}
+{\em feedback} & the feedback to be given to a stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the feedback was given successfully, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_a6e34790e0352be2473e94f3ba23baeaf}\label{class_viewer_a6e34790e0352be2473e94f3ba23baeaf}} 
+\index{Viewer@{Viewer}!isWatchingStream@{isWatchingStream}}
+\index{isWatchingStream@{isWatchingStream}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{isWatchingStream()}{isWatchingStream()}}
+{\footnotesize\ttfamily bool Viewer\+::is\+Watching\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Checks if the viewer is watching a stream
+
+\begin{DoxyReturn}{Returns}
+True if the viewer is watching a stream, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 33 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_a669c1e0f55e415465b3ba8c88dfff0d7}\label{class_viewer_a669c1e0f55e415465b3ba8c88dfff0d7}} 
+\index{Viewer@{Viewer}!joinStream@{joinStream}}
+\index{joinStream@{joinStream}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{joinStream()}{joinStream()}}
+{\footnotesize\ttfamily bool Viewer\+::join\+Stream (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \&}]{stream }\end{DoxyParamCaption})}
+
+Joins/\+Sets the current stream
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & the stream to join \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_a05fe20c0b78f0539930eca0ad0e67f05}\label{class_viewer_a05fe20c0b78f0539930eca0ad0e67f05}} 
+\index{Viewer@{Viewer}!leaveCurrentStream@{leaveCurrentStream}}
+\index{leaveCurrentStream@{leaveCurrentStream}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{leaveCurrentStream()}{leaveCurrentStream()}}
+{\footnotesize\ttfamily bool Viewer\+::leave\+Current\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Leaves the current stream
+
+\begin{DoxyReturn}{Returns}
+True if the viewer was watching a stream (and leaves successfully), false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_a2c84b5dbd1052fd321945be3557aaa83}\label{class_viewer_a2c84b5dbd1052fd321945be3557aaa83}} 
+\index{Viewer@{Viewer}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Viewer\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_viewer}{Viewer}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 135 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_a3a1450fc80b4c9364260365ffe02285c}\label{class_viewer_a3a1450fc80b4c9364260365ffe02285c}} 
+\index{Viewer@{Viewer}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Viewer\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_viewer}{Viewer}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 99 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_a81490b7f58b621c97086adc5c83fd8c9}\label{class_viewer_a81490b7f58b621c97086adc5c83fd8c9}} 
+\index{Viewer@{Viewer}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool Viewer\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_viewer}{Viewer}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 123 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_a5ccc6bc69d3e5249f67c5ed3d3802f9a}\label{class_viewer_a5ccc6bc69d3e5249f67c5ed3d3802f9a}} 
+\index{Viewer@{Viewer}!operator==@{operator==}}
+\index{operator==@{operator==}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Viewer\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_viewer}{Viewer}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 131 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_a06757b91211d3c027737a15b1bdb3b93}\label{class_viewer_a06757b91211d3c027737a15b1bdb3b93}} 
+\index{Viewer@{Viewer}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Viewer\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_viewer}{Viewer}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 119 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_acb814683a5b9f7a002e7883d17f6e935}\label{class_viewer_acb814683a5b9f7a002e7883d17f6e935}} 
+\index{Viewer@{Viewer}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool Viewer\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_viewer}{Viewer}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 127 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_afc0e136ded90c3ff15116f0f3b722eb7}\label{class_viewer_afc0e136ded90c3ff15116f0f3b722eb7}} 
+\index{Viewer@{Viewer}!readData@{readData}}
+\index{readData@{readData}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily void Viewer\+::read\+Data (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{ist,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream_manager}{Stream\+Manager}} $>$ \&}]{stream\+Manager }\end{DoxyParamCaption})}
+
+
+
+Definition at line 139 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_a51c1d5e2583a05f1132f2b4e7325bab2}\label{class_viewer_a51c1d5e2583a05f1132f2b4e7325bab2}} 
+\index{Viewer@{Viewer}!unfollowStreamer@{unfollowStreamer}}
+\index{unfollowStreamer@{unfollowStreamer}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{unfollowStreamer()}{unfollowStreamer()}}
+{\footnotesize\ttfamily bool Viewer\+::unfollow\+Streamer (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&}]{streamer }\end{DoxyParamCaption})}
+
+Unfollows a new streamer
+
+
+\begin{DoxyParams}{Parameters}
+{\em streamer} & the streamer to unfollow \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the viewer can unfollow the given streamer, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_a2e6b392f622fa1db1d3c9824088ed5ac}\label{class_viewer_a2e6b392f622fa1db1d3c9824088ed5ac}} 
+\index{Viewer@{Viewer}!writeData@{writeData}}
+\index{writeData@{writeData}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}}
+{\footnotesize\ttfamily void Viewer\+::write\+Data (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{ost }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_user_a3efd848398bcda7686ed2ae03ec1f99a}{User}}.
+
+
+
+Definition at line 166 of file viewer.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+model/user/viewer/\mbox{\hyperlink{viewer_8h}{viewer.\+h}}\item 
+model/user/viewer/\mbox{\hyperlink{viewer_8cpp}{viewer.\+cpp}}\end{DoxyCompactItemize}

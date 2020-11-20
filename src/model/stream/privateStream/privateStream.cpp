@@ -24,7 +24,7 @@ bool PrivateStream::addToWhitelist(const std::shared_ptr<Viewer>& v){
         whitelist.push_back(v_nick);
         return true;
     }
-    throw NicknameAlreadyAdded(v_nick, "Viewer you're trying to add is already in the whitelist!");
+    throw NicknameAlreadyAdded(v_nick, "Viewer you're trying to add is already on the whitelist!");
 }
 
 bool PrivateStream::removeFromWhitelist(const std::shared_ptr<Viewer>& v){
@@ -34,7 +34,7 @@ bool PrivateStream::removeFromWhitelist(const std::shared_ptr<Viewer>& v){
         whitelist.erase(itr);
         return true;
     }
-    throw NicknameNotFound(v_nick, "Viewer is not in the whitelist!");
+    throw NicknameNotFound(v_nick, "Viewer is not on the whitelist!");
 }
 
 bool PrivateStream::setMaxNumViewers(unsigned int maxNumViewers) {

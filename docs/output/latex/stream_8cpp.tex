@@ -1,0 +1,117 @@
+\hypertarget{stream_8cpp}{}\doxysection{model/stream/stream.cpp File Reference}
+\label{stream_8cpp}\index{model/stream/stream.cpp@{model/stream/stream.cpp}}
+{\ttfamily \#include \char`\"{}stream.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../exception/invalid\+Feedback/invalid\+Feedback.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../user/streamer/streamer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../user/viewer/viewer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../user/streamer/streamer\+\_\+manager.\+h\char`\"{}}\newline
+Include dependency graph for stream.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stream_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{stream_8cpp_ad3c7d4ac195258058dffccae6855a26a}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{stream_8h_a9883873f20a172b9474ee43f231ba57d}{Stream\+Language}} \&f)
+\item 
+std\+::ostream \& \mbox{\hyperlink{stream_8cpp_a58bac6e4c326c24f3ec79bb68f0c2473}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{stream_8h_a8a65141d9ea4bf9d2e2377ed6b888a1d}{Stream\+Type}} \&f)
+\item 
+std\+::ostream \& \mbox{\hyperlink{stream_8cpp_a145e41b5d469408c04dcae8d521682ad}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{stream_8h_a50c657d7a1d55d9ab32aa729de847e79}{Stream\+Genre}} \&f)
+\item 
+std\+::ostream \& \mbox{\hyperlink{stream_8cpp_a20edae46ad22603618d39483828a2e30}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{stream_8h_acc1bd428b88d5491352f4fadc1eccd6e}{Feedback\+Like\+System}} \&f)
+\item 
+std\+::istream \& \mbox{\hyperlink{stream_8cpp_accfce1faeb3430670dfa9fa35644a613}{operator$>$$>$}} (std\+::istream \&inf, \mbox{\hyperlink{stream_8h_a9883873f20a172b9474ee43f231ba57d}{Stream\+Language}} \&f)
+\item 
+std\+::istream \& \mbox{\hyperlink{stream_8cpp_ad4ddcdcabf70ec6e0d82becc1bd753cd}{operator$>$$>$}} (std\+::istream \&inf, \mbox{\hyperlink{stream_8h_a50c657d7a1d55d9ab32aa729de847e79}{Stream\+Genre}} \&f)
+\item 
+std\+::istream \& \mbox{\hyperlink{stream_8cpp_a952b1209e99b8838d3f83d9d9348827d}{operator$>$$>$}} (std\+::istream \&inf, \mbox{\hyperlink{stream_8h_a8a65141d9ea4bf9d2e2377ed6b888a1d}{Stream\+Type}} \&f)
+\item 
+std\+::istream \& \mbox{\hyperlink{stream_8cpp_a54caf7d31fcc927bb7855c6b0da35b53}{operator$>$$>$}} (std\+::istream \&inf, \mbox{\hyperlink{stream_8h_acc1bd428b88d5491352f4fadc1eccd6e}{Feedback\+Like\+System}} \&f)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stream_8cpp_a20edae46ad22603618d39483828a2e30}\label{stream_8cpp_a20edae46ad22603618d39483828a2e30}} 
+\index{stream.cpp@{stream.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!stream.cpp@{stream.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{stream_8h_acc1bd428b88d5491352f4fadc1eccd6e}{Feedback\+Like\+System}} \&}]{f }\end{DoxyParamCaption})}
+
+
+
+Definition at line 266 of file stream.\+cpp.
+
+\mbox{\Hypertarget{stream_8cpp_a145e41b5d469408c04dcae8d521682ad}\label{stream_8cpp_a145e41b5d469408c04dcae8d521682ad}} 
+\index{stream.cpp@{stream.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!stream.cpp@{stream.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{stream_8h_a50c657d7a1d55d9ab32aa729de847e79}{Stream\+Genre}} \&}]{f }\end{DoxyParamCaption})}
+
+
+
+Definition at line 255 of file stream.\+cpp.
+
+\mbox{\Hypertarget{stream_8cpp_ad3c7d4ac195258058dffccae6855a26a}\label{stream_8cpp_ad3c7d4ac195258058dffccae6855a26a}} 
+\index{stream.cpp@{stream.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!stream.cpp@{stream.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{stream_8h_a9883873f20a172b9474ee43f231ba57d}{Stream\+Language}} \&}]{f }\end{DoxyParamCaption})}
+
+
+
+Definition at line 226 of file stream.\+cpp.
+
+\mbox{\Hypertarget{stream_8cpp_a58bac6e4c326c24f3ec79bb68f0c2473}\label{stream_8cpp_a58bac6e4c326c24f3ec79bb68f0c2473}} 
+\index{stream.cpp@{stream.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!stream.cpp@{stream.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{stream_8h_a8a65141d9ea4bf9d2e2377ed6b888a1d}{Stream\+Type}} \&}]{f }\end{DoxyParamCaption})}
+
+
+
+Definition at line 245 of file stream.\+cpp.
+
+\mbox{\Hypertarget{stream_8cpp_a54caf7d31fcc927bb7855c6b0da35b53}\label{stream_8cpp_a54caf7d31fcc927bb7855c6b0da35b53}} 
+\index{stream.cpp@{stream.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!stream.cpp@{stream.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{inf,  }\item[{\mbox{\hyperlink{stream_8h_acc1bd428b88d5491352f4fadc1eccd6e}{Feedback\+Like\+System}} \&}]{f }\end{DoxyParamCaption})}
+
+
+
+Definition at line 312 of file stream.\+cpp.
+
+\mbox{\Hypertarget{stream_8cpp_ad4ddcdcabf70ec6e0d82becc1bd753cd}\label{stream_8cpp_ad4ddcdcabf70ec6e0d82becc1bd753cd}} 
+\index{stream.cpp@{stream.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!stream.cpp@{stream.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{inf,  }\item[{\mbox{\hyperlink{stream_8h_a50c657d7a1d55d9ab32aa729de847e79}{Stream\+Genre}} \&}]{f }\end{DoxyParamCaption})}
+
+
+
+Definition at line 292 of file stream.\+cpp.
+
+\mbox{\Hypertarget{stream_8cpp_accfce1faeb3430670dfa9fa35644a613}\label{stream_8cpp_accfce1faeb3430670dfa9fa35644a613}} 
+\index{stream.cpp@{stream.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!stream.cpp@{stream.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{inf,  }\item[{\mbox{\hyperlink{stream_8h_a9883873f20a172b9474ee43f231ba57d}{Stream\+Language}} \&}]{f }\end{DoxyParamCaption})}
+
+
+
+Definition at line 276 of file stream.\+cpp.
+
+\mbox{\Hypertarget{stream_8cpp_a952b1209e99b8838d3f83d9d9348827d}\label{stream_8cpp_a952b1209e99b8838d3f83d9d9348827d}} 
+\index{stream.cpp@{stream.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!stream.cpp@{stream.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{inf,  }\item[{\mbox{\hyperlink{stream_8h_a8a65141d9ea4bf9d2e2377ed6b888a1d}{Stream\+Type}} \&}]{f }\end{DoxyParamCaption})}
+
+
+
+Definition at line 302 of file stream.\+cpp.
+

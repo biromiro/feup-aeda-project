@@ -1,0 +1,28 @@
+<map id="model/user" name="model/user">
+<area shape="rect" id="node2" href="dir_b273ca1f28d5ccd2d4b74fb68f96fd73.html" title="admin" alt="" coords="216,184,288,232"/>
+<area shape="rect" id="edge14-headlabel" href="dir_000023_000024.html" title="1" alt="" coords="254,158,263,173"/>
+<area shape="rect" id="node6" href="dir_cbdb8362360e11eafe2fa3bc74cf0ffd.html" title="utils" alt="" coords="5,88,77,136"/>
+<area shape="rect" id="edge13-headlabel" href="dir_000023_000036.html" title="1" alt="" coords="60,68,70,83"/>
+<area shape="rect" id="node5" href="dir_5834c169ac818fb4b61d1b6f37638e83.html" title="exception" alt="" coords="107,280,194,328"/>
+<area shape="rect" id="edge10-headlabel" href="dir_000024_000001.html" title="2" alt="" coords="182,266,191,281"/>
+<area shape="rect" id="node3" href="dir_8ebdef59c8245e86eea0f9b57efe45ef.html" title="streamer" alt="" coords="110,184,191,232"/>
+<area shape="rect" id="edge11-headlabel" href="dir_000025_000001.html" title="4" alt="" coords="145,254,155,269"/>
+<area shape="rect" id="node7" href="dir_945065c05b1117744949764d028a337c.html" title="stream" alt="" coords="5,184,77,232"/>
+<area shape="rect" id="edge12-headlabel" href="dir_000025_000018.html" title="2" alt="" coords="91,209,100,224"/>
+<area shape="rect" id="node4" href="dir_644f34ac0c5446e61915d8179ebf8892.html" title="viewer" alt="" coords="112,88,184,136"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000026_000025.html" title="1" alt="" coords="153,158,163,173"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000026_000001.html" title="5" alt="" coords="209,300,218,315"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000026_000018.html" title="3" alt="" coords="74,171,83,185"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000001_000024.html" title="2" alt="" coords="211,232,221,247"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000001_000025.html" title="1" alt="" coords="147,244,156,259"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000001_000018.html" title="3" alt="" coords="80,243,90,258"/>
+<area shape="rect" id="edge8-headlabel" href="dir_000036_000025.html" title="1" alt="" coords="111,159,120,173"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000036_000026.html" title="1" alt="" coords="89,97,98,111"/>
+<area shape="rect" id="edge9-headlabel" href="dir_000036_000018.html" title="1" alt="" coords="36,158,45,173"/>
+<area shape="rect" id="edge18-headlabel" href="dir_000018_000025.html" title="3" alt="" coords="87,193,96,207"/>
+<area shape="rect" id="edge15-headlabel" href="dir_000018_000026.html" title="3" alt="" coords="106,136,115,150"/>
+<area shape="rect" id="edge16-headlabel" href="dir_000018_000001.html" title="10" alt="" coords="99,255,116,270"/>
+<area shape="rect" id="edge17-headlabel" href="dir_000018_000036.html" title="1" alt="" coords="37,148,47,163"/>
+<area shape="rect" id="clust2" href="dir_e03d79b9112c2c2c21b57db8fdec5070.html" alt="" coords="99,78,299,243"/>
+<area shape="rect" id="clust1" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html" title="model" alt="" coords="88,42,309,254"/>
+</map>

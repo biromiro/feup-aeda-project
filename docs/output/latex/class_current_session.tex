@@ -1,0 +1,100 @@
+\hypertarget{class_current_session}{}\doxysection{Current\+Session Class Reference}
+\label{class_current_session}\index{CurrentSession@{CurrentSession}}
+
+
+{\ttfamily \#include $<$current\+Session.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_current_session_aa52a2762f8fa81de13600dbe2b478055}{Current\+Session}} ()
+\item 
+\mbox{\hyperlink{class_current_session_a8ce3c90540ca36f5c11fd9408464533f}{Current\+Session}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_manager}{User\+Manager}} $>$ user\+Manager)
+\item 
+bool \mbox{\hyperlink{class_current_session_a31af92b5945f4ecec02e9b239e84aa86}{login}} (std\+::string nickname, const std\+::string \&password)
+\item 
+bool \mbox{\hyperlink{class_current_session_a7f5c52f1a5ef349a910eb9d76dfbf7bb}{logout}} ()
+\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ \& \mbox{\hyperlink{class_current_session_a644f6676cda64fd1bb3d8162ef492313}{get\+Current\+User}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_current_session_a668144e5256641be596f7c5c306eb9f3}{get\+Nickname}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 11 of file current\+Session.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_current_session_aa52a2762f8fa81de13600dbe2b478055}\label{class_current_session_aa52a2762f8fa81de13600dbe2b478055}} 
+\index{CurrentSession@{CurrentSession}!CurrentSession@{CurrentSession}}
+\index{CurrentSession@{CurrentSession}!CurrentSession@{CurrentSession}}
+\doxysubsubsection{\texorpdfstring{CurrentSession()}{CurrentSession()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Current\+Session\+::\+Current\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 7 of file current\+Session.\+cpp.
+
+\mbox{\Hypertarget{class_current_session_a8ce3c90540ca36f5c11fd9408464533f}\label{class_current_session_a8ce3c90540ca36f5c11fd9408464533f}} 
+\index{CurrentSession@{CurrentSession}!CurrentSession@{CurrentSession}}
+\index{CurrentSession@{CurrentSession}!CurrentSession@{CurrentSession}}
+\doxysubsubsection{\texorpdfstring{CurrentSession()}{CurrentSession()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Current\+Session\+::\+Current\+Session (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_manager}{User\+Manager}} $>$}]{user\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line 9 of file current\+Session.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_current_session_a644f6676cda64fd1bb3d8162ef492313}\label{class_current_session_a644f6676cda64fd1bb3d8162ef492313}} 
+\index{CurrentSession@{CurrentSession}!getCurrentUser@{getCurrentUser}}
+\index{getCurrentUser@{getCurrentUser}!CurrentSession@{CurrentSession}}
+\doxysubsubsection{\texorpdfstring{getCurrentUser()}{getCurrentUser()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ \& Current\+Session\+::get\+Current\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 32 of file current\+Session.\+cpp.
+
+\mbox{\Hypertarget{class_current_session_a668144e5256641be596f7c5c306eb9f3}\label{class_current_session_a668144e5256641be596f7c5c306eb9f3}} 
+\index{CurrentSession@{CurrentSession}!getNickname@{getNickname}}
+\index{getNickname@{getNickname}!CurrentSession@{CurrentSession}}
+\doxysubsubsection{\texorpdfstring{getNickname()}{getNickname()}}
+{\footnotesize\ttfamily std\+::string Current\+Session\+::get\+Nickname (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 28 of file current\+Session.\+cpp.
+
+\mbox{\Hypertarget{class_current_session_a31af92b5945f4ecec02e9b239e84aa86}\label{class_current_session_a31af92b5945f4ecec02e9b239e84aa86}} 
+\index{CurrentSession@{CurrentSession}!login@{login}}
+\index{login@{login}!CurrentSession@{CurrentSession}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily bool Current\+Session\+::login (\begin{DoxyParamCaption}\item[{std\+::string}]{nickname,  }\item[{const std\+::string \&}]{password }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file current\+Session.\+cpp.
+
+\mbox{\Hypertarget{class_current_session_a7f5c52f1a5ef349a910eb9d76dfbf7bb}\label{class_current_session_a7f5c52f1a5ef349a910eb9d76dfbf7bb}} 
+\index{CurrentSession@{CurrentSession}!logout@{logout}}
+\index{logout@{logout}!CurrentSession@{CurrentSession}}
+\doxysubsubsection{\texorpdfstring{logout()}{logout()}}
+{\footnotesize\ttfamily bool Current\+Session\+::logout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 20 of file current\+Session.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+auth/\mbox{\hyperlink{current_session_8h}{current\+Session.\+h}}\item 
+auth/\mbox{\hyperlink{current_session_8cpp}{current\+Session.\+cpp}}\end{DoxyCompactItemize}

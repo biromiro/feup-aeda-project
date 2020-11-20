@@ -10,9 +10,34 @@
 #include <memory>
 #include "../../model/user/user.h"
 
+/**
+ * @file userAlreadyExists.cpp
+ *
+ * @brief Exception for the case where the user being created already exists
+ *
+ * @ingroup exception
+ */
+
+/**
+ * Implementation of the exception for when a user being created already exists
+ *
+ * Informs the user that the user being created already exists
+ */
 class UserAlreadyExists : public std::invalid_argument{
 public:
+    /**
+     * Constructor of the UserAlreadyExists class
+     *
+     * @param user user that can't be created because he already exists
+     * @param message message indicating the user being created already exists
+     */
     UserAlreadyExists(std::shared_ptr<User> user, const std::string & message);
+
+    /**
+     * Getter of the user that already exists
+     *
+     * @return user that already exists
+     */
     [[nodiscard]] const std::shared_ptr<User> &getUser() const;
 
 private:
