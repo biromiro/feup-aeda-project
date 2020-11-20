@@ -1,4 +1,4 @@
-6
+8
 0
 1
 1
@@ -65,3 +65,21 @@ INVALID_VOTE
 Olá amigos
 muitofixe
 123456
+5
+0
+0
+LIKE
+2001/04/24
+2020/11/20
+Brocolo
+bdmendes
+leviosa
+5
+0
+0
+LIKE
+2001/01/21
+2020/11/20
+Adelaide
+laidinha
+quete
