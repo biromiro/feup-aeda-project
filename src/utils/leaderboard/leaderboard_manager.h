@@ -175,8 +175,20 @@ public:
      */
     static Leaderboard<std::shared_ptr<Viewer>> sortViewers(const Leaderboard<std::shared_ptr<Viewer>>& lb);
 
+    /**
+     * Sorts all viewers with a given sorter
+     *
+     * @param sorter the sorter
+     * @return the sorted viewer leaderboard
+     */
     Leaderboard<std::shared_ptr<Viewer>> sortViewerBy(SortViewer sorter);
 
+    /**
+     * Filters all viewers by a given minimum age
+     *
+     * @param age the age to filter
+     * @return the leaderboard of the viewers older than age
+     */
     Leaderboard<std::shared_ptr<Viewer>> filterViewerByAge(unsigned int age);
 
     /**
@@ -194,6 +206,12 @@ public:
      */
     static Leaderboard<std::shared_ptr<User>> sortUsers(const Leaderboard<std::shared_ptr<User>>& lb);
 
+    /**
+     * Sorts all users with a given sorter
+     *
+     * @param sorter the sorter
+     * @return the sorted user leaderboard
+     */
     Leaderboard<std::shared_ptr<User>> sortUserBy(SortUser sorter);
   
     /**
@@ -209,19 +227,87 @@ public:
      * @param lb Leaderboard of streams to sort
      * @return sorted Leaderboard of streams
      */
-  
     static Leaderboard<std::shared_ptr<Stream>> sortStreams(const Leaderboard<std::shared_ptr<Stream>>& lb);
+
+    /**
+    * Sorts all streams with a given sorter
+    *
+    * @param sorter the sorter
+    * @return the sorted stream leaderboard
+    */
     Leaderboard<std::shared_ptr<Stream>> sortStreamsBy(SortStream sorter);
+
+    /**
+     * Sorts a given stream vector with a given sorter
+     *
+     * @param sorter the sorter
+     * @param newLB the vector to sort
+     * @return the sorted stream leaderboard
+     */
     static Leaderboard<std::shared_ptr<Stream>> sortStreamsBy(SortStream sorter, std::vector<std::shared_ptr<Stream>> newLB);
+
+    /**
+     * Gets the top10 streams given a sorter
+     *
+     * @param sorter the sorter
+     * @return the top10 stream leaderboard
+     */
     Leaderboard<std::shared_ptr<Stream>> top10StreamsBy(SortStream sorter);
 
+    /**
+     * Gets the total number of active streams
+     *
+     * @return the total number of active streams
+     */
     unsigned int totalNumberOfStreams();
+
+    /**
+     * Gets the total number of active private streams
+     *
+     * @return the total number of active private streams
+     */
     unsigned int totalNumberOfPrivateStreams();
+
+    /**
+     * Gets the total number of active public streams
+     *
+     * @return the total number of active public streams
+     */
     unsigned int totalNumberOfPublicStreams();
+
+    /**
+     * Gets the mean of views per active stream
+     *
+     * @return the mean of views per active stream
+     */
     unsigned int meanViewsPerStreamActive();
+
+    /**
+     * Gets the mean of views per finished stream
+     *
+     * @return the mean of views per finished stream
+     */
     unsigned int meanViewsPerStreamFinished();
+
+    /**
+     * Gets the most common language
+     *
+     * @return the most common language
+     */
     StreamLanguage mostCommonLanguage();
+
+    /**
+     * Gets the most common type
+     *
+     * @return the most common type
+     */
     StreamType mostCommonType();
+
+    /**
+     * Gets the nickname of the streamer with the most views
+     *
+     * @return the nickname of the streamer with the most views
+     */
     std::string mostViewsStreamer();
 
 private:
