@@ -39,6 +39,12 @@ public:
      */
     bool add(const std::shared_ptr<Viewer>& viewer);
 
+    /**
+    * Reloads viewer into the system when reading from file
+    *
+    * @param viewer viewer to reload into the system
+    * @return true if the streamer was added, throws exception if streamer already exists
+    * */
     bool reload(const std::shared_ptr<Viewer>& viewer);
 
     /**
@@ -80,8 +86,19 @@ public:
      */
     [[nodiscard]] const std::vector<std::shared_ptr<Viewer>> &getViewers() const;
 
+    /**
+     * Reads viewer data from file
+     *
+     * @param streamManager streamManager to correctly add viewers into streams they are watching
+     * @return read successfull
+     * */
     bool readData(const std::shared_ptr<StreamManager>& streamManager);
 
+    /**
+    * Writes and updates viewer data to file
+    *
+    * @return write successfull
+    * */
     bool writeData();
 
 private:

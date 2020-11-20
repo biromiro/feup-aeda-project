@@ -10,6 +10,7 @@ class Admin: public User{
 public:
 
     Admin();
+
     /**
      * Constructor of the Admin class
      *
@@ -19,8 +20,16 @@ public:
      */
     Admin(Date birthDate, std::string name, std::string nickname, std::string password);
 
+    /**
+     * Reads saved admins from File
+     * @param ifs File to read admin data from
+     * */
     void readData(std::ifstream& ifs) override;
 
+    /**
+    * Writes and updates admins to File
+    * @param ifs File to save admins to
+    * */
     void writeData(std::ofstream& ofs) override;
 };
 

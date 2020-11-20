@@ -107,15 +107,67 @@ public:
      */
     const std::unordered_set<std::string> &getFollowingStreamers() const;
 
+    /**
+     * Reads viewer data from file
+     *
+     * @param ist File to read from
+     * @param streamManager streamManager to correctly add viewers into streams they are watching
+     * */
     void readData(std::ifstream &ist, const std::shared_ptr<StreamManager>& streamManager);
 
+    /**
+     * Writes and updates viewer data to file
+     *
+     * @param ost File to write viewer data to
+     * */
     void writeData(std::ofstream &ost) override;
 
+    /**
+     * Overloard of operator < to viewers
+     *
+     * @param rhs given viewer to compare
+     * @return self < given viewer
+     * */
     bool operator<(const Viewer &rhs) const;
+
+    /**
+    * Overloard of operator > to viewers
+    *
+    * @param rhs given viewer to compare
+    * @return self > given viewer
+    * */
     bool operator>(const Viewer &rhs) const;
+
+    /**
+    * Overloard of operator <= to viewers
+    *
+    * @param rhs given viewer to compare
+    * @return self <= given viewer
+    * */
     bool operator<=(const Viewer &rhs) const;
+
+    /**
+    * Overloard of operator == to viewers
+    *
+    * @param rhs given viewer to compare
+    * @return self == given viewer
+    * */
     bool operator==(const Viewer &rhs) const;
+
+    /**
+     * Overloard of operator != to viewers
+    *
+    * @param rhs given viewer to compare
+    * @return self != given viewer
+    * */
     bool operator!=(const Viewer &rhs) const;
+
+    /**
+    * Overloard of operator >= to viewers
+    *
+    * @param rhs given viewer to compare
+    * @return self >= given viewer
+    * */
     bool operator>=(const Viewer &rhs) const;
 
 private:

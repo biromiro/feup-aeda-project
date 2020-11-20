@@ -57,6 +57,11 @@ public:
      */
     [[nodiscard]] const std::string &getNickname() const;
 
+    /**
+     * Getter of user's password
+     *
+     * @return user's password
+     * */
     [[nodiscard]] const std::string &getPassword() const;
 
     /**
@@ -80,6 +85,11 @@ public:
      */
     void updateNickname(const std::string& newNickname);
 
+    /**
+     * Update user's password
+     *
+     * @param password password to replace the current one
+     * */
     void updatePassword(const std::string &password);
 
     /**
@@ -89,15 +99,66 @@ public:
      */
     [[nodiscard]] enum UserTypes getUserType() const;
 
+    /**
+    * Reads user data from file
+    *
+    * @param ifs File to read users from
+    * */
     virtual void readData(std::ifstream& ifs);
 
+    /**
+     * Writes and updates viewer data to file
+    *
+    * @param ofs File to write viewers to
+    * */
     virtual void writeData(std::ofstream& ofs);
 
+    /**
+     * Overloard of operator < to users
+     *
+     * @param rhs given user to compare
+     * @return self < given user
+     * */
     bool operator<(const User &rhs) const;
+
+    /**
+    * Overloard of operator > to viewers
+     *
+    * @param rhs given user to compare
+    * @return self > given
+    * */
     bool operator>(const User &rhs) const;
+
+    /**
+    * Overloard of operator <= to viewers
+    *
+    * @param rhs given user to compare
+    * @return self <= given
+    * */
     bool operator<=(const User &rhs) const;
+
+    /**
+    * Overloard of operator == to viewers
+    *
+    * @param rhs given user to compare
+    * @return self == given
+    * */
     bool operator==(const User &rhs) const;
+
+    /**
+    * Overloard of operator != to viewers
+    *
+    * @param rhs given user to compare
+    * @return self != given
+    * */
     bool operator!=(const User &rhs) const;
+
+    /**
+    * Overloard of operator >= to viewers
+    *
+    * @param rhs given user to compare
+    * @return self >= given
+    * */
     bool operator>=(const User &rhs) const;
 protected:
     explicit User(enum UserTypes type);

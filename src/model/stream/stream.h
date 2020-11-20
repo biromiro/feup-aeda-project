@@ -171,17 +171,75 @@ public:
      */
     [[nodiscard]] StreamGenre getGenre() const;
 
+    /**
+     * Reads saved streams from file
+     *
+     * @param ifs File to read from
+     * @param streamerManager streamerManager to allocate streams to respective streamer
+     */
     virtual void readData(std::ifstream& ifs, const std::shared_ptr<StreamerManager>& streamerManager);
 
+    /**
+     * Stores and updates saved streams to file
+     *
+     * @param ofs File to write to
+     */
     virtual void writeData(std::ofstream& ofs);
 
+    /**
+     * Overload of == operator for pointer to stream
+     *
+     * @param stream stream to compare with self
+     * @return self == stream given
+     * */
     bool operator==(const std::shared_ptr<Stream>& stream) const;
-    
+
+    /**
+     * Overload of == operator for stream
+     *
+     * @param stream stream to compare with self
+     * @return self == stream given
+     * */
     bool operator==(const Stream &rhs) const;
+
+    /**
+     * Overload of != operator for stream
+     *
+     * @param stream stream to compare with self
+     * @return self != stream given
+     * */
     bool operator!=(const Stream &rhs) const;
+
+    /**
+    * Overload of < operator for stream
+    *
+    * @param stream stream to compare with self
+    * @return self < stream given
+    * */
     bool operator<(const Stream &rhs) const;
+
+    /**
+    * Overload of > operator for stream
+    *
+    * @param stream stream to compare with self
+    * @return self > stream given
+    * */
     bool operator>(const Stream &rhs) const;
+
+    /**
+    * Overload of <= operator for stream
+    *
+    * @param stream stream to compare with self
+    * @return self <= stream given
+    * */
     bool operator<=(const Stream &rhs) const;
+
+    /**
+    * Overload of >= operator for stream
+    *
+    * @param stream stream to compare with self
+    * @return self >= stream given
+    * */
     bool operator>=(const Stream &rhs) const;
 
 protected:

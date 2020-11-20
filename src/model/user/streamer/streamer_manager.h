@@ -39,6 +39,12 @@ public:
      */
     bool add(const std::shared_ptr<Streamer>& streamer);
 
+    /**
+     * Reloads streamer into the system when reading from file
+     *
+     * @param streamer streamer to reload into the system
+     * @return true if the streamer was added, throws exception if streamer already exists
+     * */
     bool reload(const std::shared_ptr<Streamer>& streamer);
 
     /**
@@ -81,12 +87,33 @@ public:
     */
     [[nodiscard]] std::shared_ptr<Streamer> get(std::string nickname) const;
 
+    /**
+     * Getter of streamer's number of followers
+     *
+     * @param streamer streamer to get number of followers from
+     * @return number of followers
+     * */
     [[nodiscard]] unsigned int getNumOfFollowers(const std::shared_ptr<Streamer>& streamer) const;
 
+    /**
+     * Getter of streamers currently in the system
+     *
+     * @return vector of streamers
+     * */
     [[nodiscard]] const std::vector<std::shared_ptr<Streamer>> &getStreamers() const;
 
+    /**
+     * Reads streamer data from file
+     *
+     * @return read successfull
+     * */
     bool readData();
 
+    /**
+     * Writes and updates streamer data to file
+     *
+     * @return write successfull
+     * */
     bool writeData();
 
 private:
