@@ -12,10 +12,10 @@ ptrv2001
 muitofixemieu
 0
 2
-4
-LIKE
 1
 DISLIKE
+4
+LIKE
 0
 INVALID_VOTE
 2000/10/18
@@ -48,8 +48,8 @@ LIKE
 2
 LIKE
 2
-biromiro
 mkay
+biromiro
 LIKE
 2001/08/21
 2020/11/16

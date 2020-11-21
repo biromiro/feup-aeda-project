@@ -66,7 +66,7 @@ bool StreamerManager::endStream(const std::shared_ptr<Streamer>& streamer) {
         streamer->removeStream();
         return true;
     }
-    throw StreamerNotStreaming("There is not stream to finish!");
+    throw StreamerNotStreaming("There is no stream to finish!");
 }
 
 bool StreamerManager::has(const std::shared_ptr<Streamer>& streamer) const {
