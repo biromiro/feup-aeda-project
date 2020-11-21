@@ -2,7 +2,7 @@ codecov:
   token: "df6ed1cb-057c-42b4-9e5e-71c2b4a90268"
   bot: "codecov-io"
   ci:
-    - "travis.org"
+    - "C++ CI Build"
   strict_yaml_branch: "yaml-config"
   max_report_age: 24
   disable_default_path_fixes: no
