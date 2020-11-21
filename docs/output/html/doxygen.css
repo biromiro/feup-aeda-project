@@ -22,8 +22,8 @@ h1.groupheader {
 }
 
 h2.groupheader {
-	border-bottom: 1px solid #B69CA4;
-	color: #664A53;
+	border-bottom: 1px solid #917B52;
+	color: #282217;
 	font-size: 150%;
 	font-weight: normal;
 	margin-top: 1.75em;
@@ -113,8 +113,8 @@ h3.version {
 }
 
 div.qindex, div.navtab{
-	background-color: #F3EFF0;
-	border: 1px solid #C7B3B9;
+	background-color: #ECE6DD;
+	border: 1px solid #AD976F;
 	text-align: center;
 }
 
@@ -130,13 +130,13 @@ div.navtab {
 /* @group Link Styling */
 
 a {
-	color: #74555E;
+	color: #342C1D;
 	font-weight: normal;
 	text-decoration: none;
 }
 
 .contents a:visited {
-	color: #87626D;
+	color: #463B27;
 }
 
 a:hover {
@@ -149,13 +149,13 @@ a.qindex {
 
 a.qindexHL {
 	font-weight: bold;
-	background-color: #C3ADB3;
-	color: #FEFFFF;
-	border: 1px double #B69BA3;
+	background-color: #A79065;
+	color: #FEFEFF;
+	border: 1px double #907A52;
 }
 
 .contents a.qindexHL:visited {
-        color: #FEFFFF;
+        color: #FEFEFF;
 }
 
 a.el {
@@ -166,11 +166,11 @@ a.elRef {
 }
 
 a.code, a.code:visited, a.line, a.line:visited {
-	color: #87626D; 
+	color: #463B27; 
 }
 
 a.codeRef, a.codeRef:visited, a.lineRef, a.lineRef:visited {
-	color: #87626D; 
+	color: #463B27; 
 }
 
 /* @end */
@@ -199,8 +199,8 @@ ul {
 }
 
 pre.fragment {
-        border: 1px solid #DBCED2;
-        background-color: #FCFCFC;
+        border: 1px solid #C8B99E;
+        background-color: #FBFAF9;
         padding: 4px 6px;
         margin: 4px 8px 4px 2px;
         overflow: auto;
@@ -214,8 +214,8 @@ pre.fragment {
 div.fragment {
   padding: 0 0 1px 0; /*Fixed: last line underline overlap border*/
   margin: 4px 8px 4px 2px;
-	background-color: #FCFCFC;
-	border: 1px solid #DBCED2;
+	background-color: #FBFAF9;
+	border: 1px solid #C8B99E;
 }
 
 div.line {
@@ -283,7 +283,7 @@ span.lineno a:hover {
 div.ah, span.ah {
 	background-color: black;
 	font-weight: bold;
-	color: #FEFFFF;
+	color: #FEFEFF;
 	margin-bottom: 3px;
 	margin-top: 3px;
 	padding: 0.2em;
@@ -331,9 +331,9 @@ div.contents {
 }
 
 td.indexkey {
-	background-color: #F3EFF0;
+	background-color: #ECE6DD;
 	font-weight: bold;
-	border: 1px solid #DBCED2;
+	border: 1px solid #C8B99E;
 	margin: 2px 0px 2px 0;
 	padding: 2px 10px;
         white-space: nowrap;
@@ -341,14 +341,14 @@ td.indexkey {
 }
 
 td.indexvalue {
-	background-color: #F3EFF0;
-	border: 1px solid #DBCED2;
+	background-color: #ECE6DD;
+	border: 1px solid #C8B99E;
 	padding: 2px 10px;
 	margin: 2px 0px;
 }
 
 tr.memlist {
-	background-color: #F4F1F2;
+	background-color: #EEE9E1;
 }
 
 p.formulaDsp {
@@ -431,15 +431,15 @@ span.vhdllogic {
 }
 
 blockquote {
-        background-color: #FAF8F9;
-        border-left: 2px solid #C3ADB3;
+        background-color: #F7F4F1;
+        border-left: 2px solid #A79065;
         margin: 0 24px 0 4px;
         padding: 0 12px 0 16px;
 }
 
 blockquote.DocNodeRTL {
    border-left: 0;
-   border-right: 2px solid #C3ADB3;
+   border-right: 2px solid #A79065;
    margin: 0 4px 0 24px;
    padding: 0 16px 0 12px;
 }
@@ -472,18 +472,18 @@ td.tiny {
 .dirtab {
 	padding: 4px;
 	border-collapse: collapse;
-	border: 1px solid #C7B3B9;
+	border: 1px solid #AD976F;
 }
 
 th.dirtab {
-	background: #F3EFF0;
+	background: #ECE6DD;
 	font-weight: bold;
 }
 
 hr {
 	height: 0px;
 	border: none;
-	border-top: 1px solid #8D6772;
+	border-top: 1px solid #4D412B;
 }
 
 hr.footer {
@@ -518,7 +518,7 @@ table.memberdecls {
 .mdescLeft, .mdescRight,
 .memItemLeft, .memItemRight,
 .memTemplItemLeft, .memTemplItemRight, .memTemplParams {
-	background-color: #FBFAFA;
+	background-color: #F9F7F5;
 	border: none;
 	margin: 4px;
 	padding: 1px 0 0 8px;
@@ -530,7 +530,7 @@ table.memberdecls {
 }
 
 .memSeparator {
-        border-bottom: 1px solid #EBE3E6;
+        border-bottom: 1px solid #DFD6C6;
         line-height: 1px;
         margin: 0px;
         padding: 0px;
@@ -545,7 +545,7 @@ table.memberdecls {
 }
 
 .memTemplParams {
-	color: #87626D;
+	color: #463B27;
         white-space: nowrap;
 	font-size: 80%;
 }
@@ -558,15 +558,15 @@ table.memberdecls {
 
 .memtitle {
 	padding: 8px;
-	border-top: 1px solid #CAB7BD;
-	border-left: 1px solid #CAB7BD;
-	border-right: 1px solid #CAB7BD;
+	border-top: 1px solid #B19C76;
+	border-left: 1px solid #B19C76;
+	border-right: 1px solid #B19C76;
 	border-top-right-radius: 4px;
 	border-top-left-radius: 4px;
 	margin-bottom: -1px;
 	background-image: url('nav_f.png');
 	background-repeat: repeat-x;
-	background-color: #EDE7E9;
+	background-color: #E3DCCE;
 	line-height: 1.25;
 	font-weight: 300;
 	float:left;
@@ -581,14 +581,14 @@ table.memberdecls {
 
 .memtemplate {
 	font-size: 80%;
-	color: #87626D;
+	color: #463B27;
 	font-weight: normal;
 	margin-left: 9px;
 }
 
 .memnav {
-	background-color: #F3EFF0;
-	border: 1px solid #C7B3B9;
+	background-color: #ECE6DD;
+	border: 1px solid #AD976F;
 	text-align: center;
 	margin: 2px;
 	margin-right: 15px;
@@ -626,14 +626,14 @@ table.memberdecls {
 }
 
 .memproto, dl.reflist dt {
-        border-top: 1px solid #CAB7BD;
-        border-left: 1px solid #CAB7BD;
-        border-right: 1px solid #CAB7BD;
+        border-top: 1px solid #B19C76;
+        border-left: 1px solid #B19C76;
+        border-right: 1px solid #B19C76;
         padding: 6px 0px 6px 0px;
-        color: #473339;
+        color: #13100B;
         font-weight: bold;
         text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.9);
-        background-color: #EBE4E6;
+        background-color: #E0D7C8;
         /* opera specific markup */
         box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
         border-top-right-radius: 4px;
@@ -652,15 +652,15 @@ table.memberdecls {
 }
 
 .memdoc, dl.reflist dd {
-        border-bottom: 1px solid #CAB7BD;      
-        border-left: 1px solid #CAB7BD;      
-        border-right: 1px solid #CAB7BD; 
+        border-bottom: 1px solid #B19C76;      
+        border-left: 1px solid #B19C76;      
+        border-right: 1px solid #B19C76; 
         padding: 6px 10px 2px 10px;
-        background-color: #FCFCFC;
+        background-color: #FBFAF9;
         border-top-width: 0;
         background-image:url('nav_g.png');
         background-repeat:repeat-x;
-        background-color: #FEFFFF;
+        background-color: #FEFEFF;
         /* opera specific markup */
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
@@ -743,11 +743,11 @@ span.mlabels {
 }
 
 span.mlabel {
-        background-color: #AA8A93;
-        border-top:1px solid #97707C;
-        border-left:1px solid #97707C;
-        border-right:1px solid #DBCED2;
-        border-bottom:1px solid #DBCED2;
+        background-color: #796644;
+        border-top:1px solid #594B32;
+        border-left:1px solid #594B32;
+        border-right:1px solid #C8B99E;
+        border-bottom:1px solid #C8B99E;
 	text-shadow: none;
 	color: white;
 	margin-right: 4px;
@@ -766,8 +766,8 @@ span.mlabel {
 
 div.directory {
         margin: 10px 0px;
-        border-top: 1px solid #C3ADB3;
-        border-bottom: 1px solid #C3ADB3;
+        border-top: 1px solid #A79065;
+        border-bottom: 1px solid #A79065;
         width: 100%;
 }
 
@@ -805,7 +805,7 @@ div.directory {
 
 .directory tr.even {
 	padding-left: 6px;
-	background-color: #FAF8F9;
+	background-color: #F7F4F1;
 }
 
 .directory img {
@@ -823,11 +823,11 @@ div.directory {
         cursor: pointer;
         padding-left: 2px;
         padding-right: 2px;
-	color: #74555E;
+	color: #342C1D;
 }
 
 .arrow {
-    color: #C3ADB3;
+    color: #A79065;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
@@ -847,7 +847,7 @@ div.directory {
     height: 14px;
     width: 16px;
     display: inline-block;
-    background-color: #AA8A93;
+    background-color: #796644;
     color: white;
     text-align: center;
     border-radius: 4px;
@@ -912,7 +912,7 @@ div.dynheader {
 
 address {
 	font-style: normal;
-	color: #513B41;
+	color: #19160E;
 }
 
 table.doxtable caption {
@@ -926,13 +926,13 @@ table.doxtable {
 }
 
 table.doxtable td, table.doxtable th {
-	border: 1px solid #563F46;
+	border: 1px solid #1D1810;
 	padding: 3px 7px 2px;
 }
 
 table.doxtable th {
-	background-color: #6A4D55;
-	color: #FEFFFF;
+	background-color: #2B2518;
+	color: #FEFEFF;
 	font-size: 110%;
 	padding-bottom: 4px;
 	padding-top: 5px;
@@ -941,7 +941,7 @@ table.doxtable th {
 table.fieldtable {
         /*width: 100%;*/
         margin-bottom: 10px;
-        border: 1px solid #CAB7BD;
+        border: 1px solid #B19C76;
         border-spacing: 0px;
         -moz-border-radius: 4px;
         -webkit-border-radius: 4px;
@@ -957,8 +957,8 @@ table.fieldtable {
 
 .fieldtable td.fieldtype, .fieldtable td.fieldname {
         white-space: nowrap;
-        border-right: 1px solid #CAB7BD;
-        border-bottom: 1px solid #CAB7BD;
+        border-right: 1px solid #B19C76;
+        border-bottom: 1px solid #B19C76;
         vertical-align: top;
 }
 
@@ -967,7 +967,7 @@ table.fieldtable {
 }
 
 .fieldtable td.fielddoc {
-        border-bottom: 1px solid #CAB7BD;
+        border-bottom: 1px solid #B19C76;
         /*width: 100%;*/
 }
 
@@ -986,9 +986,9 @@ table.fieldtable {
 .fieldtable th {
         background-image:url('nav_f.png');
         background-repeat:repeat-x;
-        background-color: #EDE7E9;
+        background-color: #E3DCCE;
         font-size: 90%;
-        color: #473339;
+        color: #13100B;
         padding-bottom: 4px;
         padding-top: 5px;
         text-align:left;
@@ -999,7 +999,7 @@ table.fieldtable {
         -webkit-border-top-right-radius: 4px;
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
-        border-bottom: 1px solid #CAB7BD;
+        border-bottom: 1px solid #B19C76;
 }
 
 
@@ -1021,8 +1021,8 @@ table.fieldtable {
 	background-position: 0 -5px;
 	height:30px;
 	line-height:30px;
-	color:#B89EA5;
-	border:solid 1px #DACCD0;
+	color:#947E54;
+	border:solid 1px #C6B79B;
 	overflow:hidden;
 	margin:0px;
 	padding:0px;
@@ -1037,7 +1037,7 @@ table.fieldtable {
 	background-image:url('bc_s.png');
 	background-repeat:no-repeat;
 	background-position:right;
-	color:#674B53;
+	color:#292317;
 }
 
 .navpath li.navelem a
@@ -1046,7 +1046,7 @@ table.fieldtable {
 	display:block;
 	text-decoration: none;
 	outline: none;
-	color: #4D383E;
+	color: #17140D;
 	font-family: 'Lucida Grande',Geneva,Helvetica,Arial,sans-serif;
 	text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.9);
 	text-decoration: none;        
@@ -1054,7 +1054,7 @@ table.fieldtable {
 
 .navpath li.navelem a:hover
 {
-	color:#A3818C;
+	color:#6E5D3E;
 }
 
 .navpath li.footer
@@ -1066,7 +1066,7 @@ table.fieldtable {
         background-image:none;
         background-repeat:no-repeat;
         background-position:right;
-        color:#674B53;
+        color:#292317;
         font-size: 8pt;
 }
 
@@ -1113,9 +1113,9 @@ div.header
 {
         background-image:url('nav_h.png');
         background-repeat:repeat-x;
-	background-color: #FBFAFA;
+	background-color: #F9F7F5;
 	margin:  0px;
-	border-bottom: 1px solid #DBCED2;
+	border-bottom: 1px solid #C8B99E;
 }
 
 div.headertitle
@@ -1310,7 +1310,7 @@ dl.section dd {
 	padding: 0px;
 	margin: 0px;
 	width: 100%;
-	border-bottom: 1px solid #97707C;
+	border-bottom: 1px solid #594B32;
 }
 
 .image
@@ -1345,7 +1345,7 @@ dl.section dd {
 
 div.zoom
 {
-	border: 1px solid #BCA3AA;
+	border: 1px solid #9C8458;
 }
 
 dl.citelist {
@@ -1353,7 +1353,7 @@ dl.citelist {
 }
 
 dl.citelist dt {
-        color:#61474F;
+        color:#251F15;
         float:left;
         font-weight:bold;
         margin-right:10px;
@@ -1367,8 +1367,8 @@ dl.citelist dd {
 
 div.toc {
         padding: 14px 25px;
-        background-color: #F8F6F7;
-        border: 1px solid #E7DFE1;
+        background-color: #F4F2ED;
+        border: 1px solid #D9CFBD;
         border-radius: 7px 7px 7px 7px;
         float: right;
         height: auto;
@@ -1397,7 +1397,7 @@ div.toc li {
 
 div.toc h3 {
         font: bold 12px/1.2 Arial,FreeSans,sans-serif;
-	color: #87626D;
+	color: #463B27;
         border-bottom: 0 none;
         margin: 0;
 }
@@ -1557,7 +1557,7 @@ tr.heading h2 {
 }
 
 #powerTip.n:after, #powerTip.ne:after, #powerTip.nw:after {
-	border-top-color: #FEFFFF;
+	border-top-color: #FEFEFF;
 	border-width: 10px;
 	margin: 0px -10px;
 }
@@ -1585,7 +1585,7 @@ tr.heading h2 {
 }
 
 #powerTip.s:after, #powerTip.se:after, #powerTip.sw:after {
-	border-bottom-color: #FEFFFF;
+	border-bottom-color: #FEFEFF;
 	border-width: 10px;
 	margin: 0px -10px;
 }
@@ -1612,7 +1612,7 @@ tr.heading h2 {
 	left: 100%;
 }
 #powerTip.e:after {
-	border-left-color: #FEFFFF;
+	border-left-color: #FEFEFF;
 	border-width: 10px;
 	top: 50%;
 	margin-top: -10px;
@@ -1628,7 +1628,7 @@ tr.heading h2 {
 	right: 100%;
 }
 #powerTip.w:after {
-	border-right-color: #FEFFFF;
+	border-right-color: #FEFEFF;
 	border-width: 10px;
 	top: 50%;
 	margin-top: -10px;
@@ -1669,7 +1669,7 @@ table.markdownTable {
 }
 
 table.markdownTable td, table.markdownTable th {
-	border: 1px solid #563F46;
+	border: 1px solid #1D1810;
 	padding: 3px 7px 2px;
 }
 
@@ -1677,13 +1677,13 @@ table.markdownTableHead tr {
 }
 
 table.markdownTableBodyLeft td, table.markdownTable th {
-	border: 1px solid #563F46;
+	border: 1px solid #1D1810;
 	padding: 3px 7px 2px;
 }
 
 th.markdownTableHeadLeft th.markdownTableHeadRight th.markdownTableHeadCenter th.markdownTableHeadNone {
-	background-color: #6A4D55;
-	color: #FEFFFF;
+	background-color: #2B2518;
+	color: #FEFEFF;
 	font-size: 110%;
 	padding-bottom: 4px;
 	padding-top: 5px;
@@ -1709,7 +1709,7 @@ table.markdownTable {
 }
 
 table.markdownTable td, table.markdownTable th {
-	border: 1px solid #563F46;
+	border: 1px solid #1D1810;
 	padding: 3px 7px 2px;
 }
 
@@ -1717,8 +1717,8 @@ table.markdownTable tr {
 }
 
 th.markdownTableHeadLeft, th.markdownTableHeadRight, th.markdownTableHeadCenter, th.markdownTableHeadNone {
-	background-color: #6A4D55;
-	color: #FEFFFF;
+	background-color: #2B2518;
+	color: #FEFEFF;
 	font-size: 110%;
 	padding-bottom: 4px;
 	padding-top: 5px;

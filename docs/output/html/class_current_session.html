@@ -29,7 +29,7 @@
    <div id="projectname">StreamZ
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Streaming Platform</div>
+   <div id="projectbrief">A streaming platform for all!</div>
   </td>
  </tr>
  </tbody>
@@ -110,8 +110,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a668144e5256641be596f7c5c306eb9f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="current_session_8h_source.html#l00011">11</a> of file <a class="el" href="current_session_8h_source.html">currentSession.h</a>.</p>
+<div class="textblock"><p>Implementation of the current session class</p>
+<p>Holds the current session information </p>
+
+<p class="definition">Definition at line <a class="el" href="current_session_8h_source.html#l00024">24</a> of file <a class="el" href="current_session_8h_source.html">currentSession.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa52a2762f8fa81de13600dbe2b478055"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa52a2762f8fa81de13600dbe2b478055">&#9670;&nbsp;</a></span>CurrentSession() <span class="overload">[1/2]</span></h2>
@@ -127,6 +129,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Current Session's default constructor </p>
 
 <p class="definition">Definition at line <a class="el" href="current_session_8cpp_source.html#l00007">7</a> of file <a class="el" href="current_session_8cpp_source.html">currentSession.cpp</a>.</p>
 
@@ -155,6 +158,12 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Current Session's constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userManager</td><td>the user manager of the platform </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="current_session_8cpp_source.html#l00009">9</a> of file <a class="el" href="current_session_8cpp_source.html">currentSession.cpp</a>.</p>
 
@@ -175,6 +184,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Gets the current <a class="el" href="class_user.html">User</a> logged int</p>
+<dl class="section return"><dt>Returns</dt><dd>the shared pointer to the current user </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="current_session_8cpp_source.html#l00032">32</a> of file <a class="el" href="current_session_8cpp_source.html">currentSession.cpp</a>.</p>
 
@@ -194,6 +205,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Gets the nickname of the current user</p>
+<dl class="section return"><dt>Returns</dt><dd>the nickname of the current user </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="current_session_8cpp_source.html#l00028">28</a> of file <a class="el" href="current_session_8cpp_source.html">currentSession.cpp</a>.</p>
 
@@ -224,6 +237,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Tries to log in via a given nickname and password</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nickname</td><td>the nickname given </td></tr>
+    <tr><td class="paramname">password</td><td>the password given </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if it was sucessful, false othewise </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="current_session_8cpp_source.html#l00011">11</a> of file <a class="el" href="current_session_8cpp_source.html">currentSession.cpp</a>.</p>
 
@@ -243,6 +265,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Tries to log out the current usert</p>
+<dl class="section return"><dt>Returns</dt><dd>true if it was sucessful, false othewise </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="current_session_8cpp_source.html#l00020">20</a> of file <a class="el" href="current_session_8cpp_source.html">currentSession.cpp</a>.</p>
 
