@@ -29,7 +29,7 @@
    <div id="projectname">StreamZ
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A streaming platform for all!</div>
+   <div id="projectbrief">Streaming Platform</div>
   </td>
  </tr>
  </tbody>
@@ -102,15 +102,6 @@ Inheritance diagram for UserAlreadyExists:</div>
 <area shape="rect" title=" " alt="" coords="8,5,144,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for UserAlreadyExists:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_user_already_exists__coll__graph.png" border="0" usemap="#_user_already_exists_coll__map" alt="Collaboration graph"/></div>
-<map name="_user_already_exists_coll__map" id="_user_already_exists_coll__map">
-<area shape="rect" title=" " alt="" coords="5,80,147,107"/>
-<area shape="rect" title=" " alt="" coords="8,5,144,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -120,8 +111,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6c753f4cd40dd6f6f0f3c6460c2cd5f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="user_already_exists_8h_source.html#l00013">13</a> of file <a class="el" href="user_already_exists_8h_source.html">userAlreadyExists.h</a>.</p>
+<div class="textblock"><p>Implementation of the exception for when a user being created already exists</p>
+<p>Informs the user that the user being created already exists </p>
+
+<p class="definition">Definition at line <a class="el" href="user_already_exists_8h_source.html#l00026">26</a> of file <a class="el" href="user_already_exists_8h_source.html">userAlreadyExists.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a39e8e28af35a59e5ca55556e96039600"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a39e8e28af35a59e5ca55556e96039600">&#9670;&nbsp;</a></span>UserAlreadyExists()</h2>
@@ -148,6 +141,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor of the <a class="el" href="class_user_already_exists.html">UserAlreadyExists</a> class</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td>user that can't be created because he already exists </td></tr>
+    <tr><td class="paramname">message</td><td>message indicating the user being created already exists </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="user_already_exists_8cpp_source.html#l00007">7</a> of file <a class="el" href="user_already_exists_8cpp_source.html">userAlreadyExists.cpp</a>.</p>
 
@@ -168,14 +169,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Getter of the user that already exists</p>
+<dl class="section return"><dt>Returns</dt><dd>user that already exists </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="user_already_exists_8cpp_source.html#l00009">9</a> of file <a class="el" href="user_already_exists_8cpp_source.html">userAlreadyExists.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>exception/userAlreadyExists/<a class="el" href="user_already_exists_8h_source.html">userAlreadyExists.h</a></li>
-<li>exception/userAlreadyExists/<a class="el" href="user_already_exists_8cpp_source.html">userAlreadyExists.cpp</a></li>
+<li>/home/biromiro/AEDA/feup-aeda-project/src/exception/userAlreadyExists/<a class="el" href="user_already_exists_8h_source.html">userAlreadyExists.h</a></li>
+<li>/home/biromiro/AEDA/feup-aeda-project/src/exception/userAlreadyExists/<a class="el" href="user_already_exists_8cpp_source.html">userAlreadyExists.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

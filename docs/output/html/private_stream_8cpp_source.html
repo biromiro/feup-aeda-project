@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>StreamZ: model/stream/privateStream/privateStream.cpp Source File</title>
+<title>StreamZ: /home/biromiro/AEDA/feup-aeda-project/src/model/stream/privateStream/privateStream.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
    <div id="projectname">StreamZ
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A streaming platform for all!</div>
+   <div id="projectbrief">Streaming Platform</div>
   </td>
  </tr>
  </tbody>
@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('private_stream_8cpp_source.html',''); 
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        whitelist.push_back(v_nick);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_nickname_already_added.html">NicknameAlreadyAdded</a>(v_nick, <span class="stringliteral">&quot;Viewer you&#39;re trying to add is already in the whitelist!&quot;</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_nickname_already_added.html">NicknameAlreadyAdded</a>(v_nick, <span class="stringliteral">&quot;Viewer you&#39;re trying to add is already on the whitelist!&quot;</span>);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_private_stream.html#ad9bb9f9d28e9ff5f94c61491ff0a3bfb">   30</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_private_stream.html#ad9bb9f9d28e9ff5f94c61491ff0a3bfb">PrivateStream::removeFromWhitelist</a>(<span class="keyword">const</span> std::shared_ptr&lt;Viewer&gt;&amp; v){</div>
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('private_stream_8cpp_source.html',''); 
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        whitelist.erase(itr);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_nickname_not_found.html">NicknameNotFound</a>(v_nick, <span class="stringliteral">&quot;Viewer is not in the whitelist!&quot;</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_nickname_not_found.html">NicknameNotFound</a>(v_nick, <span class="stringliteral">&quot;Viewer is not on the whitelist!&quot;</span>);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_private_stream.html#a2b24b7ba2c8bcecada3ce71509077d37">   40</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_private_stream.html#a2b24b7ba2c8bcecada3ce71509077d37">PrivateStream::setMaxNumViewers</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> maxNumViewers) {</div>
@@ -188,18 +188,18 @@ $(document).ready(function(){initNavTree('private_stream_8cpp_source.html',''); 
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astream_8h_html_a8a65141d9ea4bf9d2e2377ed6b888a1d"><div class="ttname"><a href="stream_8h.html#a8a65141d9ea4bf9d2e2377ed6b888a1d">StreamType</a></div><div class="ttdeci">StreamType</div><div class="ttdef"><b>Definition:</b> <a href="stream_8h_source.html#l00031">stream.h:31</a></div></div>
-<div class="ttc" id="aclass_nickname_already_added_html"><div class="ttname"><a href="class_nickname_already_added.html">NicknameAlreadyAdded</a></div><div class="ttdef"><b>Definition:</b> <a href="nickname_already_added_8h_source.html#l00011">nicknameAlreadyAdded.h:11</a></div></div>
+<div class="ttc" id="aclass_nickname_already_added_html"><div class="ttname"><a href="class_nickname_already_added.html">NicknameAlreadyAdded</a></div><div class="ttdef"><b>Definition:</b> <a href="nickname_already_added_8h_source.html#l00024">nicknameAlreadyAdded.h:24</a></div></div>
 <div class="ttc" id="aprivate_stream_8h_html"><div class="ttname"><a href="private_stream_8h.html">privateStream.h</a></div></div>
 <div class="ttc" id="astream_8h_html_a9883873f20a172b9474ee43f231ba57d"><div class="ttname"><a href="stream_8h.html#a9883873f20a172b9474ee43f231ba57d">StreamLanguage</a></div><div class="ttdeci">StreamLanguage</div><div class="ttdef"><b>Definition:</b> <a href="stream_8h_source.html#l00052">stream.h:52</a></div></div>
-<div class="ttc" id="aclass_user_not_found_html"><div class="ttname"><a href="class_user_not_found.html">UserNotFound</a></div><div class="ttdef"><b>Definition:</b> <a href="user_not_found_8h_source.html#l00013">userNotFound.h:13</a></div></div>
+<div class="ttc" id="aclass_user_not_found_html"><div class="ttname"><a href="class_user_not_found.html">UserNotFound</a></div><div class="ttdef"><b>Definition:</b> <a href="user_not_found_8h_source.html#l00026">userNotFound.h:26</a></div></div>
 <div class="ttc" id="aclass_private_stream_html_a410854b64aea67a419e59edb25b20f15"><div class="ttname"><a href="class_private_stream.html#a410854b64aea67a419e59edb25b20f15">PrivateStream::addToWhitelist</a></div><div class="ttdeci">bool addToWhitelist(const std::shared_ptr&lt; Viewer &gt; &amp;v)</div><div class="ttdef"><b>Definition:</b> <a href="private_stream_8cpp_source.html#l00020">privateStream.cpp:20</a></div></div>
 <div class="ttc" id="aclass_private_stream_html_a3a44437bcdd590747638090d5ea1f4d9"><div class="ttname"><a href="class_private_stream.html#a3a44437bcdd590747638090d5ea1f4d9">PrivateStream::addComment</a></div><div class="ttdeci">void addComment(const std::string &amp;nickname, const std::string &amp;comment)</div><div class="ttdef"><b>Definition:</b> <a href="private_stream_8cpp_source.html#l00046">privateStream.cpp:46</a></div></div>
-<div class="ttc" id="aclass_stream_html_ad66b92613c68164943cdaca5f97ae75b"><div class="ttname"><a href="class_stream.html#ad66b92613c68164943cdaca5f97ae75b">Stream::minAge</a></div><div class="ttdeci">unsigned int minAge</div><div class="ttdef"><b>Definition:</b> <a href="stream_8h_source.html#l00205">stream.h:205</a></div></div>
-<div class="ttc" id="aclass_nickname_not_found_html"><div class="ttname"><a href="class_nickname_not_found.html">NicknameNotFound</a></div><div class="ttdef"><b>Definition:</b> <a href="nickname_not_found_8h_source.html#l00011">nicknameNotFound.h:11</a></div></div>
+<div class="ttc" id="aclass_stream_html_ad66b92613c68164943cdaca5f97ae75b"><div class="ttname"><a href="class_stream.html#ad66b92613c68164943cdaca5f97ae75b">Stream::minAge</a></div><div class="ttdeci">unsigned int minAge</div><div class="ttdef"><b>Definition:</b> <a href="stream_8h_source.html#l00263">stream.h:263</a></div></div>
+<div class="ttc" id="aclass_nickname_not_found_html"><div class="ttname"><a href="class_nickname_not_found.html">NicknameNotFound</a></div><div class="ttdef"><b>Definition:</b> <a href="nickname_not_found_8h_source.html#l00024">nicknameNotFound.h:24</a></div></div>
 <div class="ttc" id="aclass_private_stream_html_a99137c7d828baa0cd5c6454dac78c8bf"><div class="ttname"><a href="class_private_stream.html#a99137c7d828baa0cd5c6454dac78c8bf">PrivateStream::writeData</a></div><div class="ttdeci">void writeData(std::ofstream &amp;ofs) override</div><div class="ttdef"><b>Definition:</b> <a href="private_stream_8cpp_source.html#l00082">privateStream.cpp:82</a></div></div>
-<div class="ttc" id="aclass_stream_html_aaba305e8bb51b6741eee7930cd6f0546"><div class="ttname"><a href="class_stream.html#aaba305e8bb51b6741eee7930cd6f0546">Stream::numOfViewers</a></div><div class="ttdeci">unsigned int numOfViewers</div><div class="ttdef"><b>Definition:</b> <a href="stream_8h_source.html#l00210">stream.h:210</a></div></div>
+<div class="ttc" id="aclass_stream_html_aaba305e8bb51b6741eee7930cd6f0546"><div class="ttname"><a href="class_stream.html#aaba305e8bb51b6741eee7930cd6f0546">Stream::numOfViewers</a></div><div class="ttdeci">unsigned int numOfViewers</div><div class="ttdef"><b>Definition:</b> <a href="stream_8h_source.html#l00268">stream.h:268</a></div></div>
 <div class="ttc" id="aclass_private_stream_html_a942944fd3a615d9d4b83d71c313e3494"><div class="ttname"><a href="class_private_stream.html#a942944fd3a615d9d4b83d71c313e3494">PrivateStream::PrivateStream</a></div><div class="ttdeci">PrivateStream()</div><div class="ttdef"><b>Definition:</b> <a href="private_stream_8cpp_source.html#l00008">privateStream.cpp:8</a></div></div>
-<div class="ttc" id="aclass_stream_html_ae20127cdd9b8086ed8f27256843ecfa4"><div class="ttname"><a href="class_stream.html#ae20127cdd9b8086ed8f27256843ecfa4">Stream::type</a></div><div class="ttdeci">enum StreamType type</div><div class="ttdef"><b>Definition:</b> <a href="stream_8h_source.html#l00206">stream.h:206</a></div></div>
+<div class="ttc" id="aclass_stream_html_ae20127cdd9b8086ed8f27256843ecfa4"><div class="ttname"><a href="class_stream.html#ae20127cdd9b8086ed8f27256843ecfa4">Stream::type</a></div><div class="ttdeci">enum StreamType type</div><div class="ttdef"><b>Definition:</b> <a href="stream_8h_source.html#l00264">stream.h:264</a></div></div>
 <div class="ttc" id="aclass_private_stream_html_a8a8b4d6403a2492cd3b8757ff4fa793b"><div class="ttname"><a href="class_private_stream.html#a8a8b4d6403a2492cd3b8757ff4fa793b">PrivateStream::readData</a></div><div class="ttdeci">void readData(std::ifstream &amp;ifs, const std::shared_ptr&lt; StreamerManager &gt; &amp;streamerManager) override</div><div class="ttdef"><b>Definition:</b> <a href="private_stream_8cpp_source.html#l00058">privateStream.cpp:58</a></div></div>
 <div class="ttc" id="aclass_private_stream_html_a2b24b7ba2c8bcecada3ce71509077d37"><div class="ttname"><a href="class_private_stream.html#a2b24b7ba2c8bcecada3ce71509077d37">PrivateStream::setMaxNumViewers</a></div><div class="ttdeci">bool setMaxNumViewers(unsigned int maxNumViewers)</div><div class="ttdef"><b>Definition:</b> <a href="private_stream_8cpp_source.html#l00040">privateStream.cpp:40</a></div></div>
 <div class="ttc" id="aclass_stream_html"><div class="ttname"><a href="class_stream.html">Stream</a></div><div class="ttdef"><b>Definition:</b> <a href="stream_8h_source.html#l00065">stream.h:65</a></div></div>
@@ -216,7 +216,7 @@ $(document).ready(function(){initNavTree('private_stream_8cpp_source.html',''); 
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_945065c05b1117744949764d028a337c.html">stream</a></li><li class="navelem"><a class="el" href="dir_2263034b16d6cf18173eccebf15964b0.html">privateStream</a></li><li class="navelem"><a class="el" href="private_stream_8cpp.html">privateStream.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5dd65160827af56e6353642206b80129.html">model</a></li><li class="navelem"><a class="el" href="dir_87ee38952d51101318c2fb73ac52de43.html">stream</a></li><li class="navelem"><a class="el" href="dir_98db80f40e16c8e754cd0b1961684ff1.html">privateStream</a></li><li class="navelem"><a class="el" href="private_stream_8cpp.html">privateStream.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

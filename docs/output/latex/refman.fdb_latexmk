@@ -1,7 +1,0 @@
-# Fdb version 3
-["pdflatex"] 0 "refman.tex" "refman.pdf" "refman" 0
-  "refman.aux" 1605909932 8 a94a2480d3289e625eea47cd1b285758 ""
-  "refman.tex" 0 -1 0 ""
-  (generated)
-  "refman.pdf"
-  "refman.log"

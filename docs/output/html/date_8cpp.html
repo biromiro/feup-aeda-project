@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>StreamZ: utils/date/date.cpp File Reference</title>
+<title>StreamZ: /home/biromiro/AEDA/feup-aeda-project/src/utils/date/date.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
    <div id="projectname">StreamZ
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A streaming platform for all!</div>
+   <div id="projectbrief">Streaming Platform</div>
   </td>
  </tr>
  </tbody>
@@ -91,21 +91,10 @@ $(document).ready(function(){initNavTree('date_8cpp.html',''); initResizable(); 
 <div class="title">date.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="class_date.html">Date</a> class for the project.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="date_8h_source.html">date.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for date.cpp:</div>
-<div class="dyncontent">
-<div class="center"><img src="date_8cpp__incl.png" border="0" usemap="#utils_2date_2date_8cpp" alt=""/></div>
-<map name="utils_2date_2date_8cpp" id="utils_2date_2date_8cpp">
-<area shape="rect" title=" " alt="" coords="158,5,301,32"/>
-<area shape="rect" href="date_8h.html" title=" " alt="" coords="198,80,261,107"/>
-<area shape="rect" title=" " alt="" coords="5,155,85,181"/>
-<area shape="rect" title=" " alt="" coords="109,155,168,181"/>
-<area shape="rect" title=" " alt="" coords="192,155,267,181"/>
-<area shape="rect" title=" " alt="" coords="291,155,365,181"/>
-<area shape="rect" title=" " alt="" coords="389,155,448,181"/>
-</map>
-</div>
 </div>
 <p><a href="date_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -131,7 +120,11 @@ Variables</h2></td></tr>
 <tr class="memitem:a0a7e68d4cc6e70c840126125a7b01df6"><td class="memItemLeft" align="right" valign="top">tm *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="date_8cpp.html#a0a7e68d4cc6e70c840126125a7b01df6">local_time</a> = localtime(&amp;<a class="el" href="date_8cpp.html#a11c8ddfb60163c39b52dc2bd171f0b76">ttime</a>)</td></tr>
 <tr class="separator:a0a7e68d4cc6e70c840126125a7b01df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_date.html">Date</a> class for the project. </p>
+
+<p class="definition">Definition in file <a class="el" href="date_8cpp_source.html">date.cpp</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="aa8aa7e6844970811a1d0955537d1ffc3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8aa7e6844970811a1d0955537d1ffc3">&#9670;&nbsp;</a></span>daysToDate()</h2>
 
@@ -142,11 +135,19 @@ Variables</h2></td></tr>
           <td class="memname"><a class="el" href="class_date.html">Date</a> daysToDate </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>totalDays</em></td><td>)</td>
+          <td class="paramname"><em>days</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Converts a raw number of days into a <a class="el" href="class_date.html">Date</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">days</td><td>the total number of days </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the date which has that number of days (counting from 1/1/1) </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="date_8cpp_source.html#l00258">258</a> of file <a class="el" href="date_8cpp_source.html">date.cpp</a>.</p>
 
@@ -167,6 +168,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Checks if a given year is a leap year</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">y</td><td>the year </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if it is, false otherwise </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="date_8cpp_source.html#l00129">129</a> of file <a class="el" href="date_8cpp_source.html">date.cpp</a>.</p>
 
@@ -182,13 +191,13 @@ Variables</h2></td></tr>
           <td class="memname">unsigned int numberOfDays </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
+          <td class="paramname"><em>year</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>m</em>&#160;</td>
+          <td class="paramname"><em>month</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -197,6 +206,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Gets the number of days in a given month of a given year</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">year</td><td>the year </td></tr>
+    <tr><td class="paramname">month</td><td>the month </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of days of that month </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="date_8cpp_source.html#l00134">134</a> of file <a class="el" href="date_8cpp_source.html">date.cpp</a>.</p>
 
@@ -227,6 +245,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Output operator overload</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>the output stream </td></tr>
+    <tr><td class="paramname">date</td><td>the date to output </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the stream given as parameter </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="date_8cpp_source.html#l00178">178</a> of file <a class="el" href="date_8cpp_source.html">date.cpp</a>.</p>
 
@@ -257,6 +284,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Input operator overload</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is</td><td>the input stream </td></tr>
+    <tr><td class="paramname">date</td><td>the date to output </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the stream given as parameter </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="date_8cpp_source.html#l00186">186</a> of file <a class="el" href="date_8cpp_source.html">date.cpp</a>.</p>
 
@@ -287,6 +323,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Calculates the time elapsed between two dates</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d1</td><td>the first date </td></tr>
+    <tr><td class="paramname">d2</td><td>the second date </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the date corresponding to the time elapsed between the two dates </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="date_8cpp_source.html#l00273">273</a> of file <a class="el" href="date_8cpp_source.html">date.cpp</a>.</p>
 
@@ -330,7 +375,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cbdb8362360e11eafe2fa3bc74cf0ffd.html">utils</a></li><li class="navelem"><a class="el" href="dir_a1d241b2be5948ba80d87a4fe8d8e62b.html">date</a></li><li class="navelem"><a class="el" href="date_8cpp.html">date.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_313caf1132e152dd9b58bea13a4052ca.html">utils</a></li><li class="navelem"><a class="el" href="dir_5effa62c65a1d46b033bf39af4ade20f.html">date</a></li><li class="navelem"><a class="el" href="date_8cpp.html">date.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

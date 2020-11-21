@@ -29,7 +29,7 @@
    <div id="projectname">StreamZ
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A streaming platform for all!</div>
+   <div id="projectbrief">Streaming Platform</div>
   </td>
  </tr>
  </tbody>
@@ -100,16 +100,6 @@ Inheritance diagram for Streamer:</div>
 <map name="_streamer_inherit__map" id="_streamer_inherit__map">
 <area shape="rect" title=" " alt="" coords="5,80,88,107"/>
 <area shape="rect" href="class_user.html" title=" " alt="" coords="21,5,73,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for Streamer:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_streamer__coll__graph.png" border="0" usemap="#_streamer_coll__map" alt="Collaboration graph"/></div>
-<map name="_streamer_coll__map" id="_streamer_coll__map">
-<area shape="rect" title=" " alt="" coords="5,185,88,212"/>
-<area shape="rect" href="class_user.html" title=" " alt="" coords="21,109,73,136"/>
-<area shape="rect" href="class_date.html" title=" " alt="" coords="20,5,73,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -296,6 +286,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Increases the streamer's view count by given amount</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>number of views to add to total view count </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00110">110</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
@@ -315,6 +312,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Getter of streamer's current streamID</p>
+<dl class="section return"><dt>Returns</dt><dd>the current stream's ID </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00038">38</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
@@ -334,6 +333,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Getter of streamer's past streamIDs</p>
+<dl class="section return"><dt>Returns</dt><dd>vector of IDs of previous streams </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00042">42</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
@@ -353,6 +354,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Getter of streamer's total view count</p>
+<dl class="section return"><dt>Returns</dt><dd>the streamer's total view count </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00034">34</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
@@ -394,6 +397,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overload of operator != to streamers</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>given streamer to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>self != given streamer </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00082">82</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
@@ -414,6 +425,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overload of operator &lt; to streamers</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>given streamer to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>self &lt; given streamer </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00046">46</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
@@ -434,6 +453,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overload of operator &lt;= to streamers</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>given streamer to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>self &lt;= given streamer </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00070">70</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
@@ -454,6 +481,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overload of operator == to streamers</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>given streamer to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>self == given streamer </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00078">78</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
@@ -474,6 +509,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overload of operator &gt; to streamers</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>given streamer to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>self &gt; given streamer </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00066">66</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
@@ -494,6 +537,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overload of operator &gt;= to streamers</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>given streamer to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>self &gt;= given streamer </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00074">74</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
@@ -522,6 +573,13 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Reads streamer data from file</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ifs</td><td>File to read streamers from </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Reimplemented from <a class="el" href="class_user.html#adca54595d50308841bcc2d5091f4081c">User</a>.</p>
 
@@ -599,6 +657,13 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Writes and updates streamer data to file</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ofs</td><td>File to write streamers to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Reimplemented from <a class="el" href="class_user.html#a3efd848398bcda7686ed2ae03ec1f99a">User</a>.</p>
 
@@ -607,8 +672,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>model/user/streamer/<a class="el" href="streamer_8h_source.html">streamer.h</a></li>
-<li>model/user/streamer/<a class="el" href="streamer_8cpp_source.html">streamer.cpp</a></li>
+<li>/home/biromiro/AEDA/feup-aeda-project/src/model/user/streamer/<a class="el" href="streamer_8h_source.html">streamer.h</a></li>
+<li>/home/biromiro/AEDA/feup-aeda-project/src/model/user/streamer/<a class="el" href="streamer_8cpp_source.html">streamer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

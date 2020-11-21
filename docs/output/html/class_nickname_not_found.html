@@ -29,7 +29,7 @@
    <div id="projectname">StreamZ
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A streaming platform for all!</div>
+   <div id="projectbrief">Streaming Platform</div>
   </td>
  </tr>
  </tbody>
@@ -102,15 +102,6 @@ Inheritance diagram for NicknameNotFound:</div>
 <area shape="rect" title=" " alt="" coords="13,5,149,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for NicknameNotFound:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_nickname_not_found__coll__graph.png" border="0" usemap="#_nickname_not_found_coll__map" alt="Collaboration graph"/></div>
-<map name="_nickname_not_found_coll__map" id="_nickname_not_found_coll__map">
-<area shape="rect" title=" " alt="" coords="5,80,156,107"/>
-<area shape="rect" title=" " alt="" coords="13,5,149,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -120,8 +111,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af1b7ea08a86d92eba2597fd28b8bd3b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="nickname_not_found_8h_source.html#l00011">11</a> of file <a class="el" href="nickname_not_found_8h_source.html">nicknameNotFound.h</a>.</p>
+<div class="textblock"><p>Implementation of the exception for when a viewer being removed from the whitelist of a private stream is not in the whitelist</p>
+<p>Informs the streamer that the viewer isn't on the whitelist </p>
+
+<p class="definition">Definition at line <a class="el" href="nickname_not_found_8h_source.html#l00024">24</a> of file <a class="el" href="nickname_not_found_8h_source.html">nicknameNotFound.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a757986fb8e8b1c0d330cc257f020c2be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a757986fb8e8b1c0d330cc257f020c2be">&#9670;&nbsp;</a></span>NicknameNotFound()</h2>
@@ -148,6 +141,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor of the <a class="el" href="class_nickname_not_found.html">NicknameNotFound</a> class</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nickname</td><td>nickname of the viewer being searched </td></tr>
+    <tr><td class="paramname">message</td><td>message indicating the viewer is not on the whitelist </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="nickname_not_found_8cpp_source.html#l00009">9</a> of file <a class="el" href="nickname_not_found_8cpp_source.html">nicknameNotFound.cpp</a>.</p>
 
@@ -168,14 +169,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Getter of the nickname of the viewer not on the whitelist</p>
+<dl class="section return"><dt>Returns</dt><dd>nickname of the viewer not on the whitelist </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="nickname_not_found_8cpp_source.html#l00011">11</a> of file <a class="el" href="nickname_not_found_8cpp_source.html">nicknameNotFound.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>exception/nicknameNotFound/<a class="el" href="nickname_not_found_8h_source.html">nicknameNotFound.h</a></li>
-<li>exception/nicknameNotFound/<a class="el" href="nickname_not_found_8cpp_source.html">nicknameNotFound.cpp</a></li>
+<li>/home/biromiro/AEDA/feup-aeda-project/src/exception/nicknameNotFound/<a class="el" href="nickname_not_found_8h_source.html">nicknameNotFound.h</a></li>
+<li>/home/biromiro/AEDA/feup-aeda-project/src/exception/nicknameNotFound/<a class="el" href="nickname_not_found_8cpp_source.html">nicknameNotFound.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

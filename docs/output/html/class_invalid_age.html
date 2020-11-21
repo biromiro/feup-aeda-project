@@ -29,7 +29,7 @@
    <div id="projectname">StreamZ
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A streaming platform for all!</div>
+   <div id="projectbrief">Streaming Platform</div>
   </td>
  </tr>
  </tbody>
@@ -102,15 +102,6 @@ Inheritance diagram for InvalidAge:</div>
 <area shape="rect" title=" " alt="" coords="5,5,141,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for InvalidAge:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_invalid_age__coll__graph.png" border="0" usemap="#_invalid_age_coll__map" alt="Collaboration graph"/></div>
-<map name="_invalid_age_coll__map" id="_invalid_age_coll__map">
-<area shape="rect" title=" " alt="" coords="28,80,119,107"/>
-<area shape="rect" title=" " alt="" coords="5,5,141,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -120,8 +111,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a25e1bcf937ebae433c372912d9b15f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="invalid_age_8h_source.html#l00011">11</a> of file <a class="el" href="invalid_age_8h_source.html">invalidAge.h</a>.</p>
+<div class="textblock"><p>Implementation of the exception for when a streamer tries to register but his age is below 15 or a viewer tries to register but his age is below 12</p>
+<p>Informs the user he's not old enough to register </p>
+
+<p class="definition">Definition at line <a class="el" href="invalid_age_8h_source.html#l00025">25</a> of file <a class="el" href="invalid_age_8h_source.html">invalidAge.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5b9d6e5856722d72ee155c28427022b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5b9d6e5856722d72ee155c28427022b1">&#9670;&nbsp;</a></span>InvalidAge()</h2>
@@ -148,6 +141,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor of the <a class="el" href="class_invalid_age.html">InvalidAge</a> class</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">age</td><td>invalid user age </td></tr>
+    <tr><td class="paramname">message</td><td>message indicating the age of the user is invalid </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="invalid_age_8cpp_source.html#l00008">8</a> of file <a class="el" href="invalid_age_8cpp_source.html">invalidAge.cpp</a>.</p>
 
@@ -168,14 +169,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Getter of the invalid user age</p>
+<dl class="section return"><dt>Returns</dt><dd>invalid user age </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="invalid_age_8cpp_source.html#l00010">10</a> of file <a class="el" href="invalid_age_8cpp_source.html">invalidAge.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>exception/invalidAge/<a class="el" href="invalid_age_8h_source.html">invalidAge.h</a></li>
-<li>exception/invalidAge/<a class="el" href="invalid_age_8cpp_source.html">invalidAge.cpp</a></li>
+<li>/home/biromiro/AEDA/feup-aeda-project/src/exception/invalidAge/<a class="el" href="invalid_age_8h_source.html">invalidAge.h</a></li>
+<li>/home/biromiro/AEDA/feup-aeda-project/src/exception/invalidAge/<a class="el" href="invalid_age_8cpp_source.html">invalidAge.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

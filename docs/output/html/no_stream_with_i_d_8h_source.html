@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>StreamZ: exception/noStreamWithID/noStreamWithID.h Source File</title>
+<title>StreamZ: /home/biromiro/AEDA/feup-aeda-project/src/exception/noStreamWithID/noStreamWithID.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
    <div id="projectname">StreamZ
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A streaming platform for all!</div>
+   <div id="projectbrief">Streaming Platform</div>
   </td>
  </tr>
  </tbody>
@@ -98,25 +98,26 @@ $(document).ready(function(){initNavTree('no_stream_with_i_d_8h_source.html','')
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;exception&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_no_stream_with_i_d.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_no_stream_with_i_d.html">NoStreamWithID</a> : <span class="keyword">public</span> std::invalid_argument {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_no_stream_with_i_d.html#ac259ddeff3705abe0bcba0517356c52a">NoStreamWithID</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> streamID, <span class="keyword">const</span> std::string &amp; message);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    [[nodiscard]] <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_no_stream_with_i_d.html#a51edc35fa9d87d1046ed5cc6638c64c3">getStreamId</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> streamID;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif //PROJECT_NOSTREAMWITHID_H</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_no_stream_with_i_d.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_no_stream_with_i_d.html">NoStreamWithID</a> : <span class="keyword">public</span> std::invalid_argument {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_no_stream_with_i_d.html#ac259ddeff3705abe0bcba0517356c52a">NoStreamWithID</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> streamID, <span class="keyword">const</span> std::string &amp; message);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    [[nodiscard]] <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_no_stream_with_i_d.html#a51edc35fa9d87d1046ed5cc6638c64c3">getStreamId</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> streamID;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif //PROJECT_NOSTREAMWITHID_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_no_stream_with_i_d_html_a51edc35fa9d87d1046ed5cc6638c64c3"><div class="ttname"><a href="class_no_stream_with_i_d.html#a51edc35fa9d87d1046ed5cc6638c64c3">NoStreamWithID::getStreamId</a></div><div class="ttdeci">unsigned int getStreamId() const</div><div class="ttdef"><b>Definition:</b> <a href="no_stream_with_i_d_8cpp_source.html#l00009">noStreamWithID.cpp:9</a></div></div>
-<div class="ttc" id="aclass_no_stream_with_i_d_html"><div class="ttname"><a href="class_no_stream_with_i_d.html">NoStreamWithID</a></div><div class="ttdef"><b>Definition:</b> <a href="no_stream_with_i_d_8h_source.html#l00011">noStreamWithID.h:11</a></div></div>
+<div class="ttc" id="aclass_no_stream_with_i_d_html"><div class="ttname"><a href="class_no_stream_with_i_d.html">NoStreamWithID</a></div><div class="ttdef"><b>Definition:</b> <a href="no_stream_with_i_d_8h_source.html#l00025">noStreamWithID.h:25</a></div></div>
 <div class="ttc" id="aclass_no_stream_with_i_d_html_ac259ddeff3705abe0bcba0517356c52a"><div class="ttname"><a href="class_no_stream_with_i_d.html#ac259ddeff3705abe0bcba0517356c52a">NoStreamWithID::NoStreamWithID</a></div><div class="ttdeci">NoStreamWithID(unsigned int streamID, const std::string &amp;message)</div><div class="ttdef"><b>Definition:</b> <a href="no_stream_with_i_d_8cpp_source.html#l00007">noStreamWithID.cpp:7</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_5834c169ac818fb4b61d1b6f37638e83.html">exception</a></li><li class="navelem"><a class="el" href="dir_99b5af70fa04141a5e754fe02704a7b9.html">noStreamWithID</a></li><li class="navelem"><a class="el" href="no_stream_with_i_d_8h.html">noStreamWithID.h</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_03f4a28f75b8e23e1d457d2da09125b3.html">exception</a></li><li class="navelem"><a class="el" href="dir_bbc839d5aed7bdff6aff4774a309870d.html">noStreamWithID</a></li><li class="navelem"><a class="el" href="no_stream_with_i_d_8h.html">noStreamWithID.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

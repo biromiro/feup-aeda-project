@@ -29,7 +29,7 @@
    <div id="projectname">StreamZ
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A streaming platform for all!</div>
+   <div id="projectbrief">Streaming Platform</div>
   </td>
  </tr>
  </tbody>
@@ -101,17 +101,6 @@ Inheritance diagram for Viewer:</div>
 <area shape="rect" title=" " alt="" coords="65,95,131,121"/>
 <area shape="rect" href="class_user.html" title=" " alt="" coords="5,13,57,39"/>
 <area shape="rect" title=" " alt="" coords="81,5,248,47"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for Viewer:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_viewer__coll__graph.png" border="0" usemap="#_viewer_coll__map" alt="Collaboration graph"/></div>
-<map name="_viewer_coll__map" id="_viewer_coll__map">
-<area shape="rect" title=" " alt="" coords="99,200,165,227"/>
-<area shape="rect" href="class_user.html" title=" " alt="" coords="6,117,58,143"/>
-<area shape="rect" href="class_date.html" title=" " alt="" coords="5,5,59,32"/>
-<area shape="rect" title=" " alt="" coords="82,109,249,151"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -523,6 +512,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overloard of operator != to viewers</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>given viewer to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>self != given viewer </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00135">135</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
@@ -543,6 +540,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overloard of operator &lt; to viewers</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>given viewer to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>self &lt; given viewer </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00099">99</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
@@ -563,6 +568,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overloard of operator &lt;= to viewers</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>given viewer to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>self &lt;= given viewer </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00123">123</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
@@ -583,6 +596,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overloard of operator == to viewers</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>given viewer to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>self == given viewer </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00131">131</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
@@ -603,6 +624,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overloard of operator &gt; to viewers</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>given viewer to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>self &gt; given viewer </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00119">119</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
@@ -623,6 +652,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overloard of operator &gt;= to viewers</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>given viewer to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>self &gt;= given viewer </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00127">127</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
@@ -653,6 +690,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Reads viewer data from file</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ist</td><td>File to read from </td></tr>
+    <tr><td class="paramname">streamManager</td><td>streamManager to correctly add viewers into streams they are watching </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00139">139</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
@@ -709,6 +754,13 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Writes and updates viewer data to file</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ost</td><td>File to write viewer data to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Reimplemented from <a class="el" href="class_user.html#a3efd848398bcda7686ed2ae03ec1f99a">User</a>.</p>
 
@@ -717,8 +769,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>model/user/viewer/<a class="el" href="viewer_8h_source.html">viewer.h</a></li>
-<li>model/user/viewer/<a class="el" href="viewer_8cpp_source.html">viewer.cpp</a></li>
+<li>/home/biromiro/AEDA/feup-aeda-project/src/model/user/viewer/<a class="el" href="viewer_8h_source.html">viewer.h</a></li>
+<li>/home/biromiro/AEDA/feup-aeda-project/src/model/user/viewer/<a class="el" href="viewer_8cpp_source.html">viewer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

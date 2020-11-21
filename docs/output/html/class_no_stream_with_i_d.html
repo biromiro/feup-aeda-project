@@ -29,7 +29,7 @@
    <div id="projectname">StreamZ
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A streaming platform for all!</div>
+   <div id="projectbrief">Streaming Platform</div>
   </td>
  </tr>
  </tbody>
@@ -102,15 +102,6 @@ Inheritance diagram for NoStreamWithID:</div>
 <area shape="rect" title=" " alt="" coords="5,5,169,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for NoStreamWithID:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_no_stream_with_i_d__coll__graph.png" border="0" usemap="#_no_stream_with_i_d_coll__map" alt="Collaboration graph"/></div>
-<map name="_no_stream_with_i_d_coll__map" id="_no_stream_with_i_d_coll__map">
-<area shape="rect" title=" " alt="" coords="22,80,153,107"/>
-<area shape="rect" title=" " alt="" coords="5,5,169,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -120,8 +111,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a51edc35fa9d87d1046ed5cc6638c64c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="no_stream_with_i_d_8h_source.html#l00011">11</a> of file <a class="el" href="no_stream_with_i_d_8h_source.html">noStreamWithID.h</a>.</p>
+<div class="textblock"><p>Implementation of the exception for when the user searches for a stream through its ID but there's no stream with the ID searched</p>
+<p>Informs the user there's no stream with the searched ID </p>
+
+<p class="definition">Definition at line <a class="el" href="no_stream_with_i_d_8h_source.html#l00025">25</a> of file <a class="el" href="no_stream_with_i_d_8h_source.html">noStreamWithID.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac259ddeff3705abe0bcba0517356c52a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac259ddeff3705abe0bcba0517356c52a">&#9670;&nbsp;</a></span>NoStreamWithID()</h2>
@@ -148,6 +141,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor of the <a class="el" href="class_no_stream_with_i_d.html">NoStreamWithID</a> class</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">streamID</td><td>ID searched that corresponds to no stream </td></tr>
+    <tr><td class="paramname">message</td><td>message indicating there's no stream with the searched ID </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="no_stream_with_i_d_8cpp_source.html#l00007">7</a> of file <a class="el" href="no_stream_with_i_d_8cpp_source.html">noStreamWithID.cpp</a>.</p>
 
@@ -168,14 +169,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Getter of the searched ID</p>
+<dl class="section return"><dt>Returns</dt><dd>searched ID that corresponds to no stream </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="no_stream_with_i_d_8cpp_source.html#l00009">9</a> of file <a class="el" href="no_stream_with_i_d_8cpp_source.html">noStreamWithID.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>exception/noStreamWithID/<a class="el" href="no_stream_with_i_d_8h_source.html">noStreamWithID.h</a></li>
-<li>exception/noStreamWithID/<a class="el" href="no_stream_with_i_d_8cpp_source.html">noStreamWithID.cpp</a></li>
+<li>/home/biromiro/AEDA/feup-aeda-project/src/exception/noStreamWithID/<a class="el" href="no_stream_with_i_d_8h_source.html">noStreamWithID.h</a></li>
+<li>/home/biromiro/AEDA/feup-aeda-project/src/exception/noStreamWithID/<a class="el" href="no_stream_with_i_d_8cpp_source.html">noStreamWithID.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

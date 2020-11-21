@@ -29,7 +29,7 @@
    <div id="projectname">StreamZ
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A streaming platform for all!</div>
+   <div id="projectbrief">Streaming Platform</div>
   </td>
  </tr>
  </tbody>
@@ -102,15 +102,6 @@ Inheritance diagram for InvalidFeedback:</div>
 <area shape="rect" title=" " alt="" coords="5,5,141,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for InvalidFeedback:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_invalid_feedback__coll__graph.png" border="0" usemap="#_invalid_feedback_coll__map" alt="Collaboration graph"/></div>
-<map name="_invalid_feedback_coll__map" id="_invalid_feedback_coll__map">
-<area shape="rect" title=" " alt="" coords="9,80,137,107"/>
-<area shape="rect" title=" " alt="" coords="5,5,141,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -120,8 +111,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5cec0f0118b08f5411c434b6b5197685"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="invalid_feedback_8h_source.html#l00013">13</a> of file <a class="el" href="invalid_feedback_8h_source.html">invalidFeedback.h</a>.</p>
+<div class="textblock"><p>Implementation of the exception for when a viewer tries to give feedback to a stream but it's different than the LIKE or DISLIKE votes allowed</p>
+<p>Informs the viewer that his feedback is invalid </p>
+
+<p class="definition">Definition at line <a class="el" href="invalid_feedback_8h_source.html#l00028">28</a> of file <a class="el" href="invalid_feedback_8h_source.html">invalidFeedback.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6a9b38d000e68327eee57ab2b75360fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6a9b38d000e68327eee57ab2b75360fb">&#9670;&nbsp;</a></span>InvalidFeedback()</h2>
@@ -148,6 +141,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor of the <a class="el" href="class_invalid_feedback.html">InvalidFeedback</a> class</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fb</td><td>invalid feedback </td></tr>
+    <tr><td class="paramname">message</td><td>message indicating the viewer's feedback is invalid </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="invalid_feedback_8cpp_source.html#l00007">7</a> of file <a class="el" href="invalid_feedback_8cpp_source.html">invalidFeedback.cpp</a>.</p>
 
@@ -168,14 +169,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Getter of the viewer's invalid feedback</p>
+<dl class="section return"><dt>Returns</dt><dd>viewer's invalid feedback </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="invalid_feedback_8cpp_source.html#l00009">9</a> of file <a class="el" href="invalid_feedback_8cpp_source.html">invalidFeedback.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>exception/invalidFeedback/<a class="el" href="invalid_feedback_8h_source.html">invalidFeedback.h</a></li>
-<li>exception/invalidFeedback/<a class="el" href="invalid_feedback_8cpp_source.html">invalidFeedback.cpp</a></li>
+<li>/home/biromiro/AEDA/feup-aeda-project/src/exception/invalidFeedback/<a class="el" href="invalid_feedback_8h_source.html">invalidFeedback.h</a></li>
+<li>/home/biromiro/AEDA/feup-aeda-project/src/exception/invalidFeedback/<a class="el" href="invalid_feedback_8cpp_source.html">invalidFeedback.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>StreamZ: model/user/streamer/streamer_manager.h Source File</title>
+<title>StreamZ: /home/biromiro/AEDA/feup-aeda-project/src/model/user/streamer/streamer_manager.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
    <div id="projectname">StreamZ
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A streaming platform for all!</div>
+   <div id="projectbrief">Streaming Platform</div>
   </td>
  </tr>
  </tbody>
@@ -108,35 +108,35 @@ $(document).ready(function(){initNavTree('streamer__manager_8h_source.html','');
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a9a0f64e7ce424c40da55e0ca6832fb82">add</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a5ea2c27c7bffa045c1b98ce5707ca139">reload</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a70eb3e22bde3e0f5816a8591b297c075">remove</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a75007035ee46d3e1d438acbf0f4b871f">endStream</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a55d8d14202b191a8125c45d2d5ad8ab4">has</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a55d8d14202b191a8125c45d2d5ad8ab4">has</a>(std::string nickname) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    [[nodiscard]] std::shared_ptr&lt;Streamer&gt; <a class="code" href="class_streamer_manager.html#acec0b5568a3161b4a9f846336939dff4">get</a>(std::string nickname) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    [[nodiscard]] <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_streamer_manager.html#a836a95d8a52da98e895d0cdb3e46282f">getNumOfFollowers</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    [[nodiscard]] <span class="keyword">const</span> std::vector&lt;std::shared_ptr&lt;Streamer&gt;&gt; &amp;<a class="code" href="class_streamer_manager.html#ab5077b3abd36c2b30b90a36aba4c2562">getStreamers</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a0e58ddf85924d01bc58c79fd722e0bce">readData</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a5ea2c27c7bffa045c1b98ce5707ca139">reload</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a70eb3e22bde3e0f5816a8591b297c075">remove</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a75007035ee46d3e1d438acbf0f4b871f">endStream</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a55d8d14202b191a8125c45d2d5ad8ab4">has</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a55d8d14202b191a8125c45d2d5ad8ab4">has</a>(std::string nickname) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    [[nodiscard]] std::shared_ptr&lt;Streamer&gt; <a class="code" href="class_streamer_manager.html#acec0b5568a3161b4a9f846336939dff4">get</a>(std::string nickname) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#abead67bd23d38c79a508a10e94f53226">writeData</a>();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    std::vector&lt;std::shared_ptr&lt;Streamer&gt;&gt; streamers;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    std::shared_ptr&lt;StreamManager&gt; streamManager;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    std::shared_ptr&lt;ViewerManager&gt; viewerManager;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    std::shared_ptr&lt;UserManager&gt; userManager;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;};</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif //PROJECT_STREAMER_MANAGER_H</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    [[nodiscard]] <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_streamer_manager.html#a836a95d8a52da98e895d0cdb3e46282f">getNumOfFollowers</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    [[nodiscard]] <span class="keyword">const</span> std::vector&lt;std::shared_ptr&lt;Streamer&gt;&gt; &amp;<a class="code" href="class_streamer_manager.html#ab5077b3abd36c2b30b90a36aba4c2562">getStreamers</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a0e58ddf85924d01bc58c79fd722e0bce">readData</a>();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#abead67bd23d38c79a508a10e94f53226">writeData</a>();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    std::vector&lt;std::shared_ptr&lt;Streamer&gt;&gt; streamers;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    std::shared_ptr&lt;StreamManager&gt; streamManager;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    std::shared_ptr&lt;ViewerManager&gt; viewerManager;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    std::shared_ptr&lt;UserManager&gt; userManager;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;};</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif //PROJECT_STREAMER_MANAGER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_streamer_manager_html_a55d8d14202b191a8125c45d2d5ad8ab4"><div class="ttname"><a href="class_streamer_manager.html#a55d8d14202b191a8125c45d2d5ad8ab4">StreamerManager::has</a></div><div class="ttdeci">bool has(const std::shared_ptr&lt; Streamer &gt; &amp;streamer) const</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00072">streamer_manager.cpp:72</a></div></div>
@@ -153,11 +153,11 @@ $(document).ready(function(){initNavTree('streamer__manager_8h_source.html','');
 <div class="ttc" id="aclass_streamer_manager_html_a0e58ddf85924d01bc58c79fd722e0bce"><div class="ttname"><a href="class_streamer_manager.html#a0e58ddf85924d01bc58c79fd722e0bce">StreamerManager::readData</a></div><div class="ttdeci">bool readData()</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00101">streamer_manager.cpp:101</a></div></div>
 <div class="ttc" id="astreamer_8h_html"><div class="ttname"><a href="streamer_8h.html">streamer.h</a></div></div>
 <div class="ttc" id="aclass_streamer_manager_html_a9a0f64e7ce424c40da55e0ca6832fb82"><div class="ttname"><a href="class_streamer_manager.html#a9a0f64e7ce424c40da55e0ca6832fb82">StreamerManager::add</a></div><div class="ttdeci">bool add(const std::shared_ptr&lt; Streamer &gt; &amp;streamer)</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00035">streamer_manager.cpp:35</a></div></div>
-<div class="ttc" id="aclass_date_html"><div class="ttname"><a href="class_date.html">Date</a></div><div class="ttdef"><b>Definition:</b> <a href="date_8h_source.html#l00014">date.h:14</a></div></div>
+<div class="ttc" id="aclass_date_html"><div class="ttname"><a href="class_date.html">Date</a></div><div class="ttdef"><b>Definition:</b> <a href="date_8h_source.html#l00026">date.h:26</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_e03d79b9112c2c2c21b57db8fdec5070.html">user</a></li><li class="navelem"><a class="el" href="dir_8ebdef59c8245e86eea0f9b57efe45ef.html">streamer</a></li><li class="navelem"><a class="el" href="streamer__manager_8h.html">streamer_manager.h</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5dd65160827af56e6353642206b80129.html">model</a></li><li class="navelem"><a class="el" href="dir_4d1e0b06f68c5f0d0dd2615bfed310b4.html">user</a></li><li class="navelem"><a class="el" href="dir_5100c6bab07254acd8da1481eead91a9.html">streamer</a></li><li class="navelem"><a class="el" href="streamer__manager_8h.html">streamer_manager.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

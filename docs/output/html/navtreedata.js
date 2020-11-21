@@ -51,8 +51,8 @@ var NAVTREEINDEX =
 [
 "admin_8cpp.html",
 "class_stream_manager.html#accfe888b95aa5b47e1681c965180ce99",
-"functions_o.html",
-"streamer_8h_source.html"
+"functions_n.html",
+"streamer_8h.html#a8075c9b2050c75c1b53b2206c7c3781f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
