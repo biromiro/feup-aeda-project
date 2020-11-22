@@ -1,4 +1,4 @@
-10
+11
 9
 1
 1
@@ -32,29 +32,29 @@ DISLIKE
 Marta Calado
 sdads
 peepee2012e
+4
 0
 0
-0
-INVALID_VOTE
+LIKE
 2006/11/22
 2020/11/16
 Martinha Calado
 martinha
 kekw29xd
-0
+10
 4
 3
+LIKE
+11
 LIKE
 1
 LIKE
 2
 LIKE
-11
-LIKE
 2
 mkay
 biromiro
-INVALID_VOTE
+LIKE
 2001/08/21
 2020/11/16
 Margarida Oliveira
@@ -113,3 +113,20 @@ INVALID_VOTE
 Loes
 palpss
 123
+12
+3
+9
+LIKE
+10
+LIKE
+12
+LIKE
+2
+luist18
+jpcosta
+LIKE
+2001/06/13
+2020/11/22
+miro
+biro
+987
