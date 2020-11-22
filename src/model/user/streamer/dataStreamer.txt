@@ -1,4 +1,4 @@
-9
+10
 2
 1
 2
@@ -17,7 +17,8 @@ muitofixemeu
 Oscar Esteves
 vespasiano
 mlsadko
-0
+1
+11
 0
 0
 2001/04/26
@@ -49,8 +50,10 @@ emanuelpogssoa
 muitoepico
 sda
 123
-0
+2
 5
+8
+9
 0
 1969/12/14
 2020/11/20
@@ -74,3 +77,11 @@ teixeira
 sdffffdfs
 sdf
 idk
+0
+10
+0
+2000/11/18
+2020/11/22
+Luis Tavares
+luist18
+sds

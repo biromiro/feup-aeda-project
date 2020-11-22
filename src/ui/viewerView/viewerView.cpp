@@ -74,7 +74,7 @@ void ViewerView::chooseStream() {
             if(streamID == 0) return;
             std::shared_ptr<Stream> streamToJoin;
             try{
-                auto streamToJoin = uiManager.getPlatform().getStreamManager()->get(streamID);
+                streamToJoin = uiManager.getPlatform().getStreamManager()->get(streamID);
             } catch (std::exception& exception) {
                 std::cerr << exception.what();
                 _getch_();

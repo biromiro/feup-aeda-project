@@ -19,10 +19,8 @@ std::shared_ptr<Viewer> ViewerManager::build(Date birthDate, const std::string& 
     try{
         viewer = std::make_shared<Viewer>(birthDate,name,nickname,password);
     } catch (InvalidAge& invalidAge) {
-        unsigned int age = viewer->getAge();
-        std::cout << invalidAge.what();
         viewer.reset();
-        throw InvalidAge(age,"You have to be at least 12 years old!");
+        throw InvalidAge(invalidAge.getAge(),"You have to be at least 12 years old!");
     }
     add(viewer);
     std::shared_ptr<User> user_form = std::dynamic_pointer_cast<Viewer>(viewer);
