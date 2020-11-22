@@ -25,7 +25,6 @@ jobs:
       # Building with cmake
       - name: Bulding
         run: |
-          cd src
           mkdir build
           cd build
           cmake -DCODE_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug ..
@@ -34,4 +33,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: application-linux
-          path: build/project
+          path: build/src/application
