@@ -16,7 +16,7 @@ addons:
 
 branches:
   only:
-    - master
+    - main
 
 install:
   # (fake) install dependencies (usually involves wget, configure, make, ...)
