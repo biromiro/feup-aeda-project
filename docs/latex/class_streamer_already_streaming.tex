@@ -1,0 +1,78 @@
+\hypertarget{class_streamer_already_streaming}{}\doxysection{Streamer\+Already\+Streaming Class Reference}
+\label{class_streamer_already_streaming}\index{StreamerAlreadyStreaming@{StreamerAlreadyStreaming}}
+
+
+{\ttfamily \#include $<$streamer\+Already\+Streaming.\+h$>$}
+
+
+
+Inheritance diagram for Streamer\+Already\+Streaming\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{class_streamer_already_streaming__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_streamer_already_streaming_ad066eee605b2a020947335f2fcdc8b1b}{Streamer\+Already\+Streaming}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ streamer, const std\+::string \&message)
+\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \& \mbox{\hyperlink{class_streamer_already_streaming_a440fbef7aa77bd50276fcd4a971ac4de}{get\+Streamer}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the exception for when a streamer is trying to start a stream but is already streaming
+
+Informs the streamer that he can\textquotesingle{}t start a stream because he\textquotesingle{}s already streaming 
+
+Definition at line 25 of file streamer\+Already\+Streaming.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_streamer_already_streaming_ad066eee605b2a020947335f2fcdc8b1b}\label{class_streamer_already_streaming_ad066eee605b2a020947335f2fcdc8b1b}} 
+\index{StreamerAlreadyStreaming@{StreamerAlreadyStreaming}!StreamerAlreadyStreaming@{StreamerAlreadyStreaming}}
+\index{StreamerAlreadyStreaming@{StreamerAlreadyStreaming}!StreamerAlreadyStreaming@{StreamerAlreadyStreaming}}
+\doxysubsubsection{\texorpdfstring{StreamerAlreadyStreaming()}{StreamerAlreadyStreaming()}}
+{\footnotesize\ttfamily Streamer\+Already\+Streaming\+::\+Streamer\+Already\+Streaming (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$}]{streamer,  }\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})}
+
+Constructor of the \mbox{\hyperlink{class_streamer_already_streaming}{Streamer\+Already\+Streaming}} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em streamer} & streamer that is creating a stream while in the middle of one already \\
+\hline
+{\em message} & message indicating the streamer is already streaming \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 7 of file streamer\+Already\+Streaming.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_streamer_already_streaming_a440fbef7aa77bd50276fcd4a971ac4de}\label{class_streamer_already_streaming_a440fbef7aa77bd50276fcd4a971ac4de}} 
+\index{StreamerAlreadyStreaming@{StreamerAlreadyStreaming}!getStreamer@{getStreamer}}
+\index{getStreamer@{getStreamer}!StreamerAlreadyStreaming@{StreamerAlreadyStreaming}}
+\doxysubsubsection{\texorpdfstring{getStreamer()}{getStreamer()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \& Streamer\+Already\+Streaming\+::get\+Streamer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the streamer trying to start a stream
+
+\begin{DoxyReturn}{Returns}
+the streamer trying to start a stream 
+\end{DoxyReturn}
+
+
+Definition at line 9 of file streamer\+Already\+Streaming.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/exception/streamer\+Already\+Streaming/\mbox{\hyperlink{streamer_already_streaming_8h}{streamer\+Already\+Streaming.\+h}}\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/exception/streamer\+Already\+Streaming/\mbox{\hyperlink{streamer_already_streaming_8cpp}{streamer\+Already\+Streaming.\+cpp}}\end{DoxyCompactItemize}

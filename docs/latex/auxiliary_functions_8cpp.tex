@@ -1,0 +1,91 @@
+\hypertarget{auxiliary_functions_8cpp}{}\doxysection{/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/utils/other\+Functions/auxiliary\+Functions.cpp File Reference}
+\label{auxiliary_functions_8cpp}\index{/home/biromiro/AEDA/feup-\/aeda-\/project/src/utils/otherFunctions/auxiliaryFunctions.cpp@{/home/biromiro/AEDA/feup-\/aeda-\/project/src/utils/otherFunctions/auxiliaryFunctions.cpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}auxiliary\+Functions.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{auxiliary_functions_8cpp_a53d02df1713071578c4b6a030269739b}{is\+\_\+number}} (const std\+::string \&s)
+\item 
+unsigned int \mbox{\hyperlink{auxiliary_functions_8cpp_a09049fe097a8284bb5f63a42aa20f767}{input\+Number}} ()
+\item 
+void \mbox{\hyperlink{auxiliary_functions_8cpp_aeaa0dd0638ab41b3d2b528b3f9444a98}{getline\+C\+IN}} (std\+::string \&s)
+\item 
+std\+::string \mbox{\hyperlink{auxiliary_functions_8cpp_a45cc1ff630a8eee6b52699b6ea74be2e}{shrink\+To\+Column\+Size}} (std\+::string value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{auxiliary_functions_8cpp_aeaa0dd0638ab41b3d2b528b3f9444a98}\label{auxiliary_functions_8cpp_aeaa0dd0638ab41b3d2b528b3f9444a98}} 
+\index{auxiliaryFunctions.cpp@{auxiliaryFunctions.cpp}!getlineCIN@{getlineCIN}}
+\index{getlineCIN@{getlineCIN}!auxiliaryFunctions.cpp@{auxiliaryFunctions.cpp}}
+\doxysubsubsection{\texorpdfstring{getlineCIN()}{getlineCIN()}}
+{\footnotesize\ttfamily void getline\+C\+IN (\begin{DoxyParamCaption}\item[{std\+::string \&}]{s }\end{DoxyParamCaption})}
+
+Extension of the getline function, dealing with the stream as well
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & the variable to save the input line \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 77 of file auxiliary\+Functions.\+cpp.
+
+\mbox{\Hypertarget{auxiliary_functions_8cpp_a09049fe097a8284bb5f63a42aa20f767}\label{auxiliary_functions_8cpp_a09049fe097a8284bb5f63a42aa20f767}} 
+\index{auxiliaryFunctions.cpp@{auxiliaryFunctions.cpp}!inputNumber@{inputNumber}}
+\index{inputNumber@{inputNumber}!auxiliaryFunctions.cpp@{auxiliaryFunctions.cpp}}
+\doxysubsubsection{\texorpdfstring{inputNumber()}{inputNumber()}}
+{\footnotesize\ttfamily unsigned int input\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Receives a number from the input stream, and handles such stream
+
+\begin{DoxyReturn}{Returns}
+the number that was given in input 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file auxiliary\+Functions.\+cpp.
+
+\mbox{\Hypertarget{auxiliary_functions_8cpp_a53d02df1713071578c4b6a030269739b}\label{auxiliary_functions_8cpp_a53d02df1713071578c4b6a030269739b}} 
+\index{auxiliaryFunctions.cpp@{auxiliaryFunctions.cpp}!is\_number@{is\_number}}
+\index{is\_number@{is\_number}!auxiliaryFunctions.cpp@{auxiliaryFunctions.cpp}}
+\doxysubsubsection{\texorpdfstring{is\_number()}{is\_number()}}
+{\footnotesize\ttfamily bool is\+\_\+number (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})}
+
+Checks if a given string is a number
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & the string to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file auxiliary\+Functions.\+cpp.
+
+\mbox{\Hypertarget{auxiliary_functions_8cpp_a45cc1ff630a8eee6b52699b6ea74be2e}\label{auxiliary_functions_8cpp_a45cc1ff630a8eee6b52699b6ea74be2e}} 
+\index{auxiliaryFunctions.cpp@{auxiliaryFunctions.cpp}!shrinkToColumnSize@{shrinkToColumnSize}}
+\index{shrinkToColumnSize@{shrinkToColumnSize}!auxiliaryFunctions.cpp@{auxiliaryFunctions.cpp}}
+\doxysubsubsection{\texorpdfstring{shrinkToColumnSize()}{shrinkToColumnSize()}}
+{\footnotesize\ttfamily std\+::string shrink\+To\+Column\+Size (\begin{DoxyParamCaption}\item[{std\+::string}]{value }\end{DoxyParamCaption})}
+
+Shrinks a given string to the column size of the leaderboard, so it doesn\textquotesingle{}t overflow it
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the string to shrink \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the shrinked string 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file auxiliary\+Functions.\+cpp.
+

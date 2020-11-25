@@ -18,6 +18,22 @@ class StreamManager;
 
 class Stream;
 
+/**
+ * @file viewer.cpp
+ *
+ * @brief Class representing the Viewer class
+ *
+ * @ingroup user
+ */
+
+/**
+ * Implementation of the Viewer class
+ *
+ * A viewer can join streams, leave them, and see his past stream history, as well as give feedback to the current one
+ * This class needs to be derived from "enabled_shared_from_this<Viewer>" so that the "this" pointer can be used
+ * to call methods within the class, given these receive a shared pointer and it doesn't share the same properties as
+ * a regular pointer
+ */
 class Viewer: public User,  public std::enable_shared_from_this<Viewer>{
 public:
 

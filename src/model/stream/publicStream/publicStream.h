@@ -7,7 +7,19 @@
 
 #ifndef PROJECT_PUBLICSTREAM_H
 
+/**
+ * @file publicStream.cpp
+ *
+ * @brief Class representing a public stream object
+ *
+ * @ingroup stream
+ */
 
+/**
+ * Implementation of the class public stream
+ *
+ * A public stream is an object, derived from stream, representing a more general, up and running, stream, on the given platform
+ */
 class PublicStream: public Stream {
 public:
   

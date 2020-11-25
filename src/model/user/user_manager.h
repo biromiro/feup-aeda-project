@@ -10,6 +10,19 @@
 #include "admin/admin.h"
 #include <fstream>
 
+/**
+ * @file user_manager.cpp
+ *
+ * @brief Class representing the User Manager class
+ *
+ * @ingroup user
+ */
+
+/**
+ * Implementation of the User Manager class
+ *
+ * Manages all users, functioning as a databse for no nickname repetition (which must be unique)
+ */
 class UserManager{
 public:
 

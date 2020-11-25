@@ -36,6 +36,8 @@ std::shared_ptr<LeaderboardManager> StreamZ::getLeaderboardManager() {
 }
 
 void StreamZ::initialize() {
+
+    //serialization sequence to read the data
     streamerManager->readData();
     streamManager->readData();
     viewerManager->readData(streamManager);
@@ -43,6 +45,8 @@ void StreamZ::initialize() {
 }
 
 void StreamZ::finish() {
+
+    //serialization sequence to write the data
     streamerManager->writeData();
     streamManager->writeData();
     viewerManager->writeData();

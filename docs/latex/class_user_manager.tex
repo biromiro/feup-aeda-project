@@ -1,0 +1,169 @@
+\hypertarget{class_user_manager}{}\doxysection{User\+Manager Class Reference}
+\label{class_user_manager}\index{UserManager@{UserManager}}
+
+
+{\ttfamily \#include $<$user\+\_\+manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_user_manager_a7ea6a5a58e03fb502e00d1157cdbb68e}{User\+Manager}} ()
+\item 
+bool \mbox{\hyperlink{class_user_manager_a0c05245861582a3348c4834239879d80}{add}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ \&user)
+\item 
+bool \mbox{\hyperlink{class_user_manager_a81aa914f8d0cd52929a4d96fac160b02}{remove}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ \&user)
+\item 
+bool \mbox{\hyperlink{class_user_manager_afe88a78cb13b867a3a679021d379f66e}{has}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ \&user) const
+\item 
+bool \mbox{\hyperlink{class_user_manager_a828a9d4bdba3aad1e376e146f50590c2}{has}} (std\+::string nickname) const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ \mbox{\hyperlink{class_user_manager_afc95b43a4bd6798578b377ddb101c948}{get}} (std\+::string nickname) const
+\item 
+std\+::unordered\+\_\+set$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ $>$ \mbox{\hyperlink{class_user_manager_ac493affe730971774c0e3f5035458b56}{get\+Users}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \mbox{\hyperlink{class_user}{User}} Manager class
+
+Manages all users, functioning as a databse for no nickname repetition (which must be unique) 
+
+Definition at line 26 of file user\+\_\+manager.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_user_manager_a7ea6a5a58e03fb502e00d1157cdbb68e}\label{class_user_manager_a7ea6a5a58e03fb502e00d1157cdbb68e}} 
+\index{UserManager@{UserManager}!UserManager@{UserManager}}
+\index{UserManager@{UserManager}!UserManager@{UserManager}}
+\doxysubsubsection{\texorpdfstring{UserManager()}{UserManager()}}
+{\footnotesize\ttfamily User\+Manager\+::\+User\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor of the \mbox{\hyperlink{class_user_manager}{User\+Manager}} class 
+
+Definition at line 10 of file user\+\_\+manager.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_user_manager_a0c05245861582a3348c4834239879d80}\label{class_user_manager_a0c05245861582a3348c4834239879d80}} 
+\index{UserManager@{UserManager}!add@{add}}
+\index{add@{add}!UserManager@{UserManager}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily bool User\+Manager\+::add (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ \&}]{user }\end{DoxyParamCaption})}
+
+Adds a new user to the users unordered set
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & new user to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 14 of file user\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_user_manager_afc95b43a4bd6798578b377ddb101c948}\label{class_user_manager_afc95b43a4bd6798578b377ddb101c948}} 
+\index{UserManager@{UserManager}!get@{get}}
+\index{get@{get}!UserManager@{UserManager}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ User\+Manager\+::get (\begin{DoxyParamCaption}\item[{std\+::string}]{nickname }\end{DoxyParamCaption}) const}
+
+Returns the pointer to a user given his nickname
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & the nickname of the user to be found and returned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the user with the given nickname 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file user\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_user_manager_ac493affe730971774c0e3f5035458b56}\label{class_user_manager_ac493affe730971774c0e3f5035458b56}} 
+\index{UserManager@{UserManager}!getUsers@{getUsers}}
+\index{getUsers@{getUsers}!UserManager@{UserManager}}
+\doxysubsubsection{\texorpdfstring{getUsers()}{getUsers()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+set$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ $>$ User\+Manager\+::get\+Users (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the users unordered set
+
+\begin{DoxyReturn}{Returns}
+the unordered set of users 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file user\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_user_manager_afe88a78cb13b867a3a679021d379f66e}\label{class_user_manager_afe88a78cb13b867a3a679021d379f66e}} 
+\index{UserManager@{UserManager}!has@{has}}
+\index{has@{has}!UserManager@{UserManager}}
+\doxysubsubsection{\texorpdfstring{has()}{has()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool User\+Manager\+::has (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ \&}]{user }\end{DoxyParamCaption}) const}
+
+Checks if the user exists in the users unordered set
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & user to be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 30 of file user\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_user_manager_a828a9d4bdba3aad1e376e146f50590c2}\label{class_user_manager_a828a9d4bdba3aad1e376e146f50590c2}} 
+\index{UserManager@{UserManager}!has@{has}}
+\index{has@{has}!UserManager@{UserManager}}
+\doxysubsubsection{\texorpdfstring{has()}{has()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool User\+Manager\+::has (\begin{DoxyParamCaption}\item[{std\+::string}]{nickname }\end{DoxyParamCaption}) const}
+
+Checks, by nickname (which is unique), if the user exists in the users unordered set
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & the nickname of the user to be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file user\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_user_manager_a81aa914f8d0cd52929a4d96fac160b02}\label{class_user_manager_a81aa914f8d0cd52929a4d96fac160b02}} 
+\index{UserManager@{UserManager}!remove@{remove}}
+\index{remove@{remove}!UserManager@{UserManager}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily bool User\+Manager\+::remove (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ \&}]{user }\end{DoxyParamCaption})}
+
+Removes a user from the users unordered set
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & user to be removed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file user\+\_\+manager.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/user/\mbox{\hyperlink{user__manager_8h}{user\+\_\+manager.\+h}}\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/user/\mbox{\hyperlink{user__manager_8cpp}{user\+\_\+manager.\+cpp}}\end{DoxyCompactItemize}

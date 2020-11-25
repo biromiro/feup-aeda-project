@@ -1,0 +1,128 @@
+\hypertarget{date_8h}{}\doxysection{/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/utils/date/date.h File Reference}
+\label{date_8h}\index{/home/biromiro/AEDA/feup-\/aeda-\/project/src/utils/date/date.h@{/home/biromiro/AEDA/feup-\/aeda-\/project/src/utils/date/date.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_date}{Date}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{date_8h_a3a341bfad0ea352efd20fa03e8c1b2c8}{P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+A\+T\+E\+\_\+H}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_date}{Date}} \mbox{\hyperlink{date_8h_a98b50cc46dce91f91e9964b522d19d5b}{days\+To\+Date}} (unsigned int days)
+\item 
+\mbox{\hyperlink{class_date}{Date}} \mbox{\hyperlink{date_8h_a3592b60b5306746231bcc8cb149fa2f7}{time\+Elapsed}} (const \mbox{\hyperlink{class_date}{Date}} \&d1, const \mbox{\hyperlink{class_date}{Date}} \&d2)
+\item 
+unsigned int \mbox{\hyperlink{date_8h_a9ccfe0d2c6dfb73a465847ad7a2623c9}{number\+Of\+Days}} (unsigned int year, unsigned int month)
+\item 
+bool \mbox{\hyperlink{date_8h_aafd58298d237e9abd00e1527c556b425}{is\+Leap}} (unsigned int y)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{date_8h_a3a341bfad0ea352efd20fa03e8c1b2c8}\label{date_8h_a3a341bfad0ea352efd20fa03e8c1b2c8}} 
+\index{date.h@{date.h}!PROJECT\_DATE\_H@{PROJECT\_DATE\_H}}
+\index{PROJECT\_DATE\_H@{PROJECT\_DATE\_H}!date.h@{date.h}}
+\doxysubsubsection{\texorpdfstring{PROJECT\_DATE\_H}{PROJECT\_DATE\_H}}
+{\footnotesize\ttfamily \#define P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+A\+T\+E\+\_\+H}
+
+
+
+Definition at line 312 of file date.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{date_8h_a98b50cc46dce91f91e9964b522d19d5b}\label{date_8h_a98b50cc46dce91f91e9964b522d19d5b}} 
+\index{date.h@{date.h}!daysToDate@{daysToDate}}
+\index{daysToDate@{daysToDate}!date.h@{date.h}}
+\doxysubsubsection{\texorpdfstring{daysToDate()}{daysToDate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_date}{Date}} days\+To\+Date (\begin{DoxyParamCaption}\item[{unsigned int}]{days }\end{DoxyParamCaption})}
+
+Converts a raw number of days into a \mbox{\hyperlink{class_date}{Date}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em days} & the total number of days \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the date which has that number of days (counting from 1/1/1) 
+\end{DoxyReturn}
+
+
+Definition at line 258 of file date.\+cpp.
+
+\mbox{\Hypertarget{date_8h_aafd58298d237e9abd00e1527c556b425}\label{date_8h_aafd58298d237e9abd00e1527c556b425}} 
+\index{date.h@{date.h}!isLeap@{isLeap}}
+\index{isLeap@{isLeap}!date.h@{date.h}}
+\doxysubsubsection{\texorpdfstring{isLeap()}{isLeap()}}
+{\footnotesize\ttfamily bool is\+Leap (\begin{DoxyParamCaption}\item[{unsigned int}]{y }\end{DoxyParamCaption})}
+
+Checks if a given year is a leap year
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & the year \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 129 of file date.\+cpp.
+
+\mbox{\Hypertarget{date_8h_a9ccfe0d2c6dfb73a465847ad7a2623c9}\label{date_8h_a9ccfe0d2c6dfb73a465847ad7a2623c9}} 
+\index{date.h@{date.h}!numberOfDays@{numberOfDays}}
+\index{numberOfDays@{numberOfDays}!date.h@{date.h}}
+\doxysubsubsection{\texorpdfstring{numberOfDays()}{numberOfDays()}}
+{\footnotesize\ttfamily unsigned int number\+Of\+Days (\begin{DoxyParamCaption}\item[{unsigned int}]{year,  }\item[{unsigned int}]{month }\end{DoxyParamCaption})}
+
+Gets the number of days in a given month of a given year
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & the year \\
+\hline
+{\em month} & the month \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of days of that month 
+\end{DoxyReturn}
+
+
+Definition at line 134 of file date.\+cpp.
+
+\mbox{\Hypertarget{date_8h_a3592b60b5306746231bcc8cb149fa2f7}\label{date_8h_a3592b60b5306746231bcc8cb149fa2f7}} 
+\index{date.h@{date.h}!timeElapsed@{timeElapsed}}
+\index{timeElapsed@{timeElapsed}!date.h@{date.h}}
+\doxysubsubsection{\texorpdfstring{timeElapsed()}{timeElapsed()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_date}{Date}} time\+Elapsed (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{d1,  }\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{d2 }\end{DoxyParamCaption})}
+
+Calculates the time elapsed between two dates
+
+
+\begin{DoxyParams}{Parameters}
+{\em d1} & the first date \\
+\hline
+{\em d2} & the second date \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the date corresponding to the time elapsed between the two dates 
+\end{DoxyReturn}
+
+
+Definition at line 273 of file date.\+cpp.
+

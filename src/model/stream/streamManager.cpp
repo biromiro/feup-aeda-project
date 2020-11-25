@@ -14,48 +14,67 @@ StreamManager::StreamManager(std::shared_ptr<ViewerManager> viewerManager, std::
 viewerManager(std::move(viewerManager)), streamerManager(std::move(streamerManager)) {}
 
 std::shared_ptr<Stream> StreamManager::build(const std::string& title, enum StreamLanguage lang, unsigned int minAge, enum StreamType type, enum StreamGenre genre, const std::shared_ptr<Streamer>& streamer){
+
+    //a streamer can only stream 1 stream at a time
     if(streamer->isStreaming())
         throw StreamerAlreadyStreaming(streamer, "Streamer is already streaming right now!");
+
+    //depending on the type of build, makes a different pointer (either to PrivateStream or to PublicStream)
     switch(type) {
+
         case StreamType::PRIVATE: {
+
             auto prv_stream = std::make_shared<PrivateStream>(title, lang, minAge, genre, streamer);
             auto stream_form = std::dynamic_pointer_cast<Stream>(prv_stream);
             add(stream_form);
             streamer->setStream(stream_form);
             return stream_form;
+
         }
+
         case StreamType::PUBLIC: {
+
             auto pbl_stream = std::make_shared<PublicStream>(title, lang, minAge, genre, streamer);
             auto stream_form = std::dynamic_pointer_cast<Stream>(pbl_stream);
             add(stream_form);
             streamer->setStream(stream_form);
             return stream_form;
+
         }
+
         default:
             throw InvalidStreamBuild("The stream you're trying to start is invalid!");
     }
 }
 
 bool StreamManager::add(const std::shared_ptr<Stream>& streamToAdd) {
-    if ((std::find(cacheOfFinishedStreams.begin(), cacheOfFinishedStreams.end(), streamToAdd) == cacheOfFinishedStreams.end())
-    && streamToAdd->getStreamType() == StreamType::FINISHED){
+
+    //checks if the stream to add is in the cache of finished streams if it is of that type
+    if (streamToAdd->getStreamType() == StreamType::FINISHED &&
+    (std::find(cacheOfFinishedStreams.begin(), cacheOfFinishedStreams.end(), streamToAdd) == cacheOfFinishedStreams.end())){
         cacheOfFinishedStreams.push_back(streamToAdd);
         return true;
     }
+
+    //checks if it is in the live stream vector
     else if (std::find(streams.begin(), streams.end(), streamToAdd) == streams.end()
     && streamToAdd->getStreamType() != StreamType::FINISHED){
         streams.push_back(streamToAdd);
         return true;
     }
+
     throw InvalidStreamToAdd(streamToAdd, "Stream you're trying to add is invalid or already there!");
 }
 
 bool StreamManager::remove(const std::shared_ptr<Stream>& streamToRemove) {
+
+    //checks if the stream is in the vector in order to be removed
     auto itr = std::find(streams.begin(), streams.end(), streamToRemove);
     if (itr != streams.end()) {
         streams.erase(itr);
         return true;
     }
+
     throw StreamNotFound(streamToRemove, "Stream not found!");
 }
 
@@ -64,28 +83,42 @@ bool StreamManager::has(const std::shared_ptr<Stream>& streamToCheck) {
 }
 
 std::shared_ptr<Stream> StreamManager::get(unsigned int streamID) {
+
+    //searches for the stream given its streamID in both the cache and stream vectors
     auto itr = std::find_if(streams.begin(), streams.end(),
                            [streamID](const std::shared_ptr<Stream>& stream){return stream->getUniqueId() == streamID;});
     if(itr != streams.end()){
         return *itr;
     }
+
     itr = std::find_if(cacheOfFinishedStreams.begin(), cacheOfFinishedStreams.end(),
                             [streamID](const std::shared_ptr<Stream>& stream){return stream->getUniqueId() == streamID;});
     if(itr != cacheOfFinishedStreams.end()){
         return *itr;
     }
+
     throw NoStreamWithID(streamID, "There's no stream with that ID!");
 }
 
 std::shared_ptr<FinishedStream> StreamManager::finish(const std::shared_ptr<Stream>& streamToFinish) {
+
+    //a finished stream cannot be finished
     if(streamToFinish->getStreamType() == StreamType::FINISHED)
         throw StreamAlreadyFinished(streamToFinish, "Stream has already finished!");
+
+    //if the stream isn't in the stream vector, it cannot be finished
     if(!remove(streamToFinish)) return nullptr;
+
+    //creates a new finished stream object
     auto res = std::make_shared<FinishedStream>(streamToFinish->getTitle(),streamToFinish->getLanguage(), streamToFinish->getMinAge(),
                                                 streamToFinish->getGenre(), streamToFinish->getStreamer(), getNumOfViewers(streamToFinish), streamToFinish->getUniqueId(), streamToFinish->getVotes());
+
+    //leaves the stream for each viewer actually watching the stream
     for(const auto& elem: viewerManager->getViewers()){
         if(elem->getCurrentStream() == streamToFinish)
             elem->leaveCurrentStream();
+
+        //changes the pointer of the viewerStreamHistory feedback to the new finished stream one
         std::map<std::shared_ptr<Stream>,FeedbackLikeSystem>& viewerStreamHistory = elem->getStreamHistory();
         auto it = viewerStreamHistory.find(streamToFinish);
         if(it != viewerStreamHistory.end()){
@@ -93,9 +126,11 @@ std::shared_ptr<FinishedStream> StreamManager::finish(const std::shared_ptr<Stre
             viewerStreamHistory.erase(it);
             viewerStreamHistory.insert(std::pair<std::shared_ptr<Stream>,FeedbackLikeSystem>(res,vote));
         }
+
     }
     cacheOfFinishedStreams.push_back(res);
     streamToFinish->getStreamer()->addToViewCount(streamToFinish->getNumOfViewers());
+
     return res;
 }
 

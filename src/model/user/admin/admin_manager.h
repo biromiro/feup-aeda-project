@@ -9,7 +9,19 @@
 #include "../user_manager.h"
 #include <fstream>
 
+/**
+ * @file admin_manager.cpp
+ *
+ * @brief Class representing the Admin Manager class
+ *
+ * @ingroup user
+ */
 
+/**
+ * Implementation of the Admin Manager class
+ *
+ * Manages the admin, taking care the number of instances and other actions
+ */
 class AdminManager{
 public:
     /**

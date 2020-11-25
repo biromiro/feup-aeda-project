@@ -6,6 +6,20 @@
 
 #ifndef PROJECT_ADMIN_H
 
+/**
+ * @file admin.cpp
+ *
+ * @brief Class representing the Admin class
+ *
+ * @ingroup user
+ */
+
+/**
+ * Implementation of the Admin class
+ *
+ * The admin has access, through the UI, to another statistics that other users do not have.
+ * There can only be one instance of the Admin class per platform
+ */
 class Admin: public User{
 public:
 

@@ -19,6 +19,19 @@ enum class UserTypes{
     ADMIN
 };
 
+/**
+ * @file user.cpp
+ *
+ * @brief Class representing the abstract User class
+ *
+ * @ingroup user
+ */
+
+/**
+ * Implementation of the abstract User class
+ *
+ * Base class for admin, viewer and streamer, containing all of the essential informations, such as nickname, password, etc
+ */
 class User{
 public:
 

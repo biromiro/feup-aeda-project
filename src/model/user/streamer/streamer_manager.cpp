@@ -19,6 +19,9 @@ streamManager(std::move(streamManager)), viewerManager(std::move(viewerManager))
 std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::string &name, const std::string &nickname, const std::string& password) {
     if(userManager->has(nickname))
         throw NicknameAlreadyAdded(nickname,"Nickname already in use by another user!");
+
+    //to avoid memory from being aloccated on the case of an underage streamer, tries to build one and, if unsuccessful,
+    //resets his shared pointer and rethrows the exception
     std::shared_ptr<Streamer> streamer;
     try{
         streamer = std::make_shared<Streamer>(birthDate,name,nickname,password);
@@ -26,6 +29,7 @@ std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::stri
         streamer.reset();
         throw InvalidAge(invalidAge.getAge(),invalidAge.what());
     }
+
     add(streamer);
     std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(streamer);
     userManager->add(user_form);
@@ -33,6 +37,7 @@ std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::stri
 }
 
 bool StreamerManager::add(const std::shared_ptr<Streamer>& streamer) {
+
     if (std::find(streamers.begin(),streamers.end(),streamer) == streamers.end()){
         streamers.push_back(streamer);
         return true;
@@ -41,6 +46,7 @@ bool StreamerManager::add(const std::shared_ptr<Streamer>& streamer) {
 }
 
 bool StreamerManager::reload(const std::shared_ptr<Streamer>& streamer){
+
     if(userManager->has(streamer->getNickname())){
         throw NicknameAlreadyAdded(streamer->getNickname(),"Nickname already in use by another user!");
     }else{
@@ -51,7 +57,9 @@ bool StreamerManager::reload(const std::shared_ptr<Streamer>& streamer){
 }
 
 bool StreamerManager::remove(const std::shared_ptr<Streamer>& streamer) {
+
     auto it = std::find(streamers.begin(),streamers.end(),streamer);
+
     if (it != streamers.end()) {
         streamers.erase(it);
         userManager->remove(std::dynamic_pointer_cast<User>(streamer));
@@ -61,6 +69,7 @@ bool StreamerManager::remove(const std::shared_ptr<Streamer>& streamer) {
 }
 
 bool StreamerManager::endStream(const std::shared_ptr<Streamer>& streamer) {
+
     if(streamer->isStreaming()){
         streamManager->finish(streamManager->get(streamer->getCurrentStreamID()));
         streamer->removeStream();
@@ -79,8 +88,10 @@ bool StreamerManager::has(std::string nickname) const {
 }
 
 std::shared_ptr<Streamer> StreamerManager::get(std::string nickname) const {
+
     auto it = std::find_if(streamers.begin(),streamers.end(),
                            [&nickname](const std::shared_ptr<Streamer>& streamer){return streamer->getNickname() == nickname;});
+
     if(it != streamers.end()){
         return *it;
     }

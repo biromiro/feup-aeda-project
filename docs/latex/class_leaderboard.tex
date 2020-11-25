@@ -1,0 +1,101 @@
+\hypertarget{class_leaderboard}{}\doxysection{Leaderboard$<$ N $>$ Class Template Reference}
+\label{class_leaderboard}\index{Leaderboard$<$ N $>$@{Leaderboard$<$ N $>$}}
+
+
+{\ttfamily \#include $<$leaderboard.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_leaderboard_a05a23d9ad6eb70801cce8c3e368fb627}{Leaderboard}} (const std\+::vector$<$ N $>$ \&vec)
+\item 
+const std\+::vector$<$ N $>$ \& \mbox{\hyperlink{class_leaderboard_ab11b5c9cd5d4c92c53c3cb5ad3dc499b}{get}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_leaderboard_a4568dd65e18f8d55a57c51e71ebf13a2}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_leaderboard}{Leaderboard}}$<$ N $>$ \&dt)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class N$>$\newline
+class Leaderboard$<$ N $>$}
+
+Implementation of a \mbox{\hyperlink{class_leaderboard}{Leaderboard}} Class
+
+Wraps information of a vector and overloads the output operator for a better and clearer print 
+
+Definition at line 31 of file leaderboard.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_leaderboard_a05a23d9ad6eb70801cce8c3e368fb627}\label{class_leaderboard_a05a23d9ad6eb70801cce8c3e368fb627}} 
+\index{Leaderboard$<$ N $>$@{Leaderboard$<$ N $>$}!Leaderboard@{Leaderboard}}
+\index{Leaderboard@{Leaderboard}!Leaderboard$<$ N $>$@{Leaderboard$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{Leaderboard()}{Leaderboard()}}
+{\footnotesize\ttfamily template$<$class N $>$ \\
+\mbox{\hyperlink{class_leaderboard}{Leaderboard}}$<$ N $>$\+::\mbox{\hyperlink{class_leaderboard}{Leaderboard}} (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ N $>$ \&}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+\mbox{\hyperlink{class_leaderboard}{Leaderboard}} constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & the vector representing the leaderboard \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file leaderboard.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_leaderboard_ab11b5c9cd5d4c92c53c3cb5ad3dc499b}\label{class_leaderboard_ab11b5c9cd5d4c92c53c3cb5ad3dc499b}} 
+\index{Leaderboard$<$ N $>$@{Leaderboard$<$ N $>$}!get@{get}}
+\index{get@{get}!Leaderboard$<$ N $>$@{Leaderboard$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$class N $>$ \\
+const std\+::vector$<$N$>$\& \mbox{\hyperlink{class_leaderboard}{Leaderboard}}$<$ N $>$\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the leaderboard
+
+\begin{DoxyReturn}{Returns}
+The current leaderboard 
+\end{DoxyReturn}
+
+
+Definition at line 115 of file leaderboard.\+h.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_leaderboard_a4568dd65e18f8d55a57c51e71ebf13a2}\label{class_leaderboard_a4568dd65e18f8d55a57c51e71ebf13a2}} 
+\index{Leaderboard$<$ N $>$@{Leaderboard$<$ N $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Leaderboard$<$ N $>$@{Leaderboard$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$class N $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_leaderboard}{Leaderboard}}$<$ N $>$ \&}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Output \mbox{\hyperlink{class_stream}{Stream}} operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & the output stream to print to \\
+\hline
+{\em dt} & the leaderboard to print \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the output stream given as input (allows chain input) 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file leaderboard.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/utils/leaderboard/\mbox{\hyperlink{leaderboard_8h}{leaderboard.\+h}}\end{DoxyCompactItemize}

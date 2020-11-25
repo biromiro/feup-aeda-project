@@ -10,6 +10,8 @@ CurrentSession::CurrentSession(std::shared_ptr<UserManager> userManager): userMa
 
 bool CurrentSession::login(std::string nickname, const std::string& password) {
     auto user = userManager->get(std::move(nickname));
+
+    //checks if there's not one user already logged in and if the credentials match
     if(user != nullptr && user->getPassword() == password){
         currentUser = user;
         return true;

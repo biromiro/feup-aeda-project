@@ -3,9 +3,9 @@
 //
 
 #include <algorithm>
-#include "user_manager.h"
 #include "../../exception/userAlreadyExists/userAlreadyExists.h"
 #include "../../exception/userNotFound/userNotFound.h"
+#include "user_manager.h"
 
 UserManager::UserManager() {
     users = std::unordered_set<std::shared_ptr<User>>();
@@ -39,9 +39,11 @@ bool UserManager::has(std::string nickname) const {
 std::shared_ptr<User> UserManager::get(std::string nickname) const {
     auto it = std::find_if(users.begin(),users.end(),
                            [&nickname](const std::shared_ptr<User>& user){return user->getNickname() == nickname;});
+
     if(it != users.end()){
         return *it;
     }
+
     return nullptr;
 }
 

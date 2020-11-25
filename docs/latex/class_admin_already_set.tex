@@ -1,0 +1,78 @@
+\hypertarget{class_admin_already_set}{}\doxysection{Admin\+Already\+Set Class Reference}
+\label{class_admin_already_set}\index{AdminAlreadySet@{AdminAlreadySet}}
+
+
+{\ttfamily \#include $<$admin\+Already\+Set.\+h$>$}
+
+
+
+Inheritance diagram for Admin\+Already\+Set\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{class_admin_already_set__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_admin}{Admin}} $>$ \& \mbox{\hyperlink{class_admin_already_set_ac31a8f688e470ae67fe68cc411744385}{get\+Admin}} () const
+\item 
+\mbox{\hyperlink{class_admin_already_set_a7cc875ca8dc5abadfd332ffe2b0544fe}{Admin\+Already\+Set}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_admin}{Admin}} $>$ admin, const std\+::string \&message)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the exception for when an admin is set when there is one already
+
+Informs the user there is an admin already 
+
+Definition at line 27 of file admin\+Already\+Set.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_admin_already_set_a7cc875ca8dc5abadfd332ffe2b0544fe}\label{class_admin_already_set_a7cc875ca8dc5abadfd332ffe2b0544fe}} 
+\index{AdminAlreadySet@{AdminAlreadySet}!AdminAlreadySet@{AdminAlreadySet}}
+\index{AdminAlreadySet@{AdminAlreadySet}!AdminAlreadySet@{AdminAlreadySet}}
+\doxysubsubsection{\texorpdfstring{AdminAlreadySet()}{AdminAlreadySet()}}
+{\footnotesize\ttfamily Admin\+Already\+Set\+::\+Admin\+Already\+Set (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_admin}{Admin}} $>$}]{admin,  }\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})}
+
+Constructor of the \mbox{\hyperlink{class_admin_already_set}{Admin\+Already\+Set}} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em admin} & admin attempted to be set \\
+\hline
+{\em message} & message indicating there was an admin already \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 7 of file admin\+Already\+Set.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_admin_already_set_ac31a8f688e470ae67fe68cc411744385}\label{class_admin_already_set_ac31a8f688e470ae67fe68cc411744385}} 
+\index{AdminAlreadySet@{AdminAlreadySet}!getAdmin@{getAdmin}}
+\index{getAdmin@{getAdmin}!AdminAlreadySet@{AdminAlreadySet}}
+\doxysubsubsection{\texorpdfstring{getAdmin()}{getAdmin()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_admin}{Admin}} $>$ \& Admin\+Already\+Set\+::get\+Admin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the admin that was unsuccessfully set
+
+\begin{DoxyReturn}{Returns}
+admin attempted to be set 
+\end{DoxyReturn}
+
+
+Definition at line 9 of file admin\+Already\+Set.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/exception/admin\+Already\+Set/\mbox{\hyperlink{admin_already_set_8h}{admin\+Already\+Set.\+h}}\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/exception/admin\+Already\+Set/\mbox{\hyperlink{admin_already_set_8cpp}{admin\+Already\+Set.\+cpp}}\end{DoxyCompactItemize}

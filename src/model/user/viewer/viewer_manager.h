@@ -12,6 +12,20 @@
 
 class StreamerManager;
 
+/**
+ * @file viewer_manager.cpp
+ *
+ * @brief Class representing the Viewer Manager class
+ *
+ * @ingroup user
+ */
+
+/**
+ * Implementation of the Viewer Manager class
+ *
+ * Manages the viewers, taking care of the viewer related events (creating and deleting one, managing the join
+ * stream event, giving feedback, etc)
+ */
 class ViewerManager{
 public:
     /**

@@ -1,0 +1,229 @@
+\hypertarget{auxiliary_functions_8h}{}\doxysection{/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/utils/other\+Functions/auxiliary\+Functions.h File Reference}
+\label{auxiliary_functions_8h}\index{/home/biromiro/AEDA/feup-\/aeda-\/project/src/utils/otherFunctions/auxiliaryFunctions.h@{/home/biromiro/AEDA/feup-\/aeda-\/project/src/utils/otherFunctions/auxiliaryFunctions.h}}
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{auxiliary_functions_8h_a7e424bafd17534e5052ea713306a4349}{\+\_\+getch\+\_\+}} ()
+\item 
+bool \mbox{\hyperlink{auxiliary_functions_8h_a53d02df1713071578c4b6a030269739b}{is\+\_\+number}} (const std\+::string \&s)
+\item 
+unsigned int \mbox{\hyperlink{auxiliary_functions_8h_a09049fe097a8284bb5f63a42aa20f767}{input\+Number}} ()
+\item 
+void \mbox{\hyperlink{auxiliary_functions_8h_aeaa0dd0638ab41b3d2b528b3f9444a98}{getline\+C\+IN}} (std\+::string \&s)
+\item 
+std\+::string \mbox{\hyperlink{auxiliary_functions_8h_a45cc1ff630a8eee6b52699b6ea74be2e}{shrink\+To\+Column\+Size}} (std\+::string value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr const char $\ast$ \mbox{\hyperlink{auxiliary_functions_8h_a3d37e6fea26f9c93758025c2078ca08e}{C\+L\+E\+A\+R\+\_\+\+S\+C\+R\+E\+EN}} = \char`\"{}\textbackslash{}x1b\mbox{[}2J\char`\"{}
+\item 
+constexpr const char $\ast$ \mbox{\hyperlink{auxiliary_functions_8h_ae91e2c92c1408f4f2149c97e85451be5}{L\+I\+N\+E\+\_\+\+UP}} = \char`\"{}\textbackslash{}033\mbox{[}A\char`\"{}
+\item 
+constexpr const char $\ast$ \mbox{\hyperlink{auxiliary_functions_8h_a238b74a477bd3724bc0c362c4b995a72}{C\+L\+E\+A\+R\+\_\+\+L\+I\+NE}} = \char`\"{}\textbackslash{}x1b\mbox{[}2K\char`\"{}
+\item 
+constexpr const char $\ast$ \mbox{\hyperlink{auxiliary_functions_8h_a2d35fa7603a974991f75f8e77fbaeab6}{G\+O\+\_\+\+T\+O\+\_\+\+B\+E\+G\+I\+N\+N\+I\+N\+G\+\_\+\+O\+F\+\_\+\+L\+I\+NE}} = \char`\"{}\textbackslash{}x1b\mbox{[}0G\char`\"{}
+\item 
+constexpr const char $\ast$ \mbox{\hyperlink{auxiliary_functions_8h_a3aa4b3cadf22d0306a01f09e1a30bd40}{R\+E\+S\+ET}} = \char`\"{}\textbackslash{}x1b\mbox{[}0m\char`\"{}
+\item 
+constexpr const char $\ast$ \mbox{\hyperlink{auxiliary_functions_8h_ad0a2c791c5443ae1735d21367d2e9ec2}{H\+I\+D\+E\+\_\+\+C\+U\+R\+S\+OR}} = \char`\"{}\textbackslash{}x1b\mbox{[}?25l\char`\"{}
+\item 
+constexpr const char $\ast$ \mbox{\hyperlink{auxiliary_functions_8h_adc2567c5949c5fdde921d34700e3c3fd}{S\+H\+O\+W\+\_\+\+C\+U\+R\+S\+OR}} = \char`\"{}\textbackslash{}x1b\mbox{[}?25h\char`\"{}
+\item 
+constexpr const char $\ast$ \mbox{\hyperlink{auxiliary_functions_8h_aa60363bd13c4a0171f940c8b69170e08}{G\+O\+\_\+\+T\+O\+\_\+\+T\+OP}} = \char`\"{}\textbackslash{}033\mbox{[}1;1H\char`\"{}
+\item 
+constexpr const char $\ast$ \mbox{\hyperlink{auxiliary_functions_8h_a570d1e17a54e16f99985cbc04b6ae430}{E\+SC}} = \char`\"{}\textbackslash{}033\char`\"{}
+\item 
+constexpr const int \mbox{\hyperlink{auxiliary_functions_8h_ab75dcb6c61ba381bccbe190c662061d8}{W\+I\+D\+TH}} = 15
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{auxiliary_functions_8h_a7e424bafd17534e5052ea713306a4349}\label{auxiliary_functions_8h_a7e424bafd17534e5052ea713306a4349}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!\_getch\_@{\_getch\_}}
+\index{\_getch\_@{\_getch\_}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{\_getch\_()}{\_getch\_()}}
+{\footnotesize\ttfamily char \+\_\+getch\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets a char from the keyboard
+
+\begin{DoxyReturn}{Returns}
+the input char 
+\end{DoxyReturn}
+\mbox{\Hypertarget{auxiliary_functions_8h_aeaa0dd0638ab41b3d2b528b3f9444a98}\label{auxiliary_functions_8h_aeaa0dd0638ab41b3d2b528b3f9444a98}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!getlineCIN@{getlineCIN}}
+\index{getlineCIN@{getlineCIN}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{getlineCIN()}{getlineCIN()}}
+{\footnotesize\ttfamily void getline\+C\+IN (\begin{DoxyParamCaption}\item[{std\+::string \&}]{s }\end{DoxyParamCaption})}
+
+Extension of the getline function, dealing with the stream as well
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & the variable to save the input line \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 77 of file auxiliary\+Functions.\+cpp.
+
+\mbox{\Hypertarget{auxiliary_functions_8h_a09049fe097a8284bb5f63a42aa20f767}\label{auxiliary_functions_8h_a09049fe097a8284bb5f63a42aa20f767}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!inputNumber@{inputNumber}}
+\index{inputNumber@{inputNumber}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{inputNumber()}{inputNumber()}}
+{\footnotesize\ttfamily unsigned int input\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Receives a number from the input stream, and handles such stream
+
+\begin{DoxyReturn}{Returns}
+the number that was given in input 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file auxiliary\+Functions.\+cpp.
+
+\mbox{\Hypertarget{auxiliary_functions_8h_a53d02df1713071578c4b6a030269739b}\label{auxiliary_functions_8h_a53d02df1713071578c4b6a030269739b}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!is\_number@{is\_number}}
+\index{is\_number@{is\_number}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{is\_number()}{is\_number()}}
+{\footnotesize\ttfamily bool is\+\_\+number (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})}
+
+Checks if a given string is a number
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & the string to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file auxiliary\+Functions.\+cpp.
+
+\mbox{\Hypertarget{auxiliary_functions_8h_a45cc1ff630a8eee6b52699b6ea74be2e}\label{auxiliary_functions_8h_a45cc1ff630a8eee6b52699b6ea74be2e}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!shrinkToColumnSize@{shrinkToColumnSize}}
+\index{shrinkToColumnSize@{shrinkToColumnSize}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{shrinkToColumnSize()}{shrinkToColumnSize()}}
+{\footnotesize\ttfamily std\+::string shrink\+To\+Column\+Size (\begin{DoxyParamCaption}\item[{std\+::string}]{value }\end{DoxyParamCaption})}
+
+Shrinks a given string to the column size of the leaderboard, so it doesn\textquotesingle{}t overflow it
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the string to shrink \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the shrinked string 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file auxiliary\+Functions.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{auxiliary_functions_8h_a238b74a477bd3724bc0c362c4b995a72}\label{auxiliary_functions_8h_a238b74a477bd3724bc0c362c4b995a72}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!CLEAR\_LINE@{CLEAR\_LINE}}
+\index{CLEAR\_LINE@{CLEAR\_LINE}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{CLEAR\_LINE}{CLEAR\_LINE}}
+{\footnotesize\ttfamily constexpr const char$\ast$ C\+L\+E\+A\+R\+\_\+\+L\+I\+NE = \char`\"{}\textbackslash{}x1b\mbox{[}2K\char`\"{}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Definition at line 19 of file auxiliary\+Functions.\+h.
+
+\mbox{\Hypertarget{auxiliary_functions_8h_a3d37e6fea26f9c93758025c2078ca08e}\label{auxiliary_functions_8h_a3d37e6fea26f9c93758025c2078ca08e}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!CLEAR\_SCREEN@{CLEAR\_SCREEN}}
+\index{CLEAR\_SCREEN@{CLEAR\_SCREEN}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{CLEAR\_SCREEN}{CLEAR\_SCREEN}}
+{\footnotesize\ttfamily constexpr const char$\ast$ C\+L\+E\+A\+R\+\_\+\+S\+C\+R\+E\+EN = \char`\"{}\textbackslash{}x1b\mbox{[}2J\char`\"{}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Definition at line 17 of file auxiliary\+Functions.\+h.
+
+\mbox{\Hypertarget{auxiliary_functions_8h_a570d1e17a54e16f99985cbc04b6ae430}\label{auxiliary_functions_8h_a570d1e17a54e16f99985cbc04b6ae430}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!ESC@{ESC}}
+\index{ESC@{ESC}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{ESC}{ESC}}
+{\footnotesize\ttfamily constexpr const char$\ast$ E\+SC = \char`\"{}\textbackslash{}033\char`\"{}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Definition at line 25 of file auxiliary\+Functions.\+h.
+
+\mbox{\Hypertarget{auxiliary_functions_8h_a2d35fa7603a974991f75f8e77fbaeab6}\label{auxiliary_functions_8h_a2d35fa7603a974991f75f8e77fbaeab6}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!GO\_TO\_BEGINNING\_OF\_LINE@{GO\_TO\_BEGINNING\_OF\_LINE}}
+\index{GO\_TO\_BEGINNING\_OF\_LINE@{GO\_TO\_BEGINNING\_OF\_LINE}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{GO\_TO\_BEGINNING\_OF\_LINE}{GO\_TO\_BEGINNING\_OF\_LINE}}
+{\footnotesize\ttfamily constexpr const char$\ast$ G\+O\+\_\+\+T\+O\+\_\+\+B\+E\+G\+I\+N\+N\+I\+N\+G\+\_\+\+O\+F\+\_\+\+L\+I\+NE = \char`\"{}\textbackslash{}x1b\mbox{[}0G\char`\"{}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Definition at line 20 of file auxiliary\+Functions.\+h.
+
+\mbox{\Hypertarget{auxiliary_functions_8h_aa60363bd13c4a0171f940c8b69170e08}\label{auxiliary_functions_8h_aa60363bd13c4a0171f940c8b69170e08}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!GO\_TO\_TOP@{GO\_TO\_TOP}}
+\index{GO\_TO\_TOP@{GO\_TO\_TOP}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{GO\_TO\_TOP}{GO\_TO\_TOP}}
+{\footnotesize\ttfamily constexpr const char$\ast$ G\+O\+\_\+\+T\+O\+\_\+\+T\+OP = \char`\"{}\textbackslash{}033\mbox{[}1;1H\char`\"{}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Definition at line 24 of file auxiliary\+Functions.\+h.
+
+\mbox{\Hypertarget{auxiliary_functions_8h_ad0a2c791c5443ae1735d21367d2e9ec2}\label{auxiliary_functions_8h_ad0a2c791c5443ae1735d21367d2e9ec2}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!HIDE\_CURSOR@{HIDE\_CURSOR}}
+\index{HIDE\_CURSOR@{HIDE\_CURSOR}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{HIDE\_CURSOR}{HIDE\_CURSOR}}
+{\footnotesize\ttfamily constexpr const char$\ast$ H\+I\+D\+E\+\_\+\+C\+U\+R\+S\+OR = \char`\"{}\textbackslash{}x1b\mbox{[}?25l\char`\"{}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Definition at line 22 of file auxiliary\+Functions.\+h.
+
+\mbox{\Hypertarget{auxiliary_functions_8h_ae91e2c92c1408f4f2149c97e85451be5}\label{auxiliary_functions_8h_ae91e2c92c1408f4f2149c97e85451be5}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!LINE\_UP@{LINE\_UP}}
+\index{LINE\_UP@{LINE\_UP}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{LINE\_UP}{LINE\_UP}}
+{\footnotesize\ttfamily constexpr const char$\ast$ L\+I\+N\+E\+\_\+\+UP = \char`\"{}\textbackslash{}033\mbox{[}A\char`\"{}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Definition at line 18 of file auxiliary\+Functions.\+h.
+
+\mbox{\Hypertarget{auxiliary_functions_8h_a3aa4b3cadf22d0306a01f09e1a30bd40}\label{auxiliary_functions_8h_a3aa4b3cadf22d0306a01f09e1a30bd40}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!RESET@{RESET}}
+\index{RESET@{RESET}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{RESET}{RESET}}
+{\footnotesize\ttfamily constexpr const char$\ast$ R\+E\+S\+ET = \char`\"{}\textbackslash{}x1b\mbox{[}0m\char`\"{}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Definition at line 21 of file auxiliary\+Functions.\+h.
+
+\mbox{\Hypertarget{auxiliary_functions_8h_adc2567c5949c5fdde921d34700e3c3fd}\label{auxiliary_functions_8h_adc2567c5949c5fdde921d34700e3c3fd}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!SHOW\_CURSOR@{SHOW\_CURSOR}}
+\index{SHOW\_CURSOR@{SHOW\_CURSOR}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{SHOW\_CURSOR}{SHOW\_CURSOR}}
+{\footnotesize\ttfamily constexpr const char$\ast$ S\+H\+O\+W\+\_\+\+C\+U\+R\+S\+OR = \char`\"{}\textbackslash{}x1b\mbox{[}?25h\char`\"{}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Definition at line 23 of file auxiliary\+Functions.\+h.
+
+\mbox{\Hypertarget{auxiliary_functions_8h_ab75dcb6c61ba381bccbe190c662061d8}\label{auxiliary_functions_8h_ab75dcb6c61ba381bccbe190c662061d8}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!WIDTH@{WIDTH}}
+\index{WIDTH@{WIDTH}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{WIDTH}{WIDTH}}
+{\footnotesize\ttfamily constexpr const int W\+I\+D\+TH = 15\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Definition at line 26 of file auxiliary\+Functions.\+h.
+

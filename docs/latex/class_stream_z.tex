@@ -1,0 +1,143 @@
+\hypertarget{class_stream_z}{}\doxysection{StreamZ Class Reference}
+\label{class_stream_z}\index{StreamZ@{StreamZ}}
+
+
+{\ttfamily \#include $<$stream\+Z.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_stream_z_a8bc3c94fdfba0b407df8cbd3d54a1d7d}{StreamZ}} ()
+\item 
+void \mbox{\hyperlink{class_stream_z_afe7d8bc5281f66cdd07d000c40194f1a}{initialize}} ()
+\item 
+void \mbox{\hyperlink{class_stream_z_a6d95d521197a0d2757b77af9b3a2f3af}{finish}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_manager}{User\+Manager}} $>$ \mbox{\hyperlink{class_stream_z_a9e4bc2e442da894e82dedff96ac0286a}{get\+User\+Manager}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer_manager}{Viewer\+Manager}} $>$ \mbox{\hyperlink{class_stream_z_a52b1f1774cea4506206af38ffa74e9c2}{get\+Viewer\+Manager}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream_manager}{Stream\+Manager}} $>$ \mbox{\hyperlink{class_stream_z_aa7a1812b61a8620da9c839493cdc14fb}{get\+Stream\+Manager}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer_manager}{Streamer\+Manager}} $>$ \mbox{\hyperlink{class_stream_z_a49ce7af69c0381acf19f9efbbd6671ae}{get\+Streamer\+Manager}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_leaderboard_manager}{Leaderboard\+Manager}} $>$ \mbox{\hyperlink{class_stream_z_afe286e41d5d69411387fce207eb2a8ef}{get\+Leaderboard\+Manager}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \mbox{\hyperlink{class_stream_z}{StreamZ}} class
+
+Represents the platform, encapsulating all of its components 
+
+Definition at line 31 of file stream\+Z.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_stream_z_a8bc3c94fdfba0b407df8cbd3d54a1d7d}\label{class_stream_z_a8bc3c94fdfba0b407df8cbd3d54a1d7d}} 
+\index{StreamZ@{StreamZ}!StreamZ@{StreamZ}}
+\index{StreamZ@{StreamZ}!StreamZ@{StreamZ}}
+\doxysubsubsection{\texorpdfstring{StreamZ()}{StreamZ()}}
+{\footnotesize\ttfamily Stream\+Z\+::\+StreamZ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor of the streamZ class
+
+Sets empty managers 
+
+Definition at line 7 of file stream\+Z.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_stream_z_a6d95d521197a0d2757b77af9b3a2f3af}\label{class_stream_z_a6d95d521197a0d2757b77af9b3a2f3af}} 
+\index{StreamZ@{StreamZ}!finish@{finish}}
+\index{finish@{finish}!StreamZ@{StreamZ}}
+\doxysubsubsection{\texorpdfstring{finish()}{finish()}}
+{\footnotesize\ttfamily void Stream\+Z\+::finish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Updates and saves objects created in the respective files 
+
+Definition at line 47 of file stream\+Z.\+cpp.
+
+\mbox{\Hypertarget{class_stream_z_afe286e41d5d69411387fce207eb2a8ef}\label{class_stream_z_afe286e41d5d69411387fce207eb2a8ef}} 
+\index{StreamZ@{StreamZ}!getLeaderboardManager@{getLeaderboardManager}}
+\index{getLeaderboardManager@{getLeaderboardManager}!StreamZ@{StreamZ}}
+\doxysubsubsection{\texorpdfstring{getLeaderboardManager()}{getLeaderboardManager()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_leaderboard_manager}{Leaderboard\+Manager}} $>$ Stream\+Z\+::get\+Leaderboard\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to obtain the leaderboard\+Manager \begin{DoxyReturn}{Returns}
+pointer to current leaderboard\+Manager 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file stream\+Z.\+cpp.
+
+\mbox{\Hypertarget{class_stream_z_a49ce7af69c0381acf19f9efbbd6671ae}\label{class_stream_z_a49ce7af69c0381acf19f9efbbd6671ae}} 
+\index{StreamZ@{StreamZ}!getStreamerManager@{getStreamerManager}}
+\index{getStreamerManager@{getStreamerManager}!StreamZ@{StreamZ}}
+\doxysubsubsection{\texorpdfstring{getStreamerManager()}{getStreamerManager()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer_manager}{Streamer\+Manager}} $>$ Stream\+Z\+::get\+Streamer\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to obtain the streamer\+Manager \begin{DoxyReturn}{Returns}
+pointer to current streamer\+Manager 
+\end{DoxyReturn}
+
+
+Definition at line 30 of file stream\+Z.\+cpp.
+
+\mbox{\Hypertarget{class_stream_z_aa7a1812b61a8620da9c839493cdc14fb}\label{class_stream_z_aa7a1812b61a8620da9c839493cdc14fb}} 
+\index{StreamZ@{StreamZ}!getStreamManager@{getStreamManager}}
+\index{getStreamManager@{getStreamManager}!StreamZ@{StreamZ}}
+\doxysubsubsection{\texorpdfstring{getStreamManager()}{getStreamManager()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream_manager}{Stream\+Manager}} $>$ Stream\+Z\+::get\+Stream\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to obtain the stream\+Manager \begin{DoxyReturn}{Returns}
+pointer to current stream\+Manager 
+\end{DoxyReturn}
+
+
+Definition at line 26 of file stream\+Z.\+cpp.
+
+\mbox{\Hypertarget{class_stream_z_a9e4bc2e442da894e82dedff96ac0286a}\label{class_stream_z_a9e4bc2e442da894e82dedff96ac0286a}} 
+\index{StreamZ@{StreamZ}!getUserManager@{getUserManager}}
+\index{getUserManager@{getUserManager}!StreamZ@{StreamZ}}
+\doxysubsubsection{\texorpdfstring{getUserManager()}{getUserManager()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_manager}{User\+Manager}} $>$ Stream\+Z\+::get\+User\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to obtain the user\+Manager \begin{DoxyReturn}{Returns}
+pointer to current user\+Manager 
+\end{DoxyReturn}
+
+
+Definition at line 18 of file stream\+Z.\+cpp.
+
+\mbox{\Hypertarget{class_stream_z_a52b1f1774cea4506206af38ffa74e9c2}\label{class_stream_z_a52b1f1774cea4506206af38ffa74e9c2}} 
+\index{StreamZ@{StreamZ}!getViewerManager@{getViewerManager}}
+\index{getViewerManager@{getViewerManager}!StreamZ@{StreamZ}}
+\doxysubsubsection{\texorpdfstring{getViewerManager()}{getViewerManager()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer_manager}{Viewer\+Manager}} $>$ Stream\+Z\+::get\+Viewer\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to obtain the viewer\+Manager \begin{DoxyReturn}{Returns}
+pointer to current viewer\+Manager 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file stream\+Z.\+cpp.
+
+\mbox{\Hypertarget{class_stream_z_afe7d8bc5281f66cdd07d000c40194f1a}\label{class_stream_z_afe7d8bc5281f66cdd07d000c40194f1a}} 
+\index{StreamZ@{StreamZ}!initialize@{initialize}}
+\index{initialize@{initialize}!StreamZ@{StreamZ}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void Stream\+Z\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initializes the objects saved in files by reading them using the managers 
+
+Definition at line 38 of file stream\+Z.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/stream\+Z/\mbox{\hyperlink{stream_z_8h}{stream\+Z.\+h}}\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/stream\+Z/\mbox{\hyperlink{stream_z_8cpp}{stream\+Z.\+cpp}}\end{DoxyCompactItemize}

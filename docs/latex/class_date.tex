@@ -1,0 +1,667 @@
+\hypertarget{class_date}{}\doxysection{Date Class Reference}
+\label{class_date}\index{Date@{Date}}
+
+
+{\ttfamily \#include $<$date.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_date_a4e59ed4ba66eec61c27460c5d09fa1bd}{Date}} ()
+\item 
+\mbox{\hyperlink{class_date_a818cdeae426d62baca78fb24a3041395}{Date}} (unsigned int y, unsigned int m, unsigned int d)
+\item 
+\mbox{\hyperlink{class_date_ab38d27052f61eaa8ed012fc52c107b97}{Date}} (unsigned int y, unsigned int m, unsigned int d, unsigned int h, unsigned int min, unsigned int sec)
+\item 
+\mbox{\hyperlink{class_date_a6560bba5357ed3541c106651ec8c0062}{Date}} (const std\+::string \&year\+Month\+Day)
+\item 
+void \mbox{\hyperlink{class_date_a12214ddd7d5aa3d614d8a068b9701bc4}{set\+Year}} (unsigned int y)
+\item 
+void \mbox{\hyperlink{class_date_ab2c14958d6ac7b88f37e741e82e456db}{set\+Month}} (unsigned int m)
+\item 
+void \mbox{\hyperlink{class_date_ad0d7be5956f115287e09fd31d4f91fad}{set\+Day}} (unsigned int d)
+\item 
+void \mbox{\hyperlink{class_date_aa0bcf127d52355eda321da2c4d173da4}{set\+Hours}} (unsigned int hours)
+\item 
+void \mbox{\hyperlink{class_date_acaa187de0ee3fc58ee0d93c21a8e4495}{set\+Minutes}} (unsigned int minutes)
+\item 
+void \mbox{\hyperlink{class_date_a43fc36d9159ca71294908da4e83b091c}{set\+Seconds}} (unsigned int seconds)
+\item 
+void \mbox{\hyperlink{class_date_a81c1ecac7b2fe04d586097866481e830}{set\+Date}} (unsigned int y, unsigned int m, unsigned int d)
+\item 
+unsigned int \mbox{\hyperlink{class_date_a597b505c264a24d34369c43119fc4e6e}{get\+Year}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_date_a6152596dcf2e1e78e2095ea518de59e7}{get\+Month}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_date_a13855b25efb79eaf7dccf08555421a1d}{get\+Day}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_date_a96ee229e2c7582b1c08becab202d8b57}{get\+Hours}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_date_a73e29d0af8134c4e82931e41ba622c1c}{get\+Minutes}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_date_a0d6b3be25ee5c93c446a55843bdc96db}{get\+Seconds}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_date_af6c2f5c3fc31f8806e72c579acc8a184}{get\+Date}} () const
+\item 
+void \mbox{\hyperlink{class_date_a37f8fc7ca1692df7a8b265099c061721}{show}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_date_a62952e1c0ea6e3d2b17a145fbedb6819}{total\+Num\+Of\+Days}} () const
+\item 
+bool \mbox{\hyperlink{class_date_a7a39fcfa60c9ff0f73d8c8094ffd1f78}{is\+Valid}} () const
+\item 
+bool \mbox{\hyperlink{class_date_a78d00367d4a4fd0210868425c135b595}{is\+Equal\+To}} (const \mbox{\hyperlink{class_date}{Date}} \&date) const
+\item 
+bool \mbox{\hyperlink{class_date_af3803819cdf85f4f0afbfa0523d2f0c9}{is\+After}} (const \mbox{\hyperlink{class_date}{Date}} \&date) const
+\item 
+bool \mbox{\hyperlink{class_date_a371c9cc4d6e38c1b57bc35e312bbfc3e}{is\+Before}} (const \mbox{\hyperlink{class_date}{Date}} \&date) const
+\item 
+bool \mbox{\hyperlink{class_date_accf6151b10c410a568f555a6b5d6aa60}{operator==}} (const \mbox{\hyperlink{class_date}{Date}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_date_a7904feeec2e8a25830394e56439b94db}{operator!=}} (const \mbox{\hyperlink{class_date}{Date}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_date_a33fb7944953a427f6b7e834f9bc20ecd}{operator$<$}} (const \mbox{\hyperlink{class_date}{Date}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_date_a0293e3066fc6f00d0e8791b6c1ec774c}{operator$>$}} (const \mbox{\hyperlink{class_date}{Date}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_date_a1bb8b0102b875e7ab8a72a7ab91ef118}{operator$<$=}} (const \mbox{\hyperlink{class_date}{Date}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_date_a41f6f5d624802e11d5a256f42d80455d}{operator$>$=}} (const \mbox{\hyperlink{class_date}{Date}} \&rhs) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_date_a1862604492a841a6b98e1a3061d95b96}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_date}{Date}} \&date)
+\item 
+std\+::istream \& \mbox{\hyperlink{class_date_ad38747168f2005159180860e5509b26e}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_date}{Date}} \&date)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of a \mbox{\hyperlink{class_date}{Date}} Class
+
+Wraps information into a date format 
+
+Definition at line 26 of file date.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_date_a4e59ed4ba66eec61c27460c5d09fa1bd}\label{class_date_a4e59ed4ba66eec61c27460c5d09fa1bd}} 
+\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{Date()}{Date()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Date\+::\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_date}{Date}} default constructor 
+
+Definition at line 10 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a818cdeae426d62baca78fb24a3041395}\label{class_date_a818cdeae426d62baca78fb24a3041395}} 
+\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{Date()}{Date()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Date\+::\+Date (\begin{DoxyParamCaption}\item[{unsigned int}]{y,  }\item[{unsigned int}]{m,  }\item[{unsigned int}]{d }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_date}{Date}} parameter constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & the year \\
+\hline
+{\em m} & the month \\
+\hline
+{\em d} & the day \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 19 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_ab38d27052f61eaa8ed012fc52c107b97}\label{class_date_ab38d27052f61eaa8ed012fc52c107b97}} 
+\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{Date()}{Date()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Date\+::\+Date (\begin{DoxyParamCaption}\item[{unsigned int}]{y,  }\item[{unsigned int}]{m,  }\item[{unsigned int}]{d,  }\item[{unsigned int}]{h,  }\item[{unsigned int}]{min,  }\item[{unsigned int}]{sec }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_date}{Date}} parameter constructor with hours
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & the year \\
+\hline
+{\em m} & the month \\
+\hline
+{\em d} & the day \\
+\hline
+{\em h} & the hour \\
+\hline
+{\em min} & the minute \\
+\hline
+{\em sec} & the second \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 28 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a6560bba5357ed3541c106651ec8c0062}\label{class_date_a6560bba5357ed3541c106651ec8c0062}} 
+\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{Date()}{Date()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Date\+::\+Date (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{year\+Month\+Day }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\mbox{\hyperlink{class_date}{Date}} constructor by string
+
+
+\begin{DoxyParams}{Parameters}
+{\em year\+Month\+Day} & the string representing the date, must be in format yyyy/\+M\+M/dd \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file date.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_date_af6c2f5c3fc31f8806e72c579acc8a184}\label{class_date_af6c2f5c3fc31f8806e72c579acc8a184}} 
+\index{Date@{Date}!getDate@{getDate}}
+\index{getDate@{getDate}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily std\+::string Date\+::get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the current date via string
+
+\begin{DoxyReturn}{Returns}
+the date 
+\end{DoxyReturn}
+
+
+Definition at line 100 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a13855b25efb79eaf7dccf08555421a1d}\label{class_date_a13855b25efb79eaf7dccf08555421a1d}} 
+\index{Date@{Date}!getDay@{getDay}}
+\index{getDay@{getDay}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{getDay()}{getDay()}}
+{\footnotesize\ttfamily unsigned int Date\+::get\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the current day
+
+\begin{DoxyReturn}{Returns}
+the day 
+\end{DoxyReturn}
+
+
+Definition at line 84 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a96ee229e2c7582b1c08becab202d8b57}\label{class_date_a96ee229e2c7582b1c08becab202d8b57}} 
+\index{Date@{Date}!getHours@{getHours}}
+\index{getHours@{getHours}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{getHours()}{getHours()}}
+{\footnotesize\ttfamily unsigned int Date\+::get\+Hours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the current hour
+
+\begin{DoxyReturn}{Returns}
+the hour 
+\end{DoxyReturn}
+
+
+Definition at line 88 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a73e29d0af8134c4e82931e41ba622c1c}\label{class_date_a73e29d0af8134c4e82931e41ba622c1c}} 
+\index{Date@{Date}!getMinutes@{getMinutes}}
+\index{getMinutes@{getMinutes}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{getMinutes()}{getMinutes()}}
+{\footnotesize\ttfamily unsigned int Date\+::get\+Minutes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the current minute
+
+\begin{DoxyReturn}{Returns}
+the minute 
+\end{DoxyReturn}
+
+
+Definition at line 92 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a6152596dcf2e1e78e2095ea518de59e7}\label{class_date_a6152596dcf2e1e78e2095ea518de59e7}} 
+\index{Date@{Date}!getMonth@{getMonth}}
+\index{getMonth@{getMonth}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{getMonth()}{getMonth()}}
+{\footnotesize\ttfamily unsigned int Date\+::get\+Month (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the current month
+
+\begin{DoxyReturn}{Returns}
+the month 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a0d6b3be25ee5c93c446a55843bdc96db}\label{class_date_a0d6b3be25ee5c93c446a55843bdc96db}} 
+\index{Date@{Date}!getSeconds@{getSeconds}}
+\index{getSeconds@{getSeconds}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{getSeconds()}{getSeconds()}}
+{\footnotesize\ttfamily unsigned int Date\+::get\+Seconds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the current second
+
+\begin{DoxyReturn}{Returns}
+the second 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a597b505c264a24d34369c43119fc4e6e}\label{class_date_a597b505c264a24d34369c43119fc4e6e}} 
+\index{Date@{Date}!getYear@{getYear}}
+\index{getYear@{getYear}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{getYear()}{getYear()}}
+{\footnotesize\ttfamily unsigned int Date\+::get\+Year (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the current year
+
+\begin{DoxyReturn}{Returns}
+the year 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_af3803819cdf85f4f0afbfa0523d2f0c9}\label{class_date_af3803819cdf85f4f0afbfa0523d2f0c9}} 
+\index{Date@{Date}!isAfter@{isAfter}}
+\index{isAfter@{isAfter}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{isAfter()}{isAfter()}}
+{\footnotesize\ttfamily bool Date\+::is\+After (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{date }\end{DoxyParamCaption}) const}
+
+Checks if the current date is after the one given by parameter
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & the date to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 156 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a371c9cc4d6e38c1b57bc35e312bbfc3e}\label{class_date_a371c9cc4d6e38c1b57bc35e312bbfc3e}} 
+\index{Date@{Date}!isBefore@{isBefore}}
+\index{isBefore@{isBefore}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{isBefore()}{isBefore()}}
+{\footnotesize\ttfamily bool Date\+::is\+Before (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{date }\end{DoxyParamCaption}) const}
+
+Checks if the current date is after the one given by parameter
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & the date to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 173 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a78d00367d4a4fd0210868425c135b595}\label{class_date_a78d00367d4a4fd0210868425c135b595}} 
+\index{Date@{Date}!isEqualTo@{isEqualTo}}
+\index{isEqualTo@{isEqualTo}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{isEqualTo()}{isEqualTo()}}
+{\footnotesize\ttfamily bool Date\+::is\+Equal\+To (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{date }\end{DoxyParamCaption}) const}
+
+Compares the date to another to see if they\textquotesingle{}re the same
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & the date to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if they\textquotesingle{}re the same, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 149 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a7a39fcfa60c9ff0f73d8c8094ffd1f78}\label{class_date_a7a39fcfa60c9ff0f73d8c8094ffd1f78}} 
+\index{Date@{Date}!isValid@{isValid}}
+\index{isValid@{isValid}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool Date\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Checks if the current date is valid
+
+\begin{DoxyReturn}{Returns}
+the validity of the date 
+\end{DoxyReturn}
+
+
+Definition at line 142 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a7904feeec2e8a25830394e56439b94db}\label{class_date_a7904feeec2e8a25830394e56439b94db}} 
+\index{Date@{Date}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Date\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+Operator of inequality overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & the date to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 254 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a33fb7944953a427f6b7e834f9bc20ecd}\label{class_date_a33fb7944953a427f6b7e834f9bc20ecd}} 
+\index{Date@{Date}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Date\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+\textquotesingle{}Smaller\textquotesingle{} Operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & the date to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 209 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a1bb8b0102b875e7ab8a72a7ab91ef118}\label{class_date_a1bb8b0102b875e7ab8a72a7ab91ef118}} 
+\index{Date@{Date}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool Date\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+\textquotesingle{}Smaller or Equal\textquotesingle{} Operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & the date to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 237 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_accf6151b10c410a568f555a6b5d6aa60}\label{class_date_accf6151b10c410a568f555a6b5d6aa60}} 
+\index{Date@{Date}!operator==@{operator==}}
+\index{operator==@{operator==}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Date\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+Operator of equality overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & the date to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 245 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a0293e3066fc6f00d0e8791b6c1ec774c}\label{class_date_a0293e3066fc6f00d0e8791b6c1ec774c}} 
+\index{Date@{Date}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Date\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+\textquotesingle{}Greater\textquotesingle{} Operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & the date to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 233 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a41f6f5d624802e11d5a256f42d80455d}\label{class_date_a41f6f5d624802e11d5a256f42d80455d}} 
+\index{Date@{Date}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool Date\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+\textquotesingle{}Greater or Equal\textquotesingle{} Operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & the date to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 241 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a81c1ecac7b2fe04d586097866481e830}\label{class_date_a81c1ecac7b2fe04d586097866481e830}} 
+\index{Date@{Date}!setDate@{setDate}}
+\index{setDate@{setDate}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}}
+{\footnotesize\ttfamily void Date\+::set\+Date (\begin{DoxyParamCaption}\item[{unsigned int}]{y,  }\item[{unsigned int}]{m,  }\item[{unsigned int}]{d }\end{DoxyParamCaption})}
+
+Set the current date
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & the year \\
+\hline
+{\em m} & the month \\
+\hline
+{\em d} & the day \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 70 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_ad0d7be5956f115287e09fd31d4f91fad}\label{class_date_ad0d7be5956f115287e09fd31d4f91fad}} 
+\index{Date@{Date}!setDay@{setDay}}
+\index{setDay@{setDay}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{setDay()}{setDay()}}
+{\footnotesize\ttfamily void Date\+::set\+Day (\begin{DoxyParamCaption}\item[{unsigned int}]{d }\end{DoxyParamCaption})}
+
+Set the current day
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & the day to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 54 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_aa0bcf127d52355eda321da2c4d173da4}\label{class_date_aa0bcf127d52355eda321da2c4d173da4}} 
+\index{Date@{Date}!setHours@{setHours}}
+\index{setHours@{setHours}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{setHours()}{setHours()}}
+{\footnotesize\ttfamily void Date\+::set\+Hours (\begin{DoxyParamCaption}\item[{unsigned int}]{hours }\end{DoxyParamCaption})}
+
+Set the current hour
+
+
+\begin{DoxyParams}{Parameters}
+{\em hours} & the hour to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_acaa187de0ee3fc58ee0d93c21a8e4495}\label{class_date_acaa187de0ee3fc58ee0d93c21a8e4495}} 
+\index{Date@{Date}!setMinutes@{setMinutes}}
+\index{setMinutes@{setMinutes}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{setMinutes()}{setMinutes()}}
+{\footnotesize\ttfamily void Date\+::set\+Minutes (\begin{DoxyParamCaption}\item[{unsigned int}]{minutes }\end{DoxyParamCaption})}
+
+Set the current minute
+
+
+\begin{DoxyParams}{Parameters}
+{\em minutes} & the minute to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 62 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_ab2c14958d6ac7b88f37e741e82e456db}\label{class_date_ab2c14958d6ac7b88f37e741e82e456db}} 
+\index{Date@{Date}!setMonth@{setMonth}}
+\index{setMonth@{setMonth}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{setMonth()}{setMonth()}}
+{\footnotesize\ttfamily void Date\+::set\+Month (\begin{DoxyParamCaption}\item[{unsigned int}]{m }\end{DoxyParamCaption})}
+
+Set the current month
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & the month to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a43fc36d9159ca71294908da4e83b091c}\label{class_date_a43fc36d9159ca71294908da4e83b091c}} 
+\index{Date@{Date}!setSeconds@{setSeconds}}
+\index{setSeconds@{setSeconds}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{setSeconds()}{setSeconds()}}
+{\footnotesize\ttfamily void Date\+::set\+Seconds (\begin{DoxyParamCaption}\item[{unsigned int}]{seconds }\end{DoxyParamCaption})}
+
+Set the current second
+
+
+\begin{DoxyParams}{Parameters}
+{\em seconds} & the second to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 66 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a12214ddd7d5aa3d614d8a068b9701bc4}\label{class_date_a12214ddd7d5aa3d614d8a068b9701bc4}} 
+\index{Date@{Date}!setYear@{setYear}}
+\index{setYear@{setYear}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{setYear()}{setYear()}}
+{\footnotesize\ttfamily void Date\+::set\+Year (\begin{DoxyParamCaption}\item[{unsigned int}]{y }\end{DoxyParamCaption})}
+
+Sets the current year
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & the year to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 46 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a37f8fc7ca1692df7a8b265099c061721}\label{class_date_a37f8fc7ca1692df7a8b265099c061721}} 
+\index{Date@{Date}!show@{show}}
+\index{show@{show}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily void Date\+::show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Outputs the date 
+
+Definition at line 124 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_a62952e1c0ea6e3d2b17a145fbedb6819}\label{class_date_a62952e1c0ea6e3d2b17a145fbedb6819}} 
+\index{Date@{Date}!totalNumOfDays@{totalNumOfDays}}
+\index{totalNumOfDays@{totalNumOfDays}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{totalNumOfDays()}{totalNumOfDays()}}
+{\footnotesize\ttfamily unsigned int Date\+::total\+Num\+Of\+Days (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the total number of days of a given
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 196 of file date.\+cpp.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_date_a1862604492a841a6b98e1a3061d95b96}\label{class_date_a1862604492a841a6b98e1a3061d95b96}} 
+\index{Date@{Date}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Output operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & the output stream \\
+\hline
+{\em date} & the date to output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the stream given as parameter 
+\end{DoxyReturn}
+
+
+Definition at line 178 of file date.\+cpp.
+
+\mbox{\Hypertarget{class_date_ad38747168f2005159180860e5509b26e}\label{class_date_ad38747168f2005159180860e5509b26e}} 
+\index{Date@{Date}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{class_date}{Date}} \&}]{date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Input operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & the input stream \\
+\hline
+{\em date} & the date to output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the stream given as parameter 
+\end{DoxyReturn}
+
+
+Definition at line 186 of file date.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/utils/date/\mbox{\hyperlink{date_8h}{date.\+h}}\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/utils/date/\mbox{\hyperlink{date_8cpp}{date.\+cpp}}\end{DoxyCompactItemize}

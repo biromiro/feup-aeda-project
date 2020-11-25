@@ -1,0 +1,263 @@
+\hypertarget{class_viewer_manager}{}\doxysection{Viewer\+Manager Class Reference}
+\label{class_viewer_manager}\index{ViewerManager@{ViewerManager}}
+
+
+{\ttfamily \#include $<$viewer\+\_\+manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_viewer_manager_a574eb48ba2b8921c5953e74cdfd1e633}{Viewer\+Manager}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_manager}{User\+Manager}} $>$ user\+Manager)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ \mbox{\hyperlink{class_viewer_manager_ad4d2f238802df00002138146a6a610bf}{build}} (\mbox{\hyperlink{class_date}{Date}} birth\+Date, const std\+::string \&name, const std\+::string \&nickname, const std\+::string \&password)
+\item 
+bool \mbox{\hyperlink{class_viewer_manager_a11edeff679a1333c1f47ba609daa8c65}{add}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ \&viewer)
+\item 
+bool \mbox{\hyperlink{class_viewer_manager_a410a4534c395521531786039e0802b15}{reload}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ \&viewer)
+\item 
+bool \mbox{\hyperlink{class_viewer_manager_ae013f00af2c5c4dc69df4643d32bf5cd}{remove}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ \&viewer)
+\item 
+bool \mbox{\hyperlink{class_viewer_manager_abb02cf511e590bd5459099ee38372a31}{has}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ \&viewer) const
+\item 
+bool \mbox{\hyperlink{class_viewer_manager_ac663cadc8cd4b58fabee4cb833770cc3}{has}} (std\+::string nickname) const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ \mbox{\hyperlink{class_viewer_manager_a25afbf94f812aacbe4d103bb82f01ea2}{get}} (std\+::string nickname) const
+\item 
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ $>$ \& \mbox{\hyperlink{class_viewer_manager_ad4e2637f72b76bac3376024b1d117341}{get\+Viewers}} () const
+\item 
+bool \mbox{\hyperlink{class_viewer_manager_a8ab85d1af50d37c442a575b557ca0ee7}{read\+Data}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream_manager}{Stream\+Manager}} $>$ \&stream\+Manager)
+\item 
+bool \mbox{\hyperlink{class_viewer_manager_af0deb4d8692c0aa39c8c1e7f48b9b0fc}{write\+Data}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \mbox{\hyperlink{class_viewer}{Viewer}} Manager class
+
+Manages the viewers, taking care of the viewer related events (creating and deleting one, managing the join stream event, giving feedback, etc) 
+
+Definition at line 29 of file viewer\+\_\+manager.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_viewer_manager_a574eb48ba2b8921c5953e74cdfd1e633}\label{class_viewer_manager_a574eb48ba2b8921c5953e74cdfd1e633}} 
+\index{ViewerManager@{ViewerManager}!ViewerManager@{ViewerManager}}
+\index{ViewerManager@{ViewerManager}!ViewerManager@{ViewerManager}}
+\doxysubsubsection{\texorpdfstring{ViewerManager()}{ViewerManager()}}
+{\footnotesize\ttfamily Viewer\+Manager\+::\+Viewer\+Manager (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_manager}{User\+Manager}} $>$}]{user\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Constructor of the \mbox{\hyperlink{class_viewer}{Viewer}} Manager
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Manager} & the user manager \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 10 of file viewer\+\_\+manager.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_viewer_manager_a11edeff679a1333c1f47ba609daa8c65}\label{class_viewer_manager_a11edeff679a1333c1f47ba609daa8c65}} 
+\index{ViewerManager@{ViewerManager}!add@{add}}
+\index{add@{add}!ViewerManager@{ViewerManager}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily bool Viewer\+Manager\+::add (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ \&}]{viewer }\end{DoxyParamCaption})}
+
+Adds a new viewer to the viewers vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em viewer} & new viewer to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 36 of file viewer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_manager_ad4d2f238802df00002138146a6a610bf}\label{class_viewer_manager_ad4d2f238802df00002138146a6a610bf}} 
+\index{ViewerManager@{ViewerManager}!build@{build}}
+\index{build@{build}!ViewerManager@{ViewerManager}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ Viewer\+Manager\+::build (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_date}{Date}}}]{birth\+Date,  }\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{nickname,  }\item[{const std\+::string \&}]{password }\end{DoxyParamCaption})}
+
+Creates an object of class \mbox{\hyperlink{class_viewer}{Viewer}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em birth\+Date} & the birthdate of the viewer \\
+\hline
+{\em name} & the name of the viewer \\
+\hline
+{\em nickname} & the nickname of the viewer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 15 of file viewer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_manager_a25afbf94f812aacbe4d103bb82f01ea2}\label{class_viewer_manager_a25afbf94f812aacbe4d103bb82f01ea2}} 
+\index{ViewerManager@{ViewerManager}!get@{get}}
+\index{get@{get}!ViewerManager@{ViewerManager}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ Viewer\+Manager\+::get (\begin{DoxyParamCaption}\item[{std\+::string}]{nickname }\end{DoxyParamCaption}) const}
+
+Returns the pointer to a viewer given his nickname
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & the nickname of the viewer to be found and returned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the viewer with the given nickname 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file viewer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_manager_ad4e2637f72b76bac3376024b1d117341}\label{class_viewer_manager_ad4e2637f72b76bac3376024b1d117341}} 
+\index{ViewerManager@{ViewerManager}!getViewers@{getViewers}}
+\index{getViewers@{getViewers}!ViewerManager@{ViewerManager}}
+\doxysubsubsection{\texorpdfstring{getViewers()}{getViewers()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ $>$ \& Viewer\+Manager\+::get\+Viewers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the viewers vector
+
+\begin{DoxyReturn}{Returns}
+the viewers vector 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file viewer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_manager_abb02cf511e590bd5459099ee38372a31}\label{class_viewer_manager_abb02cf511e590bd5459099ee38372a31}} 
+\index{ViewerManager@{ViewerManager}!has@{has}}
+\index{has@{has}!ViewerManager@{ViewerManager}}
+\doxysubsubsection{\texorpdfstring{has()}{has()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Viewer\+Manager\+::has (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ \&}]{viewer }\end{DoxyParamCaption}) const}
+
+Checks if the viewer exists in the viewers vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em viewer} & viewer to be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 67 of file viewer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_manager_ac663cadc8cd4b58fabee4cb833770cc3}\label{class_viewer_manager_ac663cadc8cd4b58fabee4cb833770cc3}} 
+\index{ViewerManager@{ViewerManager}!has@{has}}
+\index{has@{has}!ViewerManager@{ViewerManager}}
+\doxysubsubsection{\texorpdfstring{has()}{has()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Viewer\+Manager\+::has (\begin{DoxyParamCaption}\item[{std\+::string}]{nickname }\end{DoxyParamCaption}) const}
+
+Checks, by nickname (which is unique), if the user exists in the viewers unordered set
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & the nickname of the viewer to be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 71 of file viewer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_manager_a8ab85d1af50d37c442a575b557ca0ee7}\label{class_viewer_manager_a8ab85d1af50d37c442a575b557ca0ee7}} 
+\index{ViewerManager@{ViewerManager}!readData@{readData}}
+\index{readData@{readData}!ViewerManager@{ViewerManager}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily bool Viewer\+Manager\+::read\+Data (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream_manager}{Stream\+Manager}} $>$ \&}]{stream\+Manager }\end{DoxyParamCaption})}
+
+Reads viewer data from file
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream\+Manager} & stream\+Manager to correctly add viewers into streams they are watching \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+read successfull 
+\end{DoxyReturn}
+
+
+Definition at line 89 of file viewer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_manager_a410a4534c395521531786039e0802b15}\label{class_viewer_manager_a410a4534c395521531786039e0802b15}} 
+\index{ViewerManager@{ViewerManager}!reload@{reload}}
+\index{reload@{reload}!ViewerManager@{ViewerManager}}
+\doxysubsubsection{\texorpdfstring{reload()}{reload()}}
+{\footnotesize\ttfamily bool Viewer\+Manager\+::reload (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ \&}]{viewer }\end{DoxyParamCaption})}
+
+Reloads viewer into the system when reading from file
+
+
+\begin{DoxyParams}{Parameters}
+{\em viewer} & viewer to reload into the system \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the streamer was added, throws exception if streamer already exists 
+\end{DoxyReturn}
+
+
+Definition at line 45 of file viewer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_manager_ae013f00af2c5c4dc69df4643d32bf5cd}\label{class_viewer_manager_ae013f00af2c5c4dc69df4643d32bf5cd}} 
+\index{ViewerManager@{ViewerManager}!remove@{remove}}
+\index{remove@{remove}!ViewerManager@{ViewerManager}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily bool Viewer\+Manager\+::remove (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ \&}]{viewer }\end{DoxyParamCaption})}
+
+Removes a viewer from the viewers vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em viewer} & new viewer to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 56 of file viewer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_manager_af0deb4d8692c0aa39c8c1e7f48b9b0fc}\label{class_viewer_manager_af0deb4d8692c0aa39c8c1e7f48b9b0fc}} 
+\index{ViewerManager@{ViewerManager}!writeData@{writeData}}
+\index{writeData@{writeData}!ViewerManager@{ViewerManager}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}}
+{\footnotesize\ttfamily bool Viewer\+Manager\+::write\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Writes and updates viewer data to file
+
+\begin{DoxyReturn}{Returns}
+write successfull 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file viewer\+\_\+manager.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/user/viewer/\mbox{\hyperlink{viewer__manager_8h}{viewer\+\_\+manager.\+h}}\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/user/viewer/\mbox{\hyperlink{viewer__manager_8cpp}{viewer\+\_\+manager.\+cpp}}\end{DoxyCompactItemize}

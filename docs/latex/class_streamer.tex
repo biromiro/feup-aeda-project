@@ -1,0 +1,372 @@
+\hypertarget{class_streamer}{}\doxysection{Streamer Class Reference}
+\label{class_streamer}\index{Streamer@{Streamer}}
+
+
+{\ttfamily \#include $<$streamer.\+h$>$}
+
+
+
+Inheritance diagram for Streamer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{class_streamer__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_streamer_a4a4539a7dfea1cd036727aaf64d6cc8c}{Streamer}} ()
+\item 
+\mbox{\hyperlink{class_streamer_a191dec9e4e26bc4f5a5f1072a10fa3fb}{Streamer}} (\mbox{\hyperlink{class_date}{Date}} \mbox{\hyperlink{class_user_ab7c87186af8bdb92822402b2e93e9b64}{birth\+Date}}, std\+::string \mbox{\hyperlink{class_user_a085d8d69282b6298964eab8351584536}{name}}, std\+::string \mbox{\hyperlink{class_user_aebdb6953485740c33307118f91156832}{nickname}}, std\+::string \mbox{\hyperlink{class_user_ac2f2e75b15e8eb6cbb030fc85a6cd59f}{password}})
+\item 
+bool \mbox{\hyperlink{class_streamer_ac68315a7686185613212c04a4aaaf754}{is\+Streaming}} () const
+\item 
+void \mbox{\hyperlink{class_streamer_ae48710b6a72723562715690399fb6b32}{set\+Stream}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \&stream)
+\item 
+void \mbox{\hyperlink{class_streamer_ab427f0e575f2afa6d370b43d084fb5f1}{remove\+Stream}} ()
+\item 
+void \mbox{\hyperlink{class_streamer_a267983f780240b31b8764bf556b61ab2}{add\+To\+View\+Count}} (unsigned int value)
+\item 
+unsigned int \mbox{\hyperlink{class_streamer_a74301ee1128e2ffe2fd2166bece1df3c}{get\+Total\+View\+Count}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_streamer_a9d9dd2a7e58c11ffb3b50cae9d54a2c1}{get\+Current\+Stream\+ID}} () const
+\item 
+const std\+::vector$<$ unsigned int $>$ \& \mbox{\hyperlink{class_streamer_abdca61f088b6ae298ef7e89832abdb28}{get\+Previous\+Streams\+I\+Ds}} () const
+\item 
+void \mbox{\hyperlink{class_streamer_a420c27c9b9ff3bd299ee16b154ed041e}{read\+Data}} (std\+::ifstream \&ifs) override
+\item 
+void \mbox{\hyperlink{class_streamer_ae4308cd91d596ae423fbd8df7a366e24}{write\+Data}} (std\+::ofstream \&ofs) override
+\item 
+bool \mbox{\hyperlink{class_streamer_a7f8b92bf5cefb22efbf27f3666912048}{operator$<$}} (const \mbox{\hyperlink{class_streamer}{Streamer}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_streamer_abb4b527f0bf9583440a362013a3f8d74}{operator$>$}} (const \mbox{\hyperlink{class_streamer}{Streamer}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_streamer_a9c4b92a663627c73c35f439605b95744}{operator$<$=}} (const \mbox{\hyperlink{class_streamer}{Streamer}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_streamer_aad497f5a2e8bc8c05a0bc576427b6f3d}{operator==}} (const \mbox{\hyperlink{class_streamer}{Streamer}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_streamer_a8450f3072cd697d510313affb3810e0b}{operator!=}} (const \mbox{\hyperlink{class_streamer}{Streamer}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_streamer_a3e46441098674202390ec8eac9d7658e}{operator$>$=}} (const \mbox{\hyperlink{class_streamer}{Streamer}} \&rhs) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \mbox{\hyperlink{class_streamer}{Streamer}} class
+
+A streamer can start streams, finish them, and see his past streams and current stream statistics 
+
+Definition at line 29 of file streamer.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_streamer_a4a4539a7dfea1cd036727aaf64d6cc8c}\label{class_streamer_a4a4539a7dfea1cd036727aaf64d6cc8c}} 
+\index{Streamer@{Streamer}!Streamer@{Streamer}}
+\index{Streamer@{Streamer}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{Streamer()}{Streamer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Streamer\+::\+Streamer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 8 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_a191dec9e4e26bc4f5a5f1072a10fa3fb}\label{class_streamer_a191dec9e4e26bc4f5a5f1072a10fa3fb}} 
+\index{Streamer@{Streamer}!Streamer@{Streamer}}
+\index{Streamer@{Streamer}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{Streamer()}{Streamer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Streamer\+::\+Streamer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_date}{Date}}}]{birth\+Date,  }\item[{std\+::string}]{name,  }\item[{std\+::string}]{nickname,  }\item[{std\+::string}]{password }\end{DoxyParamCaption})}
+
+Constructor of the \mbox{\hyperlink{class_streamer}{Streamer}} Class
+
+
+\begin{DoxyParams}{Parameters}
+{\em birth\+Date} & the birth date of the streamer \\
+\hline
+{\em name} & the name of the streamer \\
+\hline
+{\em nickname} & the nickname of the streamer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 10 of file streamer.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_streamer_a267983f780240b31b8764bf556b61ab2}\label{class_streamer_a267983f780240b31b8764bf556b61ab2}} 
+\index{Streamer@{Streamer}!addToViewCount@{addToViewCount}}
+\index{addToViewCount@{addToViewCount}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{addToViewCount()}{addToViewCount()}}
+{\footnotesize\ttfamily void Streamer\+::add\+To\+View\+Count (\begin{DoxyParamCaption}\item[{unsigned int}]{value }\end{DoxyParamCaption})}
+
+Increases the streamer\textquotesingle{}s view count by given amount
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & number of views to add to total view count \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 115 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_a9d9dd2a7e58c11ffb3b50cae9d54a2c1}\label{class_streamer_a9d9dd2a7e58c11ffb3b50cae9d54a2c1}} 
+\index{Streamer@{Streamer}!getCurrentStreamID@{getCurrentStreamID}}
+\index{getCurrentStreamID@{getCurrentStreamID}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{getCurrentStreamID()}{getCurrentStreamID()}}
+{\footnotesize\ttfamily unsigned int Streamer\+::get\+Current\+Stream\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of streamer\textquotesingle{}s current stream\+ID
+
+\begin{DoxyReturn}{Returns}
+the current stream\textquotesingle{}s ID 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_abdca61f088b6ae298ef7e89832abdb28}\label{class_streamer_abdca61f088b6ae298ef7e89832abdb28}} 
+\index{Streamer@{Streamer}!getPreviousStreamsIDs@{getPreviousStreamsIDs}}
+\index{getPreviousStreamsIDs@{getPreviousStreamsIDs}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{getPreviousStreamsIDs()}{getPreviousStreamsIDs()}}
+{\footnotesize\ttfamily const std\+::vector$<$ unsigned int $>$ \& Streamer\+::get\+Previous\+Streams\+I\+Ds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of streamer\textquotesingle{}s past stream\+I\+Ds
+
+\begin{DoxyReturn}{Returns}
+vector of I\+Ds of previous streams 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_a74301ee1128e2ffe2fd2166bece1df3c}\label{class_streamer_a74301ee1128e2ffe2fd2166bece1df3c}} 
+\index{Streamer@{Streamer}!getTotalViewCount@{getTotalViewCount}}
+\index{getTotalViewCount@{getTotalViewCount}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{getTotalViewCount()}{getTotalViewCount()}}
+{\footnotesize\ttfamily unsigned int Streamer\+::get\+Total\+View\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of streamer\textquotesingle{}s total view count
+
+\begin{DoxyReturn}{Returns}
+the streamer\textquotesingle{}s total view count 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_ac68315a7686185613212c04a4aaaf754}\label{class_streamer_ac68315a7686185613212c04a4aaaf754}} 
+\index{Streamer@{Streamer}!isStreaming@{isStreaming}}
+\index{isStreaming@{isStreaming}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{isStreaming()}{isStreaming()}}
+{\footnotesize\ttfamily bool Streamer\+::is\+Streaming (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Checks whether or not the streamer is streaming
+
+\begin{DoxyReturn}{Returns}
+True if the streamer is, in fact, streaming, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_a8450f3072cd697d510313affb3810e0b}\label{class_streamer_a8450f3072cd697d510313affb3810e0b}} 
+\index{Streamer@{Streamer}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Streamer\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_streamer}{Streamer}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+Overload of operator != to streamers
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & given streamer to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+self != given streamer 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_a7f8b92bf5cefb22efbf27f3666912048}\label{class_streamer_a7f8b92bf5cefb22efbf27f3666912048}} 
+\index{Streamer@{Streamer}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Streamer\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_streamer}{Streamer}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+Overload of operator $<$ to streamers
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & given streamer to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+self $<$ given streamer 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_a9c4b92a663627c73c35f439605b95744}\label{class_streamer_a9c4b92a663627c73c35f439605b95744}} 
+\index{Streamer@{Streamer}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool Streamer\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_streamer}{Streamer}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+Overload of operator $<$= to streamers
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & given streamer to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+self $<$= given streamer 
+\end{DoxyReturn}
+
+
+Definition at line 75 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_aad497f5a2e8bc8c05a0bc576427b6f3d}\label{class_streamer_aad497f5a2e8bc8c05a0bc576427b6f3d}} 
+\index{Streamer@{Streamer}!operator==@{operator==}}
+\index{operator==@{operator==}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Streamer\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_streamer}{Streamer}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+Overload of operator == to streamers
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & given streamer to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+self == given streamer 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_abb4b527f0bf9583440a362013a3f8d74}\label{class_streamer_abb4b527f0bf9583440a362013a3f8d74}} 
+\index{Streamer@{Streamer}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Streamer\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_streamer}{Streamer}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+Overload of operator $>$ to streamers
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & given streamer to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+self $>$ given streamer 
+\end{DoxyReturn}
+
+
+Definition at line 71 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_a3e46441098674202390ec8eac9d7658e}\label{class_streamer_a3e46441098674202390ec8eac9d7658e}} 
+\index{Streamer@{Streamer}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool Streamer\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_streamer}{Streamer}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+Overload of operator $>$= to streamers
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & given streamer to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+self $>$= given streamer 
+\end{DoxyReturn}
+
+
+Definition at line 79 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_a420c27c9b9ff3bd299ee16b154ed041e}\label{class_streamer_a420c27c9b9ff3bd299ee16b154ed041e}} 
+\index{Streamer@{Streamer}!readData@{readData}}
+\index{readData@{readData}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily void Streamer\+::read\+Data (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{ifs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Reads streamer data from file
+
+
+\begin{DoxyParams}{Parameters}
+{\em ifs} & File to read streamers from \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_user_adca54595d50308841bcc2d5091f4081c}{User}}.
+
+
+
+Definition at line 91 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_ab427f0e575f2afa6d370b43d084fb5f1}\label{class_streamer_ab427f0e575f2afa6d370b43d084fb5f1}} 
+\index{Streamer@{Streamer}!removeStream@{removeStream}}
+\index{removeStream@{removeStream}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{removeStream()}{removeStream()}}
+{\footnotesize\ttfamily void Streamer\+::remove\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Removes the current stream 
+
+Definition at line 34 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_ae48710b6a72723562715690399fb6b32}\label{class_streamer_ae48710b6a72723562715690399fb6b32}} 
+\index{Streamer@{Streamer}!setStream@{setStream}}
+\index{setStream@{setStream}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{setStream()}{setStream()}}
+{\footnotesize\ttfamily void Streamer\+::set\+Stream (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \&}]{stream }\end{DoxyParamCaption})}
+
+Sets the stream
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & the stream to be set to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 29 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_ae4308cd91d596ae423fbd8df7a366e24}\label{class_streamer_ae4308cd91d596ae423fbd8df7a366e24}} 
+\index{Streamer@{Streamer}!writeData@{writeData}}
+\index{writeData@{writeData}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}}
+{\footnotesize\ttfamily void Streamer\+::write\+Data (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{ofs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Writes and updates streamer data to file
+
+
+\begin{DoxyParams}{Parameters}
+{\em ofs} & File to write streamers to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_user_a3efd848398bcda7686ed2ae03ec1f99a}{User}}.
+
+
+
+Definition at line 105 of file streamer.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/user/streamer/\mbox{\hyperlink{streamer_8h}{streamer.\+h}}\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/user/streamer/\mbox{\hyperlink{streamer_8cpp}{streamer.\+cpp}}\end{DoxyCompactItemize}

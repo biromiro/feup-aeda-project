@@ -12,17 +12,23 @@ userManager(std::move(userManager))
 {}
 
 bool AdminManager::build(Date birthDate, const std::string &name, const std::string &nickname, const std::string& password) {
-    if(userManager->has(nickname)|| noInstances > 0)
+
+    //there can only be 1 admin at a time
+    if(userManager->has(nickname) || noInstances > 0)
         throw AdminAlreadySet(admin,"Admin already set!");
+
     auto newAdmin = std::make_shared<Admin>(birthDate,name,nickname, password);
     add(newAdmin);
     std::shared_ptr<User> user_form = std::dynamic_pointer_cast<User>(newAdmin);
     userManager->add(user_form);
+
     return true;
 }
 
 
 bool AdminManager::add(const std::shared_ptr<Admin>& adminToAdd) {
+
+    //same as above, there can only be one instance of Admin
     if ( noInstances == 0){
         noInstances++;
         admin = adminToAdd;
@@ -32,6 +38,8 @@ bool AdminManager::add(const std::shared_ptr<Admin>& adminToAdd) {
 }
 
 bool AdminManager::remove() {
+
+    //checks if the admin is already set
     if(admin != nullptr){
         userManager->remove(std::dynamic_pointer_cast<User>(admin));
         admin.reset();

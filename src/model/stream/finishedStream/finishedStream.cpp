@@ -13,9 +13,13 @@ FinishedStream::FinishedStream(std::string title, enum StreamLanguage lang, unsi
     votingSystem = oldVotes;
 }
 
-enum StreamType FinishedStream::getStreamType() const { return type; }
+enum StreamType FinishedStream::getStreamType() const {
+    return type;
+}
 
-unsigned int FinishedStream::getNumOfViews() const { return numOfViews; }
+unsigned int FinishedStream::getNumOfViews() const {
+    return numOfViews;
+}
 
 void FinishedStream::readData(std::ifstream &ifs, const std::shared_ptr<StreamerManager>& streamerManager) {
     ifs >> numOfViews;

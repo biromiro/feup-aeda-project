@@ -62,6 +62,18 @@ enum class StreamLanguage{
 class Viewer;
 class Streamer;
 
+
+/**
+ * @file stream.cpp
+ *
+ * @brief Class representing the abstract class Stream
+ *
+ * @ingroup stream
+ */
+
+/**
+ * Implementation of the abstract class Stream
+ */
 class Stream {
 public:
     /**

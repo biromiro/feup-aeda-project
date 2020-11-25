@@ -2,8 +2,9 @@
 // Created by biromiro on 13/10/20.
 //
 
-//#include "../stream/privateStream/privateStream.h"
-//#include "../stream/publicStream/publicStream.h"
+#ifndef PROJECT_STREAMZ_H
+#define PROJECT_STREAMZ_H
+
 #include "../user/viewer/viewer_manager.h"
 #include "../user/streamer/streamer_manager.h"
 #include "../user/admin/admin_manager.h"
@@ -14,8 +15,19 @@
 #include <string>
 #include <fstream>
 
-#ifndef PROJECT_STREAMZ_H
-#define PROJECT_STREAMZ_H
+/**
+ * @file streamZ.cpp
+ *
+ * @brief Class representing the streamZ class
+ *
+ * @ingroup streamZ
+ */
+
+/**
+ * Implementation of the StreamZ class
+ *
+ * Represents the platform, encapsulating all of its components
+ */
 class StreamZ{
 private:
     std::shared_ptr<UserManager> userManager;

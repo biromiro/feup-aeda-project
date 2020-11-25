@@ -15,6 +15,20 @@
 
 class Viewer;
 
+/**
+ * @file privateStream.cpp
+ *
+ * @brief Class representing a private stream object
+ *
+ * @ingroup stream
+ */
+
+/**
+ * Implementation of the class private stream
+ *
+ * A private stream is an object, derived from stream, which has special characteristics, such as a limited viewer count and whitelist, and
+ * allow viewers to comment on it
+ */
 class PrivateStream: public Stream {
 public:
     PrivateStream();
@@ -80,9 +94,8 @@ public:
      * Sets/Updates the maximum number of viewers allowed in the private stream
      *
      * @param maxNumViewers new maximum number of viewers of the private stream
-     * @return true if maximum number of viewers was set successfully, false otherwise
      */
-    bool setMaxNumViewers(unsigned int maxNumViewers);
+    void setMaxNumViewers(unsigned int maxNumViewers);
 
     /**
      * Adds a comment to the map of the private stream's comments

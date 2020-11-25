@@ -8,6 +8,19 @@
 #include "../../stream/streamManager.h"
 #include "streamer.h"
 
+/**
+ * @file streamer_manager.cpp
+ *
+ * @brief Class representing the Streamer Manager class
+ *
+ * @ingroup user
+ */
+
+/**
+ * Implementation of the Streamer Manager class
+ *
+ * Manages the streamers, taking care of the streamer related events (creating adn deleting one, managing a stream creation, etc)
+ */
 class StreamerManager{
 public:
     StreamerManager();

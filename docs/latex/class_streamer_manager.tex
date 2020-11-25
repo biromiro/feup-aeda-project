@@ -1,0 +1,314 @@
+\hypertarget{class_streamer_manager}{}\doxysection{Streamer\+Manager Class Reference}
+\label{class_streamer_manager}\index{StreamerManager@{StreamerManager}}
+
+
+{\ttfamily \#include $<$streamer\+\_\+manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_streamer_manager_a9aebfa724286b5e90b19e0e042a454fd}{Streamer\+Manager}} ()
+\item 
+\mbox{\hyperlink{class_streamer_manager_ae1c4595d6d256ea23c189ce8f3e16bf5}{Streamer\+Manager}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream_manager}{Stream\+Manager}} $>$ stream\+Manager, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer_manager}{Viewer\+Manager}} $>$ viewer\+Manager, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_manager}{User\+Manager}} $>$ user\+Manager)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \mbox{\hyperlink{class_streamer_manager_a72cbd5b866396b12827c692931f43430}{build}} (\mbox{\hyperlink{class_date}{Date}} birth\+Date, const std\+::string \&name, const std\+::string \&nickname, const std\+::string \&password)
+\item 
+bool \mbox{\hyperlink{class_streamer_manager_a9a0f64e7ce424c40da55e0ca6832fb82}{add}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&streamer)
+\item 
+bool \mbox{\hyperlink{class_streamer_manager_a5ea2c27c7bffa045c1b98ce5707ca139}{reload}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&streamer)
+\item 
+bool \mbox{\hyperlink{class_streamer_manager_a70eb3e22bde3e0f5816a8591b297c075}{remove}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&streamer)
+\item 
+bool \mbox{\hyperlink{class_streamer_manager_a75007035ee46d3e1d438acbf0f4b871f}{end\+Stream}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&streamer)
+\item 
+bool \mbox{\hyperlink{class_streamer_manager_a55d8d14202b191a8125c45d2d5ad8ab4}{has}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&streamer) const
+\item 
+bool \mbox{\hyperlink{class_streamer_manager_aa75b972958a43beb6d6e9e1a31bf4cb4}{has}} (std\+::string nickname) const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \mbox{\hyperlink{class_streamer_manager_acec0b5568a3161b4a9f846336939dff4}{get}} (std\+::string nickname) const
+\item 
+unsigned int \mbox{\hyperlink{class_streamer_manager_a836a95d8a52da98e895d0cdb3e46282f}{get\+Num\+Of\+Followers}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&streamer) const
+\item 
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ $>$ \& \mbox{\hyperlink{class_streamer_manager_ab5077b3abd36c2b30b90a36aba4c2562}{get\+Streamers}} () const
+\item 
+bool \mbox{\hyperlink{class_streamer_manager_a0e58ddf85924d01bc58c79fd722e0bce}{read\+Data}} ()
+\item 
+bool \mbox{\hyperlink{class_streamer_manager_abead67bd23d38c79a508a10e94f53226}{write\+Data}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \mbox{\hyperlink{class_streamer}{Streamer}} Manager class
+
+Manages the streamers, taking care of the streamer related events (creating adn deleting one, managing a stream creation, etc) 
+
+Definition at line 24 of file streamer\+\_\+manager.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_streamer_manager_a9aebfa724286b5e90b19e0e042a454fd}\label{class_streamer_manager_a9aebfa724286b5e90b19e0e042a454fd}} 
+\index{StreamerManager@{StreamerManager}!StreamerManager@{StreamerManager}}
+\index{StreamerManager@{StreamerManager}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{StreamerManager()}{StreamerManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Streamer\+Manager\+::\+Streamer\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{class_streamer_manager_ae1c4595d6d256ea23c189ce8f3e16bf5}\label{class_streamer_manager_ae1c4595d6d256ea23c189ce8f3e16bf5}} 
+\index{StreamerManager@{StreamerManager}!StreamerManager@{StreamerManager}}
+\index{StreamerManager@{StreamerManager}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{StreamerManager()}{StreamerManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Streamer\+Manager\+::\+Streamer\+Manager (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream_manager}{Stream\+Manager}} $>$}]{stream\+Manager,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer_manager}{Viewer\+Manager}} $>$}]{viewer\+Manager,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_manager}{User\+Manager}} $>$}]{user\+Manager }\end{DoxyParamCaption})}
+
+Constructor of the \mbox{\hyperlink{class_streamer}{Streamer}} Manager
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream\+Manager} & the stream manager \\
+\hline
+{\em viewer\+Manager} & the viewer manager \\
+\hline
+{\em user\+Manager} & the user manager \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file streamer\+\_\+manager.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_streamer_manager_a9a0f64e7ce424c40da55e0ca6832fb82}\label{class_streamer_manager_a9a0f64e7ce424c40da55e0ca6832fb82}} 
+\index{StreamerManager@{StreamerManager}!add@{add}}
+\index{add@{add}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily bool Streamer\+Manager\+::add (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&}]{streamer }\end{DoxyParamCaption})}
+
+Adds a new streamer to the streamer vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em streamer} & new streamer to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_a72cbd5b866396b12827c692931f43430}\label{class_streamer_manager_a72cbd5b866396b12827c692931f43430}} 
+\index{StreamerManager@{StreamerManager}!build@{build}}
+\index{build@{build}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ Streamer\+Manager\+::build (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_date}{Date}}}]{birth\+Date,  }\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{nickname,  }\item[{const std\+::string \&}]{password }\end{DoxyParamCaption})}
+
+Creates an object of class \mbox{\hyperlink{class_streamer}{Streamer}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em birth\+Date} & the birthdate of the streamer \\
+\hline
+{\em name} & the name of the streamer \\
+\hline
+{\em nickname} & the nickname of the streamer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_a75007035ee46d3e1d438acbf0f4b871f}\label{class_streamer_manager_a75007035ee46d3e1d438acbf0f4b871f}} 
+\index{StreamerManager@{StreamerManager}!endStream@{endStream}}
+\index{endStream@{endStream}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{endStream()}{endStream()}}
+{\footnotesize\ttfamily bool Streamer\+Manager\+::end\+Stream (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&}]{streamer }\end{DoxyParamCaption})}
+
+Ends the stream of a given streamer
+
+
+\begin{DoxyParams}{Parameters}
+{\em streamer} & the stream to which the stream is to be finished \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 71 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_acec0b5568a3161b4a9f846336939dff4}\label{class_streamer_manager_acec0b5568a3161b4a9f846336939dff4}} 
+\index{StreamerManager@{StreamerManager}!get@{get}}
+\index{get@{get}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ Streamer\+Manager\+::get (\begin{DoxyParamCaption}\item[{std\+::string}]{nickname }\end{DoxyParamCaption}) const}
+
+Returns the pointer to a streamer given his nickname
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & the nickname of the streamer to be found and returned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the streamer with the given nickname 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_a836a95d8a52da98e895d0cdb3e46282f}\label{class_streamer_manager_a836a95d8a52da98e895d0cdb3e46282f}} 
+\index{StreamerManager@{StreamerManager}!getNumOfFollowers@{getNumOfFollowers}}
+\index{getNumOfFollowers@{getNumOfFollowers}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{getNumOfFollowers()}{getNumOfFollowers()}}
+{\footnotesize\ttfamily unsigned int Streamer\+Manager\+::get\+Num\+Of\+Followers (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&}]{streamer }\end{DoxyParamCaption}) const}
+
+Getter of streamer\textquotesingle{}s number of followers
+
+
+\begin{DoxyParams}{Parameters}
+{\em streamer} & streamer to get number of followers from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of followers 
+\end{DoxyReturn}
+
+
+Definition at line 101 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_ab5077b3abd36c2b30b90a36aba4c2562}\label{class_streamer_manager_ab5077b3abd36c2b30b90a36aba4c2562}} 
+\index{StreamerManager@{StreamerManager}!getStreamers@{getStreamers}}
+\index{getStreamers@{getStreamers}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{getStreamers()}{getStreamers()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ $>$ \& Streamer\+Manager\+::get\+Streamers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of streamers currently in the system
+
+\begin{DoxyReturn}{Returns}
+vector of streamers 
+\end{DoxyReturn}
+
+
+Definition at line 108 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_a55d8d14202b191a8125c45d2d5ad8ab4}\label{class_streamer_manager_a55d8d14202b191a8125c45d2d5ad8ab4}} 
+\index{StreamerManager@{StreamerManager}!has@{has}}
+\index{has@{has}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{has()}{has()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Streamer\+Manager\+::has (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&}]{streamer }\end{DoxyParamCaption}) const}
+
+Checks if the streamer exists in the streamers vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em streamer} & streamer to be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_aa75b972958a43beb6d6e9e1a31bf4cb4}\label{class_streamer_manager_aa75b972958a43beb6d6e9e1a31bf4cb4}} 
+\index{StreamerManager@{StreamerManager}!has@{has}}
+\index{has@{has}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{has()}{has()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Streamer\+Manager\+::has (\begin{DoxyParamCaption}\item[{std\+::string}]{nickname }\end{DoxyParamCaption}) const}
+
+Checks, by nickname (which is unique), if the user exists in the streamers unordered set
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & the nickname of the streamer to be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_a0e58ddf85924d01bc58c79fd722e0bce}\label{class_streamer_manager_a0e58ddf85924d01bc58c79fd722e0bce}} 
+\index{StreamerManager@{StreamerManager}!readData@{readData}}
+\index{readData@{readData}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily bool Streamer\+Manager\+::read\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reads streamer data from file
+
+\begin{DoxyReturn}{Returns}
+read successfull 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_a5ea2c27c7bffa045c1b98ce5707ca139}\label{class_streamer_manager_a5ea2c27c7bffa045c1b98ce5707ca139}} 
+\index{StreamerManager@{StreamerManager}!reload@{reload}}
+\index{reload@{reload}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{reload()}{reload()}}
+{\footnotesize\ttfamily bool Streamer\+Manager\+::reload (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&}]{streamer }\end{DoxyParamCaption})}
+
+Reloads streamer into the system when reading from file
+
+
+\begin{DoxyParams}{Parameters}
+{\em streamer} & streamer to reload into the system \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the streamer was added, throws exception if streamer already exists 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_a70eb3e22bde3e0f5816a8591b297c075}\label{class_streamer_manager_a70eb3e22bde3e0f5816a8591b297c075}} 
+\index{StreamerManager@{StreamerManager}!remove@{remove}}
+\index{remove@{remove}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily bool Streamer\+Manager\+::remove (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&}]{streamer }\end{DoxyParamCaption})}
+
+Removes a streamer from the streamers vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em streamer} & new streamer to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the action was successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_abead67bd23d38c79a508a10e94f53226}\label{class_streamer_manager_abead67bd23d38c79a508a10e94f53226}} 
+\index{StreamerManager@{StreamerManager}!writeData@{writeData}}
+\index{writeData@{writeData}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}}
+{\footnotesize\ttfamily bool Streamer\+Manager\+::write\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Writes and updates streamer data to file
+
+\begin{DoxyReturn}{Returns}
+write successfull 
+\end{DoxyReturn}
+
+
+Definition at line 135 of file streamer\+\_\+manager.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/user/streamer/\mbox{\hyperlink{streamer__manager_8h}{streamer\+\_\+manager.\+h}}\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/user/streamer/\mbox{\hyperlink{streamer__manager_8cpp}{streamer\+\_\+manager.\+cpp}}\end{DoxyCompactItemize}

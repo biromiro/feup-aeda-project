@@ -1,0 +1,116 @@
+\hypertarget{class_u_i_manager}{}\doxysection{U\+I\+Manager Class Reference}
+\label{class_u_i_manager}\index{UIManager@{UIManager}}
+
+
+{\ttfamily \#include $<$ui\+\_\+manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_i_manager_a0d1bd2a2a6421e1f587e835e8dc5bdac}{U\+I\+Manager}} (\mbox{\hyperlink{class_stream_z}{StreamZ}} \&platform, \mbox{\hyperlink{class_current_session}{Current\+Session}} \&current\+Session)
+\item 
+\mbox{\hyperlink{class_stream_z}{StreamZ}} \& \mbox{\hyperlink{class_u_i_manager_a643bd275340c3ce2a9e3074a0095ded7}{get\+Platform}} () const
+\item 
+\mbox{\hyperlink{class_current_session}{Current\+Session}} \& \mbox{\hyperlink{class_u_i_manager_aa88d63bde23a57e0cc9e0949c10a7ac3}{get\+Current\+Session}} () const
+\item 
+void \mbox{\hyperlink{class_u_i_manager_ae2005ecd3697852d16c7d5cfc0f0043d}{run}} () const
+\item 
+void \mbox{\hyperlink{class_u_i_manager_ae79ccc307fd0a196a3ace67e08cb60d9}{set\+Current}} (\mbox{\hyperlink{class_u_i}{UI}} $\ast$ui)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manager of the \mbox{\hyperlink{class_u_i}{UI}} pages
+
+Allows the \mbox{\hyperlink{class_u_i}{UI}} to access platform and current session information, as well as keeping track of the current \mbox{\hyperlink{class_u_i}{UI}} 
+
+Definition at line 26 of file ui\+\_\+manager.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_u_i_manager_a0d1bd2a2a6421e1f587e835e8dc5bdac}\label{class_u_i_manager_a0d1bd2a2a6421e1f587e835e8dc5bdac}} 
+\index{UIManager@{UIManager}!UIManager@{UIManager}}
+\index{UIManager@{UIManager}!UIManager@{UIManager}}
+\doxysubsubsection{\texorpdfstring{UIManager()}{UIManager()}}
+{\footnotesize\ttfamily U\+I\+Manager\+::\+U\+I\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_stream_z}{StreamZ}} \&}]{platform,  }\item[{\mbox{\hyperlink{class_current_session}{Current\+Session}} \&}]{current\+Session }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_u_i_manager}{U\+I\+Manager}}\textquotesingle{}s constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em platform} & the platform (\mbox{\hyperlink{class_stream_z}{StreamZ}}, in this case) on which it operates \\
+\hline
+{\em current\+Session} & the current \mbox{\hyperlink{class_user}{User}} that is logged in \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 7 of file ui\+\_\+manager.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_u_i_manager_aa88d63bde23a57e0cc9e0949c10a7ac3}\label{class_u_i_manager_aa88d63bde23a57e0cc9e0949c10a7ac3}} 
+\index{UIManager@{UIManager}!getCurrentSession@{getCurrentSession}}
+\index{getCurrentSession@{getCurrentSession}!UIManager@{UIManager}}
+\doxysubsubsection{\texorpdfstring{getCurrentSession()}{getCurrentSession()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_current_session}{Current\+Session}} \& U\+I\+Manager\+::get\+Current\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the current logged user
+
+\begin{DoxyReturn}{Returns}
+the current\+Session object of the logged in user 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file ui\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_u_i_manager_a643bd275340c3ce2a9e3074a0095ded7}\label{class_u_i_manager_a643bd275340c3ce2a9e3074a0095ded7}} 
+\index{UIManager@{UIManager}!getPlatform@{getPlatform}}
+\index{getPlatform@{getPlatform}!UIManager@{UIManager}}
+\doxysubsubsection{\texorpdfstring{getPlatform()}{getPlatform()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stream_z}{StreamZ}} \& U\+I\+Manager\+::get\+Platform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the current platform on which the \mbox{\hyperlink{class_u_i_manager}{U\+I\+Manager}} is operating
+
+\begin{DoxyReturn}{Returns}
+the platform (\mbox{\hyperlink{class_stream_z}{StreamZ}} object) on which it is operating 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file ui\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_u_i_manager_ae2005ecd3697852d16c7d5cfc0f0043d}\label{class_u_i_manager_ae2005ecd3697852d16c7d5cfc0f0043d}} 
+\index{UIManager@{UIManager}!run@{run}}
+\index{run@{run}!UIManager@{UIManager}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void U\+I\+Manager\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Starts the \mbox{\hyperlink{class_u_i}{UI}} 
+
+Definition at line 11 of file ui\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_u_i_manager_ae79ccc307fd0a196a3ace67e08cb60d9}\label{class_u_i_manager_ae79ccc307fd0a196a3ace67e08cb60d9}} 
+\index{UIManager@{UIManager}!setCurrent@{setCurrent}}
+\index{setCurrent@{setCurrent}!UIManager@{UIManager}}
+\doxysubsubsection{\texorpdfstring{setCurrent()}{setCurrent()}}
+{\footnotesize\ttfamily void U\+I\+Manager\+::set\+Current (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_u_i}{UI}} $\ast$}]{ui }\end{DoxyParamCaption})}
+
+Sets the current \mbox{\hyperlink{class_u_i}{UI}} page
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & the page to set the \mbox{\hyperlink{class_u_i}{UI}} to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file ui\+\_\+manager.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/ui/\mbox{\hyperlink{ui__manager_8h}{ui\+\_\+manager.\+h}}\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/ui/\mbox{\hyperlink{ui__manager_8cpp}{ui\+\_\+manager.\+cpp}}\end{DoxyCompactItemize}

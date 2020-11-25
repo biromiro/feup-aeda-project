@@ -13,6 +13,19 @@
 
 class Stream;
 
+/**
+ * @file streamer.cpp
+ *
+ * @brief Class representing the Streamer class
+ *
+ * @ingroup user
+ */
+
+/**
+ * Implementation of the Streamer class
+ *
+ * A streamer can start streams, finish them, and see his past streams and current stream statistics
+ */
 class Streamer: public User{
 public:
 

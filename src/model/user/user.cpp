@@ -17,6 +17,7 @@ User::User(Date birthDate, std::string name, std::string nickname, UserTypes typ
         birthDate(birthDate), joinDate(Date()), name(std::move(name)), nickname(std::move(nickname)), type(type), password(std::move(std::move(password))){}
 
 unsigned int User::getAge() const{
+
     unsigned int age = timeElapsed(birthDate,Date()).getYear();
     return age;
 }
@@ -97,6 +98,7 @@ void User::readData(std::ifstream& ifs) {
     ifs >> birthDate;
     ifs >> joinDate;
     ifs.ignore();
+
     getline(ifs,name);
     getline(ifs,nickname);
     getline(ifs,password);
@@ -129,6 +131,7 @@ bool charCmpSmaller(char a, char b) {
 bool operator<(std::string s1, std::string s2){
     if(s1.size()>s2.size())
         return !(s2<s1);
+
     for(size_t index = 0; index<s1.size(); ++index){
         if(charCmpEq(s1[index],s2[index]))
             continue;
@@ -136,6 +139,7 @@ bool operator<(std::string s1, std::string s2){
             return true;
         }else return false;
     }
+
     return false;
 }
 

@@ -8,6 +8,19 @@
 #include "../stream.h"
 #include <fstream>
 
+/**
+ * @file finishedStream.cpp
+ *
+ * @brief Class representing a finished stream object
+ *
+ * @ingroup stream
+ */
+
+/**
+ * Implementation of the class finished stream
+ *
+ * A finished stream is an object, derived from stream, which saves data related to a previous live stream (either PUBLIC or PRIVATE)
+ */
 class FinishedStream: public Stream{
 public:
 

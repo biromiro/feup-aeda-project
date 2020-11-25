@@ -13,15 +13,20 @@ userManager(std::move(userManager)){
 }
 
 std::shared_ptr<Viewer> ViewerManager::build(Date birthDate, const std::string& name, const std::string& nickname, const std::string& password) {
+
     if(userManager->has(nickname))
         throw NicknameAlreadyAdded(nickname,"Nickname already in use by another user!");
     std::shared_ptr<Viewer> viewer;
+
+    //same as streamer, to avoid the creation of an unused Viewer, catches the exception if it is under age,
+    //and rethrows it, after reseting its pointer
     try{
         viewer = std::make_shared<Viewer>(birthDate,name,nickname,password);
     } catch (InvalidAge& invalidAge) {
         viewer.reset();
         throw InvalidAge(invalidAge.getAge(),"You have to be at least 12 years old!");
     }
+
     add(viewer);
     std::shared_ptr<User> user_form = std::dynamic_pointer_cast<Viewer>(viewer);
     userManager->add(user_form);
@@ -29,6 +34,7 @@ std::shared_ptr<Viewer> ViewerManager::build(Date birthDate, const std::string& 
 }
 
 bool ViewerManager::add(const std::shared_ptr<Viewer>& viewer) {
+
     if (std::find(viewers.begin(),viewers.end(),viewer) == viewers.end()){
         viewers.push_back(viewer);
         return true;
@@ -37,6 +43,7 @@ bool ViewerManager::add(const std::shared_ptr<Viewer>& viewer) {
 }
 
 bool ViewerManager::reload(const std::shared_ptr<Viewer>& viewer){
+
     if(userManager->has(viewer->getNickname())){
         throw NicknameAlreadyAdded(viewer->getNickname(),"Nickname already in use by another user!");
     }else{
@@ -47,6 +54,7 @@ bool ViewerManager::reload(const std::shared_ptr<Viewer>& viewer){
 }
 
 bool ViewerManager::remove(const std::shared_ptr<Viewer>& viewer) {
+
     auto it = std::find(viewers.begin(),viewers.end(),viewer);
     if (it != viewers.end()) {
         viewers.erase(it);

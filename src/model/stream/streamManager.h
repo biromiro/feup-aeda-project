@@ -13,6 +13,20 @@
 #include "stream.h"
 #include <memory>
 
+
+/**
+ * @file streamManager.cpp
+ *
+ * @brief Class representing the Stream Manager
+ *
+ * @ingroup stream
+ */
+
+/**
+ * Implementation of the class Stream Manager
+ *
+ * Manages all streams, live or finished, and deals with its processes, such as starting and finishing
+ */
 class StreamManager{
 public:
     /**

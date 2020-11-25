@@ -7,11 +7,16 @@
 
 Streamer::Streamer() : User(UserTypes::STREAMER) {}
 
-Streamer::Streamer(Date birthDate, std::string name, std::string nickname, std::string password): User(birthDate,std::move(name),std::move(nickname), UserTypes::STREAMER, std::move(password)) {
+Streamer::Streamer(Date birthDate, std::string name, std::string nickname, std::string password):
+    User(birthDate,std::move(name),std::move(nickname), UserTypes::STREAMER, std::move(password)) {
+
     unsigned int age = getAge();
+
+    //a streamer needs to be, at least, 15 years old
     if(age < 15){
         throw InvalidAge(age, "You have to be at least 15 years old!");
     }
+
     currentStreamID = 0;
     previousStreamsIDs = std::vector<unsigned int>();
     totalViewCount = 0;
