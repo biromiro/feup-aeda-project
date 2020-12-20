@@ -59,7 +59,16 @@ add_library(project
         utils/leaderboard/leaderboard.h
         utils/leaderboard/leaderboard_manager.h
         utils/leaderboard/leaderboard_manager.cpp
-        model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h)
+        model/stream/finishedStream/finishedStream.cpp
+        model/stream/finishedStream/finishedStream.h
+        model/transactions/donations/donation.h
+        model/transactions/donations/donation.cpp
+        model/transactions/donations/streamerDonations.cpp
+        model/transactions/donations/streamerDonations.h
+        model/transactions/merch/streamerMerch.cpp
+        model/transactions/merch/streamerMerch.h
+        model/transactions/merch/merchRequest.cpp
+        model/transactions/merch/merchRequest.h)
 
 
 add_executable(application
@@ -78,6 +87,20 @@ add_executable(application
         ui/streamView/streamView.h ui/streamView/streamView.cpp
         auth/currentSession.h auth/currentSession.cpp
         exception/invalidAge/invalidAge.h exception/invalidAge/invalidAge.cpp
+        exception/invalidFeedback/invalidFeedback.cpp exception/invalidFeedback/invalidFeedback.h
+        exception/nicknameNotFound/nicknameNotFound.cpp exception/nicknameNotFound/nicknameNotFound.h
+        exception/nicknameAlreadyAdded/nicknameAlreadyAdded.cpp exception/nicknameAlreadyAdded/nicknameAlreadyAdded.h
+        exception/streamNotFound/streamNotFound.cpp exception/streamNotFound/streamNotFound.h
+        exception/noStreamWithID/noStreamWithID.cpp exception/noStreamWithID/noStreamWithID.h
+        exception/invalidStreamAdd/invalidStreamToAdd.cpp exception/invalidStreamAdd/invalidStreamToAdd.h
+        exception/streamAlreadyFinished/streamAlreadyFinished.cpp exception/streamAlreadyFinished/streamAlreadyFinished.h
+        exception/streamerAlreadyStreaming/streamerAlreadyStreaming.cpp exception/streamerAlreadyStreaming/streamerAlreadyStreaming.h
+        exception/invalidStreamBuild/invalidStreamBuild.cpp exception/invalidStreamBuild/invalidStreamBuild.h
+        exception/userAlreadyExists/userAlreadyExists.cpp exception/userAlreadyExists/userAlreadyExists.h
+        exception/userNotFound/userNotFound.cpp exception/userNotFound/userNotFound.h
+        exception/adminAlreadySet/adminAlreadySet.cpp exception/adminAlreadySet/adminAlreadySet.h
+        exception/adminNotSet/adminNotSet.cpp exception/adminNotSet/adminNotSet.h
+        exception/streamerNotStreaming/streamerNotStreaming.cpp exception/streamerNotStreaming/streamerNotStreaming.h
         model/streamZ/streamZ.h
         model/user/user.h model/user/user.cpp
         model/user/user_manager.h model/user/user_manager.cpp
@@ -95,22 +118,16 @@ add_executable(application
         utils/leaderboard/leaderboard.h
         utils/leaderboard/leaderboard_manager.h
         utils/leaderboard/leaderboard_manager.cpp
-        model/stream/finishedStream/finishedStream.cpp model/stream/finishedStream/finishedStream.h
-        exception/invalidFeedback/invalidFeedback.cpp exception/invalidFeedback/invalidFeedback.h
-        exception/nicknameNotFound/nicknameNotFound.cpp exception/nicknameNotFound/nicknameNotFound.h
-        exception/nicknameAlreadyAdded/nicknameAlreadyAdded.cpp exception/nicknameAlreadyAdded/nicknameAlreadyAdded.h
-        exception/streamNotFound/streamNotFound.cpp exception/streamNotFound/streamNotFound.h
-        exception/noStreamWithID/noStreamWithID.cpp exception/noStreamWithID/noStreamWithID.h
-        exception/invalidStreamAdd/invalidStreamToAdd.cpp exception/invalidStreamAdd/invalidStreamToAdd.h
-        exception/streamAlreadyFinished/streamAlreadyFinished.cpp exception/streamAlreadyFinished/streamAlreadyFinished.h
-        exception/streamerAlreadyStreaming/streamerAlreadyStreaming.cpp exception/streamerAlreadyStreaming/streamerAlreadyStreaming.h
-        exception/invalidStreamBuild/invalidStreamBuild.cpp exception/invalidStreamBuild/invalidStreamBuild.h
-        exception/userAlreadyExists/userAlreadyExists.cpp exception/userAlreadyExists/userAlreadyExists.h
-        exception/userNotFound/userNotFound.cpp exception/userNotFound/userNotFound.h
-        exception/adminAlreadySet/adminAlreadySet.cpp exception/adminAlreadySet/adminAlreadySet.h
-        exception/adminNotSet/adminNotSet.cpp exception/adminNotSet/adminNotSet.h
-        exception/streamerNotStreaming/streamerNotStreaming.cpp exception/streamerNotStreaming/streamerNotStreaming.h)
-
+        model/stream/finishedStream/finishedStream.cpp
+        model/stream/finishedStream/finishedStream.h
+        model/transactions/donations/donation.h
+        model/transactions/donations/donation.cpp
+        model/transactions/donations/streamerDonations.cpp
+        model/transactions/donations/streamerDonations.h
+        model/transactions/merch/streamerMerch.cpp
+        model/transactions/merch/streamerMerch.h
+        model/transactions/merch/merchRequest.cpp
+        model/transactions/merch/merchRequest.h)
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
