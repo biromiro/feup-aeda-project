@@ -63,7 +63,7 @@ public:
     /**
      * Removes a streamer from the streamers vector
      *
-     * @param streamer new streamer to be added
+     * @param streamer new streamer to be removed
      * @return True if the action was successful, false otherwise
      */
     bool remove(const std::shared_ptr<Streamer>& streamer);

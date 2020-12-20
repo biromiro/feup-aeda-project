@@ -58,7 +58,7 @@ void StreamView::feedbackToStream() {
         switch (answer) {
             case '1': {
                 std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE <<
-                LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
+                LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
                 std::cout << "1 - LIKE" << std::endl;
                 std::cout << "2 - DISLIKE" << std::endl;
                 feedbackAnswer = _getch_();
@@ -92,12 +92,12 @@ void StreamView::feedbackToStream() {
             }
         }
     }else{
-        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
+        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
         std::cout << "1 - Give Like/Dislike" << std::endl;
         std::cout << "0 - Go back " << std::endl;
         answer = _getch_();
         if(answer == '1') {
-                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE
+                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE
                           << GO_TO_BEGINNING_OF_LINE;
                 std::cout << "1 - LIKE" << std::endl;
                 std::cout << "2 - DISLIKE" << std::endl;

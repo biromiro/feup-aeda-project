@@ -87,7 +87,7 @@ void ViewerView::chooseStream() {
                     _getch_();
                 }
                 if(streamToJoin->getStreamType() == StreamType::PRIVATE && !thisViewer->isWatchingStream()){
-                    std::cerr << HIDE_CURSOR << "You're not in the whitelist of this stream!" << std::endl;
+                    std::cerr << "You're not in the whitelist of this stream!" << std::endl;
                     _getch_();
                 }
             }
@@ -123,7 +123,7 @@ void ViewerView::newStreamerActions(){
             case '1':
                 std::string nicknameToFollow;
                 auto thisViewer = uiManager.getPlatform().getViewerManager()->get(uiManager.getCurrentSession().getNickname());
-                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
+                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  LINE_UP << CLEAR_LINE  <<  LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
                 std::cout << "Who do you wish to follow?";
                 getlineCIN(nicknameToFollow);
                 auto streamerToFollow = uiManager.getPlatform().getStreamerManager()->get(nicknameToFollow);
@@ -136,14 +136,14 @@ void ViewerView::newStreamerActions(){
                     }else{
                         std::cerr << "You already follow this streamer!" << std::endl;
                         _getch_();
-                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                         std::cout << "\n 1 - Follow a streamer!" << std::endl;
                         std::cout << "\n 0 - Go to main menu" << std::endl;
                     }
                 }else{
                     std::cerr << "There's no such streamer!" << std::endl;
                     _getch_();
-                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                     std::cout << "\n 1 - Follow a streamer!" << std::endl;
                     std::cout << "\n 0 - Go to main menu" << std::endl;
                 }
@@ -162,7 +162,7 @@ void ViewerView::followingStreamerActions(){
             case '1':
                 std::string nicknameToUnfollow;
                 auto thisViewer = uiManager.getPlatform().getViewerManager()->get(uiManager.getCurrentSession().getNickname());
-                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
+                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  LINE_UP << CLEAR_LINE  <<  LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
                 std::cout << "Who do you wish to unfollow?";
                 getlineCIN(nicknameToUnfollow);
                 auto streamerToUnfollow = uiManager.getPlatform().getStreamerManager()->get(nicknameToUnfollow);
@@ -174,14 +174,14 @@ void ViewerView::followingStreamerActions(){
                     }else{
                         std::cerr << "You do not follow this streamer!" << std::endl;
                         _getch_();
-                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                         std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
                         std::cout << "\n 0 - Go to main menu" << std::endl;
                     }
                 }else{
                     std::cerr << "There's no such streamer!" << std::endl;
                     _getch_();
-                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                     std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
                     std::cout << "\n 0 - Go to main menu" << std::endl;
                 }
