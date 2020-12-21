@@ -3,3 +3,55 @@
 //
 
 #include "streamerMerch.h"
+#include "../../../exception/orderLimitReached/orderLimitReached.h"
+#include "../../../exception/orderNotFound/orderNotFound.h"
+
+StreamerMerch::StreamerMerch(unsigned int lim): limit(lim) { }
+
+unsigned int StreamerMerch::getLimit() const { return limit; }
+
+void StreamerMerch::setLimit(unsigned int newLimit) {
+    if (newLimit < limit) {
+        unsigned int counter = newLimit;
+        std::priority_queue<MerchRequest> temp;
+        while (counter != 0) {
+            temp.push(orders.top());
+            orders.pop();
+            counter--;
+        }
+        orders = temp;
+    }
+    limit = newLimit;
+}
+
+MerchRequest StreamerMerch::processNextOrder() {
+    MerchRequest nextOrder = orders.top();
+    orders.pop();
+    return nextOrder;
+}
+
+bool StreamerMerch::addOrder(MerchRequest newOrder) {
+    if (orders.size() < limit) {
+        orders.push(newOrder);
+        return true;
+    }
+    else { throw OrderLimitReached(newOrder, "The limit for orders was already reached!"); }
+}
+
+bool StreamerMerch::removeOrder(std::string buyer) {
+    bool found = false;
+    std::priority_queue<MerchRequest> temp;
+    while (!orders.empty()) {
+        auto item = orders.top();
+        orders.pop();
+        if (item.getBuyer() == buyer) {
+            found = true;
+            continue;
+        }
+        temp.push(item);
+    }
+    orders = temp;
+    if (found) { return true; }
+    else { throw OrderNotFound(buyer, "You haven't ordered anything yet!"); }
+}
+
