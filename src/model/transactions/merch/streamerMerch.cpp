@@ -6,7 +6,14 @@
 #include "../../../exception/orderLimitReached/orderLimitReached.h"
 #include "../../../exception/orderNotFound/orderNotFound.h"
 
-StreamerMerch::StreamerMerch(unsigned int lim): limit(lim) { }
+StreamerMerch::StreamerMerch() {
+    limit = 0;
+    orders = std::priority_queue<MerchRequest>();
+}
+
+StreamerMerch::StreamerMerch(unsigned int lim): limit(lim) {
+    orders = std::priority_queue<MerchRequest>();
+}
 
 unsigned int StreamerMerch::getLimit() const { return limit; }
 

@@ -102,6 +102,10 @@ public:
      */
     bool unfollowStreamer(const std::shared_ptr<Streamer>& streamer);
 
+    void orderMerch(std::shared_ptr<Streamer> streamer, unsigned int quantity, unsigned int purchaseA);
+
+    void removeOrder(std::shared_ptr<Streamer> streamer);
+
     /**
      * Getter of current stream
      *

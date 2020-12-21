@@ -6,6 +6,10 @@
 
 #include "../../stream/privateStream/privateStream.h"
 #include "../../stream/streamManager.h"
+#include "../../transactions/merch/merchRequest.h"
+#include "../../../exception/invalidPurchaseAvailability/invalidPurchaseAvailability.h"
+#include "../../../exception/orderLimitReached/orderLimitReached.h"
+#include "../../../exception/orderNotFound/orderNotFound.h"
 
 
 Viewer::Viewer() : User(UserTypes::VIEWER) {
@@ -107,6 +111,25 @@ bool Viewer::unfollowStreamer(const std::shared_ptr<Streamer>& streamer) {
 
     std::string nickname = streamer->getNickname();
     return followingStreamers.erase(nickname) != 0;
+}
+
+void Viewer::orderMerch(std::shared_ptr<Streamer> streamer, unsigned int quantity, unsigned int purchaseA) {
+    try {
+        MerchRequest toAdd(name, quantity, purchaseA);
+        streamer->addMerchOrder(toAdd);
+    } catch (InvalidPurchaseAvailability &ipa) {
+        throw InvalidPurchaseAvailability(ipa.getPurchaseA(), ipa.what());
+    } catch (OrderLimitReached olr) {
+        throw OrderLimitReached(olr.getOrder(), olr.what());
+    }
+}
+
+void Viewer::removeOrder(std::shared_ptr<Streamer> streamer) {
+    try {
+        streamer->removeMerchOrder(name);
+    } catch (OrderNotFound &onf) {
+        throw OrderNotFound(onf.getBuyer(), onf.what());
+    }
 }
 
 const std::shared_ptr<Stream> &Viewer::getCurrentStream() const {

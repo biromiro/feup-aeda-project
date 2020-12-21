@@ -3,6 +3,8 @@
 //
 
 #include "streamer.h"
+#include "../../../exception/orderLimitReached/orderLimitReached.h"
+#include "../../../exception/orderNotFound/orderNotFound.h"
 
 
 Streamer::Streamer() : User(UserTypes::STREAMER) {}
@@ -30,10 +32,33 @@ void Streamer::setStream(const std::shared_ptr<Stream>& stream) {
     currentStreamID = stream->getUniqueId();
 }
 
-
 void Streamer::removeStream() {
     previousStreamsIDs.push_back(currentStreamID);
     currentStreamID = 0;
+}
+
+void Streamer::setUpMerch(unsigned int limit) {
+    merch.setLimit(limit);
+}
+
+void Streamer::addMerchOrder(MerchRequest newOrder) {
+    try {
+        merch.addOrder(newOrder);
+    } catch (OrderLimitReached &olr) {
+        throw OrderLimitReached(olr.getOrder(), olr.what());
+    }
+}
+
+void Streamer::removeMerchOrder(std::string buyer) {
+    try {
+        merch.removeOrder(buyer);
+    } catch (OrderNotFound &onf) {
+        throw OrderNotFound(onf.getBuyer(), onf.what());
+    }
+}
+
+void Streamer::processNextOrder() {
+    merch.processNextOrder();
 }
 
 unsigned int Streamer::getTotalViewCount() const {
@@ -46,6 +71,10 @@ unsigned int Streamer::getCurrentStreamID() const {
 
 const std::vector<unsigned int> &Streamer::getPreviousStreamsIDs() const {
     return previousStreamsIDs;
+}
+
+const StreamerMerch & Streamer::getStreamerMerch() const {
+    return merch;
 }
 
 bool Streamer::operator<(const Streamer &rhs) const {

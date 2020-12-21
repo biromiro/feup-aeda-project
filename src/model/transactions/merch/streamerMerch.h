@@ -10,6 +10,7 @@
 
 class StreamerMerch {
 public:
+    StreamerMerch();
     StreamerMerch(unsigned int lim);
     unsigned int getLimit() const;
     void setLimit(unsigned int newLimit);

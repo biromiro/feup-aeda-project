@@ -7,6 +7,7 @@
 #include "../user.h"
 #include "../../stream/stream.h"
 #include "../../../exception/invalidAge/invalidAge.h"
+#include "../../transactions/merch/streamerMerch.h"
 
 
 #ifndef PROJECT_STREAMER_H
@@ -65,6 +66,14 @@ public:
      * */
     void addToViewCount(unsigned int value);
 
+    void setUpMerch(unsigned int limit);
+
+    void addMerchOrder(MerchRequest newOrder);
+
+    void removeMerchOrder(std::string buyer);
+
+    void processNextOrder();
+
     /**
      * Getter of streamer's total view count
      *
@@ -84,6 +93,8 @@ public:
      * @return vector of IDs of previous streams
      * */
     [[nodiscard]] const std::vector<unsigned int> &getPreviousStreamsIDs() const;
+
+    [[nodiscard]] const StreamerMerch &getStreamerMerch() const;
 
     /**
      * Reads streamer data from file
@@ -150,6 +161,7 @@ private:
     std::vector<unsigned int> previousStreamsIDs;
     unsigned int currentStreamID{};
     unsigned int totalViewCount{};
+    StreamerMerch merch;
 };
 
 #define PROJECT_STREAMER_H
