@@ -7,11 +7,11 @@
 #include "../../../exception/userAlreadyExists/userAlreadyExists.h"
 #include "../../../exception/streamerNotStreaming/streamerNotStreaming.h"
 
-StreamerManager::StreamerManager() = default;
+StreamerManager::StreamerManager() : donations(Donation("",0,streamerWorkRating::VERY_BAD)){};
 
 
 StreamerManager::StreamerManager(std::shared_ptr<StreamManager> streamManager, std::shared_ptr<ViewerManager> viewerManager, std::shared_ptr<UserManager> userManager):
-streamManager(std::move(streamManager)), viewerManager(std::move(viewerManager)), userManager(std::move(userManager))
+streamManager(std::move(streamManager)), viewerManager(std::move(viewerManager)), userManager(std::move(userManager)), donations(Donation("",0.0,streamerWorkRating::VERY_BAD))
 {
     streamers = std::vector<std::shared_ptr<Streamer>>();
 }
@@ -150,6 +150,26 @@ bool StreamerManager::writeData() {
     }
     file.close();
     return true;
+}
+
+void StreamerManager::addNewDonation(const string &nickname, float ammount, streamerWorkRating rating) {
+    donations.insert(Donation(nickname,ammount,rating));
+}
+
+vector<Donation> StreamerManager::getStreamerDonations(const string &nickname) {
+    vector<Donation> streamerDonations;
+
+    for(BSTItrIn<Donation> bItr(donations); !bItr.isAtEnd(); bItr.advance()){
+        Donation val = bItr.retrieve();
+        if(val.getStreamerNickname() == nickname) streamerDonations.push_back(val);
+    }
+
+    if(streamerDonations.empty()) throw StreamerHasNoDonations(nickname, "No donations yet!");
+    return streamerDonations;
+}
+
+const BST<Donation> &StreamerManager::getDonations() const {
+    return donations;
 }
 
 

@@ -310,6 +310,8 @@ public:
      */
     std::string mostViewsStreamer();
 
+    Leaderboard<Donation> getOrderedDonations();
+
 private:
     std::shared_ptr<ViewerManager> viewerManager;
     std::shared_ptr<StreamerManager> streamerManager;

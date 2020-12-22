@@ -345,4 +345,15 @@ std::string LeaderboardManager::mostViewsStreamer() {
     return streamerLB.get().front()->getNickname();
 }
 
+Leaderboard<Donation> LeaderboardManager::getOrderedDonations() {
+    std::vector<Donation> donations;
+    for(BSTItrIn<Donation> bItr(streamerManager->getDonations()); !bItr.isAtEnd(); bItr.advance()){
+        donations.push_back(bItr.retrieve());
+    }
+    reverse(donations.begin(), donations.end());
+    return Leaderboard<Donation>(donations);
+}
+
+
+
 
