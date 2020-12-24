@@ -68,7 +68,17 @@ add_library(project
         model/transactions/merch/streamerMerch.cpp
         model/transactions/merch/streamerMerch.h
         model/transactions/merch/merchRequest.cpp
-        model/transactions/merch/merchRequest.h)
+        model/transactions/merch/merchRequest.h
+        exception/orderLimitReached/orderLimitReached.cpp
+        exception/orderLimitReached/orderLimitReached.h
+        exception/orderNotFound/orderNotFound.cpp
+        exception/orderNotFound/orderNotFound.h
+        exception/invalidPurchaseAvailability/invalidPurchaseAvailability.cpp
+        exception/invalidPurchaseAvailability/invalidPurchaseAvailability.h
+        exception/ViewerAlreadyOrdered/viewerAlreadyOrdered.cpp
+        exception/ViewerAlreadyOrdered/viewerAlreadyOrdered.h
+        exception/viewerAlreadyOrdered/viewerAlreadyOrdered.cpp
+        exception/viewerAlreadyOrdered/viewerAlreadyOrdered.h)
 
 
 add_executable(application
@@ -127,7 +137,7 @@ add_executable(application
         model/transactions/merch/streamerMerch.cpp
         model/transactions/merch/streamerMerch.h
         model/transactions/merch/merchRequest.cpp
-        model/transactions/merch/merchRequest.h exception/orderLimitReached/orderLimitReached.cpp exception/orderLimitReached/orderLimitReached.h exception/orderNotFound/orderNotFound.cpp exception/orderNotFound/orderNotFound.h exception/invalidPurchaseAvailability/invalidPurchaseAvailability.cpp exception/invalidPurchaseAvailability/invalidPurchaseAvailability.h)
+        model/transactions/merch/merchRequest.h exception/orderLimitReached/orderLimitReached.cpp exception/orderLimitReached/orderLimitReached.h exception/orderNotFound/orderNotFound.cpp exception/orderNotFound/orderNotFound.h exception/invalidPurchaseAvailability/invalidPurchaseAvailability.cpp exception/invalidPurchaseAvailability/invalidPurchaseAvailability.h exception/ViewerAlreadyOrdered/viewerAlreadyOrdered.cpp exception/ViewerAlreadyOrdered/viewerAlreadyOrdered.h exception/viewerAlreadyOrdered/viewerAlreadyOrdered.cpp exception/viewerAlreadyOrdered/viewerAlreadyOrdered.h)
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 

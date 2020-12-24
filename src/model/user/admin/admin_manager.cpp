@@ -61,6 +61,13 @@ std::shared_ptr<Admin> AdminManager::get() const {
     return admin;
 }
 
+unsigned int AdminManager::getMerchLimit() const {
+    return merchLimit;
+}
+
+void AdminManager::setMerchLimit(unsigned int newLimit) {
+    merchLimit = newLimit;
+}
 
 bool AdminManager::readData() {
     //write object into the file

@@ -66,13 +66,40 @@ public:
      * */
     void addToViewCount(unsigned int value);
 
+    /**
+     * Sets up the merchandising queue for the streamer
+     *
+     * @param limit merchandising limit provided by platform
+     */
     void setUpMerch(unsigned int limit);
 
+    /**
+     * Adds a viewer's order to the orders queue
+     *
+     * @param newOrder order to add to queue
+     */
     void addMerchOrder(MerchRequest newOrder);
 
+    /**
+     * Removes a viewer's order from the orders queue
+     *
+     * @param buyer name of the viewer whose order is to be removed
+     */
     void removeMerchOrder(std::string buyer);
 
-    void processNextOrder();
+    /**
+     * Processes the first order on the queue
+     *
+     * @return first order on the queue
+     */
+    MerchRequest processNextOrder();
+
+    /**
+     * Updates the limit for merchandising orders
+     *
+     * @param newLimit new limit for orders
+     */
+    void updateMerchLimit(unsigned int newLimit);
 
     /**
      * Getter of streamer's total view count

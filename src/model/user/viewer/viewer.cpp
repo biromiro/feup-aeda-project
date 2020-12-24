@@ -10,6 +10,7 @@
 #include "../../../exception/invalidPurchaseAvailability/invalidPurchaseAvailability.h"
 #include "../../../exception/orderLimitReached/orderLimitReached.h"
 #include "../../../exception/orderNotFound/orderNotFound.h"
+#include "../../../exception/viewerAlreadyOrdered/viewerAlreadyOrdered.h"
 
 
 Viewer::Viewer() : User(UserTypes::VIEWER) {
@@ -119,8 +120,10 @@ void Viewer::orderMerch(std::shared_ptr<Streamer> streamer, unsigned int quantit
         streamer->addMerchOrder(toAdd);
     } catch (InvalidPurchaseAvailability &ipa) {
         throw InvalidPurchaseAvailability(ipa.getPurchaseA(), ipa.what());
-    } catch (OrderLimitReached olr) {
+    } catch (OrderLimitReached &olr) {
         throw OrderLimitReached(olr.getOrder(), olr.what());
+    } catch (ViewerAlreadyOrdered &vao) {
+        throw ViewerAlreadyOrdered(vao.getOrder(), vao.what());
     }
 }
 

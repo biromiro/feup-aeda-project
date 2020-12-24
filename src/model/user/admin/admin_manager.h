@@ -81,6 +81,20 @@ public:
     [[nodiscard]] std::shared_ptr<Admin> get() const;
 
     /**
+     * Getter of the merchandising limit for streamers
+     *
+     * @return merchandising limit
+     */
+    unsigned int getMerchLimit() const;
+
+    /**
+     * Updates the merchandising limit for streamers
+     *
+     * @param newLimit new merchandising limit
+     */
+    void setMerchLimit(unsigned int newLimit);
+
+    /**
     * Reads saved admins from File
     *
     * @return read successfull
@@ -98,6 +112,7 @@ private:
     std::shared_ptr<Admin> admin = nullptr;
     std::shared_ptr<UserManager> userManager;
     unsigned int noInstances = 0;
+    unsigned int merchLimit = 0;
 };
 
 #endif //PROJECT_ADMIN_MANAGER_H

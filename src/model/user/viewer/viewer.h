@@ -102,8 +102,20 @@ public:
      */
     bool unfollowStreamer(const std::shared_ptr<Streamer>& streamer);
 
+    /**
+     * Add a merchandising order to the orders queue of the streamer
+     *
+     * @param streamer streamer from which to order merchandising
+     * @param quantity quantity of merchandising to order
+     * @param purchaseA purchase availability of order
+     */
     void orderMerch(std::shared_ptr<Streamer> streamer, unsigned int quantity, unsigned int purchaseA);
 
+    /**
+     * Removes the viewer's merchandising order from the orders queue of the streamer
+     *
+     * @param streamer streamer from which to remove order
+     */
     void removeOrder(std::shared_ptr<Streamer> streamer);
 
     /**

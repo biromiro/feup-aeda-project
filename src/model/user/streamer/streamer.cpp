@@ -57,8 +57,12 @@ void Streamer::removeMerchOrder(std::string buyer) {
     }
 }
 
-void Streamer::processNextOrder() {
-    merch.processNextOrder();
+MerchRequest Streamer::processNextOrder() {
+    return merch.processNextOrder();
+}
+
+void Streamer::updateMerchLimit(unsigned int newLimit) {
+    merch.setLimit(newLimit);
 }
 
 unsigned int Streamer::getTotalViewCount() const {
