@@ -12,10 +12,6 @@ StreamerMerch::StreamerMerch() {
     orders = std::priority_queue<MerchRequest>();
 }
 
-StreamerMerch::StreamerMerch(unsigned int lim): limit(lim) {
-    orders = std::priority_queue<MerchRequest>();
-}
-
 unsigned int StreamerMerch::getLimit() const { return limit; }
 
 std::priority_queue<MerchRequest> StreamerMerch::getOrders() const { return orders; }
@@ -73,6 +69,6 @@ bool StreamerMerch::removeOrder(std::string buyer) {
     }
     orders = temp;
     if (found) { return true; }
-    else { throw OrderNotFound(buyer, "You haven't ordered anything yet!"); }
+    else { throw OrderNotFound(buyer, "There's no order under your name!"); }
 }
 

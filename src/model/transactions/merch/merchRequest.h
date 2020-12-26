@@ -12,16 +12,16 @@ public:
     /**
      * Constructor of the Merch Request class
      *
-     * @param buyer name of the viewer who is ordering merchandising
+     * @param buyer nickname of the viewer who is ordering merchandising
      * @param quantity quantity of merchandising ordered
      * @param purchaseA purchase availability of order
      */
     MerchRequest(std::string buyer, unsigned int quantity, unsigned int purchaseA);
 
     /**
-     * Getter of the name of the viewer who made the order
+     * Getter of the nickname of the viewer who made the order
      *
-     * @return name of the viewer who made the order
+     * @return nickname of the viewer who made the order
      */
     const std::string &getBuyer() const;
 

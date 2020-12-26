@@ -155,7 +155,7 @@ public:
     void writeData(std::ofstream &ost) override;
 
     /**
-     * Overloard of operator < to viewers
+     * Overload of operator < to viewers
      *
      * @param rhs given viewer to compare
      * @return self < given viewer
@@ -163,7 +163,7 @@ public:
     bool operator<(const Viewer &rhs) const;
 
     /**
-    * Overloard of operator > to viewers
+    * Overload of operator > to viewers
     *
     * @param rhs given viewer to compare
     * @return self > given viewer
@@ -171,7 +171,7 @@ public:
     bool operator>(const Viewer &rhs) const;
 
     /**
-    * Overloard of operator <= to viewers
+    * Overload of operator <= to viewers
     *
     * @param rhs given viewer to compare
     * @return self <= given viewer
@@ -179,7 +179,7 @@ public:
     bool operator<=(const Viewer &rhs) const;
 
     /**
-    * Overloard of operator == to viewers
+    * Overload of operator == to viewers
     *
     * @param rhs given viewer to compare
     * @return self == given viewer
@@ -187,7 +187,7 @@ public:
     bool operator==(const Viewer &rhs) const;
 
     /**
-     * Overloard of operator != to viewers
+     * Overload of operator != to viewers
     *
     * @param rhs given viewer to compare
     * @return self != given viewer
@@ -195,7 +195,7 @@ public:
     bool operator!=(const Viewer &rhs) const;
 
     /**
-    * Overloard of operator >= to viewers
+    * Overload of operator >= to viewers
     *
     * @param rhs given viewer to compare
     * @return self >= given viewer

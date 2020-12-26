@@ -116,7 +116,7 @@ bool Viewer::unfollowStreamer(const std::shared_ptr<Streamer>& streamer) {
 
 void Viewer::orderMerch(std::shared_ptr<Streamer> streamer, unsigned int quantity, unsigned int purchaseA) {
     try {
-        MerchRequest toAdd(name, quantity, purchaseA);
+        MerchRequest toAdd(nickname, quantity, purchaseA);
         streamer->addMerchOrder(toAdd);
     } catch (InvalidPurchaseAvailability &ipa) {
         throw InvalidPurchaseAvailability(ipa.getPurchaseA(), ipa.what());
@@ -129,7 +129,7 @@ void Viewer::orderMerch(std::shared_ptr<Streamer> streamer, unsigned int quantit
 
 void Viewer::removeOrder(std::shared_ptr<Streamer> streamer) {
     try {
-        streamer->removeMerchOrder(name);
+        streamer->removeMerchOrder(nickname);
     } catch (OrderNotFound &onf) {
         throw OrderNotFound(onf.getBuyer(), onf.what());
     }

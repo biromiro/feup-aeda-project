@@ -57,6 +57,18 @@ TEST(merch, addOrder) {
     EXPECT_THROW(viewer1->orderMerch(streamer1, 5, 4), ViewerAlreadyOrdered);
     EXPECT_EQ(streamer1->getStreamerMerch().getOrders().size(), 1);
     EXPECT_EQ(streamer2->getStreamerMerch().getOrders().size(), 2);
+    streamer1->processNextOrder();
+    EXPECT_EQ(streamer1->getStreamerMerch().getOrders().size(), 0);
+    viewer1->orderMerch(streamer1, 5, 4);
+    EXPECT_EQ(streamer1->getStreamerMerch().getOrders().size(), 1);
+    EXPECT_EQ(streamer1->getStreamerMerch().getOrders().top().getBuyer(), viewer1->getNickname());
+    EXPECT_EQ(streamer1->getStreamerMerch().getOrders().top().getQuantity(), 5);
+    am1->setMerchLimit(1);
+    EXPECT_THROW(viewer2->orderMerch(streamer1, 6, 1), OrderLimitReached);
+    streamer1->processNextOrder();
+    viewer2->orderMerch(streamer1, 6, 1);
+    EXPECT_EQ(streamer1->getStreamerMerch().getOrders().size(), 1);
+    EXPECT_EQ(streamer1->getStreamerMerch().getOrders().top().getBuyer(), viewer2->getNickname());
 }
 
 TEST(merch, removeOrder) {
@@ -103,7 +115,7 @@ TEST(merch, processOrder) {
     viewer1->orderMerch(streamer2, 4, 1);
     auto nextOrder = streamer2->processNextOrder();
     EXPECT_EQ(nextOrder.getPurchaseA(), 1);
-    EXPECT_EQ(nextOrder.getBuyer(), viewer1->getName());
+    EXPECT_EQ(nextOrder.getBuyer(), viewer1->getNickname());
     EXPECT_EQ(nextOrder.getQuantity(), 4);
     nextOrder = streamer1->processNextOrder();
     EXPECT_EQ(streamer1->getStreamerMerch().getOrders().size(), 0);
@@ -130,15 +142,15 @@ TEST(merch, ordersQueue) {
     viewer3->orderMerch(streamer1, 10, 3);
     auto nextOrder = streamer1->processNextOrder();
     EXPECT_EQ(nextOrder.getPurchaseA(), 3);
-    EXPECT_EQ(nextOrder.getBuyer(), viewer3->getName());
+    EXPECT_EQ(nextOrder.getBuyer(), viewer3->getNickname());
     EXPECT_EQ(nextOrder.getQuantity(), 10);
     nextOrder = streamer1->processNextOrder();
     EXPECT_EQ(nextOrder.getPurchaseA(), 2);
-    EXPECT_EQ(nextOrder.getBuyer(), viewer2->getName());
+    EXPECT_EQ(nextOrder.getBuyer(), viewer2->getNickname());
     EXPECT_EQ(nextOrder.getQuantity(), 10);
     nextOrder = streamer1->processNextOrder();
     EXPECT_EQ(nextOrder.getPurchaseA(), 4);
-    EXPECT_EQ(nextOrder.getBuyer(), viewer1->getName());
+    EXPECT_EQ(nextOrder.getBuyer(), viewer1->getNickname());
     EXPECT_EQ(nextOrder.getQuantity(), 20);
 }
 
@@ -150,6 +162,7 @@ TEST(merch, queueLimit) {
     std::shared_ptr<StreamerManager> stm1 = std::make_shared<StreamerManager>(sm1,vm1,um1);
     Date birthDate1("1999/06/09"), birthDate2("2000/02/26");
     auto streamer1 = stm1->build(birthDate1, "Oskar ÚltimoNome", "Autofeito", "jknadjkhnasida");
+    auto streamer2 = stm1->build(birthDate2, "Homem Baseado", "Base", "knajkodhnaisda");
     auto viewer1 = vm1->build(birthDate2,"Visualizador Não Pog","Pogn't", "adknjsada");
     auto viewer2 = vm1->build(birthDate1,"Visualizador Pog","Pog", "hjkoasiodhnoaisd");
     auto viewer3 = vm1->build(birthDate1,"Visualizador Pog 2","Pog2", "hjkoasiodhnoaisd2");
@@ -159,15 +172,15 @@ TEST(merch, queueLimit) {
     viewer2->orderMerch(streamer1, 10, 2);
     viewer3->orderMerch(streamer1, 10, 3);
     am1->setMerchLimit(2);
-    streamer1->updateMerchLimit(am1->getMerchLimit());
+    EXPECT_EQ(streamer2->getStreamerMerch().getLimit(), 0);
     EXPECT_EQ(streamer1->getStreamerMerch().getOrders().size(), 2);
     auto nextOrder = streamer1->processNextOrder();
     EXPECT_EQ(nextOrder.getPurchaseA(), 3);
-    EXPECT_EQ(nextOrder.getBuyer(), viewer3->getName());
+    EXPECT_EQ(nextOrder.getBuyer(), viewer3->getNickname());
     EXPECT_EQ(nextOrder.getQuantity(), 10);
     nextOrder = streamer1->processNextOrder();
     EXPECT_EQ(nextOrder.getPurchaseA(), 2);
-    EXPECT_EQ(nextOrder.getBuyer(), viewer2->getName());
+    EXPECT_EQ(nextOrder.getBuyer(), viewer2->getNickname());
     EXPECT_EQ(nextOrder.getQuantity(), 10);
     EXPECT_EQ(streamer1->getStreamerMerch().getOrders().size(), 0);
 }

@@ -13,13 +13,6 @@ public:
     StreamerMerch();
 
     /**
-     * Constructor of the Streamer Merch class
-     *
-     * @param lim limit of the orders queue size
-     */
-    StreamerMerch(unsigned int lim);
-
-    /**
      * Getter of the orders queue size limit
      *
      * @return limit of the orders queue size
@@ -58,7 +51,7 @@ public:
     /**
      * Removes an order from the orders queue
      *
-     * @param buyer name of the viewer whose order is to be removed
+     * @param buyer nickname of the viewer whose order is to be removed
      * @return true if order was successfully removed, false otherwise
      */
     bool removeOrder(std::string buyer);
