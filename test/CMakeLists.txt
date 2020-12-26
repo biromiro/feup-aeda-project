@@ -50,7 +50,7 @@ add_executable(tests
         model/stream/stream_test.cpp
         model/stream/stream_test.cpp model/stream/publicStream/public_stream_test.cpp
         model/stream/privateStream/private_stream_test.cpp model/stream/stream_manager_test.cpp
-        model/stream/finishedStream/finished_stream_test.cpp ../src/model/transactions/merch/merchRequest.cpp ../src/model/transactions/merch/merchRequest.h)
+        model/stream/finishedStream/finished_stream_test.cpp ../src/model/transactions/merch/merchRequest.cpp ../src/model/transactions/merch/merchRequest.h model/transactions/merch/merch_test.cpp)
         
 target_link_libraries(tests PRIVATE gtest_main project)
 
