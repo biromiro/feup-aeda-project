@@ -63,8 +63,6 @@ add_library(project
         model/stream/finishedStream/finishedStream.h
         model/transactions/donations/donation.h
         model/transactions/donations/donation.cpp
-        model/transactions/donations/streamerDonations.cpp
-        model/transactions/donations/streamerDonations.h
         model/transactions/merch/streamerMerch.cpp
         model/transactions/merch/streamerMerch.h
         model/transactions/merch/merchRequest.cpp
@@ -78,8 +76,12 @@ add_library(project
         exception/ViewerAlreadyOrdered/viewerAlreadyOrdered.cpp
         exception/ViewerAlreadyOrdered/viewerAlreadyOrdered.h
         exception/viewerAlreadyOrdered/viewerAlreadyOrdered.cpp
-        exception/viewerAlreadyOrdered/viewerAlreadyOrdered.h)
-
+        exception/viewerAlreadyOrdered/viewerAlreadyOrdered.h
+        utils/binaryTree/bst.h
+        exception/streamerHasNoDonations/streamerHasNoDonations.cpp
+        exception/streamerHasNoDonations/streamerHasNoDonations.h
+        exception/invalidDonationValue/invalidDonationValue.cpp
+        exception/invalidDonationValue/invalidDonationValue.h)
 
 add_executable(application
         main.cpp
@@ -132,12 +134,26 @@ add_executable(application
         model/stream/finishedStream/finishedStream.h
         model/transactions/donations/donation.h
         model/transactions/donations/donation.cpp
-        model/transactions/donations/streamerDonations.cpp
-        model/transactions/donations/streamerDonations.h
         model/transactions/merch/streamerMerch.cpp
         model/transactions/merch/streamerMerch.h
         model/transactions/merch/merchRequest.cpp
-        model/transactions/merch/merchRequest.h exception/orderLimitReached/orderLimitReached.cpp exception/orderLimitReached/orderLimitReached.h exception/orderNotFound/orderNotFound.cpp exception/orderNotFound/orderNotFound.h exception/invalidPurchaseAvailability/invalidPurchaseAvailability.cpp exception/invalidPurchaseAvailability/invalidPurchaseAvailability.h exception/ViewerAlreadyOrdered/viewerAlreadyOrdered.cpp exception/ViewerAlreadyOrdered/viewerAlreadyOrdered.h exception/viewerAlreadyOrdered/viewerAlreadyOrdered.cpp exception/viewerAlreadyOrdered/viewerAlreadyOrdered.h)
+        model/transactions/merch/merchRequest.h 
+        exception/orderLimitReached/orderLimitReached.cpp 
+        exception/orderLimitReached/orderLimitReached.h 
+        exception/orderNotFound/orderNotFound.cpp 
+        exception/orderNotFound/orderNotFound.h 
+        exception/invalidPurchaseAvailability/invalidPurchaseAvailability.cpp 
+        exception/invalidPurchaseAvailability/invalidPurchaseAvailability.h 
+        exception/ViewerAlreadyOrdered/viewerAlreadyOrdered.cpp 
+        exception/ViewerAlreadyOrdered/viewerAlreadyOrdered.h 
+        exception/viewerAlreadyOrdered/viewerAlreadyOrdered.cpp 
+        exception/viewerAlreadyOrdered/viewerAlreadyOrdered.h
+        model/transactions/merch/merchRequest.h
+        utils/binaryTree/bst.h
+        exception/streamerHasNoDonations/streamerHasNoDonations.cpp
+        exception/streamerHasNoDonations/streamerHasNoDonations.h
+        exception/invalidDonationValue/invalidDonationValue.cpp
+        exception/invalidDonationValue/invalidDonationValue.h)
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 

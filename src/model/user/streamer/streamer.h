@@ -2,15 +2,17 @@
 // Created by biromiro on 18/10/20.
 //
 
+#ifndef PROJECT_STREAMER_H
+#define PROJECT_STREAMER_H
+
 #include <vector>
 #include "memory"
 #include "../user.h"
 #include "../../stream/stream.h"
 #include "../../../exception/invalidAge/invalidAge.h"
 #include "../../transactions/merch/streamerMerch.h"
+#include "../../transactions/donations/donation.h"
 
-
-#ifndef PROJECT_STREAMER_H
 
 class Stream;
 
@@ -190,7 +192,5 @@ private:
     unsigned int totalViewCount{};
     StreamerMerch merch;
 };
-
-#define PROJECT_STREAMER_H
 
 #endif //PROJECT_STREAMER_H
