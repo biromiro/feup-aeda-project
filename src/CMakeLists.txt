@@ -63,13 +63,15 @@ add_library(project
         model/stream/finishedStream/finishedStream.h
         model/transactions/donations/donation.h
         model/transactions/donations/donation.cpp
-        model/transactions/donations/streamerDonations.cpp
-        model/transactions/donations/streamerDonations.h
         model/transactions/merch/streamerMerch.cpp
         model/transactions/merch/streamerMerch.h
         model/transactions/merch/merchRequest.cpp
-        model/transactions/merch/merchRequest.h)
-
+        model/transactions/merch/merchRequest.h
+        utils/binaryTree/bst.h
+        exception/streamerHasNoDonations/streamerHasNoDonations.cpp
+        exception/streamerHasNoDonations/streamerHasNoDonations.h
+        exception/invalidDonationValue/invalidDonationValue.cpp
+        exception/invalidDonationValue/invalidDonationValue.h)
 
 add_executable(application
         main.cpp
@@ -122,12 +124,15 @@ add_executable(application
         model/stream/finishedStream/finishedStream.h
         model/transactions/donations/donation.h
         model/transactions/donations/donation.cpp
-        model/transactions/donations/streamerDonations.cpp
-        model/transactions/donations/streamerDonations.h
         model/transactions/merch/streamerMerch.cpp
         model/transactions/merch/streamerMerch.h
         model/transactions/merch/merchRequest.cpp
-        model/transactions/merch/merchRequest.h)
+        model/transactions/merch/merchRequest.h
+        utils/binaryTree/bst.h
+        exception/streamerHasNoDonations/streamerHasNoDonations.cpp
+        exception/streamerHasNoDonations/streamerHasNoDonations.h
+        exception/invalidDonationValue/invalidDonationValue.cpp
+        exception/invalidDonationValue/invalidDonationValue.h)
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
