@@ -106,7 +106,7 @@ public:
             os << "\n";
         } else if constexpr (std::is_same_v<N, Donation>) {
             os << "Donation Leaderboard\n\n";
-            os << std::left << std::setfill(' ') << std::setw(WIDTH) << "Donated Streamer" << std::setw(WIDTH)
+            os << std::left << std::setfill(' ') << std::setw(WIDTH) << "Streamer" << std::setw(WIDTH)
                << "Ammount" << std::setw(WIDTH) << "Rating\n\n";
             for(const auto& elem: dt.leaderboard){
                 os << std::left << std::setfill(' ') << std::setw(WIDTH) << elem.getStreamerNickname()

@@ -118,7 +118,7 @@ public:
      * */
     [[nodiscard]] const std::vector<std::shared_ptr<Streamer>> &getStreamers() const;
 
-    const BST<Donation> &getDonations() const;
+    [[nodiscard]] const BST<Donation> &getDonations() const;
 
     /**
      * Adds a new donation to the donation tree

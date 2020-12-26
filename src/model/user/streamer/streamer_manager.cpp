@@ -6,6 +6,7 @@
 #include "../../../exception/userNotFound/userNotFound.h"
 #include "../../../exception/userAlreadyExists/userAlreadyExists.h"
 #include "../../../exception/streamerNotStreaming/streamerNotStreaming.h"
+#include "../../../exception/invalidDonationValue/invalidDonationValue.h"
 
 StreamerManager::StreamerManager() : donations(Donation("",0,streamerWorkRating::VERY_BAD)){};
 
@@ -153,6 +154,8 @@ bool StreamerManager::writeData() {
 }
 
 void StreamerManager::addNewDonation(const string &nickname, float ammount, streamerWorkRating rating) {
+    if(!has(nickname)) throw NicknameNotFound(nickname, "That streamer does not exist!");
+    if(ammount < 0) throw InvalidDonationValue(ammount, "That donation value is invalid!");
     donations.insert(Donation(nickname,ammount,rating));
 }
 
@@ -171,5 +174,3 @@ vector<Donation> StreamerManager::getStreamerDonations(const string &nickname) {
 const BST<Donation> &StreamerManager::getDonations() const {
     return donations;
 }
-
-

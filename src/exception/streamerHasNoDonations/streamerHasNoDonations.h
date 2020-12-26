@@ -22,9 +22,9 @@
 class StreamerHasNoDonations : public std::logic_error {
 public:
     /**
-     * Constructor of the StreamerNotStreaming class
+     * Constructor of the StreamerHasNoDonations class
      *
-     * @param message message indicating that the streamer isn't streaming
+     * @param message message indicating that the streamer has no donations
      */
     explicit StreamerHasNoDonations(std::string  nickname, const std::string & message);
 
