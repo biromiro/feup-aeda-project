@@ -27,8 +27,6 @@ private:
     streamerWorkRating rating;
     float ammount;
     std::string streamerNickname;
-    unsigned donationID;
-    static unsigned currentDonationID;
 };
 
 std::ostream& operator<<(std::ostream& out, const streamerWorkRating& f);

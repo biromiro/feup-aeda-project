@@ -68,10 +68,9 @@ unsigned int AdminManager::getMerchLimit() const {
 
 void AdminManager::setMerchLimit(unsigned int newLimit) {
     merchLimit = newLimit;
-    auto itr = userManager->getUsers().begin();
-    for (itr; itr != userManager->getUsers().end(); itr++) {
-        if ((*itr)->getUserType() == UserTypes::STREAMER) {
-            auto item = std::dynamic_pointer_cast<Streamer>(*itr);
+    for(const auto& elem: userManager->getUsers()){
+        if (elem->getUserType() == UserTypes::STREAMER) {
+            auto item = std::dynamic_pointer_cast<Streamer>(elem);
             if (item->getStreamerMerch().getLimit() != 0) {
                 item->updateMerchLimit(merchLimit);
             }

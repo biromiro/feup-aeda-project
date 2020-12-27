@@ -5,8 +5,6 @@
 #include <map>
 #include "donation.h"
 
-unsigned Donation::currentDonationID = 0;
-
 streamerWorkRating Donation::getRating() const {
     return rating;
 }
@@ -20,8 +18,7 @@ const std::string &Donation::getStreamerNickname() const {
 }
 
 Donation::Donation(std::string nickname, float ammount, streamerWorkRating rating):
-                    streamerNickname(std::move(nickname)), ammount(ammount), rating(rating), donationID(currentDonationID){
-    currentDonationID++;
+                    streamerNickname(std::move(nickname)), ammount(ammount), rating(rating){
 }
 
 bool Donation::operator<(const Donation &rhs) const {
@@ -33,7 +30,7 @@ bool Donation::operator<(const Donation &rhs) const {
         return true;
     if (rating > rhs.rating)
         return false;
-    return donationID < rhs.donationID;
+    return streamerNickname < rhs.streamerNickname;
 }
 
 std::ostream& operator<<(std::ostream& out, const streamerWorkRating& f){
