@@ -103,6 +103,22 @@ public:
     bool unfollowStreamer(const std::shared_ptr<Streamer>& streamer);
 
     /**
+     * Add a merchandising order to the orders queue of the streamer
+     *
+     * @param streamer streamer from which to order merchandising
+     * @param quantity quantity of merchandising to order
+     * @param purchaseA purchase availability of order
+     */
+    void orderMerch(std::shared_ptr<Streamer> streamer, unsigned int quantity, unsigned int purchaseA);
+
+    /**
+     * Removes the viewer's merchandising order from the orders queue of the streamer
+     *
+     * @param streamer streamer from which to remove order
+     */
+    void removeOrder(std::shared_ptr<Streamer> streamer);
+
+    /**
      * Getter of current stream
      *
      * @return the current stream
@@ -139,7 +155,7 @@ public:
     void writeData(std::ofstream &ost) override;
 
     /**
-     * Overloard of operator < to viewers
+     * Overload of operator < to viewers
      *
      * @param rhs given viewer to compare
      * @return self < given viewer
@@ -147,7 +163,7 @@ public:
     bool operator<(const Viewer &rhs) const;
 
     /**
-    * Overloard of operator > to viewers
+    * Overload of operator > to viewers
     *
     * @param rhs given viewer to compare
     * @return self > given viewer
@@ -155,7 +171,7 @@ public:
     bool operator>(const Viewer &rhs) const;
 
     /**
-    * Overloard of operator <= to viewers
+    * Overload of operator <= to viewers
     *
     * @param rhs given viewer to compare
     * @return self <= given viewer
@@ -163,7 +179,7 @@ public:
     bool operator<=(const Viewer &rhs) const;
 
     /**
-    * Overloard of operator == to viewers
+    * Overload of operator == to viewers
     *
     * @param rhs given viewer to compare
     * @return self == given viewer
@@ -171,7 +187,7 @@ public:
     bool operator==(const Viewer &rhs) const;
 
     /**
-     * Overloard of operator != to viewers
+     * Overload of operator != to viewers
     *
     * @param rhs given viewer to compare
     * @return self != given viewer
@@ -179,7 +195,7 @@ public:
     bool operator!=(const Viewer &rhs) const;
 
     /**
-    * Overloard of operator >= to viewers
+    * Overload of operator >= to viewers
     *
     * @param rhs given viewer to compare
     * @return self >= given viewer

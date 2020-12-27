@@ -6,6 +6,9 @@
 #define PROJECT_STREAMER_MANAGER_H
 
 #include "../../stream/streamManager.h"
+#include "../../transactions/donations/donation.h"
+#include "../../../utils/binaryTree/bst.h"
+#include "../../../exception/streamerHasNoDonations/streamerHasNoDonations.h"
 #include "streamer.h"
 
 /**
@@ -129,6 +132,19 @@ public:
      * */
     [[nodiscard]] const tabHStreamer &getStreamers() const;
 
+    [[nodiscard]] const BST<Donation> &getDonations() const;
+
+    /**
+     * Adds a new donation to the donation tree
+     *
+     * @param nickname the nickname of the streamer to donate
+     * @param ammount the ammount to donate to the streamer
+     * @param rating the rating given to the streamer
+     */
+    void addNewDonation(const std::string& nickname, float ammount, streamerWorkRating rating);
+
+    vector<Donation> getStreamerDonations(const std::string& nickname);
+
     /**
      * Reads streamer data from file
      *
@@ -159,7 +175,7 @@ public:
 
 
 private:
-    //std::vector<std::shared_ptr<Streamer>> streamers;
+    BST<Donation> donations;
     std::shared_ptr<StreamManager> streamManager;
     std::shared_ptr<ViewerManager> viewerManager;
     std::shared_ptr<UserManager> userManager;

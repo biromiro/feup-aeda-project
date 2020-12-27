@@ -122,6 +122,7 @@ public:
      */
     [[nodiscard]] const std::vector<std::shared_ptr<Stream>> &getCacheOfFinishedStreams() const;
 
+
     /**
      * Reads stream from file
      *

@@ -322,13 +322,15 @@ public:
      * @return returns the streamers with a deactivated account*/
     Leaderboard<std::shared_ptr<Streamer>> filterDeactivatedStreamers();
 
+    Leaderboard<Donation> getOrderedDonations(float ammount = 0);
+
+    Leaderboard<Donation> getDonationsByAvalInterval(streamerWorkRating lowerBound, streamerWorkRating upperBound);
+
 private:
     std::shared_ptr<ViewerManager> viewerManager;
     std::shared_ptr<StreamerManager> streamerManager;
     std::shared_ptr<StreamManager> streamManager;
     std::shared_ptr<UserManager> userManager;
-
-
 };
 
 #endif //PROJECT_LEADERBOARD_MANAGER_H

@@ -6,12 +6,13 @@
 #include "../../../exception/userNotFound/userNotFound.h"
 #include "../../../exception/userAlreadyExists/userAlreadyExists.h"
 #include "../../../exception/streamerNotStreaming/streamerNotStreaming.h"
+#include "../../../exception/invalidDonationValue/invalidDonationValue.h"
 
-StreamerManager::StreamerManager() = default;
+StreamerManager::StreamerManager() : donations(Donation("",0,streamerWorkRating::VERY_BAD)){};
 
 
 StreamerManager::StreamerManager(std::shared_ptr<StreamManager> streamManager, std::shared_ptr<ViewerManager> viewerManager, std::shared_ptr<UserManager> userManager):
-streamManager(std::move(streamManager)), viewerManager(std::move(viewerManager)), userManager(std::move(userManager))
+streamManager(std::move(streamManager)), viewerManager(std::move(viewerManager)), userManager(std::move(userManager)), donations(Donation("",0.0,streamerWorkRating::VERY_BAD))
 {
     //streamers = std::vector<std::shared_ptr<Streamer>>();
 }
@@ -173,3 +174,25 @@ bool StreamerManager::reactivateStreamer(const std::shared_ptr<Streamer> &stream
     throw UserNotFound(streamer,"The streamer you're trying yo reactivate does not exist!");
 }
 
+void StreamerManager::addNewDonation(const string &nickname, float ammount, streamerWorkRating rating) {
+    if(!has(nickname)) throw NicknameNotFound(nickname, "That streamer does not exist!");
+    if(ammount < 0) throw InvalidDonationValue(ammount, "That donation value is invalid!");
+    donations.insert(Donation(nickname,ammount,rating));
+}
+
+vector<Donation> StreamerManager::getStreamerDonations(const string &nickname) {
+    vector<Donation> streamerDonations;
+
+    for(BSTItrIn<Donation> bItr(donations); !bItr.isAtEnd(); bItr.advance()){
+        Donation val = bItr.retrieve();
+        if(val.getStreamerNickname() == nickname) streamerDonations.push_back(val);
+    }
+
+
+    if(streamerDonations.empty()) throw StreamerHasNoDonations(nickname, "No donations yet!");
+    return streamerDonations;
+}
+
+const BST<Donation> &StreamerManager::getDonations() const {
+    return donations;
+}

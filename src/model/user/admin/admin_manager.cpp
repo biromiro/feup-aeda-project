@@ -5,6 +5,7 @@
 #include "admin_manager.h"
 #include "../../../exception/adminAlreadySet/adminAlreadySet.h"
 #include "../../../exception/adminNotSet/adminNotSet.h"
+#include "../streamer/streamer.h"
 
 
 AdminManager::AdminManager(std::shared_ptr<UserManager> userManager) :
@@ -61,6 +62,21 @@ std::shared_ptr<Admin> AdminManager::get() const {
     return admin;
 }
 
+unsigned int AdminManager::getMerchLimit() const {
+    return merchLimit;
+}
+
+void AdminManager::setMerchLimit(unsigned int newLimit) {
+    merchLimit = newLimit;
+    for(const auto& elem: userManager->getUsers()){
+        if (elem->getUserType() == UserTypes::STREAMER) {
+            auto item = std::dynamic_pointer_cast<Streamer>(elem);
+            if (item->getStreamerMerch().getLimit() != 0) {
+                item->updateMerchLimit(merchLimit);
+            }
+        }
+    }
+}
 
 bool AdminManager::readData() {
     //write object into the file

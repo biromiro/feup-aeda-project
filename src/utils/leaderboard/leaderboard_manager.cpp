@@ -284,7 +284,8 @@ LeaderboardManager::sortStreamsBy(SortStream sorter, std::vector<std::shared_ptr
             std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Stream>& s1, const std::shared_ptr<Stream>& s2){return s1->getStreamType() < s2->getStreamType();});
             break;
     }
-    return Leaderboard<std::shared_ptr<Stream>>(newLB);}
+    return Leaderboard<std::shared_ptr<Stream>>(newLB);
+}
 
 unsigned int LeaderboardManager::totalNumberOfStreams() {
     return static_cast<unsigned int>(streamManager->getStreams().size() +
@@ -372,6 +373,29 @@ Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::filterDeactivatedStre
         it++;
     }
     return Leaderboard<std::shared_ptr<Streamer>>(newLB);
+}
+
+Leaderboard<Donation> LeaderboardManager::getOrderedDonations(float ammount) {
+    std::vector<Donation> donations;
+    for(BSTItrIn<Donation> bItr(streamerManager->getDonations()); !bItr.isAtEnd(); bItr.advance()){
+        Donation donation = bItr.retrieve();
+        if(donation.getAmmount() >= ammount) donations.push_back(donation);
+    }
+    reverse(donations.begin(), donations.end());
+    return Leaderboard<Donation>(donations);
+}
+
+Leaderboard<Donation>
+LeaderboardManager::getDonationsByAvalInterval(streamerWorkRating lowerBound, streamerWorkRating upperBound) {
+    std::vector<Donation> donations;
+    for(BSTItrIn<Donation> bItr(streamerManager->getDonations()); !bItr.isAtEnd(); bItr.advance()){
+        Donation donation = bItr.retrieve();
+        if(donation.getRating() >= lowerBound && donation.getRating() <= upperBound){
+            donations.push_back(donation);
+        }
+    }
+    reverse(donations.begin(), donations.end());
+    return Leaderboard<Donation>(donations);
 }
 
 
