@@ -28,6 +28,10 @@ std::shared_ptr<Stream> StreamManager::build(const std::string& title, enum Stre
             auto stream_form = std::dynamic_pointer_cast<Stream>(prv_stream);
             add(stream_form);
             streamer->setStream(stream_form);
+            if(streamer->ellegibleForBonus()){
+                stream_form->reactivationBonus();
+                streamer->useBonus();
+            }
             return stream_form;
 
         }
@@ -38,6 +42,10 @@ std::shared_ptr<Stream> StreamManager::build(const std::string& title, enum Stre
             auto stream_form = std::dynamic_pointer_cast<Stream>(pbl_stream);
             add(stream_form);
             streamer->setStream(stream_form);
+            if(streamer->ellegibleForBonus()){
+                stream_form->reactivationBonus();
+                streamer->useBonus();
+            }
             return stream_form;
 
         }

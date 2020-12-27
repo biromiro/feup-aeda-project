@@ -13,7 +13,7 @@ StreamerManager::StreamerManager() = default;
 StreamerManager::StreamerManager(std::shared_ptr<StreamManager> streamManager, std::shared_ptr<ViewerManager> viewerManager, std::shared_ptr<UserManager> userManager):
 streamManager(std::move(streamManager)), viewerManager(std::move(viewerManager)), userManager(std::move(userManager))
 {
-    streamers = std::vector<std::shared_ptr<Streamer>>();
+    //streamers = std::vector<std::shared_ptr<Streamer>>();
 }
 
 std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::string &name, const std::string &nickname, const std::string& password) {
@@ -38,15 +38,18 @@ std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::stri
 
 bool StreamerManager::add(const std::shared_ptr<Streamer>& streamer) {
 
-    if (std::find(streamers.begin(),streamers.end(),streamer) == streamers.end()){
+    /*if (std::find(streamers.begin(),streamers.end(),streamer) == streamers.end()){
         streamers.push_back(streamer);
+        return true;
+    }*/
+    if(streamers.find(streamer) == streamers.end()){
+        streamers.insert(streamer);
         return true;
     }
     throw UserAlreadyExists(streamer,"The streamer you're trying to add already exists!");
 }
 
 bool StreamerManager::reload(const std::shared_ptr<Streamer>& streamer){
-
     if(userManager->has(streamer->getNickname())){
         throw NicknameAlreadyAdded(streamer->getNickname(),"Nickname already in use by another user!");
     }else{
@@ -58,8 +61,8 @@ bool StreamerManager::reload(const std::shared_ptr<Streamer>& streamer){
 
 bool StreamerManager::remove(const std::shared_ptr<Streamer>& streamer) {
 
-    auto it = std::find(streamers.begin(),streamers.end(),streamer);
-
+    //auto it = std::find(streamers.begin(),streamers.end(),streamer);
+    auto it = streamers.find(streamer);
     if (it != streamers.end()) {
         streamers.erase(it);
         userManager->remove(std::dynamic_pointer_cast<User>(streamer));
@@ -105,7 +108,7 @@ unsigned int StreamerManager::getNumOfFollowers(const std::shared_ptr<Streamer> 
                                                    }));
 }
 
-const std::vector<std::shared_ptr<Streamer>> &StreamerManager::getStreamers() const {
+const tabHStreamer &StreamerManager::getStreamers() const {
     return streamers;
 }
 
@@ -152,4 +155,21 @@ bool StreamerManager::writeData() {
     return true;
 }
 
+bool StreamerManager::deactivateStreamer(const std::shared_ptr<Streamer> &streamer) {
+    auto it = streamers.begin();
+    if(streamers.find(streamer) != streamers.end()){
+        streamer->deactivateAcc();
+        return true;
+    }
+    throw UserNotFound(streamer,"The streamer you're trying yo deactivate does not exist!");
+}
+
+bool StreamerManager::reactivateStreamer(const std::shared_ptr<Streamer> &streamer) {
+    auto it = streamers.begin();
+    if(streamers.find(streamer) != streamers.end()){
+        streamer->reactivateAcc();
+        return true;
+    }
+    throw UserNotFound(streamer,"The streamer you're trying yo reactivate does not exist!");
+}
 

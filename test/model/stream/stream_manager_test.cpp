@@ -159,3 +159,20 @@ TEST(streamManager, getNumOfViewers){
     EXPECT_EQ(viewer1->joinStream(stream2), true);
     EXPECT_EQ(sm1->getNumOfViewers(stream2), 2);
 }
+
+TEST(streamManager, bonusLikesAfterReactivation){
+    std::shared_ptr<UserManager> um1 =  std::make_shared<UserManager>();
+    std::shared_ptr<ViewerManager> vm1 = std::make_shared<ViewerManager>(um1);
+    std::shared_ptr<StreamManager> sm1 = std::make_shared<StreamManager>(vm1, std::make_shared<StreamerManager>());
+    std::shared_ptr<StreamerManager> stm1 = std::make_shared<StreamerManager>(sm1,vm1,um1);
+    sm1->setStreamerManager(stm1);
+    Date birthDate1("1999/06/09");
+    auto streamer = stm1->build(birthDate1,"Pogerto","Poggers","123456");
+    auto stream = std::dynamic_pointer_cast<PublicStream>(sm1->build("Epic LoL Stream", StreamLanguage::EN, 13, StreamType::PUBLIC, StreamGenre::GAMING, streamer));
+    EXPECT_EQ(stream->getVotes().first, 0);
+    stm1->deactivateStreamer(streamer);
+    stm1->reactivateStreamer(streamer);
+    stm1->endStream(streamer);
+    auto stream2 = std::dynamic_pointer_cast<PublicStream>(sm1->build("Free likes", StreamLanguage::EN, 13, StreamType::PUBLIC, StreamGenre::GAMING, streamer));
+    EXPECT_EQ(stream2->getVotes().first, 50);
+}

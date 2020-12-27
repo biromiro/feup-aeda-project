@@ -115,3 +115,24 @@ void Streamer::writeData(std::ofstream& ofs) {
 void Streamer::addToViewCount(unsigned int viewCount) {
     totalViewCount += viewCount;
 }
+
+bool Streamer::isDeactivated() const {
+    return deactivated;
+}
+
+bool Streamer::ellegibleForBonus() const {
+    return reActBonus;
+}
+
+void Streamer::deactivateAcc() {
+    deactivated = true;
+}
+
+void Streamer::reactivateAcc() {
+    deactivated = false;
+    reActBonus = true;
+}
+
+void Streamer::useBonus() {
+    reActBonus = false;
+}

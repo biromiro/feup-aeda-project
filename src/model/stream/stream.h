@@ -254,6 +254,10 @@ public:
     * */
     bool operator>=(const Stream &rhs) const;
 
+    /**
+     * Gives 50 likes to the first stream after reactivation*/
+    void reactivationBonus();
+
 protected:
     explicit Stream(enum StreamType type);
   

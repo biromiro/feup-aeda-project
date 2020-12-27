@@ -146,8 +146,32 @@ public:
     * @return self >= given streamer*/
     bool operator>=(const Streamer &rhs) const;
 
+    /**
+     * Checks if the streamer deactivated their account
+     *
+     * @return is deactivated*/
+     bool isDeactivated() const;
+
+     /**
+      * Checks if the streamer can receive the reactivation Bonus*/
+     bool ellegibleForBonus() const;
+
+     /**
+      * Deactivates the streamer's account*/
+      void deactivateAcc();
+
+      /**
+       * Reactivates the streamer's account*/
+       void reactivateAcc();
+
+       /**
+        * Once the bonus is applied to the first stream, removes the possibility to obtain it again*/
+        void useBonus();
+
 private:
     std::vector<unsigned int> previousStreamsIDs;
+    bool deactivated = false;
+    bool reActBonus = false;
     unsigned int currentStreamID{};
     unsigned int totalViewCount{};
 };

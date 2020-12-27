@@ -16,6 +16,20 @@
  * @ingroup user
  */
 
+struct streamerHash{
+    int operator()(const std::shared_ptr<Streamer>& str) const{
+        int v = 0;
+        for(const auto& elem: str->getNickname()){
+            v = v*37 + elem;
+        }
+        return v;
+    }
+    bool operator()(const std::shared_ptr<Streamer>& str, const std::shared_ptr<Streamer>& str2) const{
+        return str->getNickname() == str2->getNickname();
+    }
+};
+
+typedef std::unordered_set<std::shared_ptr<Streamer>,streamerHash,streamerHash> tabHStreamer;
 /**
  * Implementation of the Streamer Manager class
  *
@@ -113,7 +127,7 @@ public:
      *
      * @return vector of streamers
      * */
-    [[nodiscard]] const std::vector<std::shared_ptr<Streamer>> &getStreamers() const;
+    [[nodiscard]] const tabHStreamer &getStreamers() const;
 
     /**
      * Reads streamer data from file
@@ -129,11 +143,27 @@ public:
      * */
     bool writeData();
 
+    /**
+     * Deactivates the given streamer's account
+     *
+     * @param streamer the streamer which will have its account deactivated
+     * @return return true if successful*/
+    bool deactivateStreamer(const std::shared_ptr<Streamer> & streamer);
+
+    /**
+     * Reactivates the given streamer's account
+     *
+     * @param streamer the streamer which will have its account reactivated
+     * @return return true if successful*/
+    bool reactivateStreamer(const std::shared_ptr<Streamer>& streamer);
+
+
 private:
-    std::vector<std::shared_ptr<Streamer>> streamers;
+    //std::vector<std::shared_ptr<Streamer>> streamers;
     std::shared_ptr<StreamManager> streamManager;
     std::shared_ptr<ViewerManager> viewerManager;
     std::shared_ptr<UserManager> userManager;
+    tabHStreamer streamers;
 };
 
 
