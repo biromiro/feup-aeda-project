@@ -71,6 +71,8 @@ private:
      * Displays the past streams of the logged streamer
      */
     void checkPastStreams();
+
+    bool accountSettings();
 };
 
 #endif //PROJECT_STREAMERVIEW_H

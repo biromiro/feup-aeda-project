@@ -5,6 +5,7 @@
 #include "user.h"
 
 #include <fstream>
+#include <memory>
 
 User::User(UserTypes type) : type(type){
     birthDate = Date();
@@ -97,6 +98,7 @@ bool User::operator!=(const User &rhs) const {
 void User::readData(std::ifstream& ifs) {
     ifs >> birthDate;
     ifs >> joinDate;
+    ifs >> deactivated;
     ifs.ignore();
 
     getline(ifs,name);
@@ -107,6 +109,7 @@ void User::readData(std::ifstream& ifs) {
 void User::writeData(std::ofstream& ofs) {
     ofs << birthDate << "\n";
     ofs << joinDate << "\n";
+    ofs << deactivated << "\n";
     ofs << name << "\n";
     ofs << nickname << "\n";
     ofs << password << "\n";
@@ -118,6 +121,18 @@ const std::string &User::getPassword() const {
 
 void User::updatePassword(const std::string &newPassword) {
     password = newPassword;
+}
+
+bool User::isDeactivated() const {
+    return deactivated;
+}
+
+void User::deactivateAcc() {
+    deactivated = true;
+}
+
+void User::reactivateAcc() {
+    deactivated = false;
 }
 
 bool charCmpEq(char a, char b) {

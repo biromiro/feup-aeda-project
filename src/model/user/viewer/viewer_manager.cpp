@@ -9,7 +9,7 @@
 
 ViewerManager::ViewerManager(std::shared_ptr<UserManager> userManager):
 userManager(std::move(userManager)){
-    viewers = std::vector<std::shared_ptr<Viewer>>();
+    viewers = tabHViewer();
 }
 
 std::shared_ptr<Viewer> ViewerManager::build(Date birthDate, const std::string& name, const std::string& nickname, const std::string& password) {
@@ -35,8 +35,8 @@ std::shared_ptr<Viewer> ViewerManager::build(Date birthDate, const std::string& 
 
 bool ViewerManager::add(const std::shared_ptr<Viewer>& viewer) {
 
-    if (std::find(viewers.begin(),viewers.end(),viewer) == viewers.end()){
-        viewers.push_back(viewer);
+    if (viewers.find(viewer) == viewers.end()){
+        viewers.insert(viewer);
         return true;
     }
     throw UserAlreadyExists(viewer,"The viewer you're trying to add already exists!");
@@ -55,9 +55,8 @@ bool ViewerManager::reload(const std::shared_ptr<Viewer>& viewer){
 
 bool ViewerManager::remove(const std::shared_ptr<Viewer>& viewer) {
 
-    auto it = std::find(viewers.begin(),viewers.end(),viewer);
-    if (it != viewers.end()) {
-        viewers.erase(it);
+    if (viewers.find(viewer) != viewers.end()) {
+        viewers.erase(viewer);
         userManager->remove(std::dynamic_pointer_cast<User>(viewer));
         return true;
     }
@@ -65,7 +64,7 @@ bool ViewerManager::remove(const std::shared_ptr<Viewer>& viewer) {
 }
 
 bool ViewerManager::has(const std::shared_ptr<Viewer>& viewer) const {
-    return std::find(viewers.begin(),viewers.end(),viewer) != viewers.end();
+    return viewers.find(viewer) != viewers.end();
 }
 
 bool ViewerManager::has(std::string nickname) const {
@@ -82,7 +81,7 @@ std::shared_ptr<Viewer> ViewerManager::get(std::string nickname) const {
     return nullptr;
 }
 
-const std::vector<std::shared_ptr<Viewer>> &ViewerManager::getViewers() const {
+const tabHViewer &ViewerManager::getViewers() const {
     return viewers;
 }
 

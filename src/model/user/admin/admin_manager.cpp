@@ -88,6 +88,8 @@ bool AdminManager::readData() {
         std::cout << "Could not open Streamers file...";
         return false;
     }
+    file >> merchLimit;
+
     file >> noInstances;
 
     admin = std::make_shared<Admin>();
@@ -109,6 +111,8 @@ bool AdminManager::writeData() {
         std::cout << "Could not open Admin file...";
         return false;
     }
+
+    file << merchLimit << "\n";
 
     file << noInstances << "\n";
     if(admin != nullptr)

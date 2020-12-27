@@ -65,7 +65,7 @@ bool setUpConsole() {
 
 int main() {
     // Sets up Windows Console to accept Ansi Escape Codes
-    #ifdef MY_UNICODE
+    /*#ifdef MY_UNICODE
         if (!setUpConsole()) {
 		    std::cerr << "\n Something went wrong setting up the console. The display is compromised, please check the code." << std::endl;
 		    std::cout << "\n Press any key to leave.";
@@ -73,7 +73,7 @@ int main() {
 			    return (-1);
 		    }
 	    }
-    #endif
+    #endif*/
 
     StreamZ twitch = StreamZ();
         CurrentSession currentSession =  CurrentSession(twitch.getUserManager());

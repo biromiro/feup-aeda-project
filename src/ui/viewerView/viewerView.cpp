@@ -14,10 +14,11 @@ void ViewerView::run() {
         pageOutput();
         std::cout << "1 - Choose a stream to watch!" << std::endl;
         std::cout << "2 - Search for new streamers" << std::endl;
-        std::cout << "3 - Who am I following?" << std::endl;
+        std::cout << "3 - Following Streamers and Donations" << std::endl;
         std::cout << "4 - What streams are available?" << std::endl;
         std::cout << "5 - My stream history" << std::endl;
         std::cout << "6 - Let me check the leaderboards!" << std::endl;
+        std::cout << "7 - Account Settings" << std::endl;
         std::cout << "0 - Logout" << std::endl;
         answer = _getch_();
         switch (answer) {
@@ -40,6 +41,9 @@ void ViewerView::run() {
                 uiManager.setCurrent(new LeaderboardPage(uiManager));
                 uiManager.run();
                 break;
+            case '7': {
+                bool leave = accountSettings();
+                if (leave) answer = '0';}
             case '0':
                 uiManager.getCurrentSession().logout();
                 break;
@@ -155,37 +159,93 @@ void ViewerView::newStreamerActions(){
 void ViewerView::followingStreamerActions(){
     char answer;
     std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
+    std::cout << "\n 2 - Donate to a streamer!" << std::endl;
     std::cout << "\n 0 - Go to main menu" << std::endl;
     do{
         answer = _getch_();
         switch (answer) {
-            case '1':
+            case '1':{
                 std::string nicknameToUnfollow;
-                auto thisViewer = uiManager.getPlatform().getViewerManager()->get(uiManager.getCurrentSession().getNickname());
-                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE <<  LINE_UP << CLEAR_LINE  <<  LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
+                auto thisViewer = uiManager.getPlatform().getViewerManager()->get(
+                        uiManager.getCurrentSession().getNickname());
+                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
+                          << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                 std::cout << "Who do you wish to unfollow?";
                 getlineCIN(nicknameToUnfollow);
                 auto streamerToUnfollow = uiManager.getPlatform().getStreamerManager()->get(nicknameToUnfollow);
-                if(streamerToUnfollow != nullptr){
-                    if(thisViewer->unfollowStreamer(streamerToUnfollow)){
-                       std::cout << "Successfully unfollowed!";
+                if (streamerToUnfollow != nullptr) {
+                    if (thisViewer->unfollowStreamer(streamerToUnfollow)) {
+                        std::cout << "Successfully unfollowed!";
                         _getch_();
                         answer = '0';
-                    }else{
+                    } else {
                         std::cerr << "You do not follow this streamer!" << std::endl;
                         _getch_();
-                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
+                        << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                         std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
+                        std::cout << "\n 2 - Donate to a streamer!" << std::endl;
                         std::cout << "\n 0 - Go to main menu" << std::endl;
                     }
-                }else{
+                } else {
                     std::cerr << "There's no such streamer!" << std::endl;
                     _getch_();
-                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
+                              << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                     std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
+                    std::cout << "\n 2 - Donate to a streamer!" << std::endl;
                     std::cout << "\n 0 - Go to main menu" << std::endl;
                 }
                 break;
+            }case '2': {
+                std::string nicknameToDonate;
+                auto thisViewer = uiManager.getPlatform().getViewerManager()->get(
+                        uiManager.getCurrentSession().getNickname());
+                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
+                          << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                std::cout << "Who do you wish to donate to?";
+                getlineCIN(nicknameToDonate);
+                auto streamerToUnfollow = uiManager.getPlatform().getStreamerManager()->get(nicknameToDonate);
+                if (streamerToUnfollow != nullptr) {
+                    if (thisViewer->unfollowStreamer(streamerToUnfollow)) {
+                        thisViewer->followStreamer(streamerToUnfollow);
+                        float donationAmmount = 0;
+                        unsigned int val = 0;
+                        do{
+                            std::cout << "Donation Ammount: ";
+                            donationAmmount = inputFloat();
+                            std::cout << LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
+                        }while(donationAmmount <= 0.0);
+                        do{
+                            std::cout << "Rate the streamer (1-5): ";
+                            val = inputNumber();
+                            std::cout << LINE_UP << CLEAR_LINE << GO_TO_BEGINNING_OF_LINE;
+                        }while(val < 1 || val > 5);
+                        auto value = static_cast<streamerWorkRating>(val-1);
+                        uiManager.getPlatform().getStreamerManager()->addNewDonation(nicknameToDonate, donationAmmount, value);
+                        std::cout << "Successfully donated!";
+                        _getch_();
+                        answer = '0';
+                    } else {
+                        std::cerr << "You do not follow this streamer!" << std::endl;
+                        _getch_();
+                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
+                                  << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                        std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
+                        std::cout << "\n 2 - Donate to a streamer!" << std::endl;
+                        std::cout << "\n 0 - Go to main menu" << std::endl;
+                    }
+                } else {
+                    std::cerr << "There's no such streamer!" << std::endl;
+                    _getch_();
+                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
+                              << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                    std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
+                    std::cout << "\n 2 - Donate to a streamer!" << std::endl;
+                    std::cout << "\n 0 - Go to main menu" << std::endl;
+                }
+                break;
+            }
         }
     }while (answer != '0' && answer != *ESC);
 }
@@ -209,4 +269,33 @@ void ViewerView::myViewHistory() {
     std::cout << viewerHistory;
     std::cout << "Press any key to go to the main menu!" << std::endl;
     _getch_();
+}
+
+bool ViewerView::accountSettings() {
+    char answer;
+    std::cout << "\n 1 - Deactivate my account" << std::endl;
+    std::cout << "\n 0 - Go to main menu" << std::endl;
+    do{
+        answer = _getch_();
+        switch (answer) {
+            case '1': {
+                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
+                          << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                std::cout << "Do you really wish to deactivate your account? (press Y to confirm)";
+                answer = _getch_();
+                if (answer == 'y' || answer == 'Y') {
+                    uiManager.getCurrentSession().getCurrentUser()->deactivateAcc();
+                    std::shared_ptr<Viewer> viewer;
+                    viewer = uiManager.getPlatform().getViewerManager()->get(
+                            uiManager.getCurrentSession().getNickname());
+                    viewer->leaveCurrentStream();
+                    if(viewer->isWatchingStream()){
+                        viewer->leaveCurrentStream();
+                    }
+                    return true;
+                } else break;
+            }
+        }
+    }while (answer != '0' && answer != *ESC);
+    return false;
 }

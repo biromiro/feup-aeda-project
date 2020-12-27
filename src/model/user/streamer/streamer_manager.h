@@ -33,6 +33,7 @@ struct streamerHash{
 };
 
 typedef std::unordered_set<std::shared_ptr<Streamer>,streamerHash,streamerHash> tabHStreamer;
+
 /**
  * Implementation of the Streamer Manager class
  *

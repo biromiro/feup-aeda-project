@@ -85,7 +85,7 @@ public:
      *
      * @return merchandising limit
      */
-    unsigned int getMerchLimit() const;
+    [[nodiscard]] unsigned int getMerchLimit() const;
 
     /**
      * Updates the merchandising limit for streamers

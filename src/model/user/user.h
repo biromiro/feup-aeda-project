@@ -173,6 +173,21 @@ public:
     * @return self >= given
     * */
     bool operator>=(const User &rhs) const;
+
+    /**
+     * Checks if the streamer deactivated their account
+     *
+     * @return is deactivated*/
+    bool isDeactivated() const;
+
+    /**
+    * Deactivates the streamer's account*/
+    void deactivateAcc();
+
+    /**
+     * Reactivates the streamer's account*/
+    void reactivateAcc();
+
 protected:
     explicit User(enum UserTypes type);
 
@@ -192,6 +207,7 @@ protected:
     std::string nickname;
     enum UserTypes type;
     std::string password;
+    bool deactivated = false;
 };
 
 bool operator<(std::string s1, std::string s2);

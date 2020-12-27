@@ -20,6 +20,21 @@ class StreamerManager;
  * @ingroup user
  */
 
+struct viewerHash{
+    int operator()(const std::shared_ptr<Viewer>& str) const{
+        int v = 0;
+        for(const auto& elem: str->getNickname()){
+            v = v*37 + elem;
+        }
+        return v;
+    }
+    bool operator()(const std::shared_ptr<Viewer>& str, const std::shared_ptr<Viewer>& str2) const{
+        return str->getNickname() == str2->getNickname();
+    }
+};
+
+typedef std::unordered_set<std::shared_ptr<Viewer>,viewerHash,viewerHash> tabHViewer;
+
 /**
  * Implementation of the Viewer Manager class
  *
@@ -98,7 +113,7 @@ public:
      *
      * @return the viewers vector
      */
-    [[nodiscard]] const std::vector<std::shared_ptr<Viewer>> &getViewers() const;
+    [[nodiscard]] const tabHViewer &getViewers() const;
 
     /**
      * Reads viewer data from file
@@ -116,7 +131,7 @@ public:
     bool writeData();
 
 private:
-    std::vector<std::shared_ptr<Viewer>> viewers;
+    tabHViewer viewers;
     std::shared_ptr<UserManager> userManager;
 };
 

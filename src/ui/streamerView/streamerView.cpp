@@ -19,6 +19,7 @@ void StreamerView::run() {
         std::cout << "5 - Finish current stream" << std::endl;
         std::cout << "6 - Let me see my past streams!" << std::endl;
         std::cout << "7 - Let me check the leaderboards!" << std::endl;
+        std::cout << "8 - Account Settings" << std::endl;
         std::cout << "0 - Logout" << std::endl;
         answer = _getch_();
         switch (answer) {
@@ -44,6 +45,9 @@ void StreamerView::run() {
                 uiManager.setCurrent(new LeaderboardPage(uiManager));
                 uiManager.run();
                 break;
+            case '8':{
+                bool leave = accountSettings();
+                if(leave) answer = '0';}
             case '0':
                 uiManager.getCurrentSession().logout();
                 break;
@@ -243,4 +247,30 @@ void StreamerView::checkPastStreams() {
     }
     std::cout << Leaderboard<std::shared_ptr<Stream>>(finishedStreams) << std::endl;
     _getch_();
+}
+
+bool StreamerView::accountSettings() {
+    char answer;
+    std::cout << "\n 1 - Deactivate my account" << std::endl;
+    std::cout << "\n 0 - Go to main menu" << std::endl;
+    do{
+        answer = _getch_();
+        switch (answer) {
+            case '1': {
+                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
+                          << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                std::cout << "Do you really wish to deactivate your account? (press Y to confirm)";
+                answer = _getch_();
+                if (answer == 'y' || answer == 'Y') {
+                    uiManager.getCurrentSession().getCurrentUser()->deactivateAcc();
+                    auto streamer = uiManager.getPlatform().getStreamerManager()->get(uiManager.getCurrentSession().getCurrentUser()->getNickname());
+                    if(streamer->isStreaming()){
+                        finishCurrentStream();
+                    }
+                    return true;
+                } else break;
+            }
+        }
+    }while (answer != '0' && answer != *ESC);
+    return false;
 }

@@ -236,3 +236,4 @@ void Viewer::writeData(std::ofstream &ofs) {
     ofs << votedInStream << "\n";
     User::writeData(ofs);
 }
+

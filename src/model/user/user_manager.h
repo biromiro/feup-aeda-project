@@ -18,6 +18,21 @@
  * @ingroup user
  */
 
+struct userHash{
+    int operator()(const std::shared_ptr<User>& str) const{
+        int v = 0;
+        for(const auto& elem: str->getNickname()){
+            v = v*37 + elem;
+        }
+        return v;
+    }
+    bool operator()(const std::shared_ptr<User>& str, const std::shared_ptr<User>& str2) const{
+        return str->getNickname() == str2->getNickname();
+    }
+};
+
+typedef std::unordered_set<std::shared_ptr<User>,userHash,userHash> tabHUser;
+
 /**
  * Implementation of the User Manager class
  *
@@ -76,10 +91,10 @@ public:
      *
      * @return the unordered set of users
      */
-    std::unordered_set<std::shared_ptr<User>> getUsers() const;
+    tabHUser getUsers() const;
 
 private:
-    std::unordered_set<std::shared_ptr<User>> users;
+    tabHUser users;
 };
 #define PROJECT_USER_MANAGER_H
 

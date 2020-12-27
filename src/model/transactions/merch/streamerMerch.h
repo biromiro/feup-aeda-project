@@ -55,10 +55,15 @@ public:
      * @return true if order was successfully removed, false otherwise
      */
     bool removeOrder(std::string buyer);
+
+    friend std::ostream& operator<<(std::ostream& out, const StreamerMerch& f);
+
+    friend std::istream& operator>>(std::istream& out, StreamerMerch& f);
 private:
     unsigned int limit;
     std::priority_queue<MerchRequest> orders;
 };
+
 
 
 #endif //PROJECT_STREAMERMERCH_H

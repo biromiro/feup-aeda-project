@@ -78,6 +78,8 @@ private:
     * Prints the header of the UI page to the screen
     */
     void pageOutput() const;
+
+    bool accountSettings();
 };
 
 #endif //PROJECT_VIEWERVIEW_H

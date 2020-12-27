@@ -48,6 +48,8 @@ private:
      * Shows the StreamZ statistics to the Admin, such as most common language and most popular streamer
      */
     void showStreamZStatistics() const;
+
+    void showDonationsWithFilter() const;
 };
 
 #endif //PROJECT_ADMINVIEW_H

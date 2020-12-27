@@ -132,6 +132,10 @@ void Streamer::readData(std::ifstream& ifs) {
 
     ifs >> currentStreamID;
     ifs >> totalViewCount;
+
+    ifs >> reActBonus;
+
+    ifs >> merch;
     User::readData(ifs);
 }
 
@@ -142,6 +146,10 @@ void Streamer::writeData(std::ofstream& ofs) {
     }
     ofs << currentStreamID << "\n";
     ofs << totalViewCount << "\n";
+
+    ofs << reActBonus << "\n";
+
+    ofs << merch;
     User::writeData(ofs);
 }
 
@@ -149,23 +157,14 @@ void Streamer::addToViewCount(unsigned int viewCount) {
     totalViewCount += viewCount;
 }
 
-bool Streamer::isDeactivated() const {
-    return deactivated;
-}
-
-bool Streamer::ellegibleForBonus() const {
+bool Streamer::eligibleForBonus() const {
     return reActBonus;
-}
-
-void Streamer::deactivateAcc() {
-    deactivated = true;
-}
-
-void Streamer::reactivateAcc() {
-    deactivated = false;
-    reActBonus = true;
 }
 
 void Streamer::useBonus() {
     reActBonus = false;
+}
+
+void Streamer::makeEligibleToBonus() {
+    reActBonus = true;
 }

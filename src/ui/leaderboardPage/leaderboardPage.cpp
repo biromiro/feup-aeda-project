@@ -14,6 +14,7 @@ void LeaderboardPage::run() {
         std::cout << "\n1 - Show me the top 10's of Streams" << std::endl;
         std::cout << "2 - List all available streams with filter" << std::endl;
         std::cout << "3 - List all users in the platform with filter" << std::endl;
+        std::cout << "4 - Show me all donations!" << std::endl;
         std::cout << "0 - Go back" << std::endl;
         answer = _getch_();
         switch (answer) {
@@ -25,6 +26,9 @@ void LeaderboardPage::run() {
                 break;
             case '3':
                 showUsers();
+                break;
+            case '4':
+                showDonations();
                 break;
             default:
                 break;
@@ -386,3 +390,9 @@ void LeaderboardPage::sortUsers() {
     }
 }
 
+void LeaderboardPage::showDonations() {
+    pageOutput();
+    std::cout << uiManager.getPlatform().getLeaderboardManager()->getOrderedDonations();
+    std::cout << "\nPress any key to go back" << std::endl;
+    _getch_();
+}

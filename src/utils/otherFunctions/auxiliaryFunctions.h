@@ -12,6 +12,8 @@
 
 #include <cstdio>
 #include <iostream>
+#include <sstream>
+#include <string>
 
 // COLOR ANSI CODES
 constexpr const char *CLEAR_SCREEN = "\x1b[2J";
@@ -68,5 +70,6 @@ void getlineCIN(std::string& s);
  */
 std::string shrinkToColumnSize(std::string value);
 
+float inputFloat();
 
 #endif //PROJECT_AUXILIARYFUNCTIONS_H

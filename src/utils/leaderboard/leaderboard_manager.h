@@ -324,7 +324,7 @@ public:
 
     Leaderboard<Donation> getOrderedDonations(float ammount = 0);
 
-    Leaderboard<Donation> getDonationsByAvalInterval(streamerWorkRating lowerBound, streamerWorkRating upperBound);
+    Leaderboard<Donation> getDonationsByAvalInterval(streamerWorkRating lowerBound, streamerWorkRating upperBound, float ammount = 0);
 
 private:
     std::shared_ptr<ViewerManager> viewerManager;

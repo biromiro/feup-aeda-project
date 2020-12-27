@@ -14,7 +14,7 @@ StreamerManager::StreamerManager() : donations(Donation("",0,streamerWorkRating:
 StreamerManager::StreamerManager(std::shared_ptr<StreamManager> streamManager, std::shared_ptr<ViewerManager> viewerManager, std::shared_ptr<UserManager> userManager):
 streamManager(std::move(streamManager)), viewerManager(std::move(viewerManager)), userManager(std::move(userManager)), donations(Donation("",0.0,streamerWorkRating::VERY_BAD))
 {
-    //streamers = std::vector<std::shared_ptr<Streamer>>();
+    streamers = tabHStreamer();
 }
 
 std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::string &name, const std::string &nickname, const std::string& password) {
@@ -39,10 +39,6 @@ std::shared_ptr<Streamer> StreamerManager::build(Date birthDate, const std::stri
 
 bool StreamerManager::add(const std::shared_ptr<Streamer>& streamer) {
 
-    /*if (std::find(streamers.begin(),streamers.end(),streamer) == streamers.end()){
-        streamers.push_back(streamer);
-        return true;
-    }*/
     if(streamers.find(streamer) == streamers.end()){
         streamers.insert(streamer);
         return true;
@@ -62,10 +58,8 @@ bool StreamerManager::reload(const std::shared_ptr<Streamer>& streamer){
 
 bool StreamerManager::remove(const std::shared_ptr<Streamer>& streamer) {
 
-    //auto it = std::find(streamers.begin(),streamers.end(),streamer);
-    auto it = streamers.find(streamer);
-    if (it != streamers.end()) {
-        streamers.erase(it);
+    if (streamers.find(streamer) != streamers.end()) {
+        streamers.erase(streamer);
         userManager->remove(std::dynamic_pointer_cast<User>(streamer));
         return true;
     }
@@ -83,7 +77,7 @@ bool StreamerManager::endStream(const std::shared_ptr<Streamer>& streamer) {
 }
 
 bool StreamerManager::has(const std::shared_ptr<Streamer>& streamer) const {
-    return std::find(streamers.begin(),streamers.end(),streamer) != streamers.end();
+    return streamers.find(streamer) != streamers.end();
 }
 
 bool StreamerManager::has(std::string nickname) const {
@@ -103,9 +97,9 @@ std::shared_ptr<Streamer> StreamerManager::get(std::string nickname) const {
 }
 
 unsigned int StreamerManager::getNumOfFollowers(const std::shared_ptr<Streamer> &streamer) const {
-    return static_cast<unsigned int>(std::count_if(streamers.begin(), streamers.end(),
-                                                   [&streamer](const std::shared_ptr<Streamer> &str) {
-                                                       return streamer == str;
+    return static_cast<unsigned int>(std::count_if(viewerManager->getViewers().begin(), viewerManager->getViewers().end(),
+                                                   [&streamer](const std::shared_ptr<Viewer> &viewer) {
+                                                       return (viewer->getFollowingStreamers()).find(streamer->getNickname()) != viewer->getFollowingStreamers().end();
                                                    }));
 }
 
@@ -116,7 +110,7 @@ const tabHStreamer &StreamerManager::getStreamers() const {
 bool StreamerManager::readData() {
     //write object into the file
     std::ifstream file;
-    unsigned int streamersSize = 0;
+    unsigned int streamersSize = 0, bstSize = 0;
 
     file.open("../../src/model/user/streamer/dataStreamer.txt");
 
@@ -131,6 +125,16 @@ bool StreamerManager::readData() {
         newStreamer->readData(file);
         reload(newStreamer);
     }
+
+    file >> bstSize;
+
+    Donation donation("",0.0,streamerWorkRating::VERY_BAD);
+
+    while(bstSize--){
+        file >> donation;
+        donations.insert(donation);
+    }
+
     file.close();
     return true;
 }
@@ -152,6 +156,20 @@ bool StreamerManager::writeData() {
     for(const auto& elem: streamers){
         elem->writeData(file);
     }
+
+    unsigned int bstSize = 0;
+
+    for(BSTItrIn<Donation> bItr(donations); !bItr.isAtEnd(); bItr.advance()) bstSize++;
+
+    file << bstSize << "\n";
+
+    BSTItrIn<Donation> bstItrIn(donations);
+
+    while(!bstItrIn.isAtEnd()){
+        file << bstItrIn.retrieve();
+        bstItrIn.advance();
+    }
+
     file.close();
     return true;
 }

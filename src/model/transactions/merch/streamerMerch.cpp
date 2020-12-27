@@ -72,3 +72,26 @@ bool StreamerMerch::removeOrder(std::string buyer) {
     else { throw OrderNotFound(buyer, "There's no order under your name!"); }
 }
 
+std::ostream &operator<<(std::ostream &out, const StreamerMerch &f) {
+    out << f.limit << "\n";
+    out << f.orders.size() << "\n";
+    auto orderTmp = f.orders;
+    while(!orderTmp.empty()){
+        out << orderTmp.top();
+        orderTmp.pop();
+    }
+    return out;
+}
+
+std::istream &operator>>(std::istream &in, StreamerMerch &f) {
+    in >> f.limit;
+    unsigned int size;
+    MerchRequest order("",0,1);
+    in >> size;
+    while(size--){
+        in >> order;
+        f.orders.push(order);
+    }
+    return in;
+}
+

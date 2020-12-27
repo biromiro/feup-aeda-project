@@ -73,7 +73,8 @@ Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::sortStreamers() {
 
 Leaderboard<std::shared_ptr<Viewer>> LeaderboardManager::sortViewers() {
     std::vector<std::shared_ptr<Viewer>> newLB;
-    newLB = viewerManager->getViewers();
+    auto viewerSet = viewerManager->getViewers();
+    newLB = std::vector<std::shared_ptr<Viewer>>(viewerSet.begin(),viewerSet.end());
     std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Viewer>& s1, const std::shared_ptr<Viewer>& s2){return (*s1)>(*s2);});
     return Leaderboard<std::shared_ptr<Viewer>>(newLB);
 }
@@ -247,7 +248,9 @@ LeaderboardManager::getNotFollowingStreamersLeaderboard(const std::shared_ptr<Vi
 }
 
 Leaderboard<std::shared_ptr<Viewer>> LeaderboardManager::filterViewerByAge(unsigned int age) {
-    std::vector<std::shared_ptr<Viewer>> newLB = viewerManager->getViewers();
+    std::vector<std::shared_ptr<Viewer>> newLB;
+    auto viewerSet = viewerManager->getViewers();
+    newLB = std::vector<std::shared_ptr<Viewer>>(viewerSet.begin(),viewerSet.end());
     newLB.erase(std::remove_if(newLB.begin(),newLB.end(),[&age](const std::shared_ptr<Viewer>& viewer){return viewer->getAge() < age;}),newLB.end());
     return Leaderboard<std::shared_ptr<Viewer>>(newLB);
 }
@@ -386,16 +389,14 @@ Leaderboard<Donation> LeaderboardManager::getOrderedDonations(float ammount) {
 }
 
 Leaderboard<Donation>
-LeaderboardManager::getDonationsByAvalInterval(streamerWorkRating lowerBound, streamerWorkRating upperBound) {
-    std::vector<Donation> donations;
-    for(BSTItrIn<Donation> bItr(streamerManager->getDonations()); !bItr.isAtEnd(); bItr.advance()){
-        Donation donation = bItr.retrieve();
-        if(donation.getRating() >= lowerBound && donation.getRating() <= upperBound){
-            donations.push_back(donation);
+LeaderboardManager::getDonationsByAvalInterval(streamerWorkRating lowerBound, streamerWorkRating upperBound, float ammount) {
+    std::vector<Donation> donations = getOrderedDonations(ammount).get(), newDonations;
+    for(const auto& elem: donations){
+        if(elem.getRating() >= lowerBound && elem.getRating() <= upperBound){
+            newDonations.push_back(elem);
         }
     }
-    reverse(donations.begin(), donations.end());
-    return Leaderboard<Donation>(donations);
+    return Leaderboard<Donation>(newDonations);
 }
 
 

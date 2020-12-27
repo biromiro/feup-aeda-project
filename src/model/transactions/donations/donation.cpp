@@ -33,6 +33,21 @@ bool Donation::operator<(const Donation &rhs) const {
     return streamerNickname < rhs.streamerNickname;
 }
 
+std::ostream &operator<<(std::ostream &out, const Donation &f) {
+    out << f.ammount << "\n";
+    out << f.streamerNickname << "\n";
+    out << f.rating << "\n";
+    return out;
+}
+
+std::istream &operator>>(std::istream &in, Donation &f) {
+    in >> f.ammount;
+    in.ignore();
+    getline(in, f.streamerNickname);
+    in >> f.rating;
+    return in;
+}
+
 std::ostream& operator<<(std::ostream& out, const streamerWorkRating& f){
     std::map<streamerWorkRating,std::string> map = {{streamerWorkRating::VERY_BAD, "Very Bad"},
                                                     {streamerWorkRating::BAD, "Bad"},
@@ -52,7 +67,7 @@ std::istream& operator>>(std::istream& out, streamerWorkRating& f){
                                                     {"Good", streamerWorkRating::GOOD},
                                                     {"Very Good", streamerWorkRating::VERY_GOOD}};
 
-    out >> temp;
+    getline(out, temp);
     f = map[temp];
     return out;
 }

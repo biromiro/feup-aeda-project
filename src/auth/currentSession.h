@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include "../model/user/user_manager.h"
+#include "../utils/otherFunctions/auxiliaryFunctions.h"
+#include "../model/user/streamer/streamer.h"
 
 /**
  * @file currentSession.cpp

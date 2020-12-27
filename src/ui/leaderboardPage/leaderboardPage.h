@@ -76,6 +76,8 @@ private:
      * Sorts the users given an option
      */
     void sortUsers();
+
+    void showDonations();
 };
 
 

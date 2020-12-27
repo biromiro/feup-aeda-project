@@ -46,6 +46,10 @@ public:
      * @return self < given merch request
      */
     bool operator<(const MerchRequest &mr) const;
+
+    friend std::ostream& operator<<(std::ostream& out, const MerchRequest& f);
+
+    friend std::istream& operator>>(std::istream& out, MerchRequest& f);
 private:
     std::string buyer;
     unsigned int quantity;

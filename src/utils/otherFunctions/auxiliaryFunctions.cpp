@@ -74,6 +74,27 @@ unsigned int inputNumber(){
     }
 }
 
+bool isFloat( std::string myString ) {
+    std::istringstream iss(myString);
+    float f;
+    iss >> std::noskipws >> f; // noskipws considers leading whitespace invalid
+    // Check the entire string was consumed and if either failbit or badbit is set
+    return iss.eof() && !iss.fail();
+}
+
+float inputFloat(){
+    float num = 0;
+    std::string str;
+    getlineCIN(str);
+    if(isFloat(str)){
+        std::stringstream strs(str);
+        strs >> std::noskipws >> num;
+        return num;
+    }else{
+        return 0;
+    }
+}
+
 void getlineCIN(std::string& s){
     std::cin >> std::ws;
     getline(std::cin,s);

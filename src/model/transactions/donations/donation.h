@@ -23,6 +23,10 @@ public:
 
     bool operator<(const Donation &rhs) const;
 
+    friend std::ostream& operator<<(std::ostream& out, const Donation& f);
+
+    friend std::istream& operator>>(std::istream& out, Donation& f);
+
 private:
     streamerWorkRating rating;
     float ammount;

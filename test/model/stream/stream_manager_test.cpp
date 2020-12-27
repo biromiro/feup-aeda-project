@@ -172,6 +172,7 @@ TEST(streamManager, bonusLikesAfterReactivation){
     EXPECT_EQ(stream->getVotes().first, 0);
     stm1->deactivateStreamer(streamer);
     stm1->reactivateStreamer(streamer);
+    streamer->makeEligibleToBonus();
     stm1->endStream(streamer);
     auto stream2 = std::dynamic_pointer_cast<PublicStream>(sm1->build("Free likes", StreamLanguage::EN, 13, StreamType::PUBLIC, StreamGenre::GAMING, streamer));
     EXPECT_EQ(stream2->getVotes().first, 50);

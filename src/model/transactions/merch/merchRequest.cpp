@@ -29,3 +29,18 @@ bool MerchRequest::operator<(const MerchRequest &mr) const {
         return purchaseA < mr.purchaseA;
     }
 }
+
+std::ostream &operator<<(std::ostream &out, const MerchRequest &f) {
+    out << f.quantity << "\n";
+    out << f.buyer << "\n";
+    out << f.purchaseA << "\n";
+    return out;
+}
+
+std::istream &operator>>(std::istream &in, MerchRequest &f) {
+    getline(in, f.buyer);
+    in.ignore();
+    in >> f.quantity;
+    in >> f.purchaseA;
+    return in;
+}

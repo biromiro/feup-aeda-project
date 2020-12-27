@@ -8,7 +8,7 @@
 #include "user_manager.h"
 
 UserManager::UserManager() {
-    users = std::unordered_set<std::shared_ptr<User>>();
+    users = tabHUser();
 }
 
 bool UserManager::add(const std::shared_ptr<User>& user) {
@@ -47,7 +47,7 @@ std::shared_ptr<User> UserManager::get(std::string nickname) const {
     return nullptr;
 }
 
-std::unordered_set<std::shared_ptr<User>> UserManager::getUsers() const {
+tabHUser UserManager::getUsers() const {
     return users;
 }
 
