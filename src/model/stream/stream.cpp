@@ -324,3 +324,7 @@ std::istream& operator>>(std::istream& inf, FeedbackLikeSystem& f){
         f = it->second;
     return inf;
 }
+
+void Stream::reactivationBonus() {
+    votingSystem.first += 50;
+}

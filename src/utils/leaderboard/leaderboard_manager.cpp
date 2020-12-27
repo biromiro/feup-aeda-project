@@ -61,7 +61,12 @@ Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::filterStreamByType(enum
 
 Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::sortStreamers() {
     std::vector<std::shared_ptr<Streamer>> newLB;
-    newLB = streamerManager->getStreamers();
+    tabHStreamer  streamerSet = streamerManager->getStreamers();
+    auto it = streamerSet.begin();
+    while(it != streamerSet.end()){
+        newLB.push_back(*it);
+        it++;
+    }
     std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return (*s1)>(*s2);});
     return Leaderboard<std::shared_ptr<Streamer>>(newLB);
 }
@@ -346,6 +351,30 @@ std::string LeaderboardManager::mostViewsStreamer() {
     return streamerLB.get().front()->getNickname();
 }
 
+Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::filterActivatedStreamers() {
+    std::vector<std::shared_ptr<Streamer>> newLB;
+    tabHStreamer streamers = streamerManager->getStreamers();
+    auto it = streamers.begin();
+    while(it != streamers.end()){
+        if(!(*it)->isDeactivated())
+            newLB.push_back(*it);
+        it++;
+    }
+    return Leaderboard<std::shared_ptr<Streamer>>(newLB);
+}
+
+Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::filterDeactivatedStreamers() {
+    std::vector<std::shared_ptr<Streamer>> newLB;
+    tabHStreamer streamers = streamerManager->getStreamers();
+    auto it = streamers.begin();
+    while(it != streamers.end()){
+        if((*it)->isDeactivated())
+            newLB.push_back(*it);
+        it++;
+    }
+    return Leaderboard<std::shared_ptr<Streamer>>(newLB);
+}
+
 Leaderboard<Donation> LeaderboardManager::getOrderedDonations(float ammount) {
     std::vector<Donation> donations;
     for(BSTItrIn<Donation> bItr(streamerManager->getDonations()); !bItr.isAtEnd(); bItr.advance()){
@@ -368,4 +397,5 @@ LeaderboardManager::getDonationsByAvalInterval(streamerWorkRating lowerBound, st
     reverse(donations.begin(), donations.end());
     return Leaderboard<Donation>(donations);
 }
+
 

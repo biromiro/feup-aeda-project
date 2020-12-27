@@ -54,6 +54,21 @@ TEST(streamer_manager,has_get){
     EXPECT_EQ(srm1->get("Nautilus gaming"),streamer1);
 }
 
+TEST(streamer_manager,deactivate_activate){
+    std::shared_ptr<UserManager> um1 =  std::make_shared<UserManager>();
+    std::shared_ptr<ViewerManager> vm1 = std::make_shared<ViewerManager>(um1);
+    std::shared_ptr<StreamManager> sm1 = std::make_shared<StreamManager>(vm1, std::make_shared<StreamerManager>());
+    std::shared_ptr<StreamerManager>srm1 = std::make_shared<StreamerManager>(sm1, vm1, um1);
+    Date birthdate(2001,5,16);
+    auto s1 = std::make_shared<Streamer>(birthdate,"darius gaming","bruh gaming","123456");
+    EXPECT_THROW(srm1->deactivateStreamer(s1),UserNotFound);
+    auto s2 = srm1->build(birthdate,"Teemo jungle","gg ez","123456");
+    EXPECT_EQ(s2->isDeactivated(),false);
+    EXPECT_EQ(srm1->deactivateStreamer(s2),true);
+    EXPECT_EQ(s2->isDeactivated(),true);
+    EXPECT_THROW(srm1->reactivateStreamer(s1),UserNotFound);
+    EXPECT_EQ(srm1->reactivateStreamer(s2),true);
+}
 TEST(streamer_manager, donations){
     std::shared_ptr<UserManager> um1 =  std::make_shared<UserManager>();
     std::shared_ptr<ViewerManager> vm1 = std::make_shared<ViewerManager>(um1);
@@ -83,3 +98,4 @@ TEST(streamer_manager, donations){
     std::cout << lbm1->getOrderedDonations() << std::endl;
     std::cout << lbm1->getDonationsByAvalInterval(streamerWorkRating::BAD,streamerWorkRating::MEH);
 }
+
