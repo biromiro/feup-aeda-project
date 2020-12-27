@@ -5,7 +5,7 @@ pardal
 sdads
 0
 40
-15
+16
 3
 EN
 PRIVATE
@@ -33,7 +33,7 @@ martinha
 martinha
 gosto muito
 30
-15
+16
 4
 PT_PT
 PRIVATE
@@ -57,7 +57,7 @@ abc
 abc
 muitofixe
 2
-15
+16
 6
 EN
 PRIVATE
@@ -73,7 +73,7 @@ osvaldo
 abc
 LIKE
 PUBLIC
-15
+16
 9
 AZ
 PUBLIC
@@ -91,7 +91,7 @@ LIKE
 ptrv2001
 DISLIKE
 PUBLIC
-15
+16
 10
 EN
 PUBLIC
@@ -109,7 +109,7 @@ LIKE
 pardal
 LIKE
 PUBLIC
-15
+16
 12
 ES
 PUBLIC
@@ -125,12 +125,12 @@ bigstreamer
 biro
 LIKE
 PUBLIC
-15
-15
-EN
+16
+16
+PT_PT
 PUBLIC
-TALKSHOW
-djnidsc
+GAMING
+HeyYo I'm back
 biromiro
 12
 50
@@ -138,9 +138,9 @@ biromiro
 0
 2020/12/27
 0
-8
+9
 3
-15
+16
 1
 PT_BR
 FINISHED
@@ -160,7 +160,7 @@ LIKE
 ptrv2001
 LIKE
 1
-15
+16
 2
 PT_PT
 FINISHED
@@ -176,7 +176,7 @@ jpcosta
 pardal
 LIKE
 0
-15
+16
 7
 EN
 FINISHED
@@ -190,7 +190,7 @@ sdf
 2020/11/21
 0
 3
-15
+16
 5
 PT_PT
 FINISHED
@@ -204,7 +204,7 @@ brod
 2020/11/21
 0
 0
-15
+16
 8
 AZ
 FINISHED
@@ -218,7 +218,7 @@ brod
 2020/11/21
 0
 2
-15
+16
 11
 AZ
 FINISHED
@@ -232,7 +232,7 @@ biromiro
 2020/11/22
 0
 0
-15
+16
 13
 PT_PT
 FINISHED
@@ -246,12 +246,26 @@ jpcosta
 2020/11/22
 0
 0
-15
+16
 14
 PT_PT
 FINISHED
 TALKSHOW
 hehedsas
+biromiro
+12
+50
+0
+0
+2020/12/27
+0
+0
+16
+15
+EN
+FINISHED
+TALKSHOW
+djnidsc
 biromiro
 12
 50

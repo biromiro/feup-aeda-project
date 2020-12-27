@@ -391,6 +391,7 @@ void LeaderboardPage::sortUsers() {
 }
 
 void LeaderboardPage::showDonations() {
+    std::cout << CLEAR_SCREEN << GO_TO_TOP;
     pageOutput();
     std::cout << uiManager.getPlatform().getLeaderboardManager()->getOrderedDonations();
     std::cout << "\nPress any key to go back" << std::endl;

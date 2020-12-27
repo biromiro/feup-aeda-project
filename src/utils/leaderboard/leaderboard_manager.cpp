@@ -61,11 +61,9 @@ Leaderboard<std::shared_ptr<Stream>> LeaderboardManager::filterStreamByType(enum
 
 Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::sortStreamers() {
     std::vector<std::shared_ptr<Streamer>> newLB;
-    tabHStreamer  streamerSet = streamerManager->getStreamers();
-    auto it = streamerSet.begin();
-    while(it != streamerSet.end()){
-        newLB.push_back(*it);
-        it++;
+    newLB.reserve(streamerManager->getStreamers().size());
+    for (const auto& elem: streamerManager->getStreamers()) {
+        if(!elem->isDeactivated()) newLB.push_back(elem);
     }
     std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return (*s1)>(*s2);});
     return Leaderboard<std::shared_ptr<Streamer>>(newLB);
@@ -73,8 +71,10 @@ Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::sortStreamers() {
 
 Leaderboard<std::shared_ptr<Viewer>> LeaderboardManager::sortViewers() {
     std::vector<std::shared_ptr<Viewer>> newLB;
-    auto viewerSet = viewerManager->getViewers();
-    newLB = std::vector<std::shared_ptr<Viewer>>(viewerSet.begin(),viewerSet.end());
+    newLB.reserve(viewerManager->getViewers().size());
+    for (const auto& elem: viewerManager->getViewers()) {
+        if(!elem->isDeactivated()) newLB.push_back(elem);
+    }
     std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Viewer>& s1, const std::shared_ptr<Viewer>& s2){return (*s1)>(*s2);});
     return Leaderboard<std::shared_ptr<Viewer>>(newLB);
 }
@@ -354,28 +354,34 @@ std::string LeaderboardManager::mostViewsStreamer() {
     return streamerLB.get().front()->getNickname();
 }
 
-Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::filterActivatedStreamers() {
+Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::filterDeactivatedStreamers() {
     std::vector<std::shared_ptr<Streamer>> newLB;
-    tabHStreamer streamers = streamerManager->getStreamers();
-    auto it = streamers.begin();
-    while(it != streamers.end()){
-        if(!(*it)->isDeactivated())
-            newLB.push_back(*it);
-        it++;
+    newLB.reserve(streamerManager->getStreamers().size());
+    for (const auto& elem: streamerManager->getStreamers()) {
+        if(elem->isDeactivated()) newLB.push_back(elem);
     }
+    std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Streamer>& s1, const std::shared_ptr<Streamer>& s2){return (*s1)>(*s2);});
     return Leaderboard<std::shared_ptr<Streamer>>(newLB);
 }
 
-Leaderboard<std::shared_ptr<Streamer>> LeaderboardManager::filterDeactivatedStreamers() {
-    std::vector<std::shared_ptr<Streamer>> newLB;
-    tabHStreamer streamers = streamerManager->getStreamers();
-    auto it = streamers.begin();
-    while(it != streamers.end()){
-        if((*it)->isDeactivated())
-            newLB.push_back(*it);
-        it++;
+Leaderboard<std::shared_ptr<Viewer>> LeaderboardManager::filterDeactivatedViewers() {
+    std::vector<std::shared_ptr<Viewer>> newLB;
+    newLB.reserve(viewerManager->getViewers().size());
+    for (const auto& elem: viewerManager->getViewers()) {
+        if(elem->isDeactivated()) newLB.push_back(elem);
     }
-    return Leaderboard<std::shared_ptr<Streamer>>(newLB);
+    std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<Viewer>& s1, const std::shared_ptr<Viewer>& s2){return (*s1)>(*s2);});
+    return Leaderboard<std::shared_ptr<Viewer>>(newLB);
+}
+
+Leaderboard<std::shared_ptr<User>> LeaderboardManager::filterDeactivatedUsers() {
+    std::vector<std::shared_ptr<User>> newLB;
+    newLB.reserve(userManager->getUsers().size());
+    for (const auto& elem: userManager->getUsers()) {
+        if(elem->isDeactivated()) newLB.push_back(elem);
+    }
+    std::sort(newLB.begin(),newLB.end(),[](const std::shared_ptr<User>& s1, const std::shared_ptr<User>& s2){return (*s1)>(*s2);});
+    return Leaderboard<std::shared_ptr<User>>(newLB);
 }
 
 Leaderboard<Donation> LeaderboardManager::getOrderedDonations(float ammount) {

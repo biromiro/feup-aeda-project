@@ -19,7 +19,8 @@ void StreamerView::run() {
         std::cout << "5 - Finish current stream" << std::endl;
         std::cout << "6 - Let me see my past streams!" << std::endl;
         std::cout << "7 - Let me check the leaderboards!" << std::endl;
-        std::cout << "8 - Account Settings" << std::endl;
+        std::cout << "8 - Handle Merch System" << std::endl;
+        std::cout << "9 - Account Settings" << std::endl;
         std::cout << "0 - Logout" << std::endl;
         answer = _getch_();
         switch (answer) {
@@ -45,9 +46,13 @@ void StreamerView::run() {
                 uiManager.setCurrent(new LeaderboardPage(uiManager));
                 uiManager.run();
                 break;
-            case '8':{
+            case '8':
+                merchSystem();
+                break;
+            case '9':{
                 bool leave = accountSettings();
-                if(leave) answer = '0';}
+                if(leave) answer = '0';
+                break;}
             case '0':
                 uiManager.getCurrentSession().logout();
                 break;
@@ -250,6 +255,8 @@ void StreamerView::checkPastStreams() {
 }
 
 bool StreamerView::accountSettings() {
+    std::cout << CLEAR_SCREEN << GO_TO_TOP;
+    pageOutput();
     char answer;
     std::cout << "\n 1 - Deactivate my account" << std::endl;
     std::cout << "\n 0 - Go to main menu" << std::endl;
@@ -273,4 +280,47 @@ bool StreamerView::accountSettings() {
         }
     }while (answer != '0' && answer != *ESC);
     return false;
+}
+
+void StreamerView::merchSystem() {
+    std::cout << CLEAR_SCREEN << GO_TO_TOP;
+    pageOutput();
+    char answer;
+    std::cout << "\n 1 - Set up merch" << std::endl;
+    std::cout << "\n 2 - Handle next order" << std::endl;
+    std::cout << "\n 0 - Go to main menu" << std::endl;
+
+    auto streamer = uiManager.getPlatform().getStreamerManager()->get(uiManager.getCurrentSession().getNickname());
+
+    do{
+        answer = _getch_();
+        switch (answer) {
+            case '1':{
+                streamer->setUpMerch(uiManager.getPlatform().getAdminManager()->getMerchLimit());
+                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
+                          << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                std::cout << "Merch setup done!";
+                answer = '0';
+                _getch_();
+                break;}
+            case '2': {
+                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
+                          << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+
+                if(streamer->getStreamerMerch().getLimit() == 0) std::cout << "You might not have the merch system set up (can't take orders yet)!" << std::endl;
+                else{
+                    try{
+                        auto merch = streamer->processNextOrder();
+                        std::cout << "The order:\n\n"
+                                     "Buyer: " << merch.getBuyer() << "\nNumber of Products: " << merch.getQuantity() <<"\n\n Is now processed!";
+                    } catch (std::exception &e) {
+                        std::cerr << e.what();
+                    }
+                }
+                _getch_();
+                answer = '0';
+                break;
+            }
+        }
+    }while (answer != '0' && answer != *ESC);
 }

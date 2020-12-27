@@ -73,15 +73,15 @@ add_library(project
         exception/orderNotFound/orderNotFound.h
         exception/invalidPurchaseAvailability/invalidPurchaseAvailability.cpp
         exception/invalidPurchaseAvailability/invalidPurchaseAvailability.h
-        exception/ViewerAlreadyOrdered/viewerAlreadyOrdered.cpp
-        exception/ViewerAlreadyOrdered/viewerAlreadyOrdered.h
         exception/viewerAlreadyOrdered/viewerAlreadyOrdered.cpp
         exception/viewerAlreadyOrdered/viewerAlreadyOrdered.h
         utils/binaryTree/bst.h
         exception/streamerHasNoDonations/streamerHasNoDonations.cpp
         exception/streamerHasNoDonations/streamerHasNoDonations.h
         exception/invalidDonationValue/invalidDonationValue.cpp
-        exception/invalidDonationValue/invalidDonationValue.h)
+        exception/invalidDonationValue/invalidDonationValue.h
+        exception/noOrderToProcess/noOrderToProcess.h
+        exception/noOrderToProcess/noOrderToProcess.cpp)
 
 add_executable(application
         main.cpp
@@ -143,9 +143,7 @@ add_executable(application
         exception/orderNotFound/orderNotFound.cpp 
         exception/orderNotFound/orderNotFound.h 
         exception/invalidPurchaseAvailability/invalidPurchaseAvailability.cpp 
-        exception/invalidPurchaseAvailability/invalidPurchaseAvailability.h 
-        exception/ViewerAlreadyOrdered/viewerAlreadyOrdered.cpp 
-        exception/ViewerAlreadyOrdered/viewerAlreadyOrdered.h 
+        exception/invalidPurchaseAvailability/invalidPurchaseAvailability.h
         exception/viewerAlreadyOrdered/viewerAlreadyOrdered.cpp 
         exception/viewerAlreadyOrdered/viewerAlreadyOrdered.h
         model/transactions/merch/merchRequest.h
@@ -153,7 +151,9 @@ add_executable(application
         exception/streamerHasNoDonations/streamerHasNoDonations.cpp
         exception/streamerHasNoDonations/streamerHasNoDonations.h
         exception/invalidDonationValue/invalidDonationValue.cpp
-        exception/invalidDonationValue/invalidDonationValue.h)
+        exception/invalidDonationValue/invalidDonationValue.h
+        exception/noOrderToProcess/noOrderToProcess.h
+        exception/noOrderToProcess/noOrderToProcess.cpp)
 
 target_include_directories(project PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 

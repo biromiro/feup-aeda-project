@@ -73,6 +73,8 @@ private:
     void checkPastStreams();
 
     bool accountSettings();
+
+    void merchSystem();
 };
 
 #endif //PROJECT_STREAMERVIEW_H

@@ -50,6 +50,10 @@ private:
     void showStreamZStatistics() const;
 
     void showDonationsWithFilter() const;
+
+    void deactivatedAccounts() const;
+
+    void changeMerchLimit();
 };
 
 #endif //PROJECT_ADMINVIEW_H

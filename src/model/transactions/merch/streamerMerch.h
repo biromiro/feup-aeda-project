@@ -46,7 +46,7 @@ public:
      * @param newOrder order to add to the queue
      * @return true if order was successfully added, false otherwise
      */
-    bool addOrder(MerchRequest newOrder);
+    bool addOrder(const MerchRequest& newOrder);
 
     /**
      * Removes an order from the orders queue

@@ -311,16 +311,14 @@ public:
     std::string mostViewsStreamer();
 
     /**
-     * Filters the streamers which have an active account
-     *
-     * @return returns the streamers with an active account*/
-    Leaderboard<std::shared_ptr<Streamer>> filterActivatedStreamers();
-
-    /**
      * Filters the streamers which have a deactivated account
      *
      * @return returns the streamers with a deactivated account*/
     Leaderboard<std::shared_ptr<Streamer>> filterDeactivatedStreamers();
+
+    Leaderboard<std::shared_ptr<Viewer>> filterDeactivatedViewers();
+
+    Leaderboard<std::shared_ptr<User>> filterDeactivatedUsers();
 
     Leaderboard<Donation> getOrderedDonations(float ammount = 0);
 

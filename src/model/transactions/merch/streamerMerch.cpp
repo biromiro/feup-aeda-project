@@ -6,6 +6,7 @@
 #include "../../../exception/orderLimitReached/orderLimitReached.h"
 #include "../../../exception/orderNotFound/orderNotFound.h"
 #include "../../../exception/viewerAlreadyOrdered/viewerAlreadyOrdered.h"
+#include "../../../exception/noOrderToProcess/noOrderToProcess.h"
 
 StreamerMerch::StreamerMerch() {
     limit = 0;
@@ -31,12 +32,13 @@ void StreamerMerch::setLimit(unsigned int newLimit) {
 }
 
 MerchRequest StreamerMerch::processNextOrder() {
+    if(orders.empty()) throw NoOrderToProcess("You have no orders to process!");
     MerchRequest nextOrder = orders.top();
     orders.pop();
     return nextOrder;
 }
 
-bool StreamerMerch::addOrder(MerchRequest newOrder) {
+bool StreamerMerch::addOrder(const MerchRequest& newOrder) {
     auto temp = orders;
     bool foundName = false;
     while (!temp.empty()) {
@@ -52,7 +54,7 @@ bool StreamerMerch::addOrder(MerchRequest newOrder) {
         orders.push(newOrder);
         return true;
     }
-    else { throw OrderLimitReached(newOrder, "The limit for orders was already reached!"); }
+    else { throw OrderLimitReached(newOrder, "The limit for orders of this streamer was already reached!"); }
 }
 
 bool StreamerMerch::removeOrder(std::string buyer) {

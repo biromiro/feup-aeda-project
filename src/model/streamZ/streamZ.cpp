@@ -35,6 +35,10 @@ std::shared_ptr<LeaderboardManager> StreamZ::getLeaderboardManager() {
     return leaderboardManager;
 }
 
+std::shared_ptr<AdminManager> StreamZ::getAdminManager() const {
+    return adminManager;
+}
+
 void StreamZ::initialize() {
 
     //serialization sequence to read the data
@@ -52,3 +56,5 @@ void StreamZ::finish() {
     viewerManager->writeData();
     adminManager->writeData();
 }
+
+

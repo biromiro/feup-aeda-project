@@ -84,6 +84,12 @@ public:
     * @return pointer to current leaderboardManager
      * */
     std::shared_ptr<LeaderboardManager> getLeaderboardManager();
+
+    /**
+    * Method to obtain the adminManager
+    * @return pointer to current adminManager
+     * */
+    std::shared_ptr<AdminManager> getAdminManager() const;
 };
 
 #endif //PROJECT_STREAMZ_H
