@@ -289,7 +289,7 @@ void ViewerView::followingStreamerActions(){
                             std::cerr << e.what();
                             break;
                         }
-                        std::cout << "Successfully donated!";
+                        std::cout << "Successfully ordered!";
                         _getch_();
                         answer = '0';
                     } else {

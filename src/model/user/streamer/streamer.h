@@ -123,7 +123,19 @@ public:
      * */
     [[nodiscard]] const std::vector<unsigned int> &getPreviousStreamsIDs() const;
 
+    /**
+     * Getter of streamer's StreamerMerch object
+     *
+     * @return streamer's StreamerMerch object
+     */
     [[nodiscard]] const StreamerMerch &getStreamerMerch() const;
+
+    /**
+     * Getter of boolean value indicating if streamer has set up his merchandising
+     *
+     * @return boolean value indicating if streamer has set up his merchandising
+     */
+    [[nodiscard]] bool getMerchSetUp() const;
 
     /**
      * Reads streamer data from file
@@ -205,6 +217,7 @@ private:
     unsigned int currentStreamID{};
     unsigned int totalViewCount{};
     StreamerMerch merch;
+    bool merchSetUp = false;
 };
 
 #endif //PROJECT_STREAMER_H

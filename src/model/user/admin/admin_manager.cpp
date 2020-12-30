@@ -71,7 +71,7 @@ void AdminManager::setMerchLimit(unsigned int newLimit) {
     for(const auto& elem: userManager->getUsers()){
         if (elem->getUserType() == UserTypes::STREAMER) {
             auto item = std::dynamic_pointer_cast<Streamer>(elem);
-            if (item->getStreamerMerch().getLimit() != 0) {
+            if (item->getMerchSetUp()) {
                 item->updateMerchLimit(merchLimit);
             }
         }

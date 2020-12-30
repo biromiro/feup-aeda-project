@@ -38,7 +38,8 @@ void Streamer::removeStream() {
 }
 
 void Streamer::setUpMerch(unsigned int limit) {
-    merch.setLimit(limit);
+    merchSetUp = true;
+    updateMerchLimit(limit);
 }
 
 void Streamer::addMerchOrder(MerchRequest newOrder) {
@@ -79,6 +80,10 @@ const std::vector<unsigned int> &Streamer::getPreviousStreamsIDs() const {
 
 const StreamerMerch & Streamer::getStreamerMerch() const {
     return merch;
+}
+
+bool Streamer::getMerchSetUp() const {
+    return merchSetUp;
 }
 
 bool Streamer::operator<(const Streamer &rhs) const {
