@@ -9,6 +9,7 @@ AdminView::AdminView(UIManager &uiManager) : uiManager(uiManager){}
 void AdminView::run() {
     char answer ;
     do{
+        std::cout << CLEAR_SCREEN << GO_TO_TOP;
         pageOutput();
         std::cout << "\n1 - Check StreamZ statistics" << std::endl;
         std::cout << "2 - Go to leaderboards" << std::endl;
@@ -50,7 +51,7 @@ void AdminView::pageOutput() {
 void AdminView::showStreamZStatistics() const {
     std::cout << CLEAR_SCREEN << GO_TO_TOP;
     pageOutput();
-
+    std::cout << "\n";
     //gets all info from the leaderboard manager
 
     std::cout << uiManager.getPlatform().getLeaderboardManager()->totalNumberOfStreams() << " streams were created in total." << std::endl;
@@ -105,7 +106,7 @@ void AdminView::showDonationsWithFilter() const {
 void AdminView::deactivatedAccounts() const {
     std::cout << CLEAR_SCREEN << GO_TO_TOP;
     pageOutput();
-    std::cout << "Which deactivated accounts do you wish to see?" << std::endl;
+    std::cout << "\nWhich deactivated accounts do you wish to see?" << std::endl;
     std::cout << "1 - VIEWERS" << std::endl;
     std::cout << "2 - STREAMERS" << std::endl;
     std::cout << "3 - ALL" << std::endl;

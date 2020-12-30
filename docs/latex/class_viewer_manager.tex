@@ -23,7 +23,7 @@ bool \mbox{\hyperlink{class_viewer_manager_ac663cadc8cd4b58fabee4cb833770cc3}{ha
 \item 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ \mbox{\hyperlink{class_viewer_manager_a25afbf94f812aacbe4d103bb82f01ea2}{get}} (std\+::string nickname) const
 \item 
-const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ $>$ \& \mbox{\hyperlink{class_viewer_manager_ad4e2637f72b76bac3376024b1d117341}{get\+Viewers}} () const
+const \mbox{\hyperlink{viewer__manager_8h_ae70bcd1d9e8bce6df215c6092c20bba2}{tab\+H\+Viewer}} \& \mbox{\hyperlink{class_viewer_manager_af1db33c0cafd576ba1e9d689920a5ed3}{get\+Viewers}} () const
 \item 
 bool \mbox{\hyperlink{class_viewer_manager_a8ab85d1af50d37c442a575b557ca0ee7}{read\+Data}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream_manager}{Stream\+Manager}} $>$ \&stream\+Manager)
 \item 
@@ -36,7 +36,7 @@ Implementation of the \mbox{\hyperlink{class_viewer}{Viewer}} Manager class
 
 Manages the viewers, taking care of the viewer related events (creating and deleting one, managing the join stream event, giving feedback, etc) 
 
-Definition at line 29 of file viewer\+\_\+manager.\+h.
+Definition at line 47 of file viewer\+\_\+manager.\+h.
 
 
 
@@ -123,13 +123,13 @@ the viewer with the given nickname
 \end{DoxyReturn}
 
 
-Definition at line 76 of file viewer\+\_\+manager.\+cpp.
+Definition at line 75 of file viewer\+\_\+manager.\+cpp.
 
-\mbox{\Hypertarget{class_viewer_manager_ad4e2637f72b76bac3376024b1d117341}\label{class_viewer_manager_ad4e2637f72b76bac3376024b1d117341}} 
+\mbox{\Hypertarget{class_viewer_manager_af1db33c0cafd576ba1e9d689920a5ed3}\label{class_viewer_manager_af1db33c0cafd576ba1e9d689920a5ed3}} 
 \index{ViewerManager@{ViewerManager}!getViewers@{getViewers}}
 \index{getViewers@{getViewers}!ViewerManager@{ViewerManager}}
 \doxysubsubsection{\texorpdfstring{getViewers()}{getViewers()}}
-{\footnotesize\ttfamily const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ $>$ \& Viewer\+Manager\+::get\+Viewers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const \mbox{\hyperlink{viewer__manager_8h_ae70bcd1d9e8bce6df215c6092c20bba2}{tab\+H\+Viewer}} \& Viewer\+Manager\+::get\+Viewers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Getter of the viewers vector
 
@@ -138,7 +138,7 @@ the viewers vector
 \end{DoxyReturn}
 
 
-Definition at line 85 of file viewer\+\_\+manager.\+cpp.
+Definition at line 84 of file viewer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_manager_abb02cf511e590bd5459099ee38372a31}\label{class_viewer_manager_abb02cf511e590bd5459099ee38372a31}} 
 \index{ViewerManager@{ViewerManager}!has@{has}}
@@ -158,7 +158,7 @@ True if the action was successful, false otherwise
 \end{DoxyReturn}
 
 
-Definition at line 67 of file viewer\+\_\+manager.\+cpp.
+Definition at line 66 of file viewer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_manager_ac663cadc8cd4b58fabee4cb833770cc3}\label{class_viewer_manager_ac663cadc8cd4b58fabee4cb833770cc3}} 
 \index{ViewerManager@{ViewerManager}!has@{has}}
@@ -178,7 +178,7 @@ True if the action was successful, false otherwise
 \end{DoxyReturn}
 
 
-Definition at line 71 of file viewer\+\_\+manager.\+cpp.
+Definition at line 70 of file viewer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_manager_a8ab85d1af50d37c442a575b557ca0ee7}\label{class_viewer_manager_a8ab85d1af50d37c442a575b557ca0ee7}} 
 \index{ViewerManager@{ViewerManager}!readData@{readData}}
@@ -198,7 +198,7 @@ read successfull
 \end{DoxyReturn}
 
 
-Definition at line 89 of file viewer\+\_\+manager.\+cpp.
+Definition at line 88 of file viewer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_manager_a410a4534c395521531786039e0802b15}\label{class_viewer_manager_a410a4534c395521531786039e0802b15}} 
 \index{ViewerManager@{ViewerManager}!reload@{reload}}
@@ -253,7 +253,7 @@ write successfull
 \end{DoxyReturn}
 
 
-Definition at line 112 of file viewer\+\_\+manager.\+cpp.
+Definition at line 111 of file viewer\+\_\+manager.\+cpp.
 
 
 

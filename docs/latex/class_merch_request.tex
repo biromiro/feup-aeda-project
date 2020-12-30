@@ -1,0 +1,180 @@
+\hypertarget{class_merch_request}{}\doxysection{Merch\+Request Class Reference}
+\label{class_merch_request}\index{MerchRequest@{MerchRequest}}
+
+
+{\ttfamily \#include $<$merch\+Request.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_merch_request_aac76a284f83a5afef3f60741813ba9ff}{Merch\+Request}} (std\+::string buyer, unsigned int quantity, unsigned int purchaseA)
+\item 
+const std\+::string \& \mbox{\hyperlink{class_merch_request_af422ca7e04a40c4c39ba1836555d1227}{get\+Buyer}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_merch_request_a1fa6b141fd994eaa76add651bc8dca9b}{get\+Quantity}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_merch_request_ab6c80ac0f05fbc724864115cd9b18692}{get\+PurchaseA}} () const
+\item 
+bool \mbox{\hyperlink{class_merch_request_ad54b1bfd36f7c8298b4a5df4e2efafe2}{operator$<$}} (const \mbox{\hyperlink{class_merch_request}{Merch\+Request}} \&mr) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_merch_request_a11acfef497dcf681336f1d479254d13e}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_merch_request}{Merch\+Request}} \&f)
+\item 
+std\+::istream \& \mbox{\hyperlink{class_merch_request_a056f1c67947a6afa3216703935bdddc3}{operator$>$$>$}} (std\+::istream \&out, \mbox{\hyperlink{class_merch_request}{Merch\+Request}} \&f)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the merch request class
+
+Represents a merch request, with its buyer, number of items ordered and availability 
+
+Definition at line 23 of file merch\+Request.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_merch_request_aac76a284f83a5afef3f60741813ba9ff}\label{class_merch_request_aac76a284f83a5afef3f60741813ba9ff}} 
+\index{MerchRequest@{MerchRequest}!MerchRequest@{MerchRequest}}
+\index{MerchRequest@{MerchRequest}!MerchRequest@{MerchRequest}}
+\doxysubsubsection{\texorpdfstring{MerchRequest()}{MerchRequest()}}
+{\footnotesize\ttfamily Merch\+Request\+::\+Merch\+Request (\begin{DoxyParamCaption}\item[{std\+::string}]{buyer,  }\item[{unsigned int}]{quantity,  }\item[{unsigned int}]{purchaseA }\end{DoxyParamCaption})}
+
+Constructor of the Merch Request class
+
+
+\begin{DoxyParams}{Parameters}
+{\em buyer} & nickname of the viewer who is ordering merchandising \\
+\hline
+{\em quantity} & quantity of merchandising ordered \\
+\hline
+{\em purchaseA} & purchase availability of order \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 8 of file merch\+Request.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_merch_request_af422ca7e04a40c4c39ba1836555d1227}\label{class_merch_request_af422ca7e04a40c4c39ba1836555d1227}} 
+\index{MerchRequest@{MerchRequest}!getBuyer@{getBuyer}}
+\index{getBuyer@{getBuyer}!MerchRequest@{MerchRequest}}
+\doxysubsubsection{\texorpdfstring{getBuyer()}{getBuyer()}}
+{\footnotesize\ttfamily const std\+::string \& Merch\+Request\+::get\+Buyer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the nickname of the viewer who made the order
+
+\begin{DoxyReturn}{Returns}
+nickname of the viewer who made the order 
+\end{DoxyReturn}
+
+
+Definition at line 13 of file merch\+Request.\+cpp.
+
+\mbox{\Hypertarget{class_merch_request_ab6c80ac0f05fbc724864115cd9b18692}\label{class_merch_request_ab6c80ac0f05fbc724864115cd9b18692}} 
+\index{MerchRequest@{MerchRequest}!getPurchaseA@{getPurchaseA}}
+\index{getPurchaseA@{getPurchaseA}!MerchRequest@{MerchRequest}}
+\doxysubsubsection{\texorpdfstring{getPurchaseA()}{getPurchaseA()}}
+{\footnotesize\ttfamily unsigned int Merch\+Request\+::get\+PurchaseA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the order\textquotesingle{}s purchase availability
+
+\begin{DoxyReturn}{Returns}
+order\textquotesingle{}s purchase availability 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file merch\+Request.\+cpp.
+
+\mbox{\Hypertarget{class_merch_request_a1fa6b141fd994eaa76add651bc8dca9b}\label{class_merch_request_a1fa6b141fd994eaa76add651bc8dca9b}} 
+\index{MerchRequest@{MerchRequest}!getQuantity@{getQuantity}}
+\index{getQuantity@{getQuantity}!MerchRequest@{MerchRequest}}
+\doxysubsubsection{\texorpdfstring{getQuantity()}{getQuantity()}}
+{\footnotesize\ttfamily unsigned int Merch\+Request\+::get\+Quantity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the amount of merchandising ordered
+
+\begin{DoxyReturn}{Returns}
+amount of merchandising ordered 
+\end{DoxyReturn}
+
+
+Definition at line 17 of file merch\+Request.\+cpp.
+
+\mbox{\Hypertarget{class_merch_request_ad54b1bfd36f7c8298b4a5df4e2efafe2}\label{class_merch_request_ad54b1bfd36f7c8298b4a5df4e2efafe2}} 
+\index{MerchRequest@{MerchRequest}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!MerchRequest@{MerchRequest}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Merch\+Request\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_merch_request}{Merch\+Request}} \&}]{mr }\end{DoxyParamCaption}) const}
+
+Overload of operator $<$ to merch requests
+
+
+\begin{DoxyParams}{Parameters}
+{\em mr} & given merch request to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+self $<$ given merch request 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file merch\+Request.\+cpp.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_merch_request_a11acfef497dcf681336f1d479254d13e}\label{class_merch_request_a11acfef497dcf681336f1d479254d13e}} 
+\index{MerchRequest@{MerchRequest}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!MerchRequest@{MerchRequest}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_merch_request}{Merch\+Request}} \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Output stream operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & the stream to output \\
+\hline
+{\em f} & the merch request to output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the stream passed as parameter 
+\end{DoxyReturn}
+
+
+Definition at line 33 of file merch\+Request.\+cpp.
+
+\mbox{\Hypertarget{class_merch_request_a056f1c67947a6afa3216703935bdddc3}\label{class_merch_request_a056f1c67947a6afa3216703935bdddc3}} 
+\index{MerchRequest@{MerchRequest}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!MerchRequest@{MerchRequest}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{out,  }\item[{\mbox{\hyperlink{class_merch_request}{Merch\+Request}} \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Input stream operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & the stream to get input from \\
+\hline
+{\em f} & the merch request to get input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the stream passed as parameter 
+\end{DoxyReturn}
+
+
+Definition at line 40 of file merch\+Request.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/transactions/merch/\mbox{\hyperlink{merch_request_8h}{merch\+Request.\+h}}\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/transactions/merch/\mbox{\hyperlink{merch_request_8cpp}{merch\+Request.\+cpp}}\end{DoxyCompactItemize}

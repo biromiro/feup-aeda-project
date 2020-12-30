@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="rsz_1rsz_acastro_200410_1777_obs_00010.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StreamZ
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">A streaming platform for all!</div>
   </td>
@@ -95,115 +95,138 @@ $(document).ready(function(){initNavTree('admin__manager_8cpp_source.html',''); 
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="admin__manager_8h.html">admin_manager.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../../../exception/adminAlreadySet/adminAlreadySet.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../../../exception/adminNotSet/adminNotSet.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../streamer/streamer.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_admin_manager.html#a2b559374509f06570caad838d79e9778">   10</a></span>&#160;<a class="code" href="class_admin_manager.html#a2b559374509f06570caad838d79e9778">AdminManager::AdminManager</a>(std::shared_ptr&lt;UserManager&gt; userManager) :</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;userManager(std::move(userManager))</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_admin_manager.html#a26628c5b77d58fa8b0135aa16ca243d2">   14</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_admin_manager.html#a26628c5b77d58fa8b0135aa16ca243d2">AdminManager::build</a>(<a class="code" href="class_date.html">Date</a> birthDate, <span class="keyword">const</span> std::string &amp;name, <span class="keyword">const</span> std::string &amp;nickname, <span class="keyword">const</span> std::string&amp; password) {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="comment">//there can only be 1 admin at a time</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span>(userManager-&gt;has(nickname) || noInstances &gt; 0)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="class_admin_already_set.html">AdminAlreadySet</a>(admin,<span class="stringliteral">&quot;Admin already set!&quot;</span>);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">auto</span> newAdmin = std::make_shared&lt;Admin&gt;(birthDate,name,nickname, password);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_admin_manager.html#aba49eda8a416b02ed4a383dd2c7a85d1">add</a>(newAdmin);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::shared_ptr&lt;User&gt; user_form = std::dynamic_pointer_cast&lt;User&gt;(newAdmin);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    userManager-&gt;add(user_form);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_admin_manager.html#a2b559374509f06570caad838d79e9778">   11</a></span>&#160;<a class="code" href="class_admin_manager.html#a2b559374509f06570caad838d79e9778">AdminManager::AdminManager</a>(std::shared_ptr&lt;UserManager&gt; userManager) :</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;userManager(std::move(userManager))</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_admin_manager.html#a26628c5b77d58fa8b0135aa16ca243d2">   15</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_admin_manager.html#a26628c5b77d58fa8b0135aa16ca243d2">AdminManager::build</a>(<a class="code" href="class_date.html">Date</a> birthDate, <span class="keyword">const</span> std::string &amp;name, <span class="keyword">const</span> std::string &amp;nickname, <span class="keyword">const</span> std::string&amp; password) {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">//there can only be 1 admin at a time</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">if</span>(userManager-&gt;has(nickname) || noInstances &gt; 0)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="class_admin_already_set.html">AdminAlreadySet</a>(admin,<span class="stringliteral">&quot;Admin already set!&quot;</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">auto</span> newAdmin = std::make_shared&lt;Admin&gt;(birthDate,name,nickname, password);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_admin_manager.html#aba49eda8a416b02ed4a383dd2c7a85d1">add</a>(newAdmin);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    std::shared_ptr&lt;User&gt; user_form = std::dynamic_pointer_cast&lt;User&gt;(newAdmin);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    userManager-&gt;add(user_form);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_admin_manager.html#aba49eda8a416b02ed4a383dd2c7a85d1">   29</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_admin_manager.html#aba49eda8a416b02ed4a383dd2c7a85d1">AdminManager::add</a>(<span class="keyword">const</span> std::shared_ptr&lt;Admin&gt;&amp; adminToAdd) {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">//same as above, there can only be one instance of Admin</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">if</span> ( noInstances == 0){</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        noInstances++;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        admin = adminToAdd;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_admin_already_set.html">AdminAlreadySet</a>(admin,<span class="stringliteral">&quot;Admin already set!&quot;</span>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_admin_manager.html#a69eda7c3fab7f2920fa65c08bca30df8">   40</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_admin_manager.html#a69eda7c3fab7f2920fa65c08bca30df8">AdminManager::remove</a>() {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">//checks if the admin is already set</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span>(admin != <span class="keyword">nullptr</span>){</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        userManager-&gt;remove(std::dynamic_pointer_cast&lt;User&gt;(admin));</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        admin.reset();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        noInstances--;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_admin_not_set.html">AdminNotSet</a>(admin,<span class="stringliteral">&quot;Admin not set, can&#39;t remove!&quot;</span>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_admin_manager.html#a6a23092b845903c10f4cbcab421a1f95">   52</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_admin_manager.html#a6a23092b845903c10f4cbcab421a1f95">AdminManager::is</a>(<span class="keyword">const</span> std::shared_ptr&lt;Admin&gt;&amp; adminToCompare)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> admin == adminToCompare;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_admin_manager.html#adc6efda84d1c4f95830873c398ea7b85">   56</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_admin_manager.html#a6a23092b845903c10f4cbcab421a1f95">AdminManager::is</a>(<span class="keyword">const</span> std::string&amp; nickname)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> admin-&gt;getNickname() == nickname;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_admin_manager.html#a847f4998940d8d8b63f681e6b0d9151f">   60</a></span>&#160;std::shared_ptr&lt;Admin&gt; <a class="code" href="class_admin_manager.html#a847f4998940d8d8b63f681e6b0d9151f">AdminManager::get</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> admin;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_admin_manager.html#aba49eda8a416b02ed4a383dd2c7a85d1">   30</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_admin_manager.html#aba49eda8a416b02ed4a383dd2c7a85d1">AdminManager::add</a>(<span class="keyword">const</span> std::shared_ptr&lt;Admin&gt;&amp; adminToAdd) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">//same as above, there can only be one instance of Admin</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">if</span> ( noInstances == 0){</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        noInstances++;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        admin = adminToAdd;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_admin_already_set.html">AdminAlreadySet</a>(admin,<span class="stringliteral">&quot;Admin already set!&quot;</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_admin_manager.html#a69eda7c3fab7f2920fa65c08bca30df8">   41</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_admin_manager.html#a69eda7c3fab7f2920fa65c08bca30df8">AdminManager::remove</a>() {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">//checks if the admin is already set</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span>(admin != <span class="keyword">nullptr</span>){</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        userManager-&gt;remove(std::dynamic_pointer_cast&lt;User&gt;(admin));</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        admin.reset();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        noInstances--;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_admin_not_set.html">AdminNotSet</a>(admin,<span class="stringliteral">&quot;Admin not set, can&#39;t remove!&quot;</span>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_admin_manager.html#a6a23092b845903c10f4cbcab421a1f95">   53</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_admin_manager.html#a6a23092b845903c10f4cbcab421a1f95">AdminManager::is</a>(<span class="keyword">const</span> std::shared_ptr&lt;Admin&gt;&amp; adminToCompare)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> admin == adminToCompare;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="class_admin_manager.html#adc6efda84d1c4f95830873c398ea7b85">   57</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_admin_manager.html#a6a23092b845903c10f4cbcab421a1f95">AdminManager::is</a>(<span class="keyword">const</span> std::string&amp; nickname)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> admin-&gt;getNickname() == nickname;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_admin_manager.html#a847f4998940d8d8b63f681e6b0d9151f">   61</a></span>&#160;std::shared_ptr&lt;Admin&gt; <a class="code" href="class_admin_manager.html#a847f4998940d8d8b63f681e6b0d9151f">AdminManager::get</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> admin;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_admin_manager.html#aa406934296b59e613f8677ec5211cecf">   65</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_admin_manager.html#aa406934296b59e613f8677ec5211cecf">AdminManager::readData</a>() {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">//write object into the file</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::ifstream file;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_admin_manager.html#a09ed86164602f229614ece4320ddb2a0">   65</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_admin_manager.html#a09ed86164602f229614ece4320ddb2a0">AdminManager::getMerchLimit</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> merchLimit;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    file.open(<span class="stringliteral">&quot;../../src/model/user/admin/dataAdmin.txt&quot;</span>);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span>(!file){</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Could not open Streamers file...&quot;</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    file &gt;&gt; noInstances;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    admin = std::make_shared&lt;Admin&gt;();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    admin-&gt;readData(file);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    std::shared_ptr&lt;User&gt; user_form = std::dynamic_pointer_cast&lt;User&gt;(admin);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    userManager-&gt;add(user_form);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    file.close();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_admin_manager.html#a3802f8008db472cb94290b2044a573fc">   69</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_admin_manager.html#a3802f8008db472cb94290b2044a573fc">AdminManager::setMerchLimit</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> newLimit) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    merchLimit = newLimit;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; elem: userManager-&gt;getUsers()){</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span> (elem-&gt;getUserType() == <a class="code" href="user_8h.html#a7f554175f6a21ca8a2175ee9d9bec6d8acc0121706966f6eeb143f46361409608">UserTypes::STREAMER</a>) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keyword">auto</span> item = std::dynamic_pointer_cast&lt;Streamer&gt;(elem);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">if</span> (item-&gt;getMerchSetUp()) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                item-&gt;updateMerchLimit(merchLimit);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="class_admin_manager.html#aa406934296b59e613f8677ec5211cecf">   81</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_admin_manager.html#aa406934296b59e613f8677ec5211cecf">AdminManager::readData</a>() {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">//write object into the file</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    std::ifstream file;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="class_admin_manager.html#a95947166bc0f0eff9eccc2c33bcf46c1">   86</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_admin_manager.html#a95947166bc0f0eff9eccc2c33bcf46c1">AdminManager::writeData</a>() {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">//write object into the file</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    std::ofstream file;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    file.open(<span class="stringliteral">&quot;../../src/model/user/admin/dataAdmin.txt&quot;</span>);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span>(!file){</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Could not open Admin file...&quot;</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    file &lt;&lt; noInstances &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span>(admin != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        admin-&gt;writeData(file);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    file.close();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    file.open(<span class="stringliteral">&quot;../../src/model/user/admin/dataAdmin.txt&quot;</span>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span>(!file){</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Could not open Streamers file...&quot;</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    file &gt;&gt; merchLimit;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    file &gt;&gt; noInstances;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    admin = std::make_shared&lt;Admin&gt;();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    admin-&gt;readData(file);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    std::shared_ptr&lt;User&gt; user_form = std::dynamic_pointer_cast&lt;User&gt;(admin);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    userManager-&gt;add(user_form);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    file.close();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="class_admin_manager.html#a95947166bc0f0eff9eccc2c33bcf46c1">  104</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_admin_manager.html#a95947166bc0f0eff9eccc2c33bcf46c1">AdminManager::writeData</a>() {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="comment">//write object into the file</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    std::ofstream file;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    file.open(<span class="stringliteral">&quot;../../src/model/user/admin/dataAdmin.txt&quot;</span>);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">if</span>(!file){</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Could not open Admin file...&quot;</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    file &lt;&lt; merchLimit &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    file &lt;&lt; noInstances &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">if</span>(admin != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        admin-&gt;writeData(file);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    file.close();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_admin_manager_html_a3802f8008db472cb94290b2044a573fc"><div class="ttname"><a href="class_admin_manager.html#a3802f8008db472cb94290b2044a573fc">AdminManager::setMerchLimit</a></div><div class="ttdeci">void setMerchLimit(unsigned int newLimit)</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00069">admin_manager.cpp:69</a></div></div>
 <div class="ttc" id="aclass_admin_not_set_html"><div class="ttname"><a href="class_admin_not_set.html">AdminNotSet</a></div><div class="ttdef"><b>Definition:</b> <a href="admin_not_set_8h_source.html#l00026">adminNotSet.h:26</a></div></div>
-<div class="ttc" id="aclass_admin_manager_html_a95947166bc0f0eff9eccc2c33bcf46c1"><div class="ttname"><a href="class_admin_manager.html#a95947166bc0f0eff9eccc2c33bcf46c1">AdminManager::writeData</a></div><div class="ttdeci">bool writeData()</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00086">admin_manager.cpp:86</a></div></div>
-<div class="ttc" id="aclass_admin_manager_html_a2b559374509f06570caad838d79e9778"><div class="ttname"><a href="class_admin_manager.html#a2b559374509f06570caad838d79e9778">AdminManager::AdminManager</a></div><div class="ttdeci">AdminManager(std::shared_ptr&lt; UserManager &gt; userManager)</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00010">admin_manager.cpp:10</a></div></div>
+<div class="ttc" id="aclass_admin_manager_html_a95947166bc0f0eff9eccc2c33bcf46c1"><div class="ttname"><a href="class_admin_manager.html#a95947166bc0f0eff9eccc2c33bcf46c1">AdminManager::writeData</a></div><div class="ttdeci">bool writeData()</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00104">admin_manager.cpp:104</a></div></div>
+<div class="ttc" id="aclass_admin_manager_html_a2b559374509f06570caad838d79e9778"><div class="ttname"><a href="class_admin_manager.html#a2b559374509f06570caad838d79e9778">AdminManager::AdminManager</a></div><div class="ttdeci">AdminManager(std::shared_ptr&lt; UserManager &gt; userManager)</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00011">admin_manager.cpp:11</a></div></div>
 <div class="ttc" id="aadmin__manager_8h_html"><div class="ttname"><a href="admin__manager_8h.html">admin_manager.h</a></div></div>
-<div class="ttc" id="aclass_admin_manager_html_a69eda7c3fab7f2920fa65c08bca30df8"><div class="ttname"><a href="class_admin_manager.html#a69eda7c3fab7f2920fa65c08bca30df8">AdminManager::remove</a></div><div class="ttdeci">bool remove()</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00040">admin_manager.cpp:40</a></div></div>
+<div class="ttc" id="aclass_admin_manager_html_a69eda7c3fab7f2920fa65c08bca30df8"><div class="ttname"><a href="class_admin_manager.html#a69eda7c3fab7f2920fa65c08bca30df8">AdminManager::remove</a></div><div class="ttdeci">bool remove()</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00041">admin_manager.cpp:41</a></div></div>
+<div class="ttc" id="aclass_admin_manager_html_a09ed86164602f229614ece4320ddb2a0"><div class="ttname"><a href="class_admin_manager.html#a09ed86164602f229614ece4320ddb2a0">AdminManager::getMerchLimit</a></div><div class="ttdeci">unsigned int getMerchLimit() const</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00065">admin_manager.cpp:65</a></div></div>
 <div class="ttc" id="aclass_admin_already_set_html"><div class="ttname"><a href="class_admin_already_set.html">AdminAlreadySet</a></div><div class="ttdef"><b>Definition:</b> <a href="admin_already_set_8h_source.html#l00027">adminAlreadySet.h:27</a></div></div>
-<div class="ttc" id="aclass_admin_manager_html_a6a23092b845903c10f4cbcab421a1f95"><div class="ttname"><a href="class_admin_manager.html#a6a23092b845903c10f4cbcab421a1f95">AdminManager::is</a></div><div class="ttdeci">bool is(const std::shared_ptr&lt; Admin &gt; &amp;admin) const</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00052">admin_manager.cpp:52</a></div></div>
-<div class="ttc" id="aclass_admin_manager_html_a26628c5b77d58fa8b0135aa16ca243d2"><div class="ttname"><a href="class_admin_manager.html#a26628c5b77d58fa8b0135aa16ca243d2">AdminManager::build</a></div><div class="ttdeci">bool build(Date birthDate, const std::string &amp;name, const std::string &amp;nickname, const std::string &amp;password)</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00014">admin_manager.cpp:14</a></div></div>
-<div class="ttc" id="aclass_admin_manager_html_aa406934296b59e613f8677ec5211cecf"><div class="ttname"><a href="class_admin_manager.html#aa406934296b59e613f8677ec5211cecf">AdminManager::readData</a></div><div class="ttdeci">bool readData()</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00065">admin_manager.cpp:65</a></div></div>
-<div class="ttc" id="aclass_admin_manager_html_a847f4998940d8d8b63f681e6b0d9151f"><div class="ttname"><a href="class_admin_manager.html#a847f4998940d8d8b63f681e6b0d9151f">AdminManager::get</a></div><div class="ttdeci">std::shared_ptr&lt; Admin &gt; get() const</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00060">admin_manager.cpp:60</a></div></div>
-<div class="ttc" id="aclass_admin_manager_html_aba49eda8a416b02ed4a383dd2c7a85d1"><div class="ttname"><a href="class_admin_manager.html#aba49eda8a416b02ed4a383dd2c7a85d1">AdminManager::add</a></div><div class="ttdeci">bool add(const std::shared_ptr&lt; Admin &gt; &amp;admin)</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00029">admin_manager.cpp:29</a></div></div>
+<div class="ttc" id="aclass_admin_manager_html_a6a23092b845903c10f4cbcab421a1f95"><div class="ttname"><a href="class_admin_manager.html#a6a23092b845903c10f4cbcab421a1f95">AdminManager::is</a></div><div class="ttdeci">bool is(const std::shared_ptr&lt; Admin &gt; &amp;admin) const</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00053">admin_manager.cpp:53</a></div></div>
+<div class="ttc" id="aclass_admin_manager_html_a26628c5b77d58fa8b0135aa16ca243d2"><div class="ttname"><a href="class_admin_manager.html#a26628c5b77d58fa8b0135aa16ca243d2">AdminManager::build</a></div><div class="ttdeci">bool build(Date birthDate, const std::string &amp;name, const std::string &amp;nickname, const std::string &amp;password)</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00015">admin_manager.cpp:15</a></div></div>
+<div class="ttc" id="aclass_admin_manager_html_aa406934296b59e613f8677ec5211cecf"><div class="ttname"><a href="class_admin_manager.html#aa406934296b59e613f8677ec5211cecf">AdminManager::readData</a></div><div class="ttdeci">bool readData()</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00081">admin_manager.cpp:81</a></div></div>
+<div class="ttc" id="aclass_admin_manager_html_a847f4998940d8d8b63f681e6b0d9151f"><div class="ttname"><a href="class_admin_manager.html#a847f4998940d8d8b63f681e6b0d9151f">AdminManager::get</a></div><div class="ttdeci">std::shared_ptr&lt; Admin &gt; get() const</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00061">admin_manager.cpp:61</a></div></div>
+<div class="ttc" id="auser_8h_html_a7f554175f6a21ca8a2175ee9d9bec6d8acc0121706966f6eeb143f46361409608"><div class="ttname"><a href="user_8h.html#a7f554175f6a21ca8a2175ee9d9bec6d8acc0121706966f6eeb143f46361409608">UserTypes::STREAMER</a></div><div class="ttdeci">@ STREAMER</div></div>
+<div class="ttc" id="aclass_admin_manager_html_aba49eda8a416b02ed4a383dd2c7a85d1"><div class="ttname"><a href="class_admin_manager.html#aba49eda8a416b02ed4a383dd2c7a85d1">AdminManager::add</a></div><div class="ttdeci">bool add(const std::shared_ptr&lt; Admin &gt; &amp;admin)</div><div class="ttdef"><b>Definition:</b> <a href="admin__manager_8cpp_source.html#l00030">admin_manager.cpp:30</a></div></div>
 <div class="ttc" id="aclass_date_html"><div class="ttname"><a href="class_date.html">Date</a></div><div class="ttdef"><b>Definition:</b> <a href="date_8h_source.html#l00026">date.h:26</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

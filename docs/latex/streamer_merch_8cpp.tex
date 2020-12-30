@@ -1,0 +1,71 @@
+\hypertarget{streamer_merch_8cpp}{}\doxysection{/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/transactions/merch/streamer\+Merch.cpp File Reference}
+\label{streamer_merch_8cpp}\index{/home/biromiro/AEDA/feup-\/aeda-\/project/src/model/transactions/merch/streamerMerch.cpp@{/home/biromiro/AEDA/feup-\/aeda-\/project/src/model/transactions/merch/streamerMerch.cpp}}
+
+
+Class representing the \mbox{\hyperlink{class_streamer}{Streamer}} Merch class.  
+
+
+{\ttfamily \#include \char`\"{}streamer\+Merch.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../../exception/order\+Limit\+Reached/order\+Limit\+Reached.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../../exception/order\+Not\+Found/order\+Not\+Found.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../../exception/viewer\+Already\+Ordered/viewer\+Already\+Ordered.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../../exception/no\+Order\+To\+Process/no\+Order\+To\+Process.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{streamer_merch_8cpp_a8021ada6b4e6f9ac22cf704127d02847}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_streamer_merch}{Streamer\+Merch}} \&f)
+\item 
+std\+::istream \& \mbox{\hyperlink{streamer_merch_8cpp_ac1ddb93d9ccdf27e2cae6d4868a7e9e0}{operator$>$$>$}} (std\+::istream \&in, \mbox{\hyperlink{class_streamer_merch}{Streamer\+Merch}} \&f)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing the \mbox{\hyperlink{class_streamer}{Streamer}} Merch class. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{streamer_merch_8cpp_a8021ada6b4e6f9ac22cf704127d02847}\label{streamer_merch_8cpp_a8021ada6b4e6f9ac22cf704127d02847}} 
+\index{streamerMerch.cpp@{streamerMerch.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!streamerMerch.cpp@{streamerMerch.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_streamer_merch}{Streamer\+Merch}} \&}]{f }\end{DoxyParamCaption})}
+
+Output stream operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & the stream to output \\
+\hline
+{\em f} & the streamer merch object to output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the stream passed as parameter 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file streamer\+Merch.\+cpp.
+
+\mbox{\Hypertarget{streamer_merch_8cpp_ac1ddb93d9ccdf27e2cae6d4868a7e9e0}\label{streamer_merch_8cpp_ac1ddb93d9ccdf27e2cae6d4868a7e9e0}} 
+\index{streamerMerch.cpp@{streamerMerch.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!streamerMerch.cpp@{streamerMerch.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in,  }\item[{\mbox{\hyperlink{class_streamer_merch}{Streamer\+Merch}} \&}]{f }\end{DoxyParamCaption})}
+
+Input stream operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & the stream to get input from \\
+\hline
+{\em f} & the streamer merch object to get input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the stream passed as parameter 
+\end{DoxyReturn}
+
+
+Definition at line 88 of file streamer\+Merch.\+cpp.
+

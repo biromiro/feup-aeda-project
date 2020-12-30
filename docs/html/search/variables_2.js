@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['esc_762',['ESC',['../auxiliary_functions_8h.html#a570d1e17a54e16f99985cbc04b6ae430',1,'auxiliaryFunctions.h']]]
+  ['deactivated_998',['deactivated',['../class_user.html#ae70dbbcc2725704d144b10df01e214a6',1,'User']]]
 ];

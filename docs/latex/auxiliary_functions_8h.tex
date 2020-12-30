@@ -2,6 +2,8 @@
 \label{auxiliary_functions_8h}\index{/home/biromiro/AEDA/feup-\/aeda-\/project/src/utils/otherFunctions/auxiliaryFunctions.h@{/home/biromiro/AEDA/feup-\/aeda-\/project/src/utils/otherFunctions/auxiliaryFunctions.h}}
 {\ttfamily \#include $<$cstdio$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -14,6 +16,8 @@ unsigned int \mbox{\hyperlink{auxiliary_functions_8h_a09049fe097a8284bb5f63a42aa
 void \mbox{\hyperlink{auxiliary_functions_8h_aeaa0dd0638ab41b3d2b528b3f9444a98}{getline\+C\+IN}} (std\+::string \&s)
 \item 
 std\+::string \mbox{\hyperlink{auxiliary_functions_8h_a45cc1ff630a8eee6b52699b6ea74be2e}{shrink\+To\+Column\+Size}} (std\+::string value)
+\item 
+float \mbox{\hyperlink{auxiliary_functions_8h_a476558ce4cefce05a6e88e92f0f3e4ce}{input\+Float}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -67,7 +71,22 @@ Extension of the getline function, dealing with the stream as well
 \end{DoxyParams}
 
 
-Definition at line 77 of file auxiliary\+Functions.\+cpp.
+Definition at line 98 of file auxiliary\+Functions.\+cpp.
+
+\mbox{\Hypertarget{auxiliary_functions_8h_a476558ce4cefce05a6e88e92f0f3e4ce}\label{auxiliary_functions_8h_a476558ce4cefce05a6e88e92f0f3e4ce}} 
+\index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!inputFloat@{inputFloat}}
+\index{inputFloat@{inputFloat}!auxiliaryFunctions.h@{auxiliaryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{inputFloat()}{inputFloat()}}
+{\footnotesize\ttfamily float input\+Float (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Receives a float number from the input stream, and handles such stream
+
+\begin{DoxyReturn}{Returns}
+the float given as input 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file auxiliary\+Functions.\+cpp.
 
 \mbox{\Hypertarget{auxiliary_functions_8h_a09049fe097a8284bb5f63a42aa20f767}\label{auxiliary_functions_8h_a09049fe097a8284bb5f63a42aa20f767}} 
 \index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!inputNumber@{inputNumber}}
@@ -122,7 +141,7 @@ the shrinked string
 \end{DoxyReturn}
 
 
-Definition at line 83 of file auxiliary\+Functions.\+cpp.
+Definition at line 104 of file auxiliary\+Functions.\+cpp.
 
 
 
@@ -135,7 +154,7 @@ Definition at line 83 of file auxiliary\+Functions.\+cpp.
 
 
 
-Definition at line 19 of file auxiliary\+Functions.\+h.
+Definition at line 21 of file auxiliary\+Functions.\+h.
 
 \mbox{\Hypertarget{auxiliary_functions_8h_a3d37e6fea26f9c93758025c2078ca08e}\label{auxiliary_functions_8h_a3d37e6fea26f9c93758025c2078ca08e}} 
 \index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!CLEAR\_SCREEN@{CLEAR\_SCREEN}}
@@ -145,7 +164,7 @@ Definition at line 19 of file auxiliary\+Functions.\+h.
 
 
 
-Definition at line 17 of file auxiliary\+Functions.\+h.
+Definition at line 19 of file auxiliary\+Functions.\+h.
 
 \mbox{\Hypertarget{auxiliary_functions_8h_a570d1e17a54e16f99985cbc04b6ae430}\label{auxiliary_functions_8h_a570d1e17a54e16f99985cbc04b6ae430}} 
 \index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!ESC@{ESC}}
@@ -155,7 +174,7 @@ Definition at line 17 of file auxiliary\+Functions.\+h.
 
 
 
-Definition at line 25 of file auxiliary\+Functions.\+h.
+Definition at line 27 of file auxiliary\+Functions.\+h.
 
 \mbox{\Hypertarget{auxiliary_functions_8h_a2d35fa7603a974991f75f8e77fbaeab6}\label{auxiliary_functions_8h_a2d35fa7603a974991f75f8e77fbaeab6}} 
 \index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!GO\_TO\_BEGINNING\_OF\_LINE@{GO\_TO\_BEGINNING\_OF\_LINE}}
@@ -165,7 +184,7 @@ Definition at line 25 of file auxiliary\+Functions.\+h.
 
 
 
-Definition at line 20 of file auxiliary\+Functions.\+h.
+Definition at line 22 of file auxiliary\+Functions.\+h.
 
 \mbox{\Hypertarget{auxiliary_functions_8h_aa60363bd13c4a0171f940c8b69170e08}\label{auxiliary_functions_8h_aa60363bd13c4a0171f940c8b69170e08}} 
 \index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!GO\_TO\_TOP@{GO\_TO\_TOP}}
@@ -175,7 +194,7 @@ Definition at line 20 of file auxiliary\+Functions.\+h.
 
 
 
-Definition at line 24 of file auxiliary\+Functions.\+h.
+Definition at line 26 of file auxiliary\+Functions.\+h.
 
 \mbox{\Hypertarget{auxiliary_functions_8h_ad0a2c791c5443ae1735d21367d2e9ec2}\label{auxiliary_functions_8h_ad0a2c791c5443ae1735d21367d2e9ec2}} 
 \index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!HIDE\_CURSOR@{HIDE\_CURSOR}}
@@ -185,7 +204,7 @@ Definition at line 24 of file auxiliary\+Functions.\+h.
 
 
 
-Definition at line 22 of file auxiliary\+Functions.\+h.
+Definition at line 24 of file auxiliary\+Functions.\+h.
 
 \mbox{\Hypertarget{auxiliary_functions_8h_ae91e2c92c1408f4f2149c97e85451be5}\label{auxiliary_functions_8h_ae91e2c92c1408f4f2149c97e85451be5}} 
 \index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!LINE\_UP@{LINE\_UP}}
@@ -195,7 +214,7 @@ Definition at line 22 of file auxiliary\+Functions.\+h.
 
 
 
-Definition at line 18 of file auxiliary\+Functions.\+h.
+Definition at line 20 of file auxiliary\+Functions.\+h.
 
 \mbox{\Hypertarget{auxiliary_functions_8h_a3aa4b3cadf22d0306a01f09e1a30bd40}\label{auxiliary_functions_8h_a3aa4b3cadf22d0306a01f09e1a30bd40}} 
 \index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!RESET@{RESET}}
@@ -205,7 +224,7 @@ Definition at line 18 of file auxiliary\+Functions.\+h.
 
 
 
-Definition at line 21 of file auxiliary\+Functions.\+h.
+Definition at line 23 of file auxiliary\+Functions.\+h.
 
 \mbox{\Hypertarget{auxiliary_functions_8h_adc2567c5949c5fdde921d34700e3c3fd}\label{auxiliary_functions_8h_adc2567c5949c5fdde921d34700e3c3fd}} 
 \index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!SHOW\_CURSOR@{SHOW\_CURSOR}}
@@ -215,7 +234,7 @@ Definition at line 21 of file auxiliary\+Functions.\+h.
 
 
 
-Definition at line 23 of file auxiliary\+Functions.\+h.
+Definition at line 25 of file auxiliary\+Functions.\+h.
 
 \mbox{\Hypertarget{auxiliary_functions_8h_ab75dcb6c61ba381bccbe190c662061d8}\label{auxiliary_functions_8h_ab75dcb6c61ba381bccbe190c662061d8}} 
 \index{auxiliaryFunctions.h@{auxiliaryFunctions.h}!WIDTH@{WIDTH}}
@@ -225,5 +244,5 @@ Definition at line 23 of file auxiliary\+Functions.\+h.
 
 
 
-Definition at line 26 of file auxiliary\+Functions.\+h.
+Definition at line 28 of file auxiliary\+Functions.\+h.
 

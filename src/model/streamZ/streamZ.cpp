@@ -35,7 +35,7 @@ std::shared_ptr<LeaderboardManager> StreamZ::getLeaderboardManager() {
     return leaderboardManager;
 }
 
-std::shared_ptr<AdminManager> StreamZ::getAdminManager() const {
+std::shared_ptr<AdminManager> StreamZ::getAdminManager() {
     return adminManager;
 }
 

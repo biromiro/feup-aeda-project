@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="rsz_1rsz_acastro_200410_1777_obs_00010.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StreamZ
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">A streaming platform for all!</div>
   </td>
@@ -99,12 +99,22 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 : <a class="el" href="class_admin_already_set.html#ac31a8f688e470ae67fe68cc411744385">AdminAlreadySet</a>
 , <a class="el" href="class_admin_not_set.html#a169fdd83a9807be9fe3dd4cb09f5e2c7">AdminNotSet</a>
 </li>
+<li>getAdminManager()
+: <a class="el" href="class_stream_z.html#a9b53553355d757f95dd7b7746141ed41">StreamZ</a>
+</li>
 <li>getAge()
 : <a class="el" href="class_invalid_age.html#a25e1bcf937ebae433c372912d9b15f3f">InvalidAge</a>
 , <a class="el" href="class_user.html#a7cb83cbd05e67d0632b792253c278c17">User</a>
 </li>
+<li>getAmmount()
+: <a class="el" href="class_donation.html#a0e3f3765ff05bb029f68e5c7aaccea3b">Donation</a>
+</li>
 <li>getBirthDate()
 : <a class="el" href="class_user.html#a3d027f4eb08a0bfd4aca307323968172">User</a>
+</li>
+<li>getBuyer()
+: <a class="el" href="class_merch_request.html#af422ca7e04a40c4c39ba1836555d1227">MerchRequest</a>
+, <a class="el" href="class_order_not_found.html#ac1aa1d9a6f889d53ff2be36fa65fff74">OrderNotFound</a>
 </li>
 <li>getCacheOfFinishedStreams()
 : <a class="el" href="class_stream_manager.html#aa92f7c0d5bb9366fa3f3662c14ff47cd">StreamManager</a>
@@ -130,6 +140,12 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 <li>getDay()
 : <a class="el" href="class_date.html#a13855b25efb79eaf7dccf08555421a1d">Date</a>
 </li>
+<li>getDonations()
+: <a class="el" href="class_streamer_manager.html#a9b8507082514a0431ff69eaa74d490be">StreamerManager</a>
+</li>
+<li>getDonationsByAvalInterval()
+: <a class="el" href="class_leaderboard_manager.html#a7508f289245a1fa3d625094999b25c96">LeaderboardManager</a>
+</li>
 <li>getFb()
 : <a class="el" href="class_invalid_feedback.html#a5cec0f0118b08f5411c434b6b5197685">InvalidFeedback</a>
 </li>
@@ -154,8 +170,17 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 <li>getLeaderboardManager()
 : <a class="el" href="class_stream_z.html#afe286e41d5d69411387fce207eb2a8ef">StreamZ</a>
 </li>
+<li>getLimit()
+: <a class="el" href="class_streamer_merch.html#a1abf2c5fa4396d8a39fd6692305f32a9">StreamerMerch</a>
+</li>
 <li>getMaxNumViewers()
 : <a class="el" href="class_private_stream.html#a44d6ae162be42cb6f8cfd86a6299d9d6">PrivateStream</a>
+</li>
+<li>getMerchLimit()
+: <a class="el" href="class_admin_manager.html#a09ed86164602f229614ece4320ddb2a0">AdminManager</a>
+</li>
+<li>getMerchSetUp()
+: <a class="el" href="class_streamer.html#a14c40a39a3da33f97237f1d730d3589d">Streamer</a>
 </li>
 <li>getMinAge()
 : <a class="el" href="class_stream.html#aa0aae68b639edf56ff6aab52f0adb4e5">Stream</a>
@@ -188,6 +213,16 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 <li>getNumOfViews()
 : <a class="el" href="class_finished_stream.html#a7d0520033277ab6f498855b68db8ac32">FinishedStream</a>
 </li>
+<li>getOrder()
+: <a class="el" href="class_order_limit_reached.html#a48a72f21701eceed96a1f7f0f25086ed">OrderLimitReached</a>
+, <a class="el" href="class_viewer_already_ordered.html#ac75abdd39ccb432277c49a3edffa8533">ViewerAlreadyOrdered</a>
+</li>
+<li>getOrderedDonations()
+: <a class="el" href="class_leaderboard_manager.html#a3a85d177777dc1d3bb12af1f9b1873c5">LeaderboardManager</a>
+</li>
+<li>getOrders()
+: <a class="el" href="class_streamer_merch.html#ac02849477c2bbc6325bfd140a94e60f3">StreamerMerch</a>
+</li>
 <li>getPassword()
 : <a class="el" href="class_user.html#aee6af833e24993ff1056538c2c34e99c">User</a>
 </li>
@@ -196,6 +231,16 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 </li>
 <li>getPreviousStreamsIDs()
 : <a class="el" href="class_streamer.html#abdca61f088b6ae298ef7e89832abdb28">Streamer</a>
+</li>
+<li>getPurchaseA()
+: <a class="el" href="class_invalid_purchase_availability.html#aa745bd3cf7da9f2497e501f0b3d91064">InvalidPurchaseAvailability</a>
+, <a class="el" href="class_merch_request.html#ab6c80ac0f05fbc724864115cd9b18692">MerchRequest</a>
+</li>
+<li>getQuantity()
+: <a class="el" href="class_merch_request.html#a1fa6b141fd994eaa76add651bc8dca9b">MerchRequest</a>
+</li>
+<li>getRating()
+: <a class="el" href="class_donation.html#a38728e75119d52924d4f6dd32f83aa7a">Donation</a>
 </li>
 <li>getSeconds()
 : <a class="el" href="class_date.html#a0d6b3be25ee5c93c446a55843bdc96db">Date</a>
@@ -212,11 +257,21 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 : <a class="el" href="class_stream.html#ab33c0063d7866b170f4a67d9c2d0647e">Stream</a>
 , <a class="el" href="class_streamer_already_streaming.html#a440fbef7aa77bd50276fcd4a971ac4de">StreamerAlreadyStreaming</a>
 </li>
+<li>getStreamerDonations()
+: <a class="el" href="class_streamer_manager.html#a33e98b3d8eaf4dcfcf8198e290f3a9f2">StreamerManager</a>
+</li>
 <li>getStreamerManager()
 : <a class="el" href="class_stream_z.html#a49ce7af69c0381acf19f9efbbd6671ae">StreamZ</a>
 </li>
+<li>getStreamerMerch()
+: <a class="el" href="class_streamer.html#a0aecd84057f1ff6db42cff366958e70b">Streamer</a>
+</li>
+<li>getStreamerNickname()
+: <a class="el" href="class_donation.html#a895795971dcc71dd7a9131b88e3ef627">Donation</a>
+, <a class="el" href="class_streamer_has_no_donations.html#a6fff61cd9034a377da098c12ccd58c9a">StreamerHasNoDonations</a>
+</li>
 <li>getStreamers()
-: <a class="el" href="class_streamer_manager.html#ab5077b3abd36c2b30b90a36aba4c2562">StreamerManager</a>
+: <a class="el" href="class_streamer_manager.html#a433abcff4e0f18367fbd953c3c1c101e">StreamerManager</a>
 </li>
 <li>getStreamHistory()
 : <a class="el" href="class_viewer.html#af3f5c79df5dc47663e2f09dac396eb5c">Viewer</a>
@@ -253,16 +308,19 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 : <a class="el" href="class_stream_z.html#a9e4bc2e442da894e82dedff96ac0286a">StreamZ</a>
 </li>
 <li>getUsers()
-: <a class="el" href="class_user_manager.html#ac493affe730971774c0e3f5035458b56">UserManager</a>
+: <a class="el" href="class_user_manager.html#af86c2f42ccae75c8a6731af032a91108">UserManager</a>
 </li>
 <li>getUserType()
 : <a class="el" href="class_user.html#aad95bad2bd0d71a92f35ad7a649adbd8">User</a>
+</li>
+<li>getValue()
+: <a class="el" href="class_invalid_donation_value.html#a199b48905251b15825ec16e066e07c9a">InvalidDonationValue</a>
 </li>
 <li>getViewerManager()
 : <a class="el" href="class_stream_z.html#a52b1f1774cea4506206af38ffa74e9c2">StreamZ</a>
 </li>
 <li>getViewers()
-: <a class="el" href="class_viewer_manager.html#ad4e2637f72b76bac3376024b1d117341">ViewerManager</a>
+: <a class="el" href="class_viewer_manager.html#af1db33c0cafd576ba1e9d689920a5ed3">ViewerManager</a>
 </li>
 <li>getVotes()
 : <a class="el" href="class_stream.html#a71b9b2dddc7eb3108c4df14e7e4504c0">Stream</a>
@@ -274,7 +332,7 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 : <a class="el" href="class_date.html#a597b505c264a24d34369c43119fc4e6e">Date</a>
 </li>
 <li>giveFeedbackToStream()
-: <a class="el" href="class_viewer.html#adbd92f8cddd5f74fe128c13b8b8418c1">Viewer</a>
+: <a class="el" href="class_viewer.html#a665507d163b48d7ec66e6d88b6ef56d4">Viewer</a>
 </li>
 </ul>
 </div><!-- contents -->

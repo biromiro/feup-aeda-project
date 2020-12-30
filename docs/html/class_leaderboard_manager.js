@@ -1,6 +1,9 @@
 var class_leaderboard_manager =
 [
     [ "LeaderboardManager", "class_leaderboard_manager.html#aada9437b152702edbaea15fe22f69202", null ],
+    [ "filterDeactivatedStreamers", "class_leaderboard_manager.html#a1b9b026517c2c0ba0c10cf6dbb504c8e", null ],
+    [ "filterDeactivatedUsers", "class_leaderboard_manager.html#a099abfb4d8307f5c5e0a7f30471b92ba", null ],
+    [ "filterDeactivatedViewers", "class_leaderboard_manager.html#a499754816cea191206f97e4030e1aaf9", null ],
     [ "filterStreamByAge", "class_leaderboard_manager.html#a896b6a0e5f071e8db7eef392d3baf564", null ],
     [ "filterStreamByDate", "class_leaderboard_manager.html#ab915bd4d44facbf775d970a486fef085", null ],
     [ "filterStreamByGenre", "class_leaderboard_manager.html#a0e3fe4c890b5554c3cdac4ce4feeeff1", null ],
@@ -8,8 +11,10 @@ var class_leaderboard_manager =
     [ "filterStreamByStreamer", "class_leaderboard_manager.html#a7db11a75e2dff5ec3c101b389107fe1d", null ],
     [ "filterStreamByType", "class_leaderboard_manager.html#a9d9483e11a22b744755b755b238bc10b", null ],
     [ "filterViewerByAge", "class_leaderboard_manager.html#ac4609db8552e69bd7383829ab8e01c9b", null ],
+    [ "getDonationsByAvalInterval", "class_leaderboard_manager.html#a7508f289245a1fa3d625094999b25c96", null ],
     [ "getFollowingStreamersLeaderboard", "class_leaderboard_manager.html#ae157e65d02f0437525d7abcac47adc40", null ],
     [ "getNotFollowingStreamersLeaderboard", "class_leaderboard_manager.html#a2bb47a5fe862eb771c2d222d8a1ae61a", null ],
+    [ "getOrderedDonations", "class_leaderboard_manager.html#a3a85d177777dc1d3bb12af1f9b1873c5", null ],
     [ "meanViewsPerStreamActive", "class_leaderboard_manager.html#afe6829b814057835fe886ec75a1ce6d7", null ],
     [ "meanViewsPerStreamFinished", "class_leaderboard_manager.html#a2617266b393450c2671bd9bb5c5266ac", null ],
     [ "mostCommonLanguage", "class_leaderboard_manager.html#a45bcdfcb2331450154a945a4c8c61134", null ],

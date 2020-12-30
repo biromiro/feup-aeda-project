@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="rsz_1rsz_acastro_200410_1777_obs_00010.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StreamZ
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">A streaming platform for all!</div>
   </td>
@@ -110,6 +110,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:adc6efda84d1c4f95830873c398ea7b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a847f4998940d8d8b63f681e6b0d9151f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_admin.html">Admin</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_admin_manager.html#a847f4998940d8d8b63f681e6b0d9151f">get</a> () const</td></tr>
 <tr class="separator:a847f4998940d8d8b63f681e6b0d9151f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09ed86164602f229614ece4320ddb2a0"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_admin_manager.html#a09ed86164602f229614ece4320ddb2a0">getMerchLimit</a> () const</td></tr>
+<tr class="separator:a09ed86164602f229614ece4320ddb2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3802f8008db472cb94290b2044a573fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_admin_manager.html#a3802f8008db472cb94290b2044a573fc">setMerchLimit</a> (unsigned int newLimit)</td></tr>
+<tr class="separator:a3802f8008db472cb94290b2044a573fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa406934296b59e613f8677ec5211cecf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_admin_manager.html#aa406934296b59e613f8677ec5211cecf">readData</a> ()</td></tr>
 <tr class="separator:aa406934296b59e613f8677ec5211cecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95947166bc0f0eff9eccc2c33bcf46c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_admin_manager.html#a95947166bc0f0eff9eccc2c33bcf46c1">writeData</a> ()</td></tr>
@@ -152,7 +156,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00010">10</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00011">11</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -181,7 +185,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the action was successful, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00029">29</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00030">30</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -233,7 +237,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the action was successful, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00014">14</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00015">15</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -254,7 +258,28 @@ Public Member Functions</h2></td></tr>
 <p>Getter of the admin</p>
 <dl class="section return"><dt>Returns</dt><dd>the current admin </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00060">60</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00061">61</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a09ed86164602f229614ece4320ddb2a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09ed86164602f229614ece4320ddb2a0">&#9670;&nbsp;</a></span>getMerchLimit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int AdminManager::getMerchLimit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter of the merchandising limit for streamers</p>
+<dl class="section return"><dt>Returns</dt><dd>merchandising limit </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00065">65</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -282,7 +307,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the action was successful, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00052">52</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00053">53</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -310,7 +335,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the action was successful, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00056">56</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00057">57</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -331,7 +356,7 @@ Public Member Functions</h2></td></tr>
 <p>Reads saved admins from File</p>
 <dl class="section return"><dt>Returns</dt><dd>read successfull </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00065">65</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00081">81</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -358,7 +383,34 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the action was successful, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00040">40</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00041">41</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3802f8008db472cb94290b2044a573fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3802f8008db472cb94290b2044a573fc">&#9670;&nbsp;</a></span>setMerchLimit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AdminManager::setMerchLimit </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>newLimit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Updates the merchandising limit for streamers</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newLimit</td><td>new merchandising limit </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00069">69</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -379,7 +431,7 @@ Public Member Functions</h2></td></tr>
 <p>Writes and Updates admins to File</p>
 <dl class="section return"><dt>Returns</dt><dd>write successfull </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00086">86</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="admin__manager_8cpp_source.html#l00104">104</a> of file <a class="el" href="admin__manager_8cpp_source.html">admin_manager.cpp</a>.</p>
 
 </div>
 </div>

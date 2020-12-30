@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="rsz_1rsz_acastro_200410_1777_obs_00010.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StreamZ
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">A streaming platform for all!</div>
   </td>
@@ -102,6 +102,16 @@ Inheritance diagram for Streamer:</div>
 <area shape="rect" href="class_user.html" title=" " alt="" coords="21,5,73,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for Streamer:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_streamer__coll__graph.png" border="0" usemap="#_streamer_coll__map" alt="Collaboration graph"/></div>
+<map name="_streamer_coll__map" id="_streamer_coll__map">
+<area shape="rect" title=" " alt="" coords="5,185,88,212"/>
+<area shape="rect" href="class_user.html" title=" " alt="" coords="21,109,73,136"/>
+<area shape="rect" href="class_date.html" title=" " alt="" coords="20,5,73,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -117,12 +127,26 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab427f0e575f2afa6d370b43d084fb5f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a267983f780240b31b8764bf556b61ab2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#a267983f780240b31b8764bf556b61ab2">addToViewCount</a> (unsigned int value)</td></tr>
 <tr class="separator:a267983f780240b31b8764bf556b61ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa30cc3e71d99ee43692ea53658539226"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#aa30cc3e71d99ee43692ea53658539226">setUpMerch</a> (unsigned int limit)</td></tr>
+<tr class="separator:aa30cc3e71d99ee43692ea53658539226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a112e1bf3671d8d3dcae10cf29df33c7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#a112e1bf3671d8d3dcae10cf29df33c7a">addMerchOrder</a> (<a class="el" href="class_merch_request.html">MerchRequest</a> newOrder)</td></tr>
+<tr class="separator:a112e1bf3671d8d3dcae10cf29df33c7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcfbdf254f3176d77c89e8ec1f51b054"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#abcfbdf254f3176d77c89e8ec1f51b054">removeMerchOrder</a> (std::string buyer)</td></tr>
+<tr class="separator:abcfbdf254f3176d77c89e8ec1f51b054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7f690f772a1f81196e3eed5efcfc6c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_merch_request.html">MerchRequest</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#ad7f690f772a1f81196e3eed5efcfc6c1">processNextOrder</a> ()</td></tr>
+<tr class="separator:ad7f690f772a1f81196e3eed5efcfc6c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adae3736c842cc7dcf47dd9bfce622396"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#adae3736c842cc7dcf47dd9bfce622396">updateMerchLimit</a> (unsigned int newLimit)</td></tr>
+<tr class="separator:adae3736c842cc7dcf47dd9bfce622396"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74301ee1128e2ffe2fd2166bece1df3c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#a74301ee1128e2ffe2fd2166bece1df3c">getTotalViewCount</a> () const</td></tr>
 <tr class="separator:a74301ee1128e2ffe2fd2166bece1df3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d9dd2a7e58c11ffb3b50cae9d54a2c1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#a9d9dd2a7e58c11ffb3b50cae9d54a2c1">getCurrentStreamID</a> () const</td></tr>
 <tr class="separator:a9d9dd2a7e58c11ffb3b50cae9d54a2c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdca61f088b6ae298ef7e89832abdb28"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; unsigned int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#abdca61f088b6ae298ef7e89832abdb28">getPreviousStreamsIDs</a> () const</td></tr>
 <tr class="separator:abdca61f088b6ae298ef7e89832abdb28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aecd84057f1ff6db42cff366958e70b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_streamer_merch.html">StreamerMerch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#a0aecd84057f1ff6db42cff366958e70b">getStreamerMerch</a> () const</td></tr>
+<tr class="separator:a0aecd84057f1ff6db42cff366958e70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14c40a39a3da33f97237f1d730d3589d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#a14c40a39a3da33f97237f1d730d3589d">getMerchSetUp</a> () const</td></tr>
+<tr class="separator:a14c40a39a3da33f97237f1d730d3589d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a420c27c9b9ff3bd299ee16b154ed041e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#a420c27c9b9ff3bd299ee16b154ed041e">readData</a> (std::ifstream &amp;ifs) override</td></tr>
 <tr class="separator:a420c27c9b9ff3bd299ee16b154ed041e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4308cd91d596ae423fbd8df7a366e24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#ae4308cd91d596ae423fbd8df7a366e24">writeData</a> (std::ofstream &amp;ofs) override</td></tr>
@@ -139,6 +163,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8450f3072cd697d510313affb3810e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e46441098674202390ec8eac9d7658e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#a3e46441098674202390ec8eac9d7658e">operator&gt;=</a> (const <a class="el" href="class_streamer.html">Streamer</a> &amp;rhs) const</td></tr>
 <tr class="separator:a3e46441098674202390ec8eac9d7658e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a392f2770414de7e3a71570b6ca8cf265"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#a392f2770414de7e3a71570b6ca8cf265">eligibleForBonus</a> () const</td></tr>
+<tr class="separator:a392f2770414de7e3a71570b6ca8cf265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1b99d28d849dcf0041599b140045eff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#ab1b99d28d849dcf0041599b140045eff">makeEligibleToBonus</a> ()</td></tr>
+<tr class="separator:ab1b99d28d849dcf0041599b140045eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a031b395e21b7c7b119e4b99c09b6c529"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer.html#a031b395e21b7c7b119e4b99c09b6c529">useBonus</a> ()</td></tr>
+<tr class="separator:a031b395e21b7c7b119e4b99c09b6c529"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_user"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_user')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_user.html">User</a></td></tr>
 <tr class="memitem:a3d027f4eb08a0bfd4aca307323968172 inherit pub_methods_class_user"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_date.html">Date</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#a3d027f4eb08a0bfd4aca307323968172">getBirthDate</a> () const</td></tr>
 <tr class="separator:a3d027f4eb08a0bfd4aca307323968172 inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,6 +204,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac85b60c6ceaae348feb9eb589bf33795 inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd166d40837a934dcdf843d5d9d5aa4e inherit pub_methods_class_user"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#abd166d40837a934dcdf843d5d9d5aa4e">operator&gt;=</a> (const <a class="el" href="class_user.html">User</a> &amp;rhs) const</td></tr>
 <tr class="separator:abd166d40837a934dcdf843d5d9d5aa4e inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0ebcd84e6c0c6582dd9d457004f66c8 inherit pub_methods_class_user"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#af0ebcd84e6c0c6582dd9d457004f66c8">isDeactivated</a> () const</td></tr>
+<tr class="separator:af0ebcd84e6c0c6582dd9d457004f66c8 inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac1d9050c6e74ba0edb1c89c74e110c inherit pub_methods_class_user"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#a7ac1d9050c6e74ba0edb1c89c74e110c">deactivateAcc</a> ()</td></tr>
+<tr class="separator:a7ac1d9050c6e74ba0edb1c89c74e110c inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a219bd2c39ab390d9901788d6118a92cc inherit pub_methods_class_user"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#a219bd2c39ab390d9901788d6118a92cc">reactivateAcc</a> ()</td></tr>
+<tr class="separator:a219bd2c39ab390d9901788d6118a92cc inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -195,12 +231,14 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ae219485aedc068a290fa4c581dd41026 inherit pro_attribs_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2f2e75b15e8eb6cbb030fc85a6cd59f inherit pro_attribs_class_user"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#ac2f2e75b15e8eb6cbb030fc85a6cd59f">password</a></td></tr>
 <tr class="separator:ac2f2e75b15e8eb6cbb030fc85a6cd59f inherit pro_attribs_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae70dbbcc2725704d144b10df01e214a6 inherit pro_attribs_class_user"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#ae70dbbcc2725704d144b10df01e214a6">deactivated</a> = false</td></tr>
+<tr class="separator:ae70dbbcc2725704d144b10df01e214a6 inherit pro_attribs_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of the <a class="el" href="class_streamer.html">Streamer</a> class</p>
 <p>A streamer can start streams, finish them, and see his past streams and current stream statistics </p>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8h_source.html#l00029">29</a> of file <a class="el" href="streamer_8h_source.html">streamer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8h_source.html#l00032">32</a> of file <a class="el" href="streamer_8h_source.html">streamer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4a4539a7dfea1cd036727aaf64d6cc8c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4a4539a7dfea1cd036727aaf64d6cc8c">&#9670;&nbsp;</a></span>Streamer() <span class="overload">[1/2]</span></h2>
@@ -217,7 +255,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00008">8</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00010">10</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -268,11 +306,38 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00010">10</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00012">12</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a112e1bf3671d8d3dcae10cf29df33c7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a112e1bf3671d8d3dcae10cf29df33c7a">&#9670;&nbsp;</a></span>addMerchOrder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Streamer::addMerchOrder </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_merch_request.html">MerchRequest</a>&#160;</td>
+          <td class="paramname"><em>newOrder</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Adds a viewer's order to the orders queue</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newOrder</td><td>order to add to queue </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00045">45</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a267983f780240b31b8764bf556b61ab2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a267983f780240b31b8764bf556b61ab2">&#9670;&nbsp;</a></span>addToViewCount()</h2>
 
@@ -296,7 +361,27 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00115">115</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00163">163</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a392f2770414de7e3a71570b6ca8cf265"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a392f2770414de7e3a71570b6ca8cf265">&#9670;&nbsp;</a></span>eligibleForBonus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Streamer::eligibleForBonus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks if the streamer can receive the reactivation Bonus </p>
+
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00167">167</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -317,7 +402,28 @@ Additional Inherited Members</h2></td></tr>
 <p>Getter of streamer's current streamID</p>
 <dl class="section return"><dt>Returns</dt><dd>the current stream's ID </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00043">43</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00073">73</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a14c40a39a3da33f97237f1d730d3589d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14c40a39a3da33f97237f1d730d3589d">&#9670;&nbsp;</a></span>getMerchSetUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Streamer::getMerchSetUp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter of boolean value indicating if streamer has set up his merchandising</p>
+<dl class="section return"><dt>Returns</dt><dd>boolean value indicating if streamer has set up his merchandising </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00085">85</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -338,7 +444,28 @@ Additional Inherited Members</h2></td></tr>
 <p>Getter of streamer's past streamIDs</p>
 <dl class="section return"><dt>Returns</dt><dd>vector of IDs of previous streams </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00047">47</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00077">77</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0aecd84057f1ff6db42cff366958e70b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aecd84057f1ff6db42cff366958e70b">&#9670;&nbsp;</a></span>getStreamerMerch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_streamer_merch.html">StreamerMerch</a> &amp; Streamer::getStreamerMerch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter of streamer's <a class="el" href="class_streamer_merch.html">StreamerMerch</a> object</p>
+<dl class="section return"><dt>Returns</dt><dd>streamer's <a class="el" href="class_streamer_merch.html">StreamerMerch</a> object </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00081">81</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -359,7 +486,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Getter of streamer's total view count</p>
 <dl class="section return"><dt>Returns</dt><dd>the streamer's total view count </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00039">39</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00069">69</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -380,7 +507,27 @@ Additional Inherited Members</h2></td></tr>
 <p>Checks whether or not the streamer is streaming</p>
 <dl class="section return"><dt>Returns</dt><dd>True if the streamer is, in fact, streaming, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00025">25</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00027">27</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab1b99d28d849dcf0041599b140045eff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1b99d28d849dcf0041599b140045eff">&#9670;&nbsp;</a></span>makeEligibleToBonus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Streamer::makeEligibleToBonus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the eligibility to the reactivation bonus to true </p>
+
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00175">175</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -408,7 +555,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>self != given streamer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00087">87</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00125">125</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -436,7 +583,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>self &lt; given streamer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00051">51</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00089">89</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -464,7 +611,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>self &lt;= given streamer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00075">75</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00113">113</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -492,7 +639,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>self == given streamer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00083">83</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00121">121</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -520,7 +667,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>self &gt; given streamer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00071">71</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00109">109</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -548,7 +695,28 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>self &gt;= given streamer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00079">79</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00117">117</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad7f690f772a1f81196e3eed5efcfc6c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7f690f772a1f81196e3eed5efcfc6c1">&#9670;&nbsp;</a></span>processNextOrder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_merch_request.html">MerchRequest</a> Streamer::processNextOrder </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Processes the first order on the queue</p>
+<dl class="section return"><dt>Returns</dt><dd>first order on the queue </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00061">61</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -585,7 +753,34 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_user.html#adca54595d50308841bcc2d5091f4081c">User</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00091">91</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00129">129</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abcfbdf254f3176d77c89e8ec1f51b054"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcfbdf254f3176d77c89e8ec1f51b054">&#9670;&nbsp;</a></span>removeMerchOrder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Streamer::removeMerchOrder </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>buyer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Removes a viewer's order from the orders queue</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buyer</td><td>name of the viewer whose order is to be removed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00053">53</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -605,7 +800,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>Removes the current stream </p>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00034">34</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00035">35</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -632,7 +827,81 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00029">29</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00031">31</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa30cc3e71d99ee43692ea53658539226"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa30cc3e71d99ee43692ea53658539226">&#9670;&nbsp;</a></span>setUpMerch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Streamer::setUpMerch </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>limit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets up the merchandising queue for the streamer</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">limit</td><td>merchandising limit provided by platform </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00040">40</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="adae3736c842cc7dcf47dd9bfce622396"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adae3736c842cc7dcf47dd9bfce622396">&#9670;&nbsp;</a></span>updateMerchLimit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Streamer::updateMerchLimit </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>newLimit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Updates the limit for merchandising orders</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newLimit</td><td>new limit for orders </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00065">65</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a031b395e21b7c7b119e4b99c09b6c529"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a031b395e21b7c7b119e4b99c09b6c529">&#9670;&nbsp;</a></span>useBonus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Streamer::useBonus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Once the bonus is applied to the first stream, removes the possibility to obtain it again </p>
+
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00171">171</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>
@@ -669,7 +938,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_user.html#a3efd848398bcda7686ed2ae03ec1f99a">User</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00105">105</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer_8cpp_source.html#l00148">148</a> of file <a class="el" href="streamer_8cpp_source.html">streamer.cpp</a>.</p>
 
 </div>
 </div>

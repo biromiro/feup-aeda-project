@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['title_782',['title',['../class_stream.html#a740de4c2b13297152661213397ae2b54',1,'Stream']]],
-  ['ttime_783',['ttime',['../date_8cpp.html#a11c8ddfb60163c39b52dc2bd171f0b76',1,'date.cpp']]],
-  ['type_784',['type',['../class_stream.html#ae20127cdd9b8086ed8f27256843ecfa4',1,'Stream::type()'],['../class_user.html#ae219485aedc068a290fa4c581dd41026',1,'User::type()']]]
+  ['show_5fcursor_1016',['SHOW_CURSOR',['../auxiliary_functions_8h.html#adc2567c5949c5fdde921d34700e3c3fd',1,'auxiliaryFunctions.h']]],
+  ['streamdate_1017',['streamDate',['../class_stream.html#ad047f8ccecf480a510a3c48826ad38f8',1,'Stream']]],
+  ['streamer_1018',['streamer',['../class_stream.html#a3bea5f958e04a1936f29c0c0865995c8',1,'Stream']]]
 ];

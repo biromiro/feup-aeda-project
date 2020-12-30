@@ -7,6 +7,19 @@
 
 #include <iostream>
 
+/**
+ * @file merchRequest.cpp
+ *
+ * @brief Class representing the Merch Request class
+ *
+ * @ingroup transactions
+ */
+
+/**
+ * Implementation of the merch request class
+ *
+ * Represents a merch request, with its buyer, number of items ordered and availability
+ */
 class MerchRequest {
 public:
     /**
@@ -47,8 +60,22 @@ public:
      */
     bool operator<(const MerchRequest &mr) const;
 
+    /**
+     * Output stream operator overload
+     *
+     * @param out the stream to output
+     * @param f the merch request to output
+     * @return the stream passed as parameter
+     */
     friend std::ostream& operator<<(std::ostream& out, const MerchRequest& f);
 
+    /**
+     * Input stream operator overload
+     *
+     * @param out the stream to get input from
+     * @param f the merch request to get input
+     * @return the stream passed as parameter
+     */
     friend std::istream& operator>>(std::istream& out, MerchRequest& f);
 private:
     std::string buyer;

@@ -1,0 +1,180 @@
+\hypertarget{class_donation}{}\doxysection{Donation Class Reference}
+\label{class_donation}\index{Donation@{Donation}}
+
+
+{\ttfamily \#include $<$donation.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_donation_a8e118f682f90d8e1d3b2bc6347baa302}{Donation}} (std\+::string nickname, float ammount, \mbox{\hyperlink{donation_8h_a0fc0828b6df2228e551899bce0ce1ad9}{streamer\+Work\+Rating}} rating)
+\item 
+\mbox{\hyperlink{donation_8h_a0fc0828b6df2228e551899bce0ce1ad9}{streamer\+Work\+Rating}} \mbox{\hyperlink{class_donation_a38728e75119d52924d4f6dd32f83aa7a}{get\+Rating}} () const
+\item 
+float \mbox{\hyperlink{class_donation_a0e3f3765ff05bb029f68e5c7aaccea3b}{get\+Ammount}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_donation_a895795971dcc71dd7a9131b88e3ef627}{get\+Streamer\+Nickname}} () const
+\item 
+bool \mbox{\hyperlink{class_donation_a8d6daf21e54debbd0bd39b7ef6c08a2a}{operator$<$}} (const \mbox{\hyperlink{class_donation}{Donation}} \&rhs) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_donation_ad9fc3de30d2995748fb71db6120a7f91}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_donation}{Donation}} \&f)
+\item 
+std\+::istream \& \mbox{\hyperlink{class_donation_a98fd6e31db2c42c30a1e5512cfde7b93}{operator$>$$>$}} (std\+::istream \&out, \mbox{\hyperlink{class_donation}{Donation}} \&f)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the donation class
+
+Represents a donation, with its receiver, ammount and rating 
+
+Definition at line 32 of file donation.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_donation_a8e118f682f90d8e1d3b2bc6347baa302}\label{class_donation_a8e118f682f90d8e1d3b2bc6347baa302}} 
+\index{Donation@{Donation}!Donation@{Donation}}
+\index{Donation@{Donation}!Donation@{Donation}}
+\doxysubsubsection{\texorpdfstring{Donation()}{Donation()}}
+{\footnotesize\ttfamily Donation\+::\+Donation (\begin{DoxyParamCaption}\item[{std\+::string}]{nickname,  }\item[{float}]{ammount,  }\item[{\mbox{\hyperlink{donation_8h_a0fc0828b6df2228e551899bce0ce1ad9}{streamer\+Work\+Rating}}}]{rating }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_donation}{Donation}} constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & the nickname of the streamer to donate to \\
+\hline
+{\em ammount} & the ammount donated \\
+\hline
+{\em rating} & the rating given to the streamer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 20 of file donation.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_donation_a0e3f3765ff05bb029f68e5c7aaccea3b}\label{class_donation_a0e3f3765ff05bb029f68e5c7aaccea3b}} 
+\index{Donation@{Donation}!getAmmount@{getAmmount}}
+\index{getAmmount@{getAmmount}!Donation@{Donation}}
+\doxysubsubsection{\texorpdfstring{getAmmount()}{getAmmount()}}
+{\footnotesize\ttfamily float Donation\+::get\+Ammount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the ammount donated
+
+\begin{DoxyReturn}{Returns}
+the ammount donated 
+\end{DoxyReturn}
+
+
+Definition at line 12 of file donation.\+cpp.
+
+\mbox{\Hypertarget{class_donation_a38728e75119d52924d4f6dd32f83aa7a}\label{class_donation_a38728e75119d52924d4f6dd32f83aa7a}} 
+\index{Donation@{Donation}!getRating@{getRating}}
+\index{getRating@{getRating}!Donation@{Donation}}
+\doxysubsubsection{\texorpdfstring{getRating()}{getRating()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{donation_8h_a0fc0828b6df2228e551899bce0ce1ad9}{streamer\+Work\+Rating}} Donation\+::get\+Rating (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the given rating in the donation
+
+\begin{DoxyReturn}{Returns}
+the rating given 
+\end{DoxyReturn}
+
+
+Definition at line 8 of file donation.\+cpp.
+
+\mbox{\Hypertarget{class_donation_a895795971dcc71dd7a9131b88e3ef627}\label{class_donation_a895795971dcc71dd7a9131b88e3ef627}} 
+\index{Donation@{Donation}!getStreamerNickname@{getStreamerNickname}}
+\index{getStreamerNickname@{getStreamerNickname}!Donation@{Donation}}
+\doxysubsubsection{\texorpdfstring{getStreamerNickname()}{getStreamerNickname()}}
+{\footnotesize\ttfamily const std\+::string \& Donation\+::get\+Streamer\+Nickname (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the donated streamer nickname
+
+\begin{DoxyReturn}{Returns}
+the nickname of the donated streamer 
+\end{DoxyReturn}
+
+
+Definition at line 16 of file donation.\+cpp.
+
+\mbox{\Hypertarget{class_donation_a8d6daf21e54debbd0bd39b7ef6c08a2a}\label{class_donation_a8d6daf21e54debbd0bd39b7ef6c08a2a}} 
+\index{Donation@{Donation}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Donation@{Donation}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Donation\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_donation}{Donation}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+Operator $<$ of the class \mbox{\hyperlink{class_donation}{Donation}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & the donation to compare to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if smaller, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 24 of file donation.\+cpp.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_donation_ad9fc3de30d2995748fb71db6120a7f91}\label{class_donation_ad9fc3de30d2995748fb71db6120a7f91}} 
+\index{Donation@{Donation}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Donation@{Donation}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_donation}{Donation}} \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Output stream operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & the stream to output \\
+\hline
+{\em f} & the donation to output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the stream passed as parameter 
+\end{DoxyReturn}
+
+
+Definition at line 36 of file donation.\+cpp.
+
+\mbox{\Hypertarget{class_donation_a98fd6e31db2c42c30a1e5512cfde7b93}\label{class_donation_a98fd6e31db2c42c30a1e5512cfde7b93}} 
+\index{Donation@{Donation}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Donation@{Donation}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{out,  }\item[{\mbox{\hyperlink{class_donation}{Donation}} \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Input stream operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & the stream to get input from \\
+\hline
+{\em f} & the donation to get input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the stream passed as parameter 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file donation.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/transactions/donations/\mbox{\hyperlink{donation_8h}{donation.\+h}}\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/transactions/donations/\mbox{\hyperlink{donation_8cpp}{donation.\+cpp}}\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['date_435',['Date',['../class_date.html',1,'']]]
+  ['currentsession_560',['CurrentSession',['../class_current_session.html',1,'']]]
 ];

@@ -29,11 +29,21 @@ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \mbox{
 \item 
 unsigned int \mbox{\hyperlink{class_streamer_manager_a836a95d8a52da98e895d0cdb3e46282f}{get\+Num\+Of\+Followers}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&streamer) const
 \item 
-const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ $>$ \& \mbox{\hyperlink{class_streamer_manager_ab5077b3abd36c2b30b90a36aba4c2562}{get\+Streamers}} () const
+const \mbox{\hyperlink{streamer__manager_8h_a41d1aa3eb6787282ff49e48cc1a4184a}{tab\+H\+Streamer}} \& \mbox{\hyperlink{class_streamer_manager_a433abcff4e0f18367fbd953c3c1c101e}{get\+Streamers}} () const
+\item 
+const \mbox{\hyperlink{class_b_s_t}{B\+ST}}$<$ \mbox{\hyperlink{class_donation}{Donation}} $>$ \& \mbox{\hyperlink{class_streamer_manager_a9b8507082514a0431ff69eaa74d490be}{get\+Donations}} () const
+\item 
+void \mbox{\hyperlink{class_streamer_manager_ad5edbda41b32658cf0deb1afa44b9dce}{add\+New\+Donation}} (const std\+::string \&nickname, float ammount, \mbox{\hyperlink{donation_8h_a0fc0828b6df2228e551899bce0ce1ad9}{streamer\+Work\+Rating}} rating)
+\item 
+vector$<$ \mbox{\hyperlink{class_donation}{Donation}} $>$ \mbox{\hyperlink{class_streamer_manager_a33e98b3d8eaf4dcfcf8198e290f3a9f2}{get\+Streamer\+Donations}} (const std\+::string \&nickname)
 \item 
 bool \mbox{\hyperlink{class_streamer_manager_a0e58ddf85924d01bc58c79fd722e0bce}{read\+Data}} ()
 \item 
 bool \mbox{\hyperlink{class_streamer_manager_abead67bd23d38c79a508a10e94f53226}{write\+Data}} ()
+\item 
+bool \mbox{\hyperlink{class_streamer_manager_a37a8d67f1f1ae316cb001c0fe84160c6}{deactivate\+Streamer}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&streamer)
+\item 
+bool \mbox{\hyperlink{class_streamer_manager_ad78a8aae2b32b04e8861a1c05370ac9b}{reactivate\+Streamer}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&streamer)
 \end{DoxyCompactItemize}
 
 
@@ -42,7 +52,7 @@ Implementation of the \mbox{\hyperlink{class_streamer}{Streamer}} Manager class
 
 Manages the streamers, taking care of the streamer related events (creating adn deleting one, managing a stream creation, etc) 
 
-Definition at line 24 of file streamer\+\_\+manager.\+h.
+Definition at line 45 of file streamer\+\_\+manager.\+h.
 
 
 
@@ -51,7 +61,11 @@ Definition at line 24 of file streamer\+\_\+manager.\+h.
 \index{StreamerManager@{StreamerManager}!StreamerManager@{StreamerManager}}
 \index{StreamerManager@{StreamerManager}!StreamerManager@{StreamerManager}}
 \doxysubsubsection{\texorpdfstring{StreamerManager()}{StreamerManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Streamer\+Manager\+::\+Streamer\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+{\footnotesize\ttfamily Streamer\+Manager\+::\+Streamer\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file streamer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_manager_ae1c4595d6d256ea23c189ce8f3e16bf5}\label{class_streamer_manager_ae1c4595d6d256ea23c189ce8f3e16bf5}} 
 \index{StreamerManager@{StreamerManager}!StreamerManager@{StreamerManager}}
@@ -72,7 +86,7 @@ Constructor of the \mbox{\hyperlink{class_streamer}{Streamer}} Manager
 \end{DoxyParams}
 
 
-Definition at line 13 of file streamer\+\_\+manager.\+cpp.
+Definition at line 14 of file streamer\+\_\+manager.\+cpp.
 
 
 
@@ -95,7 +109,28 @@ True if the action was successful, false otherwise
 \end{DoxyReturn}
 
 
-Definition at line 39 of file streamer\+\_\+manager.\+cpp.
+Definition at line 40 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_ad5edbda41b32658cf0deb1afa44b9dce}\label{class_streamer_manager_ad5edbda41b32658cf0deb1afa44b9dce}} 
+\index{StreamerManager@{StreamerManager}!addNewDonation@{addNewDonation}}
+\index{addNewDonation@{addNewDonation}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{addNewDonation()}{addNewDonation()}}
+{\footnotesize\ttfamily void Streamer\+Manager\+::add\+New\+Donation (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nickname,  }\item[{float}]{ammount,  }\item[{\mbox{\hyperlink{donation_8h_a0fc0828b6df2228e551899bce0ce1ad9}{streamer\+Work\+Rating}}}]{rating }\end{DoxyParamCaption})}
+
+Adds a new donation to the donation tree
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & the nickname of the streamer to donate \\
+\hline
+{\em ammount} & the ammount to donate to the streamer \\
+\hline
+{\em rating} & the rating given to the streamer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 195 of file streamer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_manager_a72cbd5b866396b12827c692931f43430}\label{class_streamer_manager_a72cbd5b866396b12827c692931f43430}} 
 \index{StreamerManager@{StreamerManager}!build@{build}}
@@ -119,7 +154,27 @@ True if the action was successful, false otherwise
 \end{DoxyReturn}
 
 
-Definition at line 19 of file streamer\+\_\+manager.\+cpp.
+Definition at line 20 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_a37a8d67f1f1ae316cb001c0fe84160c6}\label{class_streamer_manager_a37a8d67f1f1ae316cb001c0fe84160c6}} 
+\index{StreamerManager@{StreamerManager}!deactivateStreamer@{deactivateStreamer}}
+\index{deactivateStreamer@{deactivateStreamer}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{deactivateStreamer()}{deactivateStreamer()}}
+{\footnotesize\ttfamily bool Streamer\+Manager\+::deactivate\+Streamer (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&}]{streamer }\end{DoxyParamCaption})}
+
+Deactivates the given streamer\textquotesingle{}s account
+
+
+\begin{DoxyParams}{Parameters}
+{\em streamer} & the streamer which will have its account deactivated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return true if successful 
+\end{DoxyReturn}
+
+
+Definition at line 177 of file streamer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_manager_a75007035ee46d3e1d438acbf0f4b871f}\label{class_streamer_manager_a75007035ee46d3e1d438acbf0f4b871f}} 
 \index{StreamerManager@{StreamerManager}!endStream@{endStream}}
@@ -139,7 +194,7 @@ True if the action was successful, false otherwise
 \end{DoxyReturn}
 
 
-Definition at line 71 of file streamer\+\_\+manager.\+cpp.
+Definition at line 69 of file streamer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_manager_acec0b5568a3161b4a9f846336939dff4}\label{class_streamer_manager_acec0b5568a3161b4a9f846336939dff4}} 
 \index{StreamerManager@{StreamerManager}!get@{get}}
@@ -159,7 +214,22 @@ the streamer with the given nickname
 \end{DoxyReturn}
 
 
-Definition at line 90 of file streamer\+\_\+manager.\+cpp.
+Definition at line 88 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_a9b8507082514a0431ff69eaa74d490be}\label{class_streamer_manager_a9b8507082514a0431ff69eaa74d490be}} 
+\index{StreamerManager@{StreamerManager}!getDonations@{getDonations}}
+\index{getDonations@{getDonations}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{getDonations()}{getDonations()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_b_s_t}{B\+ST}}$<$ \mbox{\hyperlink{class_donation}{Donation}} $>$ \& Streamer\+Manager\+::get\+Donations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the \mbox{\hyperlink{class_b_s_t}{B\+ST}} of donations
+
+\begin{DoxyReturn}{Returns}
+the \mbox{\hyperlink{class_b_s_t}{B\+ST}} of donations 
+\end{DoxyReturn}
+
+
+Definition at line 214 of file streamer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_manager_a836a95d8a52da98e895d0cdb3e46282f}\label{class_streamer_manager_a836a95d8a52da98e895d0cdb3e46282f}} 
 \index{StreamerManager@{StreamerManager}!getNumOfFollowers@{getNumOfFollowers}}
@@ -179,13 +249,23 @@ number of followers
 \end{DoxyReturn}
 
 
-Definition at line 101 of file streamer\+\_\+manager.\+cpp.
+Definition at line 99 of file streamer\+\_\+manager.\+cpp.
 
-\mbox{\Hypertarget{class_streamer_manager_ab5077b3abd36c2b30b90a36aba4c2562}\label{class_streamer_manager_ab5077b3abd36c2b30b90a36aba4c2562}} 
+\mbox{\Hypertarget{class_streamer_manager_a33e98b3d8eaf4dcfcf8198e290f3a9f2}\label{class_streamer_manager_a33e98b3d8eaf4dcfcf8198e290f3a9f2}} 
+\index{StreamerManager@{StreamerManager}!getStreamerDonations@{getStreamerDonations}}
+\index{getStreamerDonations@{getStreamerDonations}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{getStreamerDonations()}{getStreamerDonations()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_donation}{Donation}} $>$ Streamer\+Manager\+::get\+Streamer\+Donations (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nickname }\end{DoxyParamCaption})}
+
+
+
+Definition at line 201 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_a433abcff4e0f18367fbd953c3c1c101e}\label{class_streamer_manager_a433abcff4e0f18367fbd953c3c1c101e}} 
 \index{StreamerManager@{StreamerManager}!getStreamers@{getStreamers}}
 \index{getStreamers@{getStreamers}!StreamerManager@{StreamerManager}}
 \doxysubsubsection{\texorpdfstring{getStreamers()}{getStreamers()}}
-{\footnotesize\ttfamily const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ $>$ \& Streamer\+Manager\+::get\+Streamers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const \mbox{\hyperlink{streamer__manager_8h_a41d1aa3eb6787282ff49e48cc1a4184a}{tab\+H\+Streamer}} \& Streamer\+Manager\+::get\+Streamers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Getter of streamers currently in the system
 
@@ -194,7 +274,7 @@ vector of streamers
 \end{DoxyReturn}
 
 
-Definition at line 108 of file streamer\+\_\+manager.\+cpp.
+Definition at line 106 of file streamer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_manager_a55d8d14202b191a8125c45d2d5ad8ab4}\label{class_streamer_manager_a55d8d14202b191a8125c45d2d5ad8ab4}} 
 \index{StreamerManager@{StreamerManager}!has@{has}}
@@ -214,7 +294,7 @@ True if the action was successful, false otherwise
 \end{DoxyReturn}
 
 
-Definition at line 81 of file streamer\+\_\+manager.\+cpp.
+Definition at line 79 of file streamer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_manager_aa75b972958a43beb6d6e9e1a31bf4cb4}\label{class_streamer_manager_aa75b972958a43beb6d6e9e1a31bf4cb4}} 
 \index{StreamerManager@{StreamerManager}!has@{has}}
@@ -234,7 +314,27 @@ True if the action was successful, false otherwise
 \end{DoxyReturn}
 
 
-Definition at line 85 of file streamer\+\_\+manager.\+cpp.
+Definition at line 83 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_ad78a8aae2b32b04e8861a1c05370ac9b}\label{class_streamer_manager_ad78a8aae2b32b04e8861a1c05370ac9b}} 
+\index{StreamerManager@{StreamerManager}!reactivateStreamer@{reactivateStreamer}}
+\index{reactivateStreamer@{reactivateStreamer}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{reactivateStreamer()}{reactivateStreamer()}}
+{\footnotesize\ttfamily bool Streamer\+Manager\+::reactivate\+Streamer (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&}]{streamer }\end{DoxyParamCaption})}
+
+Reactivates the given streamer\textquotesingle{}s account
+
+
+\begin{DoxyParams}{Parameters}
+{\em streamer} & the streamer which will have its account reactivated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return true if successful 
+\end{DoxyReturn}
+
+
+Definition at line 186 of file streamer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_manager_a0e58ddf85924d01bc58c79fd722e0bce}\label{class_streamer_manager_a0e58ddf85924d01bc58c79fd722e0bce}} 
 \index{StreamerManager@{StreamerManager}!readData@{readData}}
@@ -249,7 +349,7 @@ read successfull
 \end{DoxyReturn}
 
 
-Definition at line 112 of file streamer\+\_\+manager.\+cpp.
+Definition at line 110 of file streamer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_manager_a5ea2c27c7bffa045c1b98ce5707ca139}\label{class_streamer_manager_a5ea2c27c7bffa045c1b98ce5707ca139}} 
 \index{StreamerManager@{StreamerManager}!reload@{reload}}
@@ -269,7 +369,7 @@ true if the streamer was added, throws exception if streamer already exists
 \end{DoxyReturn}
 
 
-Definition at line 48 of file streamer\+\_\+manager.\+cpp.
+Definition at line 49 of file streamer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_manager_a70eb3e22bde3e0f5816a8591b297c075}\label{class_streamer_manager_a70eb3e22bde3e0f5816a8591b297c075}} 
 \index{StreamerManager@{StreamerManager}!remove@{remove}}
@@ -281,7 +381,7 @@ Removes a streamer from the streamers vector
 
 
 \begin{DoxyParams}{Parameters}
-{\em streamer} & new streamer to be added \\
+{\em streamer} & new streamer to be removed \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -304,7 +404,7 @@ write successfull
 \end{DoxyReturn}
 
 
-Definition at line 135 of file streamer\+\_\+manager.\+cpp.
+Definition at line 143 of file streamer\+\_\+manager.\+cpp.
 
 
 

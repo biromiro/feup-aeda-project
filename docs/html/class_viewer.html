@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="rsz_1rsz_acastro_200410_1777_obs_00010.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StreamZ
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">A streaming platform for all!</div>
   </td>
@@ -103,6 +103,17 @@ Inheritance diagram for Viewer:</div>
 <area shape="rect" title=" " alt="" coords="81,5,248,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for Viewer:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_viewer__coll__graph.png" border="0" usemap="#_viewer_coll__map" alt="Collaboration graph"/></div>
+<map name="_viewer_coll__map" id="_viewer_coll__map">
+<area shape="rect" title=" " alt="" coords="99,200,165,227"/>
+<area shape="rect" href="class_user.html" title=" " alt="" coords="6,117,58,143"/>
+<area shape="rect" href="class_date.html" title=" " alt="" coords="5,5,59,32"/>
+<area shape="rect" title=" " alt="" coords="82,109,249,151"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -124,6 +135,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abf65cbba6d953d882ab77e7cb9bb56ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51c1d5e2583a05f1132f2b4e7325bab2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#a51c1d5e2583a05f1132f2b4e7325bab2">unfollowStreamer</a> (const std::shared_ptr&lt; <a class="el" href="class_streamer.html">Streamer</a> &gt; &amp;streamer)</td></tr>
 <tr class="separator:a51c1d5e2583a05f1132f2b4e7325bab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37ebe622059d205ba6e80a7e86508055"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#a37ebe622059d205ba6e80a7e86508055">orderMerch</a> (std::shared_ptr&lt; <a class="el" href="class_streamer.html">Streamer</a> &gt; streamer, unsigned int quantity, unsigned int purchaseA)</td></tr>
+<tr class="separator:a37ebe622059d205ba6e80a7e86508055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc4bf28e5399c8c79c9820c3714b27fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#afc4bf28e5399c8c79c9820c3714b27fb">removeOrder</a> (std::shared_ptr&lt; <a class="el" href="class_streamer.html">Streamer</a> &gt; streamer)</td></tr>
+<tr class="separator:afc4bf28e5399c8c79c9820c3714b27fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb60572fbf42fba81b227ad8468ab0cd"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; <a class="el" href="class_stream.html">Stream</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#acb60572fbf42fba81b227ad8468ab0cd">getCurrentStream</a> () const</td></tr>
 <tr class="separator:acb60572fbf42fba81b227ad8468ab0cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3f5c79df5dc47663e2f09dac396eb5c"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::shared_ptr&lt; <a class="el" href="class_stream.html">Stream</a> &gt;, <a class="el" href="stream_8h.html#acc1bd428b88d5491352f4fadc1eccd6e">FeedbackLikeSystem</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#af3f5c79df5dc47663e2f09dac396eb5c">getStreamHistory</a> ()</td></tr>
@@ -183,6 +198,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac85b60c6ceaae348feb9eb589bf33795 inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd166d40837a934dcdf843d5d9d5aa4e inherit pub_methods_class_user"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#abd166d40837a934dcdf843d5d9d5aa4e">operator&gt;=</a> (const <a class="el" href="class_user.html">User</a> &amp;rhs) const</td></tr>
 <tr class="separator:abd166d40837a934dcdf843d5d9d5aa4e inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0ebcd84e6c0c6582dd9d457004f66c8 inherit pub_methods_class_user"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#af0ebcd84e6c0c6582dd9d457004f66c8">isDeactivated</a> () const</td></tr>
+<tr class="separator:af0ebcd84e6c0c6582dd9d457004f66c8 inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac1d9050c6e74ba0edb1c89c74e110c inherit pub_methods_class_user"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#a7ac1d9050c6e74ba0edb1c89c74e110c">deactivateAcc</a> ()</td></tr>
+<tr class="separator:a7ac1d9050c6e74ba0edb1c89c74e110c inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a219bd2c39ab390d9901788d6118a92cc inherit pub_methods_class_user"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#a219bd2c39ab390d9901788d6118a92cc">reactivateAcc</a> ()</td></tr>
+<tr class="separator:a219bd2c39ab390d9901788d6118a92cc inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -204,6 +225,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ae219485aedc068a290fa4c581dd41026 inherit pro_attribs_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2f2e75b15e8eb6cbb030fc85a6cd59f inherit pro_attribs_class_user"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#ac2f2e75b15e8eb6cbb030fc85a6cd59f">password</a></td></tr>
 <tr class="separator:ac2f2e75b15e8eb6cbb030fc85a6cd59f inherit pro_attribs_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae70dbbcc2725704d144b10df01e214a6 inherit pro_attribs_class_user"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#ae70dbbcc2725704d144b10df01e214a6">deactivated</a> = false</td></tr>
+<tr class="separator:ae70dbbcc2725704d144b10df01e214a6 inherit pro_attribs_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of the <a class="el" href="class_viewer.html">Viewer</a> class</p>
@@ -226,7 +249,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00011">11</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00016">16</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -277,7 +300,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00014">14</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00019">19</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -306,7 +329,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the viewer can follow the given streamer, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00094">94</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00099">99</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -327,7 +350,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Getter of current stream</p>
 <dl class="section return"><dt>Returns</dt><dd>the current stream </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00112">112</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00138">138</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -348,7 +371,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Getter of the following streamers unordered set</p>
 <dl class="section return"><dt>Returns</dt><dd>the unordered set of the following streamers </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00120">120</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00146">146</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -369,7 +392,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Getter of the stream history</p>
 <dl class="section return"><dt>Returns</dt><dd>the stream history </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00116">116</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00142">142</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -397,7 +420,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the comment was given successfully, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00083">83</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00088">88</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -425,7 +448,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the feedback was given successfully, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00063">63</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00068">68</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -446,7 +469,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Checks if the viewer is watching a stream</p>
 <dl class="section return"><dt>Returns</dt><dd>True if the viewer is watching a stream, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00044">44</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00049">49</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -474,7 +497,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the action was successful, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00025">25</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00030">30</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -495,7 +518,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Leaves the current stream</p>
 <dl class="section return"><dt>Returns</dt><dd>True if the viewer was watching a stream (and leaves successfully), false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00048">48</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00053">53</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -514,7 +537,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Overloard of operator != to viewers</p>
+<p>Overload of operator != to viewers</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rhs</td><td>given viewer to compare </td></tr>
@@ -523,7 +546,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>self != given viewer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00160">160</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00186">186</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -542,7 +565,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Overloard of operator &lt; to viewers</p>
+<p>Overload of operator &lt; to viewers</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rhs</td><td>given viewer to compare </td></tr>
@@ -551,7 +574,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>self &lt; given viewer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00124">124</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00150">150</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -570,7 +593,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Overloard of operator &lt;= to viewers</p>
+<p>Overload of operator &lt;= to viewers</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rhs</td><td>given viewer to compare </td></tr>
@@ -579,7 +602,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>self &lt;= given viewer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00148">148</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00174">174</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -598,7 +621,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Overloard of operator == to viewers</p>
+<p>Overload of operator == to viewers</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rhs</td><td>given viewer to compare </td></tr>
@@ -607,7 +630,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>self == given viewer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00156">156</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00182">182</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -626,7 +649,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Overloard of operator &gt; to viewers</p>
+<p>Overload of operator &gt; to viewers</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rhs</td><td>given viewer to compare </td></tr>
@@ -635,7 +658,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>self &gt; given viewer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00144">144</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00170">170</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -654,7 +677,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Overloard of operator &gt;= to viewers</p>
+<p>Overload of operator &gt;= to viewers</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rhs</td><td>given viewer to compare </td></tr>
@@ -663,7 +686,52 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>self &gt;= given viewer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00152">152</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00178">178</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a37ebe622059d205ba6e80a7e86508055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37ebe622059d205ba6e80a7e86508055">&#9670;&nbsp;</a></span>orderMerch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Viewer::orderMerch </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_streamer.html">Streamer</a> &gt;&#160;</td>
+          <td class="paramname"><em>streamer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>quantity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>purchaseA</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add a merchandising order to the orders queue of the streamer</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">streamer</td><td>streamer from which to order merchandising </td></tr>
+    <tr><td class="paramname">quantity</td><td>quantity of merchandising to order </td></tr>
+    <tr><td class="paramname">purchaseA</td><td>purchase availability of order </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00117">117</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -701,7 +769,34 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00164">164</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00190">190</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="afc4bf28e5399c8c79c9820c3714b27fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc4bf28e5399c8c79c9820c3714b27fb">&#9670;&nbsp;</a></span>removeOrder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Viewer::removeOrder </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_streamer.html">Streamer</a> &gt;&#160;</td>
+          <td class="paramname"><em>streamer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Removes the viewer's merchandising order from the orders queue of the streamer</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">streamer</td><td>streamer from which to remove order </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00130">130</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -729,7 +824,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the viewer can unfollow the given streamer, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00106">106</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00111">111</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -766,7 +861,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_user.html#a3efd848398bcda7686ed2ae03ec1f99a">User</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00196">196</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="viewer_8cpp_source.html#l00222">222</a> of file <a class="el" href="viewer_8cpp_source.html">viewer.cpp</a>.</p>
 
 </div>
 </div>

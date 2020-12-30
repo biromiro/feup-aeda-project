@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['uniqueid_785',['uniqueID',['../class_stream.html#a6418745d5bf3c63fa74209070804e7d6',1,'Stream']]]
+  ['title_1019',['title',['../class_stream.html#a740de4c2b13297152661213397ae2b54',1,'Stream']]],
+  ['ttime_1020',['ttime',['../date_8cpp.html#a11c8ddfb60163c39b52dc2bd171f0b76',1,'date.cpp']]],
+  ['type_1021',['type',['../class_stream.html#ae20127cdd9b8086ed8f27256843ecfa4',1,'Stream::type()'],['../class_user.html#ae219485aedc068a290fa4c581dd41026',1,'User::type()']]]
 ];

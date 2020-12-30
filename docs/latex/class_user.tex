@@ -6,12 +6,21 @@
 
 
 
-Inheritance diagram for User\+:
-\nopagebreak
+Inheritance diagram for User\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=276pt]{class_user__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for User\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=146pt]{class_user__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -54,6 +63,12 @@ bool \mbox{\hyperlink{class_user_a5c40dcaf40d4672f862ea42a7275d4bc}{operator==}}
 bool \mbox{\hyperlink{class_user_ac85b60c6ceaae348feb9eb589bf33795}{operator!=}} (const \mbox{\hyperlink{class_user}{User}} \&rhs) const
 \item 
 bool \mbox{\hyperlink{class_user_abd166d40837a934dcdf843d5d9d5aa4e}{operator$>$=}} (const \mbox{\hyperlink{class_user}{User}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_user_af0ebcd84e6c0c6582dd9d457004f66c8}{is\+Deactivated}} () const
+\item 
+void \mbox{\hyperlink{class_user_a7ac1d9050c6e74ba0edb1c89c74e110c}{deactivate\+Acc}} ()
+\item 
+void \mbox{\hyperlink{class_user_a219bd2c39ab390d9901788d6118a92cc}{reactivate\+Acc}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -76,6 +91,8 @@ std\+::string \mbox{\hyperlink{class_user_aebdb6953485740c33307118f91156832}{nic
 enum \mbox{\hyperlink{user_8h_a7f554175f6a21ca8a2175ee9d9bec6d8}{User\+Types}} \mbox{\hyperlink{class_user_ae219485aedc068a290fa4c581dd41026}{type}}
 \item 
 std\+::string \mbox{\hyperlink{class_user_ac2f2e75b15e8eb6cbb030fc85a6cd59f}{password}}
+\item 
+bool \mbox{\hyperlink{class_user_ae70dbbcc2725704d144b10df01e214a6}{deactivated}} = false
 \end{DoxyCompactItemize}
 
 
@@ -97,7 +114,7 @@ Definition at line 35 of file user.\+h.
 
 
 
-Definition at line 9 of file user.\+cpp.
+Definition at line 10 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_a28406743a3827352af9d1773eb1dd480}\label{class_user_a28406743a3827352af9d1773eb1dd480}} 
 \index{User@{User}!User@{User}}
@@ -120,11 +137,21 @@ Constructor of the \mbox{\hyperlink{class_user}{User}} class
 \end{DoxyParams}
 
 
-Definition at line 16 of file user.\+cpp.
+Definition at line 17 of file user.\+cpp.
 
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_user_a7ac1d9050c6e74ba0edb1c89c74e110c}\label{class_user_a7ac1d9050c6e74ba0edb1c89c74e110c}} 
+\index{User@{User}!deactivateAcc@{deactivateAcc}}
+\index{deactivateAcc@{deactivateAcc}!User@{User}}
+\doxysubsubsection{\texorpdfstring{deactivateAcc()}{deactivateAcc()}}
+{\footnotesize\ttfamily void User\+::deactivate\+Acc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Deactivates the streamer\textquotesingle{}s account 
+
+Definition at line 130 of file user.\+cpp.
+
 \mbox{\Hypertarget{class_user_a7cb83cbd05e67d0632b792253c278c17}\label{class_user_a7cb83cbd05e67d0632b792253c278c17}} 
 \index{User@{User}!getAge@{getAge}}
 \index{getAge@{getAge}!User@{User}}
@@ -138,7 +165,7 @@ user\textquotesingle{}s age
 \end{DoxyReturn}
 
 
-Definition at line 19 of file user.\+cpp.
+Definition at line 20 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_a3d027f4eb08a0bfd4aca307323968172}\label{class_user_a3d027f4eb08a0bfd4aca307323968172}} 
 \index{User@{User}!getBirthDate@{getBirthDate}}
@@ -153,7 +180,7 @@ user\textquotesingle{}s birth date
 \end{DoxyReturn}
 
 
-Definition at line 33 of file user.\+cpp.
+Definition at line 34 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_a83cbd6e42b18fe8b3bb33d1a8b25df62}\label{class_user_a83cbd6e42b18fe8b3bb33d1a8b25df62}} 
 \index{User@{User}!getJoinDate@{getJoinDate}}
@@ -168,7 +195,7 @@ user\textquotesingle{}s join date
 \end{DoxyReturn}
 
 
-Definition at line 37 of file user.\+cpp.
+Definition at line 38 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_ae332af7a6fbb36879fa401b1b98e5027}\label{class_user_ae332af7a6fbb36879fa401b1b98e5027}} 
 \index{User@{User}!getName@{getName}}
@@ -183,7 +210,7 @@ user\textquotesingle{}s name
 \end{DoxyReturn}
 
 
-Definition at line 25 of file user.\+cpp.
+Definition at line 26 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_a3043a8f0ab4457040e4bdfa1c0997965}\label{class_user_a3043a8f0ab4457040e4bdfa1c0997965}} 
 \index{User@{User}!getNickname@{getNickname}}
@@ -198,7 +225,7 @@ user\textquotesingle{}s nickname
 \end{DoxyReturn}
 
 
-Definition at line 29 of file user.\+cpp.
+Definition at line 30 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_aee6af833e24993ff1056538c2c34e99c}\label{class_user_aee6af833e24993ff1056538c2c34e99c}} 
 \index{User@{User}!getPassword@{getPassword}}
@@ -213,7 +240,7 @@ user\textquotesingle{}s password
 \end{DoxyReturn}
 
 
-Definition at line 115 of file user.\+cpp.
+Definition at line 118 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_aad95bad2bd0d71a92f35ad7a649adbd8}\label{class_user_aad95bad2bd0d71a92f35ad7a649adbd8}} 
 \index{User@{User}!getUserType@{getUserType}}
@@ -228,7 +255,22 @@ the user\textquotesingle{}s type
 \end{DoxyReturn}
 
 
-Definition at line 53 of file user.\+cpp.
+Definition at line 54 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_af0ebcd84e6c0c6582dd9d457004f66c8}\label{class_user_af0ebcd84e6c0c6582dd9d457004f66c8}} 
+\index{User@{User}!isDeactivated@{isDeactivated}}
+\index{isDeactivated@{isDeactivated}!User@{User}}
+\doxysubsubsection{\texorpdfstring{isDeactivated()}{isDeactivated()}}
+{\footnotesize\ttfamily bool User\+::is\+Deactivated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Checks if the streamer deactivated their account
+
+\begin{DoxyReturn}{Returns}
+is deactivated 
+\end{DoxyReturn}
+
+
+Definition at line 126 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_ac85b60c6ceaae348feb9eb589bf33795}\label{class_user_ac85b60c6ceaae348feb9eb589bf33795}} 
 \index{User@{User}!operator"!=@{operator"!=}}
@@ -248,7 +290,7 @@ self != given
 \end{DoxyReturn}
 
 
-Definition at line 93 of file user.\+cpp.
+Definition at line 94 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_a0695266429d1228ddfbdf91ebe3a1179}\label{class_user_a0695266429d1228ddfbdf91ebe3a1179}} 
 \index{User@{User}!operator$<$@{operator$<$}}
@@ -268,7 +310,7 @@ self $<$ given user
 \end{DoxyReturn}
 
 
-Definition at line 57 of file user.\+cpp.
+Definition at line 58 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_ac168c3e5356a5ecb4f28c8c6820454b6}\label{class_user_ac168c3e5356a5ecb4f28c8c6820454b6}} 
 \index{User@{User}!operator$<$=@{operator$<$=}}
@@ -288,7 +330,7 @@ self $<$= given
 \end{DoxyReturn}
 
 
-Definition at line 81 of file user.\+cpp.
+Definition at line 82 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_a5c40dcaf40d4672f862ea42a7275d4bc}\label{class_user_a5c40dcaf40d4672f862ea42a7275d4bc}} 
 \index{User@{User}!operator==@{operator==}}
@@ -308,7 +350,7 @@ self == given
 \end{DoxyReturn}
 
 
-Definition at line 89 of file user.\+cpp.
+Definition at line 90 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_af03f566ebd2d847c51db859a7add200f}\label{class_user_af03f566ebd2d847c51db859a7add200f}} 
 \index{User@{User}!operator$>$@{operator$>$}}
@@ -328,7 +370,7 @@ self $>$ given
 \end{DoxyReturn}
 
 
-Definition at line 77 of file user.\+cpp.
+Definition at line 78 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_abd166d40837a934dcdf843d5d9d5aa4e}\label{class_user_abd166d40837a934dcdf843d5d9d5aa4e}} 
 \index{User@{User}!operator$>$=@{operator$>$=}}
@@ -348,7 +390,17 @@ self $>$= given
 \end{DoxyReturn}
 
 
-Definition at line 85 of file user.\+cpp.
+Definition at line 86 of file user.\+cpp.
+
+\mbox{\Hypertarget{class_user_a219bd2c39ab390d9901788d6118a92cc}\label{class_user_a219bd2c39ab390d9901788d6118a92cc}} 
+\index{User@{User}!reactivateAcc@{reactivateAcc}}
+\index{reactivateAcc@{reactivateAcc}!User@{User}}
+\doxysubsubsection{\texorpdfstring{reactivateAcc()}{reactivateAcc()}}
+{\footnotesize\ttfamily void User\+::reactivate\+Acc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reactivates the streamer\textquotesingle{}s account 
+
+Definition at line 134 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_adca54595d50308841bcc2d5091f4081c}\label{class_user_adca54595d50308841bcc2d5091f4081c}} 
 \index{User@{User}!readData@{readData}}
@@ -369,7 +421,7 @@ Reimplemented in \mbox{\hyperlink{class_streamer_a420c27c9b9ff3bd299ee16b154ed04
 
 
 
-Definition at line 97 of file user.\+cpp.
+Definition at line 98 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_a29e68e341a377c09066735a8854ba852}\label{class_user_a29e68e341a377c09066735a8854ba852}} 
 \index{User@{User}!updateBirthDate@{updateBirthDate}}
@@ -386,7 +438,7 @@ Sets/\+Updates the user\textquotesingle{}s birthdate
 \end{DoxyParams}
 
 
-Definition at line 41 of file user.\+cpp.
+Definition at line 42 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_abdf2524a81919e8ee7f190b838c0704d}\label{class_user_abdf2524a81919e8ee7f190b838c0704d}} 
 \index{User@{User}!updateName@{updateName}}
@@ -403,7 +455,7 @@ Sets/\+Updates the user\textquotesingle{}s name
 \end{DoxyParams}
 
 
-Definition at line 45 of file user.\+cpp.
+Definition at line 46 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_a93427544cf311661fd9a8648a6735d72}\label{class_user_a93427544cf311661fd9a8648a6735d72}} 
 \index{User@{User}!updateNickname@{updateNickname}}
@@ -420,7 +472,7 @@ Sets/\+Updates the user\textquotesingle{}s nickname
 \end{DoxyParams}
 
 
-Definition at line 49 of file user.\+cpp.
+Definition at line 50 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_a25f8c04beb502c9a164e4b8d1e193996}\label{class_user_a25f8c04beb502c9a164e4b8d1e193996}} 
 \index{User@{User}!updatePassword@{updatePassword}}
@@ -437,7 +489,7 @@ Update user\textquotesingle{}s password
 \end{DoxyParams}
 
 
-Definition at line 119 of file user.\+cpp.
+Definition at line 122 of file user.\+cpp.
 
 \mbox{\Hypertarget{class_user_a3efd848398bcda7686ed2ae03ec1f99a}\label{class_user_a3efd848398bcda7686ed2ae03ec1f99a}} 
 \index{User@{User}!writeData@{writeData}}
@@ -458,7 +510,7 @@ Reimplemented in \mbox{\hyperlink{class_viewer_a2e6b392f622fa1db1d3c9824088ed5ac
 
 
 
-Definition at line 107 of file user.\+cpp.
+Definition at line 109 of file user.\+cpp.
 
 
 
@@ -471,7 +523,17 @@ Definition at line 107 of file user.\+cpp.
 
 
 
-Definition at line 189 of file user.\+h.
+Definition at line 204 of file user.\+h.
+
+\mbox{\Hypertarget{class_user_ae70dbbcc2725704d144b10df01e214a6}\label{class_user_ae70dbbcc2725704d144b10df01e214a6}} 
+\index{User@{User}!deactivated@{deactivated}}
+\index{deactivated@{deactivated}!User@{User}}
+\doxysubsubsection{\texorpdfstring{deactivated}{deactivated}}
+{\footnotesize\ttfamily bool User\+::deactivated = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 210 of file user.\+h.
 
 \mbox{\Hypertarget{class_user_a8511b8fc40afe4cdf37079e34eac7b17}\label{class_user_a8511b8fc40afe4cdf37079e34eac7b17}} 
 \index{User@{User}!joinDate@{joinDate}}
@@ -481,7 +543,7 @@ Definition at line 189 of file user.\+h.
 
 
 
-Definition at line 190 of file user.\+h.
+Definition at line 205 of file user.\+h.
 
 \mbox{\Hypertarget{class_user_a085d8d69282b6298964eab8351584536}\label{class_user_a085d8d69282b6298964eab8351584536}} 
 \index{User@{User}!name@{name}}
@@ -491,7 +553,7 @@ Definition at line 190 of file user.\+h.
 
 
 
-Definition at line 191 of file user.\+h.
+Definition at line 206 of file user.\+h.
 
 \mbox{\Hypertarget{class_user_aebdb6953485740c33307118f91156832}\label{class_user_aebdb6953485740c33307118f91156832}} 
 \index{User@{User}!nickname@{nickname}}
@@ -501,7 +563,7 @@ Definition at line 191 of file user.\+h.
 
 
 
-Definition at line 192 of file user.\+h.
+Definition at line 207 of file user.\+h.
 
 \mbox{\Hypertarget{class_user_ac2f2e75b15e8eb6cbb030fc85a6cd59f}\label{class_user_ac2f2e75b15e8eb6cbb030fc85a6cd59f}} 
 \index{User@{User}!password@{password}}
@@ -511,7 +573,7 @@ Definition at line 192 of file user.\+h.
 
 
 
-Definition at line 194 of file user.\+h.
+Definition at line 209 of file user.\+h.
 
 \mbox{\Hypertarget{class_user_ae219485aedc068a290fa4c581dd41026}\label{class_user_ae219485aedc068a290fa4c581dd41026}} 
 \index{User@{User}!type@{type}}
@@ -521,7 +583,7 @@ Definition at line 194 of file user.\+h.
 
 
 
-Definition at line 193 of file user.\+h.
+Definition at line 208 of file user.\+h.
 
 
 

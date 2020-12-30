@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="rsz_1rsz_acastro_200410_1777_obs_00010.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StreamZ
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">A streaming platform for all!</div>
   </td>
@@ -96,47 +96,47 @@ $(document).ready(function(){initNavTree('streamer__manager_8cpp_source.html',''
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../../../exception/userNotFound/userNotFound.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../../../exception/userAlreadyExists/userAlreadyExists.h&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../../../exception/streamerNotStreaming/streamerNotStreaming.h&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<a class="code" href="class_streamer_manager.html#a9aebfa724286b5e90b19e0e042a454fd">StreamerManager::StreamerManager</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../../../exception/invalidDonationValue/invalidDonationValue.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a9aebfa724286b5e90b19e0e042a454fd">   11</a></span>&#160;<a class="code" href="class_streamer_manager.html#a9aebfa724286b5e90b19e0e042a454fd">StreamerManager::StreamerManager</a>() : donations(<a class="code" href="class_donation.html">Donation</a>(<span class="stringliteral">&quot;&quot;</span>,0,<a class="code" href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9">streamerWorkRating</a>::<a class="code" href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9a49b6110489b2755c798ba8133119db74">VERY_BAD</a>)){};</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#ae1c4595d6d256ea23c189ce8f3e16bf5">   13</a></span>&#160;<a class="code" href="class_streamer_manager.html#a9aebfa724286b5e90b19e0e042a454fd">StreamerManager::StreamerManager</a>(std::shared_ptr&lt;StreamManager&gt; streamManager, std::shared_ptr&lt;ViewerManager&gt; viewerManager, std::shared_ptr&lt;UserManager&gt; userManager):</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;streamManager(std::move(streamManager)), viewerManager(std::move(viewerManager)), userManager(std::move(userManager))</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    streamers = std::vector&lt;std::shared_ptr&lt;Streamer&gt;&gt;();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a72cbd5b866396b12827c692931f43430">   19</a></span>&#160;std::shared_ptr&lt;Streamer&gt; <a class="code" href="class_streamer_manager.html#a72cbd5b866396b12827c692931f43430">StreamerManager::build</a>(<a class="code" href="class_date.html">Date</a> birthDate, <span class="keyword">const</span> std::string &amp;name, <span class="keyword">const</span> std::string &amp;nickname, <span class="keyword">const</span> std::string&amp; password) {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span>(userManager-&gt;has(nickname))</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="class_nickname_already_added.html">NicknameAlreadyAdded</a>(nickname,<span class="stringliteral">&quot;Nickname already in use by another user!&quot;</span>);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">//to avoid memory from being aloccated on the case of an underage streamer, tries to build one and, if unsuccessful,</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">//resets his shared pointer and rethrows the exception</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    std::shared_ptr&lt;Streamer&gt; streamer;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">try</span>{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        streamer = std::make_shared&lt;Streamer&gt;(birthDate,name,nickname,password);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    } <span class="keywordflow">catch</span> (<a class="code" href="class_invalid_age.html">InvalidAge</a>&amp; invalidAge) {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        streamer.reset();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="class_invalid_age.html">InvalidAge</a>(invalidAge.<a class="code" href="class_invalid_age.html#a25e1bcf937ebae433c372912d9b15f3f">getAge</a>(),invalidAge.what());</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_streamer_manager.html#a9a0f64e7ce424c40da55e0ca6832fb82">add</a>(streamer);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    std::shared_ptr&lt;User&gt; user_form = std::dynamic_pointer_cast&lt;User&gt;(streamer);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    userManager-&gt;add(user_form);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> streamer;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a9a0f64e7ce424c40da55e0ca6832fb82">   39</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a9a0f64e7ce424c40da55e0ca6832fb82">StreamerManager::add</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer) {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> (std::find(streamers.begin(),streamers.end(),streamer) == streamers.end()){</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        streamers.push_back(streamer);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_user_already_exists.html">UserAlreadyExists</a>(streamer,<span class="stringliteral">&quot;The streamer you&#39;re trying to add already exists!&quot;</span>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a5ea2c27c7bffa045c1b98ce5707ca139">   48</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a5ea2c27c7bffa045c1b98ce5707ca139">StreamerManager::reload</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer){</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#ae1c4595d6d256ea23c189ce8f3e16bf5">   14</a></span>&#160;<a class="code" href="class_streamer_manager.html#a9aebfa724286b5e90b19e0e042a454fd">StreamerManager::StreamerManager</a>(std::shared_ptr&lt;StreamManager&gt; streamManager, std::shared_ptr&lt;ViewerManager&gt; viewerManager, std::shared_ptr&lt;UserManager&gt; userManager):</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;streamManager(std::move(streamManager)), viewerManager(std::move(viewerManager)), userManager(std::move(userManager)), donations(<a class="code" href="class_donation.html">Donation</a>(<span class="stringliteral">&quot;&quot;</span>,0.0,<a class="code" href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9">streamerWorkRating</a>::<a class="code" href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9a49b6110489b2755c798ba8133119db74">VERY_BAD</a>))</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    streamers = <a class="code" href="streamer__manager_8h.html#a41d1aa3eb6787282ff49e48cc1a4184a">tabHStreamer</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a72cbd5b866396b12827c692931f43430">   20</a></span>&#160;std::shared_ptr&lt;Streamer&gt; <a class="code" href="class_streamer_manager.html#a72cbd5b866396b12827c692931f43430">StreamerManager::build</a>(<a class="code" href="class_date.html">Date</a> birthDate, <span class="keyword">const</span> std::string &amp;name, <span class="keyword">const</span> std::string &amp;nickname, <span class="keyword">const</span> std::string&amp; password) {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">if</span>(userManager-&gt;has(nickname))</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="class_nickname_already_added.html">NicknameAlreadyAdded</a>(nickname,<span class="stringliteral">&quot;Nickname already in use by another user!&quot;</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">//to avoid memory from being aloccated on the case of an underage streamer, tries to build one and, if unsuccessful,</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">//resets his shared pointer and rethrows the exception</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    std::shared_ptr&lt;Streamer&gt; streamer;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">try</span>{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        streamer = std::make_shared&lt;Streamer&gt;(birthDate,name,nickname,password);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    } <span class="keywordflow">catch</span> (<a class="code" href="class_invalid_age.html">InvalidAge</a>&amp; invalidAge) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        streamer.reset();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="class_invalid_age.html">InvalidAge</a>(invalidAge.<a class="code" href="class_invalid_age.html#a25e1bcf937ebae433c372912d9b15f3f">getAge</a>(),invalidAge.what());</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_streamer_manager.html#a9a0f64e7ce424c40da55e0ca6832fb82">add</a>(streamer);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::shared_ptr&lt;User&gt; user_form = std::dynamic_pointer_cast&lt;User&gt;(streamer);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    userManager-&gt;add(user_form);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> streamer;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a9a0f64e7ce424c40da55e0ca6832fb82">   40</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a9a0f64e7ce424c40da55e0ca6832fb82">StreamerManager::add</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">if</span>(streamers.find(streamer) == streamers.end()){</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        streamers.insert(streamer);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_user_already_exists.html">UserAlreadyExists</a>(streamer,<span class="stringliteral">&quot;The streamer you&#39;re trying to add already exists!&quot;</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a5ea2c27c7bffa045c1b98ce5707ca139">   49</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a5ea2c27c7bffa045c1b98ce5707ca139">StreamerManager::reload</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer){</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span>(userManager-&gt;has(streamer-&gt;getNickname())){</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="class_nickname_already_added.html">NicknameAlreadyAdded</a>(streamer-&gt;getNickname(),<span class="stringliteral">&quot;Nickname already in use by another user!&quot;</span>);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }<span class="keywordflow">else</span>{</div>
@@ -148,122 +148,202 @@ $(document).ready(function(){initNavTree('streamer__manager_8cpp_source.html',''
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a70eb3e22bde3e0f5816a8591b297c075">   59</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a70eb3e22bde3e0f5816a8591b297c075">StreamerManager::remove</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer) {</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">auto</span> it = std::find(streamers.begin(),streamers.end(),streamer);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span> (it != streamers.end()) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        streamers.erase(it);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        userManager-&gt;remove(std::dynamic_pointer_cast&lt;User&gt;(streamer));</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_user_not_found.html">UserNotFound</a>(streamer,<span class="stringliteral">&quot;The streamer you&#39;re trying to remove does not exist!&quot;</span>);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span> (streamers.find(streamer) != streamers.end()) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        streamers.erase(streamer);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        userManager-&gt;remove(std::dynamic_pointer_cast&lt;User&gt;(streamer));</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_user_not_found.html">UserNotFound</a>(streamer,<span class="stringliteral">&quot;The streamer you&#39;re trying to remove does not exist!&quot;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a75007035ee46d3e1d438acbf0f4b871f">   69</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a75007035ee46d3e1d438acbf0f4b871f">StreamerManager::endStream</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer) {</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a75007035ee46d3e1d438acbf0f4b871f">   71</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a75007035ee46d3e1d438acbf0f4b871f">StreamerManager::endStream</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer) {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span>(streamer-&gt;isStreaming()){</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        streamManager-&gt;finish(streamManager-&gt;get(streamer-&gt;getCurrentStreamID()));</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        streamer-&gt;removeStream();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_streamer_not_streaming.html">StreamerNotStreaming</a>(<span class="stringliteral">&quot;There is no stream to finish!&quot;</span>);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a55d8d14202b191a8125c45d2d5ad8ab4">   81</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a55d8d14202b191a8125c45d2d5ad8ab4">StreamerManager::has</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> std::find(streamers.begin(),streamers.end(),streamer) != streamers.end();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#aa75b972958a43beb6d6e9e1a31bf4cb4">   85</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a55d8d14202b191a8125c45d2d5ad8ab4">StreamerManager::has</a>(std::string nickname)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> std::find_if(streamers.begin(),streamers.end(),</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                        [&amp;nickname](<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer){return streamer-&gt;getNickname() == nickname;}) != streamers.end();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span>(streamer-&gt;isStreaming()){</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        streamManager-&gt;finish(streamManager-&gt;get(streamer-&gt;getCurrentStreamID()));</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        streamer-&gt;removeStream();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_streamer_not_streaming.html">StreamerNotStreaming</a>(<span class="stringliteral">&quot;There is no stream to finish!&quot;</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a55d8d14202b191a8125c45d2d5ad8ab4">   79</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a55d8d14202b191a8125c45d2d5ad8ab4">StreamerManager::has</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> streamers.find(streamer) != streamers.end();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#aa75b972958a43beb6d6e9e1a31bf4cb4">   83</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a55d8d14202b191a8125c45d2d5ad8ab4">StreamerManager::has</a>(std::string nickname)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">return</span> std::find_if(streamers.begin(),streamers.end(),</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        [&amp;nickname](<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer){return streamer-&gt;getNickname() == nickname;}) != streamers.end();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#acec0b5568a3161b4a9f846336939dff4">   88</a></span>&#160;std::shared_ptr&lt;Streamer&gt; <a class="code" href="class_streamer_manager.html#acec0b5568a3161b4a9f846336939dff4">StreamerManager::get</a>(std::string nickname)<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#acec0b5568a3161b4a9f846336939dff4">   90</a></span>&#160;std::shared_ptr&lt;Streamer&gt; <a class="code" href="class_streamer_manager.html#acec0b5568a3161b4a9f846336939dff4">StreamerManager::get</a>(std::string nickname)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">auto</span> it = std::find_if(streamers.begin(),streamers.end(),</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                           [&amp;nickname](<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer){return streamer-&gt;getNickname() == nickname;});</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">if</span>(it != streamers.end()){</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> *it;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a836a95d8a52da98e895d0cdb3e46282f">  101</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_streamer_manager.html#a836a95d8a52da98e895d0cdb3e46282f">StreamerManager::getNumOfFollowers</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt; &amp;streamer)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::count_if(streamers.begin(), streamers.end(),</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                                   [&amp;streamer](<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt; &amp;str) {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                                                       return streamer == str;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                                                   }));</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#ab5077b3abd36c2b30b90a36aba4c2562">  108</a></span>&#160;<span class="keyword">const</span> std::vector&lt;std::shared_ptr&lt;Streamer&gt;&gt; &amp;<a class="code" href="class_streamer_manager.html#ab5077b3abd36c2b30b90a36aba4c2562">StreamerManager::getStreamers</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> streamers;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a0e58ddf85924d01bc58c79fd722e0bce">  112</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a0e58ddf85924d01bc58c79fd722e0bce">StreamerManager::readData</a>() {</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment">//write object into the file</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    std::ifstream file;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> streamersSize = 0;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">auto</span> it = std::find_if(streamers.begin(),streamers.end(),</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                           [&amp;nickname](<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt;&amp; streamer){return streamer-&gt;getNickname() == nickname;});</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span>(it != streamers.end()){</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span> *it;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a836a95d8a52da98e895d0cdb3e46282f">   99</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_streamer_manager.html#a836a95d8a52da98e895d0cdb3e46282f">StreamerManager::getNumOfFollowers</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt; &amp;streamer)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::count_if(viewerManager-&gt;getViewers().begin(), viewerManager-&gt;getViewers().end(),</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                                   [&amp;streamer](<span class="keyword">const</span> std::shared_ptr&lt;Viewer&gt; &amp;viewer) {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                                                       return (viewer-&gt;getFollowingStreamers()).find(streamer-&gt;getNickname()) != viewer-&gt;getFollowingStreamers().end();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                                   }));</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a433abcff4e0f18367fbd953c3c1c101e">  106</a></span>&#160;<span class="keyword">const</span> <a class="code" href="streamer__manager_8h.html#a41d1aa3eb6787282ff49e48cc1a4184a">tabHStreamer</a> &amp;<a class="code" href="class_streamer_manager.html#a433abcff4e0f18367fbd953c3c1c101e">StreamerManager::getStreamers</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> streamers;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a0e58ddf85924d01bc58c79fd722e0bce">  110</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a0e58ddf85924d01bc58c79fd722e0bce">StreamerManager::readData</a>() {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">//write object into the file</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    std::ifstream file;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> streamersSize = 0, bstSize = 0;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    file.open(<span class="stringliteral">&quot;../../src/model/user/streamer/dataStreamer.txt&quot;</span>);</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    file.open(<span class="stringliteral">&quot;../../src/model/user/streamer/dataStreamer.txt&quot;</span>);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span>(!file){</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Could not open Streamers file...&quot;</span>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    file &gt;&gt; streamersSize;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">while</span>(streamersSize--){</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        std::shared_ptr&lt;Streamer&gt; newStreamer = std::make_shared&lt;Streamer&gt;();</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        newStreamer-&gt;readData(file);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <a class="code" href="class_streamer_manager.html#a5ea2c27c7bffa045c1b98ce5707ca139">reload</a>(newStreamer);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    }</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    file.close();</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;}</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#abead67bd23d38c79a508a10e94f53226">  135</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#abead67bd23d38c79a508a10e94f53226">StreamerManager::writeData</a>() {</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="comment">//write object into the file</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    std::ofstream file;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    file.open(<span class="stringliteral">&quot;../../src/model/user/streamer/dataStreamer.txt&quot;</span>);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordflow">if</span>(!file){</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Could not open Streamers file...&quot;</span>;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    }</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    file &lt;&lt; streamers.size() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; elem: streamers){</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        elem-&gt;writeData(file);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    }</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    file.close();</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;}</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">if</span>(!file){</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Could not open Streamers file...&quot;</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    file &gt;&gt; streamersSize;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">while</span>(streamersSize--){</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        std::shared_ptr&lt;Streamer&gt; newStreamer = std::make_shared&lt;Streamer&gt;();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        newStreamer-&gt;readData(file);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <a class="code" href="class_streamer_manager.html#a5ea2c27c7bffa045c1b98ce5707ca139">reload</a>(newStreamer);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    file &gt;&gt; bstSize;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <a class="code" href="class_donation.html">Donation</a> donation(<span class="stringliteral">&quot;&quot;</span>,0.0,<a class="code" href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9a49b6110489b2755c798ba8133119db74">streamerWorkRating::VERY_BAD</a>);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">while</span>(bstSize--){</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        file &gt;&gt; donation;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        donations.<a class="code" href="class_b_s_t.html#aea895bc48c9533dfcd2e01d227e01f33">insert</a>(donation);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    file.close();</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;}</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#abead67bd23d38c79a508a10e94f53226">  143</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#abead67bd23d38c79a508a10e94f53226">StreamerManager::writeData</a>() {</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="comment">//write object into the file</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    std::ofstream file;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    file.open(<span class="stringliteral">&quot;../../src/model/user/streamer/dataStreamer.txt&quot;</span>);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">if</span>(!file){</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Could not open Streamers file...&quot;</span>;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    file &lt;&lt; streamers.size() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; elem: streamers){</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        elem-&gt;writeData(file);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bstSize = 0;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="class_b_s_t_itr_in.html">BSTItrIn&lt;Donation&gt;</a> bItr(donations); !bItr.<a class="code" href="class_b_s_t_itr_in.html#a6f9a43217862c263a9bf15b9a08b889a">isAtEnd</a>(); bItr.advance()) bstSize++;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    file &lt;&lt; bstSize &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="class_b_s_t_itr_in.html">BSTItrIn&lt;Donation&gt;</a> bstItrIn(donations);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">while</span>(!bstItrIn.<a class="code" href="class_b_s_t_itr_in.html#a6f9a43217862c263a9bf15b9a08b889a">isAtEnd</a>()){</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        file &lt;&lt; bstItrIn.<a class="code" href="class_b_s_t_itr_in.html#a434375a2d263bf132ab3c4ac878af8ef">retrieve</a>();</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        bstItrIn.<a class="code" href="class_b_s_t_itr_in.html#ac772d3ebbac748c5f8cf9bc659f2e32c">advance</a>();</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    }</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    file.close();</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;}</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a37a8d67f1f1ae316cb001c0fe84160c6">  177</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#a37a8d67f1f1ae316cb001c0fe84160c6">StreamerManager::deactivateStreamer</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt; &amp;streamer) {</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keyword">auto</span> it = streamers.begin();</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">if</span>(streamers.find(streamer) != streamers.end()){</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        streamer-&gt;deactivateAcc();</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    }</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_user_not_found.html">UserNotFound</a>(streamer,<span class="stringliteral">&quot;The streamer you&#39;re trying yo deactivate does not exist!&quot;</span>);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;}</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#ad78a8aae2b32b04e8861a1c05370ac9b">  186</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_streamer_manager.html#ad78a8aae2b32b04e8861a1c05370ac9b">StreamerManager::reactivateStreamer</a>(<span class="keyword">const</span> std::shared_ptr&lt;Streamer&gt; &amp;streamer) {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keyword">auto</span> it = streamers.begin();</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordflow">if</span>(streamers.find(streamer) != streamers.end()){</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        streamer-&gt;reactivateAcc();</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    }</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_user_not_found.html">UserNotFound</a>(streamer,<span class="stringliteral">&quot;The streamer you&#39;re trying yo reactivate does not exist!&quot;</span>);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#ad5edbda41b32658cf0deb1afa44b9dce">  195</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_streamer_manager.html#ad5edbda41b32658cf0deb1afa44b9dce">StreamerManager::addNewDonation</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;nickname, <span class="keywordtype">float</span> ammount, <a class="code" href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9">streamerWorkRating</a> rating) {</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="class_streamer_manager.html#a55d8d14202b191a8125c45d2d5ad8ab4">has</a>(nickname)) <span class="keywordflow">throw</span> <a class="code" href="class_nickname_not_found.html">NicknameNotFound</a>(nickname, <span class="stringliteral">&quot;That streamer does not exist!&quot;</span>);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordflow">if</span>(ammount &lt; 0) <span class="keywordflow">throw</span> <a class="code" href="class_invalid_donation_value.html">InvalidDonationValue</a>(ammount, <span class="stringliteral">&quot;That donation value is invalid!&quot;</span>);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    donations.<a class="code" href="class_b_s_t.html#aea895bc48c9533dfcd2e01d227e01f33">insert</a>(<a class="code" href="class_donation.html">Donation</a>(nickname,ammount,rating));</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a33e98b3d8eaf4dcfcf8198e290f3a9f2">  201</a></span>&#160;vector&lt;Donation&gt; <a class="code" href="class_streamer_manager.html#a33e98b3d8eaf4dcfcf8198e290f3a9f2">StreamerManager::getStreamerDonations</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;nickname) {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    vector&lt;Donation&gt; streamerDonations;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="class_b_s_t_itr_in.html">BSTItrIn&lt;Donation&gt;</a> bItr(donations); !bItr.<a class="code" href="class_b_s_t_itr_in.html#a6f9a43217862c263a9bf15b9a08b889a">isAtEnd</a>(); bItr.advance()){</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <a class="code" href="class_donation.html">Donation</a> val = bItr.retrieve();</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keywordflow">if</span>(val.<a class="code" href="class_donation.html#a895795971dcc71dd7a9131b88e3ef627">getStreamerNickname</a>() == nickname) streamerDonations.push_back(val);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    }</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">if</span>(streamerDonations.empty()) <span class="keywordflow">throw</span> <a class="code" href="class_streamer_has_no_donations.html">StreamerHasNoDonations</a>(nickname, <span class="stringliteral">&quot;No donations yet!&quot;</span>);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordflow">return</span> streamerDonations;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;}</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno"><a class="line" href="class_streamer_manager.html#a9b8507082514a0431ff69eaa74d490be">  214</a></span>&#160;<span class="keyword">const</span> <a class="code" href="class_b_s_t.html">BST&lt;Donation&gt;</a> &amp;<a class="code" href="class_streamer_manager.html#a9b8507082514a0431ff69eaa74d490be">StreamerManager::getDonations</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">return</span> donations;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_streamer_manager_html_a55d8d14202b191a8125c45d2d5ad8ab4"><div class="ttname"><a href="class_streamer_manager.html#a55d8d14202b191a8125c45d2d5ad8ab4">StreamerManager::has</a></div><div class="ttdeci">bool has(const std::shared_ptr&lt; Streamer &gt; &amp;streamer) const</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00081">streamer_manager.cpp:81</a></div></div>
-<div class="ttc" id="aclass_streamer_manager_html_a9aebfa724286b5e90b19e0e042a454fd"><div class="ttname"><a href="class_streamer_manager.html#a9aebfa724286b5e90b19e0e042a454fd">StreamerManager::StreamerManager</a></div><div class="ttdeci">StreamerManager()</div></div>
+<div class="ttc" id="aclass_streamer_manager_html_ad78a8aae2b32b04e8861a1c05370ac9b"><div class="ttname"><a href="class_streamer_manager.html#ad78a8aae2b32b04e8861a1c05370ac9b">StreamerManager::reactivateStreamer</a></div><div class="ttdeci">bool reactivateStreamer(const std::shared_ptr&lt; Streamer &gt; &amp;streamer)</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00186">streamer_manager.cpp:186</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_a55d8d14202b191a8125c45d2d5ad8ab4"><div class="ttname"><a href="class_streamer_manager.html#a55d8d14202b191a8125c45d2d5ad8ab4">StreamerManager::has</a></div><div class="ttdeci">bool has(const std::shared_ptr&lt; Streamer &gt; &amp;streamer) const</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00079">streamer_manager.cpp:79</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_a9aebfa724286b5e90b19e0e042a454fd"><div class="ttname"><a href="class_streamer_manager.html#a9aebfa724286b5e90b19e0e042a454fd">StreamerManager::StreamerManager</a></div><div class="ttdeci">StreamerManager()</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00011">streamer_manager.cpp:11</a></div></div>
 <div class="ttc" id="aclass_nickname_already_added_html"><div class="ttname"><a href="class_nickname_already_added.html">NicknameAlreadyAdded</a></div><div class="ttdef"><b>Definition:</b> <a href="nickname_already_added_8h_source.html#l00024">nicknameAlreadyAdded.h:24</a></div></div>
 <div class="ttc" id="aclass_streamer_manager_html_a70eb3e22bde3e0f5816a8591b297c075"><div class="ttname"><a href="class_streamer_manager.html#a70eb3e22bde3e0f5816a8591b297c075">StreamerManager::remove</a></div><div class="ttdeci">bool remove(const std::shared_ptr&lt; Streamer &gt; &amp;streamer)</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00059">streamer_manager.cpp:59</a></div></div>
+<div class="ttc" id="aclass_invalid_donation_value_html"><div class="ttname"><a href="class_invalid_donation_value.html">InvalidDonationValue</a></div><div class="ttdef"><b>Definition:</b> <a href="invalid_donation_value_8h_source.html#l00024">invalidDonationValue.h:24</a></div></div>
 <div class="ttc" id="aclass_user_not_found_html"><div class="ttname"><a href="class_user_not_found.html">UserNotFound</a></div><div class="ttdef"><b>Definition:</b> <a href="user_not_found_8h_source.html#l00026">userNotFound.h:26</a></div></div>
 <div class="ttc" id="aclass_streamer_not_streaming_html"><div class="ttname"><a href="class_streamer_not_streaming.html">StreamerNotStreaming</a></div><div class="ttdef"><b>Definition:</b> <a href="streamer_not_streaming_8h_source.html#l00023">streamerNotStreaming.h:23</a></div></div>
+<div class="ttc" id="adonation_8h_html_a0fc0828b6df2228e551899bce0ce1ad9a49b6110489b2755c798ba8133119db74"><div class="ttname"><a href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9a49b6110489b2755c798ba8133119db74">streamerWorkRating::VERY_BAD</a></div><div class="ttdeci">@ VERY_BAD</div></div>
+<div class="ttc" id="aclass_nickname_not_found_html"><div class="ttname"><a href="class_nickname_not_found.html">NicknameNotFound</a></div><div class="ttdef"><b>Definition:</b> <a href="nickname_not_found_8h_source.html#l00025">nicknameNotFound.h:25</a></div></div>
+<div class="ttc" id="aclass_b_s_t_html_aea895bc48c9533dfcd2e01d227e01f33"><div class="ttname"><a href="class_b_s_t.html#aea895bc48c9533dfcd2e01d227e01f33">BST::insert</a></div><div class="ttdeci">bool insert(const Comparable &amp;x)</div><div class="ttdef"><b>Definition:</b> <a href="bst_8h_source.html#l00100">bst.h:100</a></div></div>
 <div class="ttc" id="aclass_invalid_age_html_a25e1bcf937ebae433c372912d9b15f3f"><div class="ttname"><a href="class_invalid_age.html#a25e1bcf937ebae433c372912d9b15f3f">InvalidAge::getAge</a></div><div class="ttdeci">unsigned int getAge() const</div><div class="ttdef"><b>Definition:</b> <a href="invalid_age_8cpp_source.html#l00010">invalidAge.cpp:10</a></div></div>
 <div class="ttc" id="aclass_invalid_age_html"><div class="ttname"><a href="class_invalid_age.html">InvalidAge</a></div><div class="ttdef"><b>Definition:</b> <a href="invalid_age_8h_source.html#l00025">invalidAge.h:25</a></div></div>
-<div class="ttc" id="aclass_streamer_manager_html_a72cbd5b866396b12827c692931f43430"><div class="ttname"><a href="class_streamer_manager.html#a72cbd5b866396b12827c692931f43430">StreamerManager::build</a></div><div class="ttdeci">std::shared_ptr&lt; Streamer &gt; build(Date birthDate, const std::string &amp;name, const std::string &amp;nickname, const std::string &amp;password)</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00019">streamer_manager.cpp:19</a></div></div>
-<div class="ttc" id="aclass_streamer_manager_html_abead67bd23d38c79a508a10e94f53226"><div class="ttname"><a href="class_streamer_manager.html#abead67bd23d38c79a508a10e94f53226">StreamerManager::writeData</a></div><div class="ttdeci">bool writeData()</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00135">streamer_manager.cpp:135</a></div></div>
-<div class="ttc" id="aclass_streamer_manager_html_acec0b5568a3161b4a9f846336939dff4"><div class="ttname"><a href="class_streamer_manager.html#acec0b5568a3161b4a9f846336939dff4">StreamerManager::get</a></div><div class="ttdeci">std::shared_ptr&lt; Streamer &gt; get(std::string nickname) const</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00090">streamer_manager.cpp:90</a></div></div>
-<div class="ttc" id="aclass_streamer_manager_html_ab5077b3abd36c2b30b90a36aba4c2562"><div class="ttname"><a href="class_streamer_manager.html#ab5077b3abd36c2b30b90a36aba4c2562">StreamerManager::getStreamers</a></div><div class="ttdeci">const std::vector&lt; std::shared_ptr&lt; Streamer &gt; &gt; &amp; getStreamers() const</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00108">streamer_manager.cpp:108</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_a72cbd5b866396b12827c692931f43430"><div class="ttname"><a href="class_streamer_manager.html#a72cbd5b866396b12827c692931f43430">StreamerManager::build</a></div><div class="ttdeci">std::shared_ptr&lt; Streamer &gt; build(Date birthDate, const std::string &amp;name, const std::string &amp;nickname, const std::string &amp;password)</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00020">streamer_manager.cpp:20</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_abead67bd23d38c79a508a10e94f53226"><div class="ttname"><a href="class_streamer_manager.html#abead67bd23d38c79a508a10e94f53226">StreamerManager::writeData</a></div><div class="ttdeci">bool writeData()</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00143">streamer_manager.cpp:143</a></div></div>
+<div class="ttc" id="aclass_donation_html_a895795971dcc71dd7a9131b88e3ef627"><div class="ttname"><a href="class_donation.html#a895795971dcc71dd7a9131b88e3ef627">Donation::getStreamerNickname</a></div><div class="ttdeci">const std::string &amp; getStreamerNickname() const</div><div class="ttdef"><b>Definition:</b> <a href="donation_8cpp_source.html#l00016">donation.cpp:16</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_acec0b5568a3161b4a9f846336939dff4"><div class="ttname"><a href="class_streamer_manager.html#acec0b5568a3161b4a9f846336939dff4">StreamerManager::get</a></div><div class="ttdeci">std::shared_ptr&lt; Streamer &gt; get(std::string nickname) const</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00088">streamer_manager.cpp:88</a></div></div>
+<div class="ttc" id="astreamer__manager_8h_html_a41d1aa3eb6787282ff49e48cc1a4184a"><div class="ttname"><a href="streamer__manager_8h.html#a41d1aa3eb6787282ff49e48cc1a4184a">tabHStreamer</a></div><div class="ttdeci">std::unordered_set&lt; std::shared_ptr&lt; Streamer &gt;, streamerHash, streamerHash &gt; tabHStreamer</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8h_source.html#l00038">streamer_manager.h:38</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_a37a8d67f1f1ae316cb001c0fe84160c6"><div class="ttname"><a href="class_streamer_manager.html#a37a8d67f1f1ae316cb001c0fe84160c6">StreamerManager::deactivateStreamer</a></div><div class="ttdeci">bool deactivateStreamer(const std::shared_ptr&lt; Streamer &gt; &amp;streamer)</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00177">streamer_manager.cpp:177</a></div></div>
+<div class="ttc" id="aclass_b_s_t_itr_in_html_a434375a2d263bf132ab3c4ac878af8ef"><div class="ttname"><a href="class_b_s_t_itr_in.html#a434375a2d263bf132ab3c4ac878af8ef">BSTItrIn::retrieve</a></div><div class="ttdeci">const Comparable &amp; retrieve()</div><div class="ttdef"><b>Definition:</b> <a href="bst_8h_source.html#l00434">bst.h:434</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_a9b8507082514a0431ff69eaa74d490be"><div class="ttname"><a href="class_streamer_manager.html#a9b8507082514a0431ff69eaa74d490be">StreamerManager::getDonations</a></div><div class="ttdeci">const BST&lt; Donation &gt; &amp; getDonations() const</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00214">streamer_manager.cpp:214</a></div></div>
 <div class="ttc" id="aclass_user_already_exists_html"><div class="ttname"><a href="class_user_already_exists.html">UserAlreadyExists</a></div><div class="ttdef"><b>Definition:</b> <a href="user_already_exists_8h_source.html#l00026">userAlreadyExists.h:26</a></div></div>
-<div class="ttc" id="aclass_streamer_manager_html_a5ea2c27c7bffa045c1b98ce5707ca139"><div class="ttname"><a href="class_streamer_manager.html#a5ea2c27c7bffa045c1b98ce5707ca139">StreamerManager::reload</a></div><div class="ttdeci">bool reload(const std::shared_ptr&lt; Streamer &gt; &amp;streamer)</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00048">streamer_manager.cpp:48</a></div></div>
-<div class="ttc" id="aclass_streamer_manager_html_a75007035ee46d3e1d438acbf0f4b871f"><div class="ttname"><a href="class_streamer_manager.html#a75007035ee46d3e1d438acbf0f4b871f">StreamerManager::endStream</a></div><div class="ttdeci">bool endStream(const std::shared_ptr&lt; Streamer &gt; &amp;streamer)</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00071">streamer_manager.cpp:71</a></div></div>
-<div class="ttc" id="aclass_streamer_manager_html_a836a95d8a52da98e895d0cdb3e46282f"><div class="ttname"><a href="class_streamer_manager.html#a836a95d8a52da98e895d0cdb3e46282f">StreamerManager::getNumOfFollowers</a></div><div class="ttdeci">unsigned int getNumOfFollowers(const std::shared_ptr&lt; Streamer &gt; &amp;streamer) const</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00101">streamer_manager.cpp:101</a></div></div>
-<div class="ttc" id="aclass_streamer_manager_html_a0e58ddf85924d01bc58c79fd722e0bce"><div class="ttname"><a href="class_streamer_manager.html#a0e58ddf85924d01bc58c79fd722e0bce">StreamerManager::readData</a></div><div class="ttdeci">bool readData()</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00112">streamer_manager.cpp:112</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_ad5edbda41b32658cf0deb1afa44b9dce"><div class="ttname"><a href="class_streamer_manager.html#ad5edbda41b32658cf0deb1afa44b9dce">StreamerManager::addNewDonation</a></div><div class="ttdeci">void addNewDonation(const std::string &amp;nickname, float ammount, streamerWorkRating rating)</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00195">streamer_manager.cpp:195</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_a33e98b3d8eaf4dcfcf8198e290f3a9f2"><div class="ttname"><a href="class_streamer_manager.html#a33e98b3d8eaf4dcfcf8198e290f3a9f2">StreamerManager::getStreamerDonations</a></div><div class="ttdeci">vector&lt; Donation &gt; getStreamerDonations(const std::string &amp;nickname)</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00201">streamer_manager.cpp:201</a></div></div>
+<div class="ttc" id="aclass_b_s_t_html"><div class="ttname"><a href="class_b_s_t.html">BST&lt; Donation &gt;</a></div></div>
+<div class="ttc" id="aclass_streamer_has_no_donations_html"><div class="ttname"><a href="class_streamer_has_no_donations.html">StreamerHasNoDonations</a></div><div class="ttdef"><b>Definition:</b> <a href="streamer_has_no_donations_8h_source.html#l00022">streamerHasNoDonations.h:22</a></div></div>
+<div class="ttc" id="aclass_b_s_t_itr_in_html"><div class="ttname"><a href="class_b_s_t_itr_in.html">BSTItrIn</a></div><div class="ttdef"><b>Definition:</b> <a href="bst_8h_source.html#l00009">bst.h:9</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_a5ea2c27c7bffa045c1b98ce5707ca139"><div class="ttname"><a href="class_streamer_manager.html#a5ea2c27c7bffa045c1b98ce5707ca139">StreamerManager::reload</a></div><div class="ttdeci">bool reload(const std::shared_ptr&lt; Streamer &gt; &amp;streamer)</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00049">streamer_manager.cpp:49</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_a75007035ee46d3e1d438acbf0f4b871f"><div class="ttname"><a href="class_streamer_manager.html#a75007035ee46d3e1d438acbf0f4b871f">StreamerManager::endStream</a></div><div class="ttdeci">bool endStream(const std::shared_ptr&lt; Streamer &gt; &amp;streamer)</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00069">streamer_manager.cpp:69</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_a836a95d8a52da98e895d0cdb3e46282f"><div class="ttname"><a href="class_streamer_manager.html#a836a95d8a52da98e895d0cdb3e46282f">StreamerManager::getNumOfFollowers</a></div><div class="ttdeci">unsigned int getNumOfFollowers(const std::shared_ptr&lt; Streamer &gt; &amp;streamer) const</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00099">streamer_manager.cpp:99</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_a0e58ddf85924d01bc58c79fd722e0bce"><div class="ttname"><a href="class_streamer_manager.html#a0e58ddf85924d01bc58c79fd722e0bce">StreamerManager::readData</a></div><div class="ttdeci">bool readData()</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00110">streamer_manager.cpp:110</a></div></div>
+<div class="ttc" id="aclass_donation_html"><div class="ttname"><a href="class_donation.html">Donation</a></div><div class="ttdef"><b>Definition:</b> <a href="donation_8h_source.html#l00032">donation.h:32</a></div></div>
 <div class="ttc" id="astreamer__manager_8h_html"><div class="ttname"><a href="streamer__manager_8h.html">streamer_manager.h</a></div></div>
-<div class="ttc" id="aclass_streamer_manager_html_a9a0f64e7ce424c40da55e0ca6832fb82"><div class="ttname"><a href="class_streamer_manager.html#a9a0f64e7ce424c40da55e0ca6832fb82">StreamerManager::add</a></div><div class="ttdeci">bool add(const std::shared_ptr&lt; Streamer &gt; &amp;streamer)</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00039">streamer_manager.cpp:39</a></div></div>
+<div class="ttc" id="aclass_b_s_t_itr_in_html_ac772d3ebbac748c5f8cf9bc659f2e32c"><div class="ttname"><a href="class_b_s_t_itr_in.html#ac772d3ebbac748c5f8cf9bc659f2e32c">BSTItrIn::advance</a></div><div class="ttdeci">void advance()</div><div class="ttdef"><b>Definition:</b> <a href="bst_8h_source.html#l00460">bst.h:460</a></div></div>
+<div class="ttc" id="aclass_b_s_t_itr_in_html_a6f9a43217862c263a9bf15b9a08b889a"><div class="ttname"><a href="class_b_s_t_itr_in.html#a6f9a43217862c263a9bf15b9a08b889a">BSTItrIn::isAtEnd</a></div><div class="ttdeci">bool isAtEnd()</div><div class="ttdef"><b>Definition:</b> <a href="bst_8h_source.html#l00435">bst.h:435</a></div></div>
+<div class="ttc" id="adonation_8h_html_a0fc0828b6df2228e551899bce0ce1ad9"><div class="ttname"><a href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9">streamerWorkRating</a></div><div class="ttdeci">streamerWorkRating</div><div class="ttdef"><b>Definition:</b> <a href="donation_8h_source.html#l00022">donation.h:22</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_a433abcff4e0f18367fbd953c3c1c101e"><div class="ttname"><a href="class_streamer_manager.html#a433abcff4e0f18367fbd953c3c1c101e">StreamerManager::getStreamers</a></div><div class="ttdeci">const tabHStreamer &amp; getStreamers() const</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00106">streamer_manager.cpp:106</a></div></div>
+<div class="ttc" id="aclass_streamer_manager_html_a9a0f64e7ce424c40da55e0ca6832fb82"><div class="ttname"><a href="class_streamer_manager.html#a9a0f64e7ce424c40da55e0ca6832fb82">StreamerManager::add</a></div><div class="ttdeci">bool add(const std::shared_ptr&lt; Streamer &gt; &amp;streamer)</div><div class="ttdef"><b>Definition:</b> <a href="streamer__manager_8cpp_source.html#l00040">streamer_manager.cpp:40</a></div></div>
 <div class="ttc" id="aclass_date_html"><div class="ttname"><a href="class_date.html">Date</a></div><div class="ttdef"><b>Definition:</b> <a href="date_8h_source.html#l00026">date.h:26</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

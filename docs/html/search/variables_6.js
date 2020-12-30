@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['joindate_768',['joinDate',['../class_user.html#a8511b8fc40afe4cdf37079e34eac7b17',1,'User']]]
+  ['hide_5fcursor_1004',['HIDE_CURSOR',['../auxiliary_functions_8h.html#ad0a2c791c5443ae1735d21367d2e9ec2',1,'auxiliaryFunctions.h']]]
 ];

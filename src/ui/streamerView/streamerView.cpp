@@ -71,6 +71,7 @@ void StreamerView::pageOutput() const {
         std::cout << "\n YOU'RE LIVE -> " << uiManager.getPlatform().getStreamManager()->get(thisStreamer->getCurrentStreamID())->getTitle()
                   << " <- *" << currentStream->getNumOfViewers() << "*" << std::endl;
     }
+    std::cout << "\n";
 }
 
 void StreamerView::startStream() {
@@ -151,6 +152,9 @@ void StreamerView::seeStreamStatistics() {
     std::shared_ptr<Streamer> currentStreamer;
     std::shared_ptr<Stream> currentStream;
 
+    std::cout << CLEAR_SCREEN << GO_TO_TOP;
+    pageOutput();
+
     try{
         currentStreamer = uiManager.getPlatform().getStreamerManager()->get(uiManager.getCurrentSession().getNickname());
         currentStream = uiManager.getPlatform().getStreamManager()->get(currentStreamer->getCurrentStreamID());
@@ -159,8 +163,7 @@ void StreamerView::seeStreamStatistics() {
         _getch_();
         return;
     }
-    std::cout << CLEAR_SCREEN << GO_TO_TOP;
-    pageOutput();
+
     std::cout << "\nCurrent number of viewers -> " << currentStream->getNumOfViewers() << std::endl;
     std::cout << "Number of Likes -> " << currentStream->getVotes().first << std::endl;
     std::cout << "Number of Dislikes -> " << currentStream->getVotes().second << std::endl;
@@ -178,6 +181,9 @@ void StreamerView::seeStreamStatistics() {
 void StreamerView::oldEnoughViewerLB() {
     std::shared_ptr<Streamer> currentStreamer;
     std::shared_ptr<Stream> currentStream;
+
+    std::cout << CLEAR_SCREEN << GO_TO_TOP;
+    pageOutput();
 
     try{
         currentStreamer = uiManager.getPlatform().getStreamerManager()->get(uiManager.getCurrentSession().getNickname());
@@ -199,6 +205,9 @@ void StreamerView::addViewersToWhitelist() {
     std::shared_ptr<Streamer> currentStreamer;
     std::shared_ptr<Stream> currentStream;
 
+    std::cout << CLEAR_SCREEN << GO_TO_TOP;
+    pageOutput();
+
     try{
         currentStreamer = uiManager.getPlatform().getStreamerManager()->get(uiManager.getCurrentSession().getNickname());
         currentStream = uiManager.getPlatform().getStreamManager()->get(currentStreamer->getCurrentStreamID());
@@ -208,8 +217,6 @@ void StreamerView::addViewersToWhitelist() {
         return;
     }
     if(currentStream->getStreamType() == StreamType::PRIVATE){
-        std::cout << CLEAR_SCREEN << GO_TO_TOP;
-        pageOutput();
         std::cout << "What nickname do you wish to add to the whitelist? ";
         getlineCIN(nicknameToAdd);
         auto currentStreamPrivate = std::dynamic_pointer_cast<PrivateStream>(currentStream);
@@ -311,8 +318,7 @@ void StreamerView::merchSystem() {
                 else{
                     try{
                         auto merch = streamer->processNextOrder();
-                        std::cout << "The order:\n\n"
-                                     "Buyer: " << merch.getBuyer() << "\nNumber of Products: " << merch.getQuantity() <<"\n\n Is now processed!";
+                        std::cout << "The order:\n\nBuyer: " << merch.getBuyer() << "\nNumber of Products: " << merch.getQuantity() <<"\n\n Is now processed!";
                     } catch (std::exception &e) {
                         std::cerr << e.what();
                     }

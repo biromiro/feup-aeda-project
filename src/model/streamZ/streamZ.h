@@ -89,7 +89,7 @@ public:
     * Method to obtain the adminManager
     * @return pointer to current adminManager
      * */
-    std::shared_ptr<AdminManager> getAdminManager() const;
+    std::shared_ptr<AdminManager> getAdminManager();
 };
 
 #endif //PROJECT_STREAMZ_H

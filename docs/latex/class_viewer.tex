@@ -6,12 +6,21 @@
 
 
 
-Inheritance diagram for Viewer\+:
-\nopagebreak
+Inheritance diagram for Viewer\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=262pt]{class_viewer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Viewer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{class_viewer__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -34,6 +43,10 @@ bool \mbox{\hyperlink{class_viewer_adbd92f8cddd5f74fe128c13b8b8418c1}{give\+Feed
 bool \mbox{\hyperlink{class_viewer_abf65cbba6d953d882ab77e7cb9bb56ff}{follow\+Streamer}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&streamer)
 \item 
 bool \mbox{\hyperlink{class_viewer_a51c1d5e2583a05f1132f2b4e7325bab2}{unfollow\+Streamer}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ \&streamer)
+\item 
+void \mbox{\hyperlink{class_viewer_a37ebe622059d205ba6e80a7e86508055}{order\+Merch}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ streamer, unsigned int quantity, unsigned int purchaseA)
+\item 
+void \mbox{\hyperlink{class_viewer_afc4bf28e5399c8c79c9820c3714b27fb}{remove\+Order}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ streamer)
 \item 
 const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream}{Stream}} $>$ \& \mbox{\hyperlink{class_viewer_acb60572fbf42fba81b227ad8468ab0cd}{get\+Current\+Stream}} () const
 \item 
@@ -78,7 +91,7 @@ Definition at line 37 of file viewer.\+h.
 
 
 
-Definition at line 11 of file viewer.\+cpp.
+Definition at line 16 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_a2679997b52f8f77fc43c417596550bd6}\label{class_viewer_a2679997b52f8f77fc43c417596550bd6}} 
 \index{Viewer@{Viewer}!Viewer@{Viewer}}
@@ -99,7 +112,7 @@ Constructor of the \mbox{\hyperlink{class_viewer}{Viewer}} Class
 \end{DoxyParams}
 
 
-Definition at line 14 of file viewer.\+cpp.
+Definition at line 19 of file viewer.\+cpp.
 
 
 
@@ -122,7 +135,7 @@ True if the viewer can follow the given streamer, false otherwise
 \end{DoxyReturn}
 
 
-Definition at line 94 of file viewer.\+cpp.
+Definition at line 99 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_acb60572fbf42fba81b227ad8468ab0cd}\label{class_viewer_acb60572fbf42fba81b227ad8468ab0cd}} 
 \index{Viewer@{Viewer}!getCurrentStream@{getCurrentStream}}
@@ -137,7 +150,7 @@ the current stream
 \end{DoxyReturn}
 
 
-Definition at line 112 of file viewer.\+cpp.
+Definition at line 138 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_af7902e4ef5bb35e4806b319361292ee3}\label{class_viewer_af7902e4ef5bb35e4806b319361292ee3}} 
 \index{Viewer@{Viewer}!getFollowingStreamers@{getFollowingStreamers}}
@@ -152,7 +165,7 @@ the unordered set of the following streamers
 \end{DoxyReturn}
 
 
-Definition at line 120 of file viewer.\+cpp.
+Definition at line 146 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_af3f5c79df5dc47663e2f09dac396eb5c}\label{class_viewer_af3f5c79df5dc47663e2f09dac396eb5c}} 
 \index{Viewer@{Viewer}!getStreamHistory@{getStreamHistory}}
@@ -167,7 +180,7 @@ the stream history
 \end{DoxyReturn}
 
 
-Definition at line 116 of file viewer.\+cpp.
+Definition at line 142 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_adbd92f8cddd5f74fe128c13b8b8418c1}\label{class_viewer_adbd92f8cddd5f74fe128c13b8b8418c1}} 
 \index{Viewer@{Viewer}!giveFeedbackToStream@{giveFeedbackToStream}}
@@ -187,7 +200,7 @@ True if the comment was given successfully, false otherwise
 \end{DoxyReturn}
 
 
-Definition at line 83 of file viewer.\+cpp.
+Definition at line 88 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_a665507d163b48d7ec66e6d88b6ef56d4}\label{class_viewer_a665507d163b48d7ec66e6d88b6ef56d4}} 
 \index{Viewer@{Viewer}!giveFeedbackToStream@{giveFeedbackToStream}}
@@ -207,7 +220,7 @@ True if the feedback was given successfully, false otherwise
 \end{DoxyReturn}
 
 
-Definition at line 63 of file viewer.\+cpp.
+Definition at line 68 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_a6e34790e0352be2473e94f3ba23baeaf}\label{class_viewer_a6e34790e0352be2473e94f3ba23baeaf}} 
 \index{Viewer@{Viewer}!isWatchingStream@{isWatchingStream}}
@@ -222,7 +235,7 @@ True if the viewer is watching a stream, false otherwise
 \end{DoxyReturn}
 
 
-Definition at line 44 of file viewer.\+cpp.
+Definition at line 49 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_a669c1e0f55e415465b3ba8c88dfff0d7}\label{class_viewer_a669c1e0f55e415465b3ba8c88dfff0d7}} 
 \index{Viewer@{Viewer}!joinStream@{joinStream}}
@@ -242,7 +255,7 @@ True if the action was successful, false otherwise
 \end{DoxyReturn}
 
 
-Definition at line 25 of file viewer.\+cpp.
+Definition at line 30 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_a05fe20c0b78f0539930eca0ad0e67f05}\label{class_viewer_a05fe20c0b78f0539930eca0ad0e67f05}} 
 \index{Viewer@{Viewer}!leaveCurrentStream@{leaveCurrentStream}}
@@ -257,7 +270,7 @@ True if the viewer was watching a stream (and leaves successfully), false otherw
 \end{DoxyReturn}
 
 
-Definition at line 48 of file viewer.\+cpp.
+Definition at line 53 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_a2c84b5dbd1052fd321945be3557aaa83}\label{class_viewer_a2c84b5dbd1052fd321945be3557aaa83}} 
 \index{Viewer@{Viewer}!operator"!=@{operator"!=}}
@@ -265,7 +278,7 @@ Definition at line 48 of file viewer.\+cpp.
 \doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
 {\footnotesize\ttfamily bool Viewer\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_viewer}{Viewer}} \&}]{rhs }\end{DoxyParamCaption}) const}
 
-Overloard of operator != to viewers
+Overload of operator != to viewers
 
 
 \begin{DoxyParams}{Parameters}
@@ -277,7 +290,7 @@ self != given viewer
 \end{DoxyReturn}
 
 
-Definition at line 160 of file viewer.\+cpp.
+Definition at line 186 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_a3a1450fc80b4c9364260365ffe02285c}\label{class_viewer_a3a1450fc80b4c9364260365ffe02285c}} 
 \index{Viewer@{Viewer}!operator$<$@{operator$<$}}
@@ -285,7 +298,7 @@ Definition at line 160 of file viewer.\+cpp.
 \doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
 {\footnotesize\ttfamily bool Viewer\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_viewer}{Viewer}} \&}]{rhs }\end{DoxyParamCaption}) const}
 
-Overloard of operator $<$ to viewers
+Overload of operator $<$ to viewers
 
 
 \begin{DoxyParams}{Parameters}
@@ -297,7 +310,7 @@ self $<$ given viewer
 \end{DoxyReturn}
 
 
-Definition at line 124 of file viewer.\+cpp.
+Definition at line 150 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_a81490b7f58b621c97086adc5c83fd8c9}\label{class_viewer_a81490b7f58b621c97086adc5c83fd8c9}} 
 \index{Viewer@{Viewer}!operator$<$=@{operator$<$=}}
@@ -305,7 +318,7 @@ Definition at line 124 of file viewer.\+cpp.
 \doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
 {\footnotesize\ttfamily bool Viewer\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_viewer}{Viewer}} \&}]{rhs }\end{DoxyParamCaption}) const}
 
-Overloard of operator $<$= to viewers
+Overload of operator $<$= to viewers
 
 
 \begin{DoxyParams}{Parameters}
@@ -317,7 +330,7 @@ self $<$= given viewer
 \end{DoxyReturn}
 
 
-Definition at line 148 of file viewer.\+cpp.
+Definition at line 174 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_a5ccc6bc69d3e5249f67c5ed3d3802f9a}\label{class_viewer_a5ccc6bc69d3e5249f67c5ed3d3802f9a}} 
 \index{Viewer@{Viewer}!operator==@{operator==}}
@@ -325,7 +338,7 @@ Definition at line 148 of file viewer.\+cpp.
 \doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
 {\footnotesize\ttfamily bool Viewer\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_viewer}{Viewer}} \&}]{rhs }\end{DoxyParamCaption}) const}
 
-Overloard of operator == to viewers
+Overload of operator == to viewers
 
 
 \begin{DoxyParams}{Parameters}
@@ -337,7 +350,7 @@ self == given viewer
 \end{DoxyReturn}
 
 
-Definition at line 156 of file viewer.\+cpp.
+Definition at line 182 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_a06757b91211d3c027737a15b1bdb3b93}\label{class_viewer_a06757b91211d3c027737a15b1bdb3b93}} 
 \index{Viewer@{Viewer}!operator$>$@{operator$>$}}
@@ -345,7 +358,7 @@ Definition at line 156 of file viewer.\+cpp.
 \doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
 {\footnotesize\ttfamily bool Viewer\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_viewer}{Viewer}} \&}]{rhs }\end{DoxyParamCaption}) const}
 
-Overloard of operator $>$ to viewers
+Overload of operator $>$ to viewers
 
 
 \begin{DoxyParams}{Parameters}
@@ -357,7 +370,7 @@ self $>$ given viewer
 \end{DoxyReturn}
 
 
-Definition at line 144 of file viewer.\+cpp.
+Definition at line 170 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_acb814683a5b9f7a002e7883d17f6e935}\label{class_viewer_acb814683a5b9f7a002e7883d17f6e935}} 
 \index{Viewer@{Viewer}!operator$>$=@{operator$>$=}}
@@ -365,7 +378,7 @@ Definition at line 144 of file viewer.\+cpp.
 \doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
 {\footnotesize\ttfamily bool Viewer\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_viewer}{Viewer}} \&}]{rhs }\end{DoxyParamCaption}) const}
 
-Overloard of operator $>$= to viewers
+Overload of operator $>$= to viewers
 
 
 \begin{DoxyParams}{Parameters}
@@ -377,7 +390,28 @@ self $>$= given viewer
 \end{DoxyReturn}
 
 
-Definition at line 152 of file viewer.\+cpp.
+Definition at line 178 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_a37ebe622059d205ba6e80a7e86508055}\label{class_viewer_a37ebe622059d205ba6e80a7e86508055}} 
+\index{Viewer@{Viewer}!orderMerch@{orderMerch}}
+\index{orderMerch@{orderMerch}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{orderMerch()}{orderMerch()}}
+{\footnotesize\ttfamily void Viewer\+::order\+Merch (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$}]{streamer,  }\item[{unsigned int}]{quantity,  }\item[{unsigned int}]{purchaseA }\end{DoxyParamCaption})}
+
+Add a merchandising order to the orders queue of the streamer
+
+
+\begin{DoxyParams}{Parameters}
+{\em streamer} & streamer from which to order merchandising \\
+\hline
+{\em quantity} & quantity of merchandising to order \\
+\hline
+{\em purchaseA} & purchase availability of order \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 117 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_afc0e136ded90c3ff15116f0f3b722eb7}\label{class_viewer_afc0e136ded90c3ff15116f0f3b722eb7}} 
 \index{Viewer@{Viewer}!readData@{readData}}
@@ -396,7 +430,24 @@ Reads viewer data from file
 \end{DoxyParams}
 
 
-Definition at line 164 of file viewer.\+cpp.
+Definition at line 190 of file viewer.\+cpp.
+
+\mbox{\Hypertarget{class_viewer_afc4bf28e5399c8c79c9820c3714b27fb}\label{class_viewer_afc4bf28e5399c8c79c9820c3714b27fb}} 
+\index{Viewer@{Viewer}!removeOrder@{removeOrder}}
+\index{removeOrder@{removeOrder}!Viewer@{Viewer}}
+\doxysubsubsection{\texorpdfstring{removeOrder()}{removeOrder()}}
+{\footnotesize\ttfamily void Viewer\+::remove\+Order (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$}]{streamer }\end{DoxyParamCaption})}
+
+Removes the viewer\textquotesingle{}s merchandising order from the orders queue of the streamer
+
+
+\begin{DoxyParams}{Parameters}
+{\em streamer} & streamer from which to remove order \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 130 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_a51c1d5e2583a05f1132f2b4e7325bab2}\label{class_viewer_a51c1d5e2583a05f1132f2b4e7325bab2}} 
 \index{Viewer@{Viewer}!unfollowStreamer@{unfollowStreamer}}
@@ -416,7 +467,7 @@ True if the viewer can unfollow the given streamer, false otherwise
 \end{DoxyReturn}
 
 
-Definition at line 106 of file viewer.\+cpp.
+Definition at line 111 of file viewer.\+cpp.
 
 \mbox{\Hypertarget{class_viewer_a2e6b392f622fa1db1d3c9824088ed5ac}\label{class_viewer_a2e6b392f622fa1db1d3c9824088ed5ac}} 
 \index{Viewer@{Viewer}!writeData@{writeData}}
@@ -437,7 +488,7 @@ Reimplemented from \mbox{\hyperlink{class_user_a3efd848398bcda7686ed2ae03ec1f99a
 
 
 
-Definition at line 196 of file viewer.\+cpp.
+Definition at line 222 of file viewer.\+cpp.
 
 
 

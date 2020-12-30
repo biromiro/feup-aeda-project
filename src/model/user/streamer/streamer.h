@@ -198,8 +198,9 @@ public:
     * @return self >= given streamer*/
     bool operator>=(const Streamer &rhs) const;
 
-    /**
-      * Checks if the streamer can receive the reactivation Bonus*/
+     /**
+      * Checks if the streamer can receive the reactivation Bonus
+      */
      bool eligibleForBonus() const;
 
      /**
@@ -208,7 +209,8 @@ public:
      void makeEligibleToBonus();
 
      /**
-      * Once the bonus is applied to the first stream, removes the possibility to obtain it again*/
+      * Once the bonus is applied to the first stream, removes the possibility to obtain it again
+      */
      void useBonus();
 
 private:

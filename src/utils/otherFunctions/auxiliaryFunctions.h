@@ -70,6 +70,11 @@ void getlineCIN(std::string& s);
  */
 std::string shrinkToColumnSize(std::string value);
 
+/**
+ *  Receives a float number from the input stream, and handles such stream
+ *
+ * @return the float given as input
+ */
 float inputFloat();
 
 #endif //PROJECT_AUXILIARYFUNCTIONS_H

@@ -22,6 +22,7 @@ var class_stream =
     [ "operator==", "class_stream.html#acdd0a69cee583d8e0b16a222e932f0a4", null ],
     [ "operator>", "class_stream.html#a65fafa8d81ec508a17fab7dcbeafb60a", null ],
     [ "operator>=", "class_stream.html#a75a5b943ae701b84f212842146830f20", null ],
+    [ "reactivationBonus", "class_stream.html#a2455975f4065e962935887f539e274f8", null ],
     [ "readData", "class_stream.html#ad73c16a5c16b178ae3ba646c37e68b22", null ],
     [ "removeFeedback", "class_stream.html#a34add52431784594ed33e2f99203c1a4", null ],
     [ "viewerLeft", "class_stream.html#a34f168d9e1ad51809724dd914b097cda", null ],

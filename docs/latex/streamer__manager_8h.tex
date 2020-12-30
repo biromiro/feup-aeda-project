@@ -1,9 +1,32 @@
 \hypertarget{streamer__manager_8h}{}\doxysection{/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/user/streamer/streamer\+\_\+manager.h File Reference}
 \label{streamer__manager_8h}\index{/home/biromiro/AEDA/feup-\/aeda-\/project/src/model/user/streamer/streamer\_manager.h@{/home/biromiro/AEDA/feup-\/aeda-\/project/src/model/user/streamer/streamer\_manager.h}}
 {\ttfamily \#include \char`\"{}../../stream/stream\+Manager.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../transactions/donations/donation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../../utils/binary\+Tree/bst.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../../exception/streamer\+Has\+No\+Donations/streamer\+Has\+No\+Donations.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}streamer.\+h\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+struct \mbox{\hyperlink{structstreamer_hash}{streamer\+Hash}}
+\item 
 class \mbox{\hyperlink{class_streamer_manager}{Streamer\+Manager}}
 \end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::unordered\+\_\+set$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$, \mbox{\hyperlink{structstreamer_hash}{streamer\+Hash}}, \mbox{\hyperlink{structstreamer_hash}{streamer\+Hash}} $>$ \mbox{\hyperlink{streamer__manager_8h_a41d1aa3eb6787282ff49e48cc1a4184a}{tab\+H\+Streamer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{streamer__manager_8h_a41d1aa3eb6787282ff49e48cc1a4184a}\label{streamer__manager_8h_a41d1aa3eb6787282ff49e48cc1a4184a}} 
+\index{streamer\_manager.h@{streamer\_manager.h}!tabHStreamer@{tabHStreamer}}
+\index{tabHStreamer@{tabHStreamer}!streamer\_manager.h@{streamer\_manager.h}}
+\doxysubsubsection{\texorpdfstring{tabHStreamer}{tabHStreamer}}
+{\footnotesize\ttfamily typedef std\+::unordered\+\_\+set$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_streamer}{Streamer}}$>$,\mbox{\hyperlink{structstreamer_hash}{streamer\+Hash}},\mbox{\hyperlink{structstreamer_hash}{streamer\+Hash}}$>$ \mbox{\hyperlink{streamer__manager_8h_a41d1aa3eb6787282ff49e48cc1a4184a}{tab\+H\+Streamer}}}
+
+
+
+Definition at line 38 of file streamer\+\_\+manager.\+h.
+

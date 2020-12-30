@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['width_787',['WIDTH',['../auxiliary_functions_8h.html#ab75dcb6c61ba381bccbe190c662061d8',1,'auxiliaryFunctions.h']]]
+  ['votingsystem_1023',['votingSystem',['../class_stream.html#acc09f09821f57b2d2b9d1e6a9907aabb',1,'Stream']]]
 ];

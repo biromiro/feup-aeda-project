@@ -44,6 +44,7 @@ void ViewerView::run() {
             case '7': {
                 bool leave = accountSettings();
                 if (leave) answer = '0';}
+                break;
             case '0':
                 uiManager.getCurrentSession().logout();
                 break;
@@ -57,7 +58,7 @@ void ViewerView::run() {
 
 
 void ViewerView::pageOutput() const {
-    std::cout << "*****StreamZ*****" << uiManager.getCurrentSession().getNickname() << "*****" << std::endl;
+    std::cout << "*****StreamZ*****" << uiManager.getCurrentSession().getNickname() << "*****\n" << std::endl;
 }
 
 void ViewerView::chooseStream() {
@@ -170,7 +171,7 @@ void ViewerView::followingStreamerActions(){
                 std::string nicknameToUnfollow;
                 auto thisViewer = uiManager.getPlatform().getViewerManager()->get(
                         uiManager.getCurrentSession().getNickname());
-                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
+                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
                           << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                 std::cout << "Who do you wish to unfollow?";
                 getlineCIN(nicknameToUnfollow);
@@ -187,8 +188,8 @@ void ViewerView::followingStreamerActions(){
                     } else {
                         std::cerr << "You do not follow this streamer!" << std::endl;
                         _getch_();
-                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
-                                  << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP
+                                  << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                         std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
                         std::cout << "\n 2 - Donate to a streamer!" << std::endl;
                         std::cout << "\n 3 - Do a merch request!" << std::endl;
@@ -198,8 +199,8 @@ void ViewerView::followingStreamerActions(){
                 } else {
                     std::cerr << "There's no such streamer!" << std::endl;
                     _getch_();
-                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
-                              << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP
+                              << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                     std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
                     std::cout << "\n 2 - Donate to a streamer!" << std::endl;
                     std::cout << "\n 3 - Do a merch request!" << std::endl;
@@ -211,7 +212,7 @@ void ViewerView::followingStreamerActions(){
                 std::string nicknameToDonate;
                 auto thisViewer = uiManager.getPlatform().getViewerManager()->get(
                         uiManager.getCurrentSession().getNickname());
-                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
+                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
                           << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                 std::cout << "Who do you wish to donate to?";
                 getlineCIN(nicknameToDonate);
@@ -239,8 +240,8 @@ void ViewerView::followingStreamerActions(){
                     } else {
                         std::cerr << "You do not follow this streamer!" << std::endl;
                         _getch_();
-                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
-                                  << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP
+                                  << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                         std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
                         std::cout << "\n 2 - Donate to a streamer!" << std::endl;
                         std::cout << "\n 3 - Do a merch request!" << std::endl;
@@ -250,8 +251,8 @@ void ViewerView::followingStreamerActions(){
                 } else {
                     std::cerr << "There's no such streamer!" << std::endl;
                     _getch_();
-                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
-                              << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP
+                              << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                     std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
                     std::cout << "\n 2 - Donate to a streamer!" << std::endl;
                     std::cout << "\n 3 - Do a merch request!" << std::endl;
@@ -263,7 +264,7 @@ void ViewerView::followingStreamerActions(){
                 std::string nicknameToRequest;
                 auto thisViewer = uiManager.getPlatform().getViewerManager()->get(
                         uiManager.getCurrentSession().getNickname());
-                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
+                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
                           << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                 std::cout << "Who do you wish to request merch from?";
                 getlineCIN(nicknameToRequest);
@@ -285,18 +286,17 @@ void ViewerView::followingStreamerActions(){
                         MerchRequest merchRequest(uiManager.getCurrentSession().getNickname(), numProducts, buyAvailability);
                         try{
                             streamerToUnfollow->addMerchOrder(merchRequest);
+                            std::cout << "Successfully ordered!";
                         } catch (std::exception &e) {
                             std::cerr << e.what();
-                            break;
                         }
-                        std::cout << "Successfully ordered!";
                         _getch_();
                         answer = '0';
                     } else {
                         std::cerr << "You do not follow this streamer!" << std::endl;
                         _getch_();
-                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
-                                  << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP
+                                  << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                         std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
                         std::cout << "\n 2 - Donate to a streamer!" << std::endl;
                         std::cout << "\n 3 - Do a merch request!" << std::endl;
@@ -306,8 +306,8 @@ void ViewerView::followingStreamerActions(){
                 } else {
                     std::cerr << "There's no such streamer!" << std::endl;
                     _getch_();
-                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
-                              << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP
+                              << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                     std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
                     std::cout << "\n 2 - Donate to a streamer!" << std::endl;
                     std::cout << "\n 3 - Do a merch request!" << std::endl;
@@ -319,7 +319,7 @@ void ViewerView::followingStreamerActions(){
                 std::string nicknameToRequest;
                 auto thisViewer = uiManager.getPlatform().getViewerManager()->get(
                         uiManager.getCurrentSession().getNickname());
-                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
+                std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
                           << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                 std::cout << "Who do you wish to remove the merch request from?";
                 getlineCIN(nicknameToRequest);
@@ -339,8 +339,8 @@ void ViewerView::followingStreamerActions(){
                     } else {
                         std::cerr << "You do not follow this streamer!" << std::endl;
                         _getch_();
-                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
-                                  << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                        std::cout << LINE_UP << CLEAR_LINE << LINE_UP
+                                  << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                         std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
                         std::cout << "\n 2 - Donate to a streamer!" << std::endl;
                         std::cout << "\n 3 - Do a merch request!" << std::endl;
@@ -350,8 +350,8 @@ void ViewerView::followingStreamerActions(){
                 } else {
                     std::cerr << "There's no such streamer!" << std::endl;
                     _getch_();
-                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP
-                              << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
+                    std::cout << LINE_UP << CLEAR_LINE << LINE_UP
+                              << CLEAR_LINE << LINE_UP << GO_TO_BEGINNING_OF_LINE;
                     std::cout << "\n 1 - Unfollow a streamer!" << std::endl;
                     std::cout << "\n 2 - Donate to a streamer!" << std::endl;
                     std::cout << "\n 3 - Do a merch request!" << std::endl;
@@ -386,8 +386,10 @@ void ViewerView::myViewHistory() {
 }
 
 bool ViewerView::accountSettings() {
+    std::cout << CLEAR_SCREEN << GO_TO_TOP;
+    pageOutput();
     char answer;
-    std::cout << "\n 1 - Deactivate my account" << std::endl;
+    std::cout << " 1 - Deactivate my account" << std::endl;
     std::cout << "\n 0 - Go to main menu" << std::endl;
     do{
         answer = _getch_();

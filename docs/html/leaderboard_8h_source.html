@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="rsz_1rsz_acastro_200410_1777_obs_00010.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StreamZ
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">A streaming platform for all!</div>
   </td>
@@ -169,25 +169,34 @@ $(document).ready(function(){initNavTree('leaderboard_8h_source.html',''); initR
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                   (elem-&gt;getVotes()).first &lt;&lt; std::setw(<a class="code" href="auxiliary_functions_8h.html#ab75dcb6c61ba381bccbe190c662061d8">WIDTH</a>) &lt;&lt; (elem-&gt;getVotes()).second &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            }</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            os &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="class_leaderboard.html#ab11b5c9cd5d4c92c53c3cb5ad3dc499b">  115</a></span>&#160;    <span class="keyword">const</span> std::vector&lt;N&gt; &amp;<a class="code" href="class_leaderboard.html#ab11b5c9cd5d4c92c53c3cb5ad3dc499b">get</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">return</span> leaderboard;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    std::vector&lt;N&gt; leaderboard;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;};</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#endif //PROJECT_LEADERBOARD_H</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;N, Donation&gt;) {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            os &lt;&lt; <span class="stringliteral">&quot;Donation Leaderboard\n\n&quot;</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            os &lt;&lt; std::left &lt;&lt; std::setfill(<span class="charliteral">&#39; &#39;</span>) &lt;&lt; std::setw(<a class="code" href="auxiliary_functions_8h.html#ab75dcb6c61ba381bccbe190c662061d8">WIDTH</a>) &lt;&lt; <span class="stringliteral">&quot;Streamer&quot;</span> &lt;&lt; std::setw(<a class="code" href="auxiliary_functions_8h.html#ab75dcb6c61ba381bccbe190c662061d8">WIDTH</a>)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;               &lt;&lt; <span class="stringliteral">&quot;Ammount&quot;</span> &lt;&lt; std::setw(<a class="code" href="auxiliary_functions_8h.html#ab75dcb6c61ba381bccbe190c662061d8">WIDTH</a>) &lt;&lt; <span class="stringliteral">&quot;Rating&quot;</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            os &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span> &lt;&lt; std::left;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; elem: dt.leaderboard){</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                os &lt;&lt; std::left &lt;&lt; std::setw(<a class="code" href="auxiliary_functions_8h.html#ab75dcb6c61ba381bccbe190c662061d8">WIDTH</a>) &lt;&lt; elem.getStreamerNickname()</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                   &lt;&lt; std::setw(<a class="code" href="auxiliary_functions_8h.html#ab75dcb6c61ba381bccbe190c662061d8">WIDTH</a>) &lt;&lt; elem.getAmmount() &lt;&lt; std::setw(<a class="code" href="auxiliary_functions_8h.html#ab75dcb6c61ba381bccbe190c662061d8">WIDTH</a>) &lt;&lt; elem.getRating() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="class_leaderboard.html#ab11b5c9cd5d4c92c53c3cb5ad3dc499b">  124</a></span>&#160;    <span class="keyword">const</span> std::vector&lt;N&gt; &amp;<a class="code" href="class_leaderboard.html#ab11b5c9cd5d4c92c53c3cb5ad3dc499b">get</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">return</span> leaderboard;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    std::vector&lt;N&gt; leaderboard;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;};</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">#endif //PROJECT_LEADERBOARD_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_leaderboard_html_a4568dd65e18f8d55a57c51e71ebf13a2"><div class="ttname"><a href="class_leaderboard.html#a4568dd65e18f8d55a57c51e71ebf13a2">Leaderboard::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const Leaderboard&lt; N &gt; &amp;dt)</div><div class="ttdef"><b>Definition:</b> <a href="leaderboard_8h_source.html#l00047">leaderboard.h:47</a></div></div>
-<div class="ttc" id="aclass_leaderboard_html_ab11b5c9cd5d4c92c53c3cb5ad3dc499b"><div class="ttname"><a href="class_leaderboard.html#ab11b5c9cd5d4c92c53c3cb5ad3dc499b">Leaderboard::get</a></div><div class="ttdeci">const std::vector&lt; N &gt; &amp; get() const</div><div class="ttdef"><b>Definition:</b> <a href="leaderboard_8h_source.html#l00115">leaderboard.h:115</a></div></div>
+<div class="ttc" id="aclass_leaderboard_html_ab11b5c9cd5d4c92c53c3cb5ad3dc499b"><div class="ttname"><a href="class_leaderboard.html#ab11b5c9cd5d4c92c53c3cb5ad3dc499b">Leaderboard::get</a></div><div class="ttdeci">const std::vector&lt; N &gt; &amp; get() const</div><div class="ttdef"><b>Definition:</b> <a href="leaderboard_8h_source.html#l00124">leaderboard.h:124</a></div></div>
 <div class="ttc" id="aclass_leaderboard_html_a05a23d9ad6eb70801cce8c3e368fb627"><div class="ttname"><a href="class_leaderboard.html#a05a23d9ad6eb70801cce8c3e368fb627">Leaderboard::Leaderboard</a></div><div class="ttdeci">Leaderboard(const std::vector&lt; N &gt; &amp;vec)</div><div class="ttdef"><b>Definition:</b> <a href="leaderboard_8h_source.html#l00038">leaderboard.h:38</a></div></div>
-<div class="ttc" id="aauxiliary_functions_8h_html_ab75dcb6c61ba381bccbe190c662061d8"><div class="ttname"><a href="auxiliary_functions_8h.html#ab75dcb6c61ba381bccbe190c662061d8">WIDTH</a></div><div class="ttdeci">constexpr const int WIDTH</div><div class="ttdef"><b>Definition:</b> <a href="auxiliary_functions_8h_source.html#l00026">auxiliaryFunctions.h:26</a></div></div>
+<div class="ttc" id="aauxiliary_functions_8h_html_ab75dcb6c61ba381bccbe190c662061d8"><div class="ttname"><a href="auxiliary_functions_8h.html#ab75dcb6c61ba381bccbe190c662061d8">WIDTH</a></div><div class="ttdeci">constexpr const int WIDTH</div><div class="ttdef"><b>Definition:</b> <a href="auxiliary_functions_8h_source.html#l00028">auxiliaryFunctions.h:28</a></div></div>
 <div class="ttc" id="aclass_leaderboard_html"><div class="ttname"><a href="class_leaderboard.html">Leaderboard</a></div><div class="ttdef"><b>Definition:</b> <a href="leaderboard_8h_source.html#l00031">leaderboard.h:31</a></div></div>
-<div class="ttc" id="aauxiliary_functions_8cpp_html_a45cc1ff630a8eee6b52699b6ea74be2e"><div class="ttname"><a href="auxiliary_functions_8cpp.html#a45cc1ff630a8eee6b52699b6ea74be2e">shrinkToColumnSize</a></div><div class="ttdeci">std::string shrinkToColumnSize(std::string value)</div><div class="ttdef"><b>Definition:</b> <a href="auxiliary_functions_8cpp_source.html#l00083">auxiliaryFunctions.cpp:83</a></div></div>
+<div class="ttc" id="aauxiliary_functions_8cpp_html_a45cc1ff630a8eee6b52699b6ea74be2e"><div class="ttname"><a href="auxiliary_functions_8cpp.html#a45cc1ff630a8eee6b52699b6ea74be2e">shrinkToColumnSize</a></div><div class="ttdeci">std::string shrinkToColumnSize(std::string value)</div><div class="ttdef"><b>Definition:</b> <a href="auxiliary_functions_8cpp_source.html#l00104">auxiliaryFunctions.cpp:104</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -20,6 +20,9 @@ class StreamerManager;
  * @ingroup user
  */
 
+/**
+ * Hash for the unordered set of Viewers
+ */
 struct viewerHash{
     int operator()(const std::shared_ptr<Viewer>& str) const{
         int v = 0;

@@ -48,7 +48,8 @@ var menudata={children:[
 {text:"t",url:"functions_t.html#index_t"},
 {text:"u",url:"functions_u.html#index_u"},
 {text:"v",url:"functions_v.html#index_v"},
-{text:"w",url:"functions_w.html#index_w"}]},
+{text:"w",url:"functions_w.html#index_w"},
+{text:"~",url:"functions_~.html#index__7E"}]},
 {text:"Functions",url:"functions_func.html",children:[
 {text:"a",url:"functions_func.html#index_a"},
 {text:"b",url:"functions_func_b.html#index_b"},
@@ -70,7 +71,8 @@ var menudata={children:[
 {text:"t",url:"functions_func_t.html#index_t"},
 {text:"u",url:"functions_func_u.html#index_u"},
 {text:"v",url:"functions_func_v.html#index_v"},
-{text:"w",url:"functions_func_w.html#index_w"}]},
+{text:"w",url:"functions_func_w.html#index_w"},
+{text:"~",url:"functions_func_~.html#index__7E"}]},
 {text:"Variables",url:"functions_vars.html"},
 {text:"Related Functions",url:"functions_rela.html"}]}]},
 {text:"Files",url:"files.html",children:[
@@ -107,5 +109,6 @@ var menudata={children:[
 {text:"s",url:"globals_func.html#index_s"},
 {text:"t",url:"globals_func.html#index_t"}]},
 {text:"Variables",url:"globals_vars.html"},
+{text:"Typedefs",url:"globals_type.html"},
 {text:"Enumerations",url:"globals_enum.html"},
 {text:"Macros",url:"globals_defs.html"}]}]}]}

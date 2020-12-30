@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="rsz_1rsz_acastro_200410_1777_obs_00010.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StreamZ
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">A streaming platform for all!</div>
   </td>
@@ -151,6 +151,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9bbdffd41b5aaab63176188a63dfc93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ab01ef1273fa52034754f5553dc6637"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_leaderboard_manager.html#a8ab01ef1273fa52034754f5553dc6637">mostViewsStreamer</a> ()</td></tr>
 <tr class="separator:a8ab01ef1273fa52034754f5553dc6637"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b9b026517c2c0ba0c10cf6dbb504c8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_leaderboard.html">Leaderboard</a>&lt; std::shared_ptr&lt; <a class="el" href="class_streamer.html">Streamer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_leaderboard_manager.html#a1b9b026517c2c0ba0c10cf6dbb504c8e">filterDeactivatedStreamers</a> ()</td></tr>
+<tr class="separator:a1b9b026517c2c0ba0c10cf6dbb504c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a499754816cea191206f97e4030e1aaf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_leaderboard.html">Leaderboard</a>&lt; std::shared_ptr&lt; <a class="el" href="class_viewer.html">Viewer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_leaderboard_manager.html#a499754816cea191206f97e4030e1aaf9">filterDeactivatedViewers</a> ()</td></tr>
+<tr class="separator:a499754816cea191206f97e4030e1aaf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a099abfb4d8307f5c5e0a7f30471b92ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_leaderboard.html">Leaderboard</a>&lt; std::shared_ptr&lt; <a class="el" href="class_user.html">User</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_leaderboard_manager.html#a099abfb4d8307f5c5e0a7f30471b92ba">filterDeactivatedUsers</a> ()</td></tr>
+<tr class="separator:a099abfb4d8307f5c5e0a7f30471b92ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a85d177777dc1d3bb12af1f9b1873c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_leaderboard.html">Leaderboard</a>&lt; <a class="el" href="class_donation.html">Donation</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_leaderboard_manager.html#a3a85d177777dc1d3bb12af1f9b1873c5">getOrderedDonations</a> (float ammount=0)</td></tr>
+<tr class="separator:a3a85d177777dc1d3bb12af1f9b1873c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7508f289245a1fa3d625094999b25c96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_leaderboard.html">Leaderboard</a>&lt; <a class="el" href="class_donation.html">Donation</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_leaderboard_manager.html#a7508f289245a1fa3d625094999b25c96">getDonationsByAvalInterval</a> (<a class="el" href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9">streamerWorkRating</a> lowerBound, <a class="el" href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9">streamerWorkRating</a> upperBound, float ammount=0)</td></tr>
+<tr class="separator:a7508f289245a1fa3d625094999b25c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -222,6 +232,69 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1b9b026517c2c0ba0c10cf6dbb504c8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b9b026517c2c0ba0c10cf6dbb504c8e">&#9670;&nbsp;</a></span>filterDeactivatedStreamers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_leaderboard.html">Leaderboard</a>&lt; std::shared_ptr&lt; <a class="el" href="class_streamer.html">Streamer</a> &gt; &gt; LeaderboardManager::filterDeactivatedStreamers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Filters the streamers which have a deactivated account</p>
+<dl class="section return"><dt>Returns</dt><dd>returns the streamers with a deactivated account </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00357">357</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a099abfb4d8307f5c5e0a7f30471b92ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a099abfb4d8307f5c5e0a7f30471b92ba">&#9670;&nbsp;</a></span>filterDeactivatedUsers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_leaderboard.html">Leaderboard</a>&lt; std::shared_ptr&lt; <a class="el" href="class_user.html">User</a> &gt; &gt; LeaderboardManager::filterDeactivatedUsers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Filters the users which have a deactivated account</p>
+<dl class="section return"><dt>Returns</dt><dd>returns the users with a deactivated account </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00377">377</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a499754816cea191206f97e4030e1aaf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a499754816cea191206f97e4030e1aaf9">&#9670;&nbsp;</a></span>filterDeactivatedViewers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_leaderboard.html">Leaderboard</a>&lt; std::shared_ptr&lt; <a class="el" href="class_viewer.html">Viewer</a> &gt; &gt; LeaderboardManager::filterDeactivatedViewers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Filters the viewers which have a deactivated account</p>
+<dl class="section return"><dt>Returns</dt><dd>returns the viewers with a deactivated account </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00367">367</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a896b6a0e5f071e8db7eef392d3baf564"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a896b6a0e5f071e8db7eef392d3baf564">&#9670;&nbsp;</a></span>filterStreamByAge()</h2>
 
@@ -414,7 +487,53 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the leaderboard of the viewers older than age </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00244">244</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00250">250</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7508f289245a1fa3d625094999b25c96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7508f289245a1fa3d625094999b25c96">&#9670;&nbsp;</a></span>getDonationsByAvalInterval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_leaderboard.html">Leaderboard</a>&lt; <a class="el" href="class_donation.html">Donation</a> &gt; LeaderboardManager::getDonationsByAvalInterval </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9">streamerWorkRating</a>&#160;</td>
+          <td class="paramname"><em>lowerBound</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9">streamerWorkRating</a>&#160;</td>
+          <td class="paramname"><em>upperBound</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ammount</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Shows the donations that are within an interval of streamerWorkRating values</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lowerBound</td><td>the lowest value </td></tr>
+    <tr><td class="paramname">upperBound</td><td>the highest value </td></tr>
+    <tr><td class="paramname">ammount</td><td>the minimum ammount of a donation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the ordered leaderboard of donations with the given filter </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00398">398</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -442,7 +561,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a leaderboard with the following streamers </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00216">216</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00222">222</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -470,7 +589,35 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a leaderboard with the not following streamers </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00227">227</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00233">233</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3a85d177777dc1d3bb12af1f9b1873c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a85d177777dc1d3bb12af1f9b1873c5">&#9670;&nbsp;</a></span>getOrderedDonations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_leaderboard.html">Leaderboard</a>&lt; <a class="el" href="class_donation.html">Donation</a> &gt; LeaderboardManager::getOrderedDonations </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ammount</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Shows the donations in an ordered fashion</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ammount</td><td>the minimum ammount of a donation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the ordered leaderboard of donations </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00387">387</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -491,7 +638,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Gets the mean of views per active stream</p>
 <dl class="section return"><dt>Returns</dt><dd>the mean of views per active stream </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00301">301</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00310">310</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -512,7 +659,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Gets the mean of views per finished stream</p>
 <dl class="section return"><dt>Returns</dt><dd>the mean of views per finished stream </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00309">309</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00318">318</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -533,7 +680,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Gets the most common language</p>
 <dl class="section return"><dt>Returns</dt><dd>the most common language </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00317">317</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00326">326</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -554,7 +701,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Gets the most common type</p>
 <dl class="section return"><dt>Returns</dt><dd>the most common type </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00330">330</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00339">339</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -575,7 +722,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Gets the nickname of the streamer with the most views</p>
 <dl class="section return"><dt>Returns</dt><dd>the nickname of the streamer with the most views </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00343">343</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00352">352</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -603,7 +750,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the sorted streamer leaderboard </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00140">140</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00146">146</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -645,7 +792,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Sorts the <a class="el" href="class_leaderboard.html">Leaderboard</a> by <a class="el" href="class_stream.html">Stream</a>'s type &gt; date &gt; likes &gt; dislikes &gt; views &gt; ID &gt; minAge &gt; utils &gt; lang &gt; genre</p>
 <dl class="section return"><dt>Returns</dt><dd>sorted <a class="el" href="class_leaderboard.html">Leaderboard</a> of streams </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00098">98</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00104">104</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -681,7 +828,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sorted <a class="el" href="class_leaderboard.html">Leaderboard</a> of streams </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00106">106</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00112">112</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -709,7 +856,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the sorted stream leaderboard </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00112">112</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00118">118</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -756,7 +903,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the sorted stream leaderboard </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00258">258</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00266">266</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -784,7 +931,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the sorted user leaderboard </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00194">194</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00200">200</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -805,7 +952,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Sorts the <a class="el" href="class_leaderboard.html">Leaderboard</a> by user's joindate &gt; age &gt; nickname &gt; name</p>
 <dl class="section return"><dt>Returns</dt><dd>sorted <a class="el" href="class_leaderboard.html">Leaderboard</a> of users </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00082">82</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00088">88</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -841,7 +988,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sorted <a class="el" href="class_leaderboard.html">Leaderboard</a> of viewers </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00092">92</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00098">98</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -869,7 +1016,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the sorted viewer leaderboard </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00169">169</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00175">175</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -890,7 +1037,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Sorts the <a class="el" href="class_leaderboard.html">Leaderboard</a> by viewer's joindate &gt; age &gt; nickname &gt; name</p>
 <dl class="section return"><dt>Returns</dt><dd>sorted <a class="el" href="class_leaderboard.html">Leaderboard</a> of viewers </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00069">69</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00072">72</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -926,7 +1073,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sorted <a class="el" href="class_leaderboard.html">Leaderboard</a> of viewers </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00076">76</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00082">82</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -954,7 +1101,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the top10 stream leaderboard </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00250">250</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00258">258</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -975,7 +1122,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Gets the total number of active private streams</p>
 <dl class="section return"><dt>Returns</dt><dd>the total number of active private streams </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00289">289</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00298">298</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -996,7 +1143,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Gets the total number of active public streams</p>
 <dl class="section return"><dt>Returns</dt><dd>the total number of active public streams </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00297">297</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00306">306</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1017,7 +1164,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Gets the total number of active streams</p>
 <dl class="section return"><dt>Returns</dt><dd>the total number of active streams </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00284">284</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leaderboard__manager_8cpp_source.html#l00293">293</a> of file <a class="el" href="leaderboard__manager_8cpp_source.html">leaderboard_manager.cpp</a>.</p>
 
 </div>
 </div>

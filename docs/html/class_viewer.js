@@ -17,7 +17,9 @@ var class_viewer =
     [ "operator==", "class_viewer.html#a5ccc6bc69d3e5249f67c5ed3d3802f9a", null ],
     [ "operator>", "class_viewer.html#a06757b91211d3c027737a15b1bdb3b93", null ],
     [ "operator>=", "class_viewer.html#acb814683a5b9f7a002e7883d17f6e935", null ],
+    [ "orderMerch", "class_viewer.html#a37ebe622059d205ba6e80a7e86508055", null ],
     [ "readData", "class_viewer.html#afc0e136ded90c3ff15116f0f3b722eb7", null ],
+    [ "removeOrder", "class_viewer.html#afc4bf28e5399c8c79c9820c3714b27fb", null ],
     [ "unfollowStreamer", "class_viewer.html#a51c1d5e2583a05f1132f2b4e7325bab2", null ],
     [ "writeData", "class_viewer.html#a2e6b392f622fa1db1d3c9824088ed5ac", null ]
 ];

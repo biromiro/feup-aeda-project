@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="rsz_1rsz_acastro_200410_1777_obs_00010.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StreamZ
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">A streaming platform for all!</div>
   </td>
@@ -100,40 +100,59 @@ $(document).ready(function(){initNavTree('user__manager_8h_source.html',''); ini
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="admin_8h.html">admin/admin.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_user_manager.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_user_manager.html">UserManager</a>{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_user_manager.html#a7ea6a5a58e03fb502e00d1157cdbb68e">UserManager</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_user_manager.html#a0c05245861582a3348c4834239879d80">add</a>(<span class="keyword">const</span> std::shared_ptr&lt;User&gt;&amp; user);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_user_manager.html#a81aa914f8d0cd52929a4d96fac160b02">remove</a>(<span class="keyword">const</span> std::shared_ptr&lt;User&gt;&amp; user);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_user_manager.html#afe88a78cb13b867a3a679021d379f66e">has</a>(<span class="keyword">const</span> std::shared_ptr&lt;User&gt;&amp; user) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_user_manager.html#afe88a78cb13b867a3a679021d379f66e">has</a>(std::string nickname) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    std::shared_ptr&lt;User&gt; <a class="code" href="class_user_manager.html#afc95b43a4bd6798578b377ddb101c948">get</a>(std::string nickname) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    std::unordered_set&lt;std::shared_ptr&lt;User&gt;&gt; <a class="code" href="class_user_manager.html#ac493affe730971774c0e3f5035458b56">getUsers</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    std::unordered_set&lt;std::shared_ptr&lt;User&gt;&gt; users;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="user__manager_8h.html#a120a60b3ea1810e0616827b8cd0bd5f7">   84</a></span>&#160;<span class="preprocessor">#define PROJECT_USER_MANAGER_H</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif //PROJECT_USER_MANAGER_H</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structuser_hash.html">   24</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structuser_hash.html">userHash</a>{</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structuser_hash.html#a840364f8ee2ee6f0fa43080aa8c6cbc3">   25</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structuser_hash.html#a840364f8ee2ee6f0fa43080aa8c6cbc3">operator()</a>(<span class="keyword">const</span> std::shared_ptr&lt;User&gt;&amp; str)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">int</span> v = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; elem: str-&gt;getNickname()){</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            v = v*37 + elem;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> v;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structuser_hash.html#ab6c8e5256a2cbda669b77e282f8b6390">   32</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structuser_hash.html#ab6c8e5256a2cbda669b77e282f8b6390">operator()</a>(<span class="keyword">const</span> std::shared_ptr&lt;User&gt;&amp; str, <span class="keyword">const</span> std::shared_ptr&lt;User&gt;&amp; str2)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span> str-&gt;getNickname() == str2-&gt;getNickname();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="user__manager_8h.html#a2b6969b552dec205fd53f0445618d562">   37</a></span>&#160;<span class="keyword">typedef</span> std::unordered_set&lt;std::shared_ptr&lt;User&gt;,<a class="code" href="structuser_hash.html">userHash</a>,<a class="code" href="structuser_hash.html">userHash</a>&gt; <a class="code" href="user__manager_8h.html#a2b6969b552dec205fd53f0445618d562">tabHUser</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_user_manager.html">   44</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_user_manager.html">UserManager</a>{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="class_user_manager.html#a7ea6a5a58e03fb502e00d1157cdbb68e">UserManager</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_user_manager.html#a0c05245861582a3348c4834239879d80">add</a>(<span class="keyword">const</span> std::shared_ptr&lt;User&gt;&amp; user);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_user_manager.html#a81aa914f8d0cd52929a4d96fac160b02">remove</a>(<span class="keyword">const</span> std::shared_ptr&lt;User&gt;&amp; user);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_user_manager.html#afe88a78cb13b867a3a679021d379f66e">has</a>(<span class="keyword">const</span> std::shared_ptr&lt;User&gt;&amp; user) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_user_manager.html#afe88a78cb13b867a3a679021d379f66e">has</a>(std::string nickname) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    std::shared_ptr&lt;User&gt; <a class="code" href="class_user_manager.html#afc95b43a4bd6798578b377ddb101c948">get</a>(std::string nickname) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="user__manager_8h.html#a2b6969b552dec205fd53f0445618d562">tabHUser</a> <a class="code" href="class_user_manager.html#af86c2f42ccae75c8a6731af032a91108">getUsers</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="user__manager_8h.html#a2b6969b552dec205fd53f0445618d562">tabHUser</a> users;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;};</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="user__manager_8h.html#a120a60b3ea1810e0616827b8cd0bd5f7">  102</a></span>&#160;<span class="preprocessor">#define PROJECT_USER_MANAGER_H</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif //PROJECT_USER_MANAGER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_user_manager_html_ac493affe730971774c0e3f5035458b56"><div class="ttname"><a href="class_user_manager.html#ac493affe730971774c0e3f5035458b56">UserManager::getUsers</a></div><div class="ttdeci">std::unordered_set&lt; std::shared_ptr&lt; User &gt; &gt; getUsers() const</div><div class="ttdef"><b>Definition:</b> <a href="user__manager_8cpp_source.html#l00050">user_manager.cpp:50</a></div></div>
+<div class="ttc" id="astructuser_hash_html"><div class="ttname"><a href="structuser_hash.html">userHash</a></div><div class="ttdef"><b>Definition:</b> <a href="user__manager_8h_source.html#l00024">user_manager.h:24</a></div></div>
 <div class="ttc" id="aclass_user_manager_html_afe88a78cb13b867a3a679021d379f66e"><div class="ttname"><a href="class_user_manager.html#afe88a78cb13b867a3a679021d379f66e">UserManager::has</a></div><div class="ttdeci">bool has(const std::shared_ptr&lt; User &gt; &amp;user) const</div><div class="ttdef"><b>Definition:</b> <a href="user__manager_8cpp_source.html#l00030">user_manager.cpp:30</a></div></div>
 <div class="ttc" id="aadmin_8h_html"><div class="ttname"><a href="admin_8h.html">admin.h</a></div></div>
 <div class="ttc" id="aclass_user_manager_html_afc95b43a4bd6798578b377ddb101c948"><div class="ttname"><a href="class_user_manager.html#afc95b43a4bd6798578b377ddb101c948">UserManager::get</a></div><div class="ttdeci">std::shared_ptr&lt; User &gt; get(std::string nickname) const</div><div class="ttdef"><b>Definition:</b> <a href="user__manager_8cpp_source.html#l00039">user_manager.cpp:39</a></div></div>
 <div class="ttc" id="aclass_user_manager_html_a0c05245861582a3348c4834239879d80"><div class="ttname"><a href="class_user_manager.html#a0c05245861582a3348c4834239879d80">UserManager::add</a></div><div class="ttdeci">bool add(const std::shared_ptr&lt; User &gt; &amp;user)</div><div class="ttdef"><b>Definition:</b> <a href="user__manager_8cpp_source.html#l00014">user_manager.cpp:14</a></div></div>
-<div class="ttc" id="aclass_user_manager_html"><div class="ttname"><a href="class_user_manager.html">UserManager</a></div><div class="ttdef"><b>Definition:</b> <a href="user__manager_8h_source.html#l00026">user_manager.h:26</a></div></div>
+<div class="ttc" id="aclass_user_manager_html"><div class="ttname"><a href="class_user_manager.html">UserManager</a></div><div class="ttdef"><b>Definition:</b> <a href="user__manager_8h_source.html#l00044">user_manager.h:44</a></div></div>
+<div class="ttc" id="astructuser_hash_html_a840364f8ee2ee6f0fa43080aa8c6cbc3"><div class="ttname"><a href="structuser_hash.html#a840364f8ee2ee6f0fa43080aa8c6cbc3">userHash::operator()</a></div><div class="ttdeci">int operator()(const std::shared_ptr&lt; User &gt; &amp;str) const</div><div class="ttdef"><b>Definition:</b> <a href="user__manager_8h_source.html#l00025">user_manager.h:25</a></div></div>
 <div class="ttc" id="aclass_user_manager_html_a7ea6a5a58e03fb502e00d1157cdbb68e"><div class="ttname"><a href="class_user_manager.html#a7ea6a5a58e03fb502e00d1157cdbb68e">UserManager::UserManager</a></div><div class="ttdeci">UserManager()</div><div class="ttdef"><b>Definition:</b> <a href="user__manager_8cpp_source.html#l00010">user_manager.cpp:10</a></div></div>
 <div class="ttc" id="auser_8h_html"><div class="ttname"><a href="user_8h.html">user.h</a></div></div>
 <div class="ttc" id="aclass_user_manager_html_a81aa914f8d0cd52929a4d96fac160b02"><div class="ttname"><a href="class_user_manager.html#a81aa914f8d0cd52929a4d96fac160b02">UserManager::remove</a></div><div class="ttdeci">bool remove(const std::shared_ptr&lt; User &gt; &amp;user)</div><div class="ttdef"><b>Definition:</b> <a href="user__manager_8cpp_source.html#l00022">user_manager.cpp:22</a></div></div>
+<div class="ttc" id="auser__manager_8h_html_a2b6969b552dec205fd53f0445618d562"><div class="ttname"><a href="user__manager_8h.html#a2b6969b552dec205fd53f0445618d562">tabHUser</a></div><div class="ttdeci">std::unordered_set&lt; std::shared_ptr&lt; User &gt;, userHash, userHash &gt; tabHUser</div><div class="ttdef"><b>Definition:</b> <a href="user__manager_8h_source.html#l00037">user_manager.h:37</a></div></div>
+<div class="ttc" id="astructuser_hash_html_ab6c8e5256a2cbda669b77e282f8b6390"><div class="ttname"><a href="structuser_hash.html#ab6c8e5256a2cbda669b77e282f8b6390">userHash::operator()</a></div><div class="ttdeci">bool operator()(const std::shared_ptr&lt; User &gt; &amp;str, const std::shared_ptr&lt; User &gt; &amp;str2) const</div><div class="ttdef"><b>Definition:</b> <a href="user__manager_8h_source.html#l00032">user_manager.h:32</a></div></div>
+<div class="ttc" id="aclass_user_manager_html_af86c2f42ccae75c8a6731af032a91108"><div class="ttname"><a href="class_user_manager.html#af86c2f42ccae75c8a6731af032a91108">UserManager::getUsers</a></div><div class="ttdeci">tabHUser getUsers() const</div><div class="ttdef"><b>Definition:</b> <a href="user__manager_8cpp_source.html#l00050">user_manager.cpp:50</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

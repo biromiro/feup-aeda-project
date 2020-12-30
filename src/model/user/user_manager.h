@@ -18,6 +18,9 @@
  * @ingroup user
  */
 
+/**
+ * Hash for the unordered set of users
+ */
 struct userHash{
     int operator()(const std::shared_ptr<User>& str) const{
         int v = 0;

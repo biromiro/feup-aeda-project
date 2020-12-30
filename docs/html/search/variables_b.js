@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reset_778',['RESET',['../auxiliary_functions_8h.html#a3aa4b3cadf22d0306a01f09e1a30bd40',1,'auxiliaryFunctions.h']]]
+  ['password_1014',['password',['../class_user.html#ac2f2e75b15e8eb6cbb030fc85a6cd59f',1,'User']]]
 ];

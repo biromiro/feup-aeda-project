@@ -22,6 +22,8 @@ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_stream_manager}{Stream\+Manager
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer_manager}{Streamer\+Manager}} $>$ \mbox{\hyperlink{class_stream_z_a49ce7af69c0381acf19f9efbbd6671ae}{get\+Streamer\+Manager}} ()
 \item 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_leaderboard_manager}{Leaderboard\+Manager}} $>$ \mbox{\hyperlink{class_stream_z_afe286e41d5d69411387fce207eb2a8ef}{get\+Leaderboard\+Manager}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_admin_manager}{Admin\+Manager}} $>$ \mbox{\hyperlink{class_stream_z_a9b53553355d757f95dd7b7746141ed41}{get\+Admin\+Manager}} ()
 \end{DoxyCompactItemize}
 
 
@@ -58,7 +60,20 @@ Definition at line 7 of file stream\+Z.\+cpp.
 
 Updates and saves objects created in the respective files 
 
-Definition at line 47 of file stream\+Z.\+cpp.
+Definition at line 51 of file stream\+Z.\+cpp.
+
+\mbox{\Hypertarget{class_stream_z_a9b53553355d757f95dd7b7746141ed41}\label{class_stream_z_a9b53553355d757f95dd7b7746141ed41}} 
+\index{StreamZ@{StreamZ}!getAdminManager@{getAdminManager}}
+\index{getAdminManager@{getAdminManager}!StreamZ@{StreamZ}}
+\doxysubsubsection{\texorpdfstring{getAdminManager()}{getAdminManager()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_admin_manager}{Admin\+Manager}} $>$ Stream\+Z\+::get\+Admin\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to obtain the admin\+Manager \begin{DoxyReturn}{Returns}
+pointer to current admin\+Manager 
+\end{DoxyReturn}
+
+
+Definition at line 38 of file stream\+Z.\+cpp.
 
 \mbox{\Hypertarget{class_stream_z_afe286e41d5d69411387fce207eb2a8ef}\label{class_stream_z_afe286e41d5d69411387fce207eb2a8ef}} 
 \index{StreamZ@{StreamZ}!getLeaderboardManager@{getLeaderboardManager}}
@@ -133,7 +148,7 @@ Definition at line 22 of file stream\+Z.\+cpp.
 
 Initializes the objects saved in files by reading them using the managers 
 
-Definition at line 38 of file stream\+Z.\+cpp.
+Definition at line 42 of file stream\+Z.\+cpp.
 
 
 

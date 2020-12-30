@@ -6,12 +6,21 @@
 
 
 
-Inheritance diagram for Streamer\+:
-\nopagebreak
+Inheritance diagram for Streamer\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=142pt]{class_streamer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Streamer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{class_streamer__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -29,11 +38,25 @@ void \mbox{\hyperlink{class_streamer_ab427f0e575f2afa6d370b43d084fb5f1}{remove\+
 \item 
 void \mbox{\hyperlink{class_streamer_a267983f780240b31b8764bf556b61ab2}{add\+To\+View\+Count}} (unsigned int value)
 \item 
+void \mbox{\hyperlink{class_streamer_aa30cc3e71d99ee43692ea53658539226}{set\+Up\+Merch}} (unsigned int limit)
+\item 
+void \mbox{\hyperlink{class_streamer_a112e1bf3671d8d3dcae10cf29df33c7a}{add\+Merch\+Order}} (\mbox{\hyperlink{class_merch_request}{Merch\+Request}} new\+Order)
+\item 
+void \mbox{\hyperlink{class_streamer_abcfbdf254f3176d77c89e8ec1f51b054}{remove\+Merch\+Order}} (std\+::string buyer)
+\item 
+\mbox{\hyperlink{class_merch_request}{Merch\+Request}} \mbox{\hyperlink{class_streamer_ad7f690f772a1f81196e3eed5efcfc6c1}{process\+Next\+Order}} ()
+\item 
+void \mbox{\hyperlink{class_streamer_adae3736c842cc7dcf47dd9bfce622396}{update\+Merch\+Limit}} (unsigned int new\+Limit)
+\item 
 unsigned int \mbox{\hyperlink{class_streamer_a74301ee1128e2ffe2fd2166bece1df3c}{get\+Total\+View\+Count}} () const
 \item 
 unsigned int \mbox{\hyperlink{class_streamer_a9d9dd2a7e58c11ffb3b50cae9d54a2c1}{get\+Current\+Stream\+ID}} () const
 \item 
 const std\+::vector$<$ unsigned int $>$ \& \mbox{\hyperlink{class_streamer_abdca61f088b6ae298ef7e89832abdb28}{get\+Previous\+Streams\+I\+Ds}} () const
+\item 
+const \mbox{\hyperlink{class_streamer_merch}{Streamer\+Merch}} \& \mbox{\hyperlink{class_streamer_a0aecd84057f1ff6db42cff366958e70b}{get\+Streamer\+Merch}} () const
+\item 
+bool \mbox{\hyperlink{class_streamer_a14c40a39a3da33f97237f1d730d3589d}{get\+Merch\+Set\+Up}} () const
 \item 
 void \mbox{\hyperlink{class_streamer_a420c27c9b9ff3bd299ee16b154ed041e}{read\+Data}} (std\+::ifstream \&ifs) override
 \item 
@@ -50,6 +73,12 @@ bool \mbox{\hyperlink{class_streamer_aad497f5a2e8bc8c05a0bc576427b6f3d}{operator
 bool \mbox{\hyperlink{class_streamer_a8450f3072cd697d510313affb3810e0b}{operator!=}} (const \mbox{\hyperlink{class_streamer}{Streamer}} \&rhs) const
 \item 
 bool \mbox{\hyperlink{class_streamer_a3e46441098674202390ec8eac9d7658e}{operator$>$=}} (const \mbox{\hyperlink{class_streamer}{Streamer}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_streamer_a392f2770414de7e3a71570b6ca8cf265}{eligible\+For\+Bonus}} () const
+\item 
+void \mbox{\hyperlink{class_streamer_ab1b99d28d849dcf0041599b140045eff}{make\+Eligible\+To\+Bonus}} ()
+\item 
+void \mbox{\hyperlink{class_streamer_a031b395e21b7c7b119e4b99c09b6c529}{use\+Bonus}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
@@ -59,7 +88,7 @@ Implementation of the \mbox{\hyperlink{class_streamer}{Streamer}} class
 
 A streamer can start streams, finish them, and see his past streams and current stream statistics 
 
-Definition at line 29 of file streamer.\+h.
+Definition at line 32 of file streamer.\+h.
 
 
 
@@ -72,7 +101,7 @@ Definition at line 29 of file streamer.\+h.
 
 
 
-Definition at line 8 of file streamer.\+cpp.
+Definition at line 10 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_a191dec9e4e26bc4f5a5f1072a10fa3fb}\label{class_streamer_a191dec9e4e26bc4f5a5f1072a10fa3fb}} 
 \index{Streamer@{Streamer}!Streamer@{Streamer}}
@@ -93,11 +122,28 @@ Constructor of the \mbox{\hyperlink{class_streamer}{Streamer}} Class
 \end{DoxyParams}
 
 
-Definition at line 10 of file streamer.\+cpp.
+Definition at line 12 of file streamer.\+cpp.
 
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_streamer_a112e1bf3671d8d3dcae10cf29df33c7a}\label{class_streamer_a112e1bf3671d8d3dcae10cf29df33c7a}} 
+\index{Streamer@{Streamer}!addMerchOrder@{addMerchOrder}}
+\index{addMerchOrder@{addMerchOrder}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{addMerchOrder()}{addMerchOrder()}}
+{\footnotesize\ttfamily void Streamer\+::add\+Merch\+Order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_merch_request}{Merch\+Request}}}]{new\+Order }\end{DoxyParamCaption})}
+
+Adds a viewer\textquotesingle{}s order to the orders queue
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Order} & order to add to queue \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 45 of file streamer.\+cpp.
+
 \mbox{\Hypertarget{class_streamer_a267983f780240b31b8764bf556b61ab2}\label{class_streamer_a267983f780240b31b8764bf556b61ab2}} 
 \index{Streamer@{Streamer}!addToViewCount@{addToViewCount}}
 \index{addToViewCount@{addToViewCount}!Streamer@{Streamer}}
@@ -113,7 +159,17 @@ Increases the streamer\textquotesingle{}s view count by given amount
 \end{DoxyParams}
 
 
-Definition at line 115 of file streamer.\+cpp.
+Definition at line 163 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_a392f2770414de7e3a71570b6ca8cf265}\label{class_streamer_a392f2770414de7e3a71570b6ca8cf265}} 
+\index{Streamer@{Streamer}!eligibleForBonus@{eligibleForBonus}}
+\index{eligibleForBonus@{eligibleForBonus}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{eligibleForBonus()}{eligibleForBonus()}}
+{\footnotesize\ttfamily bool Streamer\+::eligible\+For\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Checks if the streamer can receive the reactivation Bonus 
+
+Definition at line 167 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_a9d9dd2a7e58c11ffb3b50cae9d54a2c1}\label{class_streamer_a9d9dd2a7e58c11ffb3b50cae9d54a2c1}} 
 \index{Streamer@{Streamer}!getCurrentStreamID@{getCurrentStreamID}}
@@ -128,7 +184,22 @@ the current stream\textquotesingle{}s ID
 \end{DoxyReturn}
 
 
-Definition at line 43 of file streamer.\+cpp.
+Definition at line 73 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_a14c40a39a3da33f97237f1d730d3589d}\label{class_streamer_a14c40a39a3da33f97237f1d730d3589d}} 
+\index{Streamer@{Streamer}!getMerchSetUp@{getMerchSetUp}}
+\index{getMerchSetUp@{getMerchSetUp}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{getMerchSetUp()}{getMerchSetUp()}}
+{\footnotesize\ttfamily bool Streamer\+::get\+Merch\+Set\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of boolean value indicating if streamer has set up his merchandising
+
+\begin{DoxyReturn}{Returns}
+boolean value indicating if streamer has set up his merchandising 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_abdca61f088b6ae298ef7e89832abdb28}\label{class_streamer_abdca61f088b6ae298ef7e89832abdb28}} 
 \index{Streamer@{Streamer}!getPreviousStreamsIDs@{getPreviousStreamsIDs}}
@@ -143,7 +214,22 @@ vector of I\+Ds of previous streams
 \end{DoxyReturn}
 
 
-Definition at line 47 of file streamer.\+cpp.
+Definition at line 77 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_a0aecd84057f1ff6db42cff366958e70b}\label{class_streamer_a0aecd84057f1ff6db42cff366958e70b}} 
+\index{Streamer@{Streamer}!getStreamerMerch@{getStreamerMerch}}
+\index{getStreamerMerch@{getStreamerMerch}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{getStreamerMerch()}{getStreamerMerch()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_streamer_merch}{Streamer\+Merch}} \& Streamer\+::get\+Streamer\+Merch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of streamer\textquotesingle{}s \mbox{\hyperlink{class_streamer_merch}{Streamer\+Merch}} object
+
+\begin{DoxyReturn}{Returns}
+streamer\textquotesingle{}s \mbox{\hyperlink{class_streamer_merch}{Streamer\+Merch}} object 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_a74301ee1128e2ffe2fd2166bece1df3c}\label{class_streamer_a74301ee1128e2ffe2fd2166bece1df3c}} 
 \index{Streamer@{Streamer}!getTotalViewCount@{getTotalViewCount}}
@@ -158,7 +244,7 @@ the streamer\textquotesingle{}s total view count
 \end{DoxyReturn}
 
 
-Definition at line 39 of file streamer.\+cpp.
+Definition at line 69 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_ac68315a7686185613212c04a4aaaf754}\label{class_streamer_ac68315a7686185613212c04a4aaaf754}} 
 \index{Streamer@{Streamer}!isStreaming@{isStreaming}}
@@ -173,7 +259,17 @@ True if the streamer is, in fact, streaming, false otherwise
 \end{DoxyReturn}
 
 
-Definition at line 25 of file streamer.\+cpp.
+Definition at line 27 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_ab1b99d28d849dcf0041599b140045eff}\label{class_streamer_ab1b99d28d849dcf0041599b140045eff}} 
+\index{Streamer@{Streamer}!makeEligibleToBonus@{makeEligibleToBonus}}
+\index{makeEligibleToBonus@{makeEligibleToBonus}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{makeEligibleToBonus()}{makeEligibleToBonus()}}
+{\footnotesize\ttfamily void Streamer\+::make\+Eligible\+To\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sets the eligibility to the reactivation bonus to true 
+
+Definition at line 175 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_a8450f3072cd697d510313affb3810e0b}\label{class_streamer_a8450f3072cd697d510313affb3810e0b}} 
 \index{Streamer@{Streamer}!operator"!=@{operator"!=}}
@@ -193,7 +289,7 @@ self != given streamer
 \end{DoxyReturn}
 
 
-Definition at line 87 of file streamer.\+cpp.
+Definition at line 125 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_a7f8b92bf5cefb22efbf27f3666912048}\label{class_streamer_a7f8b92bf5cefb22efbf27f3666912048}} 
 \index{Streamer@{Streamer}!operator$<$@{operator$<$}}
@@ -213,7 +309,7 @@ self $<$ given streamer
 \end{DoxyReturn}
 
 
-Definition at line 51 of file streamer.\+cpp.
+Definition at line 89 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_a9c4b92a663627c73c35f439605b95744}\label{class_streamer_a9c4b92a663627c73c35f439605b95744}} 
 \index{Streamer@{Streamer}!operator$<$=@{operator$<$=}}
@@ -233,7 +329,7 @@ self $<$= given streamer
 \end{DoxyReturn}
 
 
-Definition at line 75 of file streamer.\+cpp.
+Definition at line 113 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_aad497f5a2e8bc8c05a0bc576427b6f3d}\label{class_streamer_aad497f5a2e8bc8c05a0bc576427b6f3d}} 
 \index{Streamer@{Streamer}!operator==@{operator==}}
@@ -253,7 +349,7 @@ self == given streamer
 \end{DoxyReturn}
 
 
-Definition at line 83 of file streamer.\+cpp.
+Definition at line 121 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_abb4b527f0bf9583440a362013a3f8d74}\label{class_streamer_abb4b527f0bf9583440a362013a3f8d74}} 
 \index{Streamer@{Streamer}!operator$>$@{operator$>$}}
@@ -273,7 +369,7 @@ self $>$ given streamer
 \end{DoxyReturn}
 
 
-Definition at line 71 of file streamer.\+cpp.
+Definition at line 109 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_a3e46441098674202390ec8eac9d7658e}\label{class_streamer_a3e46441098674202390ec8eac9d7658e}} 
 \index{Streamer@{Streamer}!operator$>$=@{operator$>$=}}
@@ -293,7 +389,22 @@ self $>$= given streamer
 \end{DoxyReturn}
 
 
-Definition at line 79 of file streamer.\+cpp.
+Definition at line 117 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_ad7f690f772a1f81196e3eed5efcfc6c1}\label{class_streamer_ad7f690f772a1f81196e3eed5efcfc6c1}} 
+\index{Streamer@{Streamer}!processNextOrder@{processNextOrder}}
+\index{processNextOrder@{processNextOrder}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{processNextOrder()}{processNextOrder()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_merch_request}{Merch\+Request}} Streamer\+::process\+Next\+Order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Processes the first order on the queue
+
+\begin{DoxyReturn}{Returns}
+first order on the queue 
+\end{DoxyReturn}
+
+
+Definition at line 61 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_a420c27c9b9ff3bd299ee16b154ed041e}\label{class_streamer_a420c27c9b9ff3bd299ee16b154ed041e}} 
 \index{Streamer@{Streamer}!readData@{readData}}
@@ -314,7 +425,24 @@ Reimplemented from \mbox{\hyperlink{class_user_adca54595d50308841bcc2d5091f4081c
 
 
 
-Definition at line 91 of file streamer.\+cpp.
+Definition at line 129 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_abcfbdf254f3176d77c89e8ec1f51b054}\label{class_streamer_abcfbdf254f3176d77c89e8ec1f51b054}} 
+\index{Streamer@{Streamer}!removeMerchOrder@{removeMerchOrder}}
+\index{removeMerchOrder@{removeMerchOrder}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{removeMerchOrder()}{removeMerchOrder()}}
+{\footnotesize\ttfamily void Streamer\+::remove\+Merch\+Order (\begin{DoxyParamCaption}\item[{std\+::string}]{buyer }\end{DoxyParamCaption})}
+
+Removes a viewer\textquotesingle{}s order from the orders queue
+
+
+\begin{DoxyParams}{Parameters}
+{\em buyer} & name of the viewer whose order is to be removed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 53 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_ab427f0e575f2afa6d370b43d084fb5f1}\label{class_streamer_ab427f0e575f2afa6d370b43d084fb5f1}} 
 \index{Streamer@{Streamer}!removeStream@{removeStream}}
@@ -324,7 +452,7 @@ Definition at line 91 of file streamer.\+cpp.
 
 Removes the current stream 
 
-Definition at line 34 of file streamer.\+cpp.
+Definition at line 35 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_ae48710b6a72723562715690399fb6b32}\label{class_streamer_ae48710b6a72723562715690399fb6b32}} 
 \index{Streamer@{Streamer}!setStream@{setStream}}
@@ -341,7 +469,51 @@ Sets the stream
 \end{DoxyParams}
 
 
-Definition at line 29 of file streamer.\+cpp.
+Definition at line 31 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_aa30cc3e71d99ee43692ea53658539226}\label{class_streamer_aa30cc3e71d99ee43692ea53658539226}} 
+\index{Streamer@{Streamer}!setUpMerch@{setUpMerch}}
+\index{setUpMerch@{setUpMerch}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{setUpMerch()}{setUpMerch()}}
+{\footnotesize\ttfamily void Streamer\+::set\+Up\+Merch (\begin{DoxyParamCaption}\item[{unsigned int}]{limit }\end{DoxyParamCaption})}
+
+Sets up the merchandising queue for the streamer
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & merchandising limit provided by platform \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 40 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_adae3736c842cc7dcf47dd9bfce622396}\label{class_streamer_adae3736c842cc7dcf47dd9bfce622396}} 
+\index{Streamer@{Streamer}!updateMerchLimit@{updateMerchLimit}}
+\index{updateMerchLimit@{updateMerchLimit}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{updateMerchLimit()}{updateMerchLimit()}}
+{\footnotesize\ttfamily void Streamer\+::update\+Merch\+Limit (\begin{DoxyParamCaption}\item[{unsigned int}]{new\+Limit }\end{DoxyParamCaption})}
+
+Updates the limit for merchandising orders
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Limit} & new limit for orders \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 65 of file streamer.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_a031b395e21b7c7b119e4b99c09b6c529}\label{class_streamer_a031b395e21b7c7b119e4b99c09b6c529}} 
+\index{Streamer@{Streamer}!useBonus@{useBonus}}
+\index{useBonus@{useBonus}!Streamer@{Streamer}}
+\doxysubsubsection{\texorpdfstring{useBonus()}{useBonus()}}
+{\footnotesize\ttfamily void Streamer\+::use\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Once the bonus is applied to the first stream, removes the possibility to obtain it again 
+
+Definition at line 171 of file streamer.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_ae4308cd91d596ae423fbd8df7a366e24}\label{class_streamer_ae4308cd91d596ae423fbd8df7a366e24}} 
 \index{Streamer@{Streamer}!writeData@{writeData}}
@@ -362,7 +534,7 @@ Reimplemented from \mbox{\hyperlink{class_user_a3efd848398bcda7686ed2ae03ec1f99a
 
 
 
-Definition at line 105 of file streamer.\+cpp.
+Definition at line 148 of file streamer.\+cpp.
 
 
 

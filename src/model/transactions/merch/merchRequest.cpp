@@ -38,9 +38,9 @@ std::ostream &operator<<(std::ostream &out, const MerchRequest &f) {
 }
 
 std::istream &operator>>(std::istream &in, MerchRequest &f) {
-    getline(in, f.buyer);
-    in.ignore();
     in >> f.quantity;
+    in.ignore();
+    getline(in, f.buyer);
     in >> f.purchaseA;
     return in;
 }

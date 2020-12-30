@@ -2,6 +2,7 @@ var class_stream_z =
 [
     [ "StreamZ", "class_stream_z.html#a8bc3c94fdfba0b407df8cbd3d54a1d7d", null ],
     [ "finish", "class_stream_z.html#a6d95d521197a0d2757b77af9b3a2f3af", null ],
+    [ "getAdminManager", "class_stream_z.html#a9b53553355d757f95dd7b7746141ed41", null ],
     [ "getLeaderboardManager", "class_stream_z.html#afe286e41d5d69411387fce207eb2a8ef", null ],
     [ "getStreamerManager", "class_stream_z.html#a49ce7af69c0381acf19f9efbbd6671ae", null ],
     [ "getStreamManager", "class_stream_z.html#aa7a1812b61a8620da9c839493cdc14fb", null ],

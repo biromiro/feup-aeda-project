@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="rsz_1rsz_acastro_200410_1777_obs_00010.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StreamZ
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">A streaming platform for all!</div>
   </td>
@@ -102,6 +102,16 @@ Inheritance diagram for Admin:</div>
 <area shape="rect" href="class_user.html" title=" " alt="" coords="11,5,63,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for Admin:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_admin__coll__graph.png" border="0" usemap="#_admin_coll__map" alt="Collaboration graph"/></div>
+<map name="_admin_coll__map" id="_admin_coll__map">
+<area shape="rect" title=" " alt="" coords="5,185,69,212"/>
+<area shape="rect" href="class_user.html" title=" " alt="" coords="11,109,63,136"/>
+<area shape="rect" href="class_date.html" title=" " alt="" coords="11,5,64,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -148,6 +158,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac85b60c6ceaae348feb9eb589bf33795 inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd166d40837a934dcdf843d5d9d5aa4e inherit pub_methods_class_user"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#abd166d40837a934dcdf843d5d9d5aa4e">operator&gt;=</a> (const <a class="el" href="class_user.html">User</a> &amp;rhs) const</td></tr>
 <tr class="separator:abd166d40837a934dcdf843d5d9d5aa4e inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0ebcd84e6c0c6582dd9d457004f66c8 inherit pub_methods_class_user"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#af0ebcd84e6c0c6582dd9d457004f66c8">isDeactivated</a> () const</td></tr>
+<tr class="separator:af0ebcd84e6c0c6582dd9d457004f66c8 inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac1d9050c6e74ba0edb1c89c74e110c inherit pub_methods_class_user"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#a7ac1d9050c6e74ba0edb1c89c74e110c">deactivateAcc</a> ()</td></tr>
+<tr class="separator:a7ac1d9050c6e74ba0edb1c89c74e110c inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a219bd2c39ab390d9901788d6118a92cc inherit pub_methods_class_user"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#a219bd2c39ab390d9901788d6118a92cc">reactivateAcc</a> ()</td></tr>
+<tr class="separator:a219bd2c39ab390d9901788d6118a92cc inherit pub_methods_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -169,6 +185,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ae219485aedc068a290fa4c581dd41026 inherit pro_attribs_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2f2e75b15e8eb6cbb030fc85a6cd59f inherit pro_attribs_class_user"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#ac2f2e75b15e8eb6cbb030fc85a6cd59f">password</a></td></tr>
 <tr class="separator:ac2f2e75b15e8eb6cbb030fc85a6cd59f inherit pro_attribs_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae70dbbcc2725704d144b10df01e214a6 inherit pro_attribs_class_user"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user.html#ae70dbbcc2725704d144b10df01e214a6">deactivated</a> = false</td></tr>
+<tr class="separator:ae70dbbcc2725704d144b10df01e214a6 inherit pro_attribs_class_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of the <a class="el" href="class_admin.html">Admin</a> class</p>

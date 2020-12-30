@@ -8,6 +8,19 @@
 #include <queue>
 #include "merchRequest.h"
 
+/**
+ * @file streamerMerch.cpp
+ *
+ * @brief Class representing the Streamer Merch class
+ *
+ * @ingroup transactions
+ */
+
+/**
+ * Implementation of the Streamer Merch class
+ *
+ * Wrapper for the queue representing merch requests
+ */
 class StreamerMerch {
 public:
     StreamerMerch();
@@ -56,8 +69,22 @@ public:
      */
     bool removeOrder(std::string buyer);
 
+    /**
+     * Output stream operator overload
+     *
+     * @param out the stream to output
+     * @param f the streamer merch object to output
+     * @return the stream passed as parameter
+     */
     friend std::ostream& operator<<(std::ostream& out, const StreamerMerch& f);
 
+    /**
+     * Input stream operator overload
+     *
+     * @param out the stream to get input from
+     * @param f the streamer merch object to get input
+     * @return the stream passed as parameter
+     */
     friend std::istream& operator>>(std::istream& out, StreamerMerch& f);
 private:
     unsigned int limit;

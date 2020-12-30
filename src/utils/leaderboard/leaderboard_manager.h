@@ -316,12 +316,36 @@ public:
      * @return returns the streamers with a deactivated account*/
     Leaderboard<std::shared_ptr<Streamer>> filterDeactivatedStreamers();
 
+    /**
+     * Filters the viewers which have a deactivated account
+     *
+     * @return returns the viewers with a deactivated account
+     */
     Leaderboard<std::shared_ptr<Viewer>> filterDeactivatedViewers();
 
+    /**
+     * Filters the users which have a deactivated account
+     *
+     * @return returns the users with a deactivated account
+     */
     Leaderboard<std::shared_ptr<User>> filterDeactivatedUsers();
 
+    /**
+     * Shows the donations in an ordered fashion
+     *
+     * @param ammount the minimum ammount of a donation
+     * @return the ordered leaderboard of donations
+     */
     Leaderboard<Donation> getOrderedDonations(float ammount = 0);
 
+    /**
+     * Shows the donations that are within an interval of streamerWorkRating values
+     *
+     * @param lowerBound the lowest value
+     * @param upperBound the highest value
+     * @param ammount the minimum ammount of a donation
+     * @return the ordered leaderboard of donations with the given filter
+     */
     Leaderboard<Donation> getDonationsByAvalInterval(streamerWorkRating lowerBound, streamerWorkRating upperBound, float ammount = 0);
 
 private:

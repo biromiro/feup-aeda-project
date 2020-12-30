@@ -141,6 +141,7 @@ void Streamer::readData(std::ifstream& ifs) {
     ifs >> reActBonus;
 
     ifs >> merch;
+    ifs >> merchSetUp;
     User::readData(ifs);
 }
 
@@ -155,6 +156,7 @@ void Streamer::writeData(std::ofstream& ofs) {
     ofs << reActBonus << "\n";
 
     ofs << merch;
+    ofs << merchSetUp << "\n";
     User::writeData(ofs);
 }
 

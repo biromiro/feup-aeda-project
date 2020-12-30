@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['nicknamealreadyadded_446',['NicknameAlreadyAdded',['../class_nickname_already_added.html',1,'']]],
-  ['nicknamenotfound_447',['NicknameNotFound',['../class_nickname_not_found.html',1,'']]],
-  ['nostreamwithid_448',['NoStreamWithID',['../class_no_stream_with_i_d.html',1,'']]]
+  ['leaderboard_572',['Leaderboard',['../class_leaderboard.html',1,'']]],
+  ['leaderboardmanager_573',['LeaderboardManager',['../class_leaderboard_manager.html',1,'']]],
+  ['leaderboardpage_574',['LeaderboardPage',['../class_leaderboard_page.html',1,'']]],
+  ['loginpage_575',['LoginPage',['../class_login_page.html',1,'']]]
 ];

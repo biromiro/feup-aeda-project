@@ -17,9 +17,10 @@ LIKE
 LIKE
 12
 LIKE
-2
+3
 luist18
 jpcosta
+biromiro
 LIKE
 2001/06/13
 2020/11/22
@@ -47,6 +48,18 @@ LIKE
 Margarida Oliveira
 pardal
 toutodapardaleca
+0
+1
+5
+LIKE
+0
+INVALID_VOTE
+2001/04/24
+2020/11/20
+0
+Brocolo
+bdmendes
+leviosa
 3
 0
 0
@@ -67,23 +80,12 @@ LIKE
 Martinha Calado
 martinha
 kekw29xd
-0
-1
-5
-LIKE
-0
-INVALID_VOTE
-2001/04/24
-2020/11/20
-0
-Brocolo
-bdmendes
-leviosa
 9
 1
 1
 LIKE
-1
+2
+biromiro
 osvaldo
 DISLIKE
 1995/08/19
@@ -135,7 +137,8 @@ abc
 LIKE
 1
 DISLIKE
-2
+3
+biromiro
 osvaldo
 emanuelpogssoa
 INVALID_VOTE

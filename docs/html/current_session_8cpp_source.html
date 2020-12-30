@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="rsz_1rsz_acastro_200410_1777_obs_00010.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StreamZ
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">A streaming platform for all!</div>
   </td>
@@ -94,44 +94,56 @@ $(document).ready(function(){initNavTree('current_session_8cpp_source.html','');
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="current_session_8h.html">currentSession.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_current_session.html#aa52a2762f8fa81de13600dbe2b478055">    7</a></span>&#160;<a class="code" href="class_current_session.html#aa52a2762f8fa81de13600dbe2b478055">CurrentSession::CurrentSession</a>() : currentUser(nullptr), userManager(nullptr){}</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_current_session.html#a8ce3c90540ca36f5c11fd9408464533f">    9</a></span>&#160;<a class="code" href="class_current_session.html#aa52a2762f8fa81de13600dbe2b478055">CurrentSession::CurrentSession</a>(std::shared_ptr&lt;UserManager&gt; userManager): userManager(std::move(userManager)), currentUser(nullptr) {}</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_current_session.html#a31af92b5945f4ecec02e9b239e84aa86">   11</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_current_session.html#a31af92b5945f4ecec02e9b239e84aa86">CurrentSession::login</a>(std::string nickname, <span class="keyword">const</span> std::string&amp; password) {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">auto</span> user = userManager-&gt;get(std::move(nickname));</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">//checks if there&#39;s not one user already logged in and if the credentials match</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">if</span>(user != <span class="keyword">nullptr</span> &amp;&amp; user-&gt;getPassword() == password){</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        currentUser = user;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_current_session.html#a7f5c52f1a5ef349a910eb9d76dfbf7bb">   22</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_current_session.html#a7f5c52f1a5ef349a910eb9d76dfbf7bb">CurrentSession::logout</a>() {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span>(currentUser != <span class="keyword">nullptr</span>){</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        currentUser = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_current_session.html#a668144e5256641be596f7c5c306eb9f3">   30</a></span>&#160;std::string <a class="code" href="class_current_session.html#a668144e5256641be596f7c5c306eb9f3">CurrentSession::getNickname</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> currentUser-&gt;getNickname();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_current_session.html#a644f6676cda64fd1bb3d8162ef492313">   34</a></span>&#160;<span class="keyword">const</span> std::shared_ptr&lt;User&gt; &amp;<a class="code" href="class_current_session.html#a644f6676cda64fd1bb3d8162ef492313">CurrentSession::getCurrentUser</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> currentUser;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_current_session.html#aa52a2762f8fa81de13600dbe2b478055">    8</a></span>&#160;<a class="code" href="class_current_session.html#aa52a2762f8fa81de13600dbe2b478055">CurrentSession::CurrentSession</a>() : currentUser(nullptr), userManager(nullptr){}</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_current_session.html#a8ce3c90540ca36f5c11fd9408464533f">   10</a></span>&#160;<a class="code" href="class_current_session.html#aa52a2762f8fa81de13600dbe2b478055">CurrentSession::CurrentSession</a>(std::shared_ptr&lt;UserManager&gt; userManager): userManager(std::move(userManager)), currentUser(nullptr) {}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_current_session.html#a31af92b5945f4ecec02e9b239e84aa86">   12</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_current_session.html#a31af92b5945f4ecec02e9b239e84aa86">CurrentSession::login</a>(std::string nickname, <span class="keyword">const</span> std::string&amp; password) {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">auto</span> user = userManager-&gt;get(std::move(nickname));</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">//checks if there&#39;s not one user already logged in and if the credentials match</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">if</span>(user != <span class="keyword">nullptr</span> &amp;&amp; user-&gt;getPassword() == password){</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">if</span>(user-&gt;isDeactivated()){</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;This account is deactivated. Do you wish to reactivate it? (Press Y to reactivate)&quot;</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <a class="code" href="auxiliary_functions_8h.html#a7e424bafd17534e5052ea713306a4349">_getch_</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            user-&gt;reactivateAcc();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">if</span>(user-&gt;getUserType() == <a class="code" href="user_8h.html#a7f554175f6a21ca8a2175ee9d9bec6d8acc0121706966f6eeb143f46361409608">UserTypes::STREAMER</a>){</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keyword">auto</span> streamer = std::dynamic_pointer_cast&lt;Streamer&gt;(user);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                streamer-&gt;makeEligibleToBonus();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        currentUser = user;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_current_session.html#a7f5c52f1a5ef349a910eb9d76dfbf7bb">   32</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_current_session.html#a7f5c52f1a5ef349a910eb9d76dfbf7bb">CurrentSession::logout</a>() {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">if</span>(currentUser != <span class="keyword">nullptr</span>){</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        currentUser = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_current_session.html#a668144e5256641be596f7c5c306eb9f3">   40</a></span>&#160;std::string <a class="code" href="class_current_session.html#a668144e5256641be596f7c5c306eb9f3">CurrentSession::getNickname</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> currentUser-&gt;getNickname();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_current_session.html#a644f6676cda64fd1bb3d8162ef492313">   44</a></span>&#160;<span class="keyword">const</span> std::shared_ptr&lt;User&gt; &amp;<a class="code" href="class_current_session.html#a644f6676cda64fd1bb3d8162ef492313">CurrentSession::getCurrentUser</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> currentUser;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_current_session_html_a644f6676cda64fd1bb3d8162ef492313"><div class="ttname"><a href="class_current_session.html#a644f6676cda64fd1bb3d8162ef492313">CurrentSession::getCurrentUser</a></div><div class="ttdeci">const std::shared_ptr&lt; User &gt; &amp; getCurrentUser() const</div><div class="ttdef"><b>Definition:</b> <a href="current_session_8cpp_source.html#l00034">currentSession.cpp:34</a></div></div>
-<div class="ttc" id="aclass_current_session_html_a31af92b5945f4ecec02e9b239e84aa86"><div class="ttname"><a href="class_current_session.html#a31af92b5945f4ecec02e9b239e84aa86">CurrentSession::login</a></div><div class="ttdeci">bool login(std::string nickname, const std::string &amp;password)</div><div class="ttdef"><b>Definition:</b> <a href="current_session_8cpp_source.html#l00011">currentSession.cpp:11</a></div></div>
-<div class="ttc" id="aclass_current_session_html_a7f5c52f1a5ef349a910eb9d76dfbf7bb"><div class="ttname"><a href="class_current_session.html#a7f5c52f1a5ef349a910eb9d76dfbf7bb">CurrentSession::logout</a></div><div class="ttdeci">bool logout()</div><div class="ttdef"><b>Definition:</b> <a href="current_session_8cpp_source.html#l00022">currentSession.cpp:22</a></div></div>
-<div class="ttc" id="aclass_current_session_html_a668144e5256641be596f7c5c306eb9f3"><div class="ttname"><a href="class_current_session.html#a668144e5256641be596f7c5c306eb9f3">CurrentSession::getNickname</a></div><div class="ttdeci">std::string getNickname() const</div><div class="ttdef"><b>Definition:</b> <a href="current_session_8cpp_source.html#l00030">currentSession.cpp:30</a></div></div>
-<div class="ttc" id="aclass_current_session_html_aa52a2762f8fa81de13600dbe2b478055"><div class="ttname"><a href="class_current_session.html#aa52a2762f8fa81de13600dbe2b478055">CurrentSession::CurrentSession</a></div><div class="ttdeci">CurrentSession()</div><div class="ttdef"><b>Definition:</b> <a href="current_session_8cpp_source.html#l00007">currentSession.cpp:7</a></div></div>
+<div class="ttc" id="aclass_current_session_html_a644f6676cda64fd1bb3d8162ef492313"><div class="ttname"><a href="class_current_session.html#a644f6676cda64fd1bb3d8162ef492313">CurrentSession::getCurrentUser</a></div><div class="ttdeci">const std::shared_ptr&lt; User &gt; &amp; getCurrentUser() const</div><div class="ttdef"><b>Definition:</b> <a href="current_session_8cpp_source.html#l00044">currentSession.cpp:44</a></div></div>
+<div class="ttc" id="aclass_current_session_html_a31af92b5945f4ecec02e9b239e84aa86"><div class="ttname"><a href="class_current_session.html#a31af92b5945f4ecec02e9b239e84aa86">CurrentSession::login</a></div><div class="ttdeci">bool login(std::string nickname, const std::string &amp;password)</div><div class="ttdef"><b>Definition:</b> <a href="current_session_8cpp_source.html#l00012">currentSession.cpp:12</a></div></div>
+<div class="ttc" id="aclass_current_session_html_a7f5c52f1a5ef349a910eb9d76dfbf7bb"><div class="ttname"><a href="class_current_session.html#a7f5c52f1a5ef349a910eb9d76dfbf7bb">CurrentSession::logout</a></div><div class="ttdeci">bool logout()</div><div class="ttdef"><b>Definition:</b> <a href="current_session_8cpp_source.html#l00032">currentSession.cpp:32</a></div></div>
+<div class="ttc" id="aclass_current_session_html_a668144e5256641be596f7c5c306eb9f3"><div class="ttname"><a href="class_current_session.html#a668144e5256641be596f7c5c306eb9f3">CurrentSession::getNickname</a></div><div class="ttdeci">std::string getNickname() const</div><div class="ttdef"><b>Definition:</b> <a href="current_session_8cpp_source.html#l00040">currentSession.cpp:40</a></div></div>
+<div class="ttc" id="aauxiliary_functions_8h_html_a7e424bafd17534e5052ea713306a4349"><div class="ttname"><a href="auxiliary_functions_8h.html#a7e424bafd17534e5052ea713306a4349">_getch_</a></div><div class="ttdeci">char _getch_()</div></div>
+<div class="ttc" id="aclass_current_session_html_aa52a2762f8fa81de13600dbe2b478055"><div class="ttname"><a href="class_current_session.html#aa52a2762f8fa81de13600dbe2b478055">CurrentSession::CurrentSession</a></div><div class="ttdeci">CurrentSession()</div><div class="ttdef"><b>Definition:</b> <a href="current_session_8cpp_source.html#l00008">currentSession.cpp:8</a></div></div>
+<div class="ttc" id="auser_8h_html_a7f554175f6a21ca8a2175ee9d9bec6d8acc0121706966f6eeb143f46361409608"><div class="ttname"><a href="user_8h.html#a7f554175f6a21ca8a2175ee9d9bec6d8acc0121706966f6eeb143f46361409608">UserTypes::STREAMER</a></div><div class="ttdeci">@ STREAMER</div></div>
 <div class="ttc" id="acurrent_session_8h_html"><div class="ttname"><a href="current_session_8h.html">currentSession.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

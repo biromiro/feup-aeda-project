@@ -60,6 +60,16 @@ unsigned int \mbox{\hyperlink{class_leaderboard_manager_a2617266b393450c2671bd9b
 \mbox{\hyperlink{stream_8h_a8a65141d9ea4bf9d2e2377ed6b888a1d}{Stream\+Type}} \mbox{\hyperlink{class_leaderboard_manager_a9bbdffd41b5aaab63176188a63dfc93c}{most\+Common\+Type}} ()
 \item 
 std\+::string \mbox{\hyperlink{class_leaderboard_manager_a8ab01ef1273fa52034754f5553dc6637}{most\+Views\+Streamer}} ()
+\item 
+\mbox{\hyperlink{class_leaderboard}{Leaderboard}}$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ $>$ \mbox{\hyperlink{class_leaderboard_manager_a1b9b026517c2c0ba0c10cf6dbb504c8e}{filter\+Deactivated\+Streamers}} ()
+\item 
+\mbox{\hyperlink{class_leaderboard}{Leaderboard}}$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ $>$ \mbox{\hyperlink{class_leaderboard_manager_a499754816cea191206f97e4030e1aaf9}{filter\+Deactivated\+Viewers}} ()
+\item 
+\mbox{\hyperlink{class_leaderboard}{Leaderboard}}$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ $>$ \mbox{\hyperlink{class_leaderboard_manager_a099abfb4d8307f5c5e0a7f30471b92ba}{filter\+Deactivated\+Users}} ()
+\item 
+\mbox{\hyperlink{class_leaderboard}{Leaderboard}}$<$ \mbox{\hyperlink{class_donation}{Donation}} $>$ \mbox{\hyperlink{class_leaderboard_manager_a3a85d177777dc1d3bb12af1f9b1873c5}{get\+Ordered\+Donations}} (float ammount=0)
+\item 
+\mbox{\hyperlink{class_leaderboard}{Leaderboard}}$<$ \mbox{\hyperlink{class_donation}{Donation}} $>$ \mbox{\hyperlink{class_leaderboard_manager_a7508f289245a1fa3d625094999b25c96}{get\+Donations\+By\+Aval\+Interval}} (\mbox{\hyperlink{donation_8h_a0fc0828b6df2228e551899bce0ce1ad9}{streamer\+Work\+Rating}} lower\+Bound, \mbox{\hyperlink{donation_8h_a0fc0828b6df2228e551899bce0ce1ad9}{streamer\+Work\+Rating}} upper\+Bound, float ammount=0)
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -110,6 +120,51 @@ Definition at line 8 of file leaderboard\+\_\+manager.\+cpp.
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_leaderboard_manager_a1b9b026517c2c0ba0c10cf6dbb504c8e}\label{class_leaderboard_manager_a1b9b026517c2c0ba0c10cf6dbb504c8e}} 
+\index{LeaderboardManager@{LeaderboardManager}!filterDeactivatedStreamers@{filterDeactivatedStreamers}}
+\index{filterDeactivatedStreamers@{filterDeactivatedStreamers}!LeaderboardManager@{LeaderboardManager}}
+\doxysubsubsection{\texorpdfstring{filterDeactivatedStreamers()}{filterDeactivatedStreamers()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_leaderboard}{Leaderboard}}$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_streamer}{Streamer}} $>$ $>$ Leaderboard\+Manager\+::filter\+Deactivated\+Streamers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Filters the streamers which have a deactivated account
+
+\begin{DoxyReturn}{Returns}
+returns the streamers with a deactivated account 
+\end{DoxyReturn}
+
+
+Definition at line 357 of file leaderboard\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_leaderboard_manager_a099abfb4d8307f5c5e0a7f30471b92ba}\label{class_leaderboard_manager_a099abfb4d8307f5c5e0a7f30471b92ba}} 
+\index{LeaderboardManager@{LeaderboardManager}!filterDeactivatedUsers@{filterDeactivatedUsers}}
+\index{filterDeactivatedUsers@{filterDeactivatedUsers}!LeaderboardManager@{LeaderboardManager}}
+\doxysubsubsection{\texorpdfstring{filterDeactivatedUsers()}{filterDeactivatedUsers()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_leaderboard}{Leaderboard}}$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ $>$ Leaderboard\+Manager\+::filter\+Deactivated\+Users (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Filters the users which have a deactivated account
+
+\begin{DoxyReturn}{Returns}
+returns the users with a deactivated account 
+\end{DoxyReturn}
+
+
+Definition at line 377 of file leaderboard\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_leaderboard_manager_a499754816cea191206f97e4030e1aaf9}\label{class_leaderboard_manager_a499754816cea191206f97e4030e1aaf9}} 
+\index{LeaderboardManager@{LeaderboardManager}!filterDeactivatedViewers@{filterDeactivatedViewers}}
+\index{filterDeactivatedViewers@{filterDeactivatedViewers}!LeaderboardManager@{LeaderboardManager}}
+\doxysubsubsection{\texorpdfstring{filterDeactivatedViewers()}{filterDeactivatedViewers()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_leaderboard}{Leaderboard}}$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_viewer}{Viewer}} $>$ $>$ Leaderboard\+Manager\+::filter\+Deactivated\+Viewers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Filters the viewers which have a deactivated account
+
+\begin{DoxyReturn}{Returns}
+returns the viewers with a deactivated account 
+\end{DoxyReturn}
+
+
+Definition at line 367 of file leaderboard\+\_\+manager.\+cpp.
+
 \mbox{\Hypertarget{class_leaderboard_manager_a896b6a0e5f071e8db7eef392d3baf564}\label{class_leaderboard_manager_a896b6a0e5f071e8db7eef392d3baf564}} 
 \index{LeaderboardManager@{LeaderboardManager}!filterStreamByAge@{filterStreamByAge}}
 \index{filterStreamByAge@{filterStreamByAge}!LeaderboardManager@{LeaderboardManager}}
@@ -248,7 +303,31 @@ the leaderboard of the viewers older than age
 \end{DoxyReturn}
 
 
-Definition at line 244 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 250 of file leaderboard\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_leaderboard_manager_a7508f289245a1fa3d625094999b25c96}\label{class_leaderboard_manager_a7508f289245a1fa3d625094999b25c96}} 
+\index{LeaderboardManager@{LeaderboardManager}!getDonationsByAvalInterval@{getDonationsByAvalInterval}}
+\index{getDonationsByAvalInterval@{getDonationsByAvalInterval}!LeaderboardManager@{LeaderboardManager}}
+\doxysubsubsection{\texorpdfstring{getDonationsByAvalInterval()}{getDonationsByAvalInterval()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_leaderboard}{Leaderboard}}$<$ \mbox{\hyperlink{class_donation}{Donation}} $>$ Leaderboard\+Manager\+::get\+Donations\+By\+Aval\+Interval (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{donation_8h_a0fc0828b6df2228e551899bce0ce1ad9}{streamer\+Work\+Rating}}}]{lower\+Bound,  }\item[{\mbox{\hyperlink{donation_8h_a0fc0828b6df2228e551899bce0ce1ad9}{streamer\+Work\+Rating}}}]{upper\+Bound,  }\item[{float}]{ammount = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Shows the donations that are within an interval of streamer\+Work\+Rating values
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower\+Bound} & the lowest value \\
+\hline
+{\em upper\+Bound} & the highest value \\
+\hline
+{\em ammount} & the minimum ammount of a donation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the ordered leaderboard of donations with the given filter 
+\end{DoxyReturn}
+
+
+Definition at line 398 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_ae157e65d02f0437525d7abcac47adc40}\label{class_leaderboard_manager_ae157e65d02f0437525d7abcac47adc40}} 
 \index{LeaderboardManager@{LeaderboardManager}!getFollowingStreamersLeaderboard@{getFollowingStreamersLeaderboard}}
@@ -268,7 +347,7 @@ a leaderboard with the following streamers
 \end{DoxyReturn}
 
 
-Definition at line 216 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 222 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_a2bb47a5fe862eb771c2d222d8a1ae61a}\label{class_leaderboard_manager_a2bb47a5fe862eb771c2d222d8a1ae61a}} 
 \index{LeaderboardManager@{LeaderboardManager}!getNotFollowingStreamersLeaderboard@{getNotFollowingStreamersLeaderboard}}
@@ -288,7 +367,27 @@ a leaderboard with the not following streamers
 \end{DoxyReturn}
 
 
-Definition at line 227 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 233 of file leaderboard\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_leaderboard_manager_a3a85d177777dc1d3bb12af1f9b1873c5}\label{class_leaderboard_manager_a3a85d177777dc1d3bb12af1f9b1873c5}} 
+\index{LeaderboardManager@{LeaderboardManager}!getOrderedDonations@{getOrderedDonations}}
+\index{getOrderedDonations@{getOrderedDonations}!LeaderboardManager@{LeaderboardManager}}
+\doxysubsubsection{\texorpdfstring{getOrderedDonations()}{getOrderedDonations()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_leaderboard}{Leaderboard}}$<$ \mbox{\hyperlink{class_donation}{Donation}} $>$ Leaderboard\+Manager\+::get\+Ordered\+Donations (\begin{DoxyParamCaption}\item[{float}]{ammount = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Shows the donations in an ordered fashion
+
+
+\begin{DoxyParams}{Parameters}
+{\em ammount} & the minimum ammount of a donation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the ordered leaderboard of donations 
+\end{DoxyReturn}
+
+
+Definition at line 387 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_afe6829b814057835fe886ec75a1ce6d7}\label{class_leaderboard_manager_afe6829b814057835fe886ec75a1ce6d7}} 
 \index{LeaderboardManager@{LeaderboardManager}!meanViewsPerStreamActive@{meanViewsPerStreamActive}}
@@ -303,7 +402,7 @@ the mean of views per active stream
 \end{DoxyReturn}
 
 
-Definition at line 301 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 310 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_a2617266b393450c2671bd9bb5c5266ac}\label{class_leaderboard_manager_a2617266b393450c2671bd9bb5c5266ac}} 
 \index{LeaderboardManager@{LeaderboardManager}!meanViewsPerStreamFinished@{meanViewsPerStreamFinished}}
@@ -318,7 +417,7 @@ the mean of views per finished stream
 \end{DoxyReturn}
 
 
-Definition at line 309 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 318 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_a45bcdfcb2331450154a945a4c8c61134}\label{class_leaderboard_manager_a45bcdfcb2331450154a945a4c8c61134}} 
 \index{LeaderboardManager@{LeaderboardManager}!mostCommonLanguage@{mostCommonLanguage}}
@@ -333,7 +432,7 @@ the most common language
 \end{DoxyReturn}
 
 
-Definition at line 317 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 326 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_a9bbdffd41b5aaab63176188a63dfc93c}\label{class_leaderboard_manager_a9bbdffd41b5aaab63176188a63dfc93c}} 
 \index{LeaderboardManager@{LeaderboardManager}!mostCommonType@{mostCommonType}}
@@ -348,7 +447,7 @@ the most common type
 \end{DoxyReturn}
 
 
-Definition at line 330 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 339 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_a8ab01ef1273fa52034754f5553dc6637}\label{class_leaderboard_manager_a8ab01ef1273fa52034754f5553dc6637}} 
 \index{LeaderboardManager@{LeaderboardManager}!mostViewsStreamer@{mostViewsStreamer}}
@@ -363,7 +462,7 @@ the nickname of the streamer with the most views
 \end{DoxyReturn}
 
 
-Definition at line 343 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 352 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_a34e691766572fe24f9cb6091f0c85f79}\label{class_leaderboard_manager_a34e691766572fe24f9cb6091f0c85f79}} 
 \index{LeaderboardManager@{LeaderboardManager}!sortStreamerBy@{sortStreamerBy}}
@@ -383,7 +482,7 @@ the sorted streamer leaderboard
 \end{DoxyReturn}
 
 
-Definition at line 140 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 146 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_ab976bea8479e3f7a7f02eca6d7337360}\label{class_leaderboard_manager_ab976bea8479e3f7a7f02eca6d7337360}} 
 \index{LeaderboardManager@{LeaderboardManager}!sortStreamers@{sortStreamers}}
@@ -413,7 +512,7 @@ sorted \mbox{\hyperlink{class_leaderboard}{Leaderboard}} of streams
 \end{DoxyReturn}
 
 
-Definition at line 98 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 104 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_a99179e7b8f517ec421e0fb02fa72c260}\label{class_leaderboard_manager_a99179e7b8f517ec421e0fb02fa72c260}} 
 \index{LeaderboardManager@{LeaderboardManager}!sortStreams@{sortStreams}}
@@ -433,7 +532,7 @@ sorted \mbox{\hyperlink{class_leaderboard}{Leaderboard}} of streams
 \end{DoxyReturn}
 
 
-Definition at line 106 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 112 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_a4bf64bf26cb56dfea247ad7d296dc599}\label{class_leaderboard_manager_a4bf64bf26cb56dfea247ad7d296dc599}} 
 \index{LeaderboardManager@{LeaderboardManager}!sortStreamsBy@{sortStreamsBy}}
@@ -453,7 +552,7 @@ the sorted stream leaderboard
 \end{DoxyReturn}
 
 
-Definition at line 112 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 118 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_aca6c10aacf09c98a6be61c96bca42c33}\label{class_leaderboard_manager_aca6c10aacf09c98a6be61c96bca42c33}} 
 \index{LeaderboardManager@{LeaderboardManager}!sortStreamsBy@{sortStreamsBy}}
@@ -475,7 +574,7 @@ the sorted stream leaderboard
 \end{DoxyReturn}
 
 
-Definition at line 258 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 266 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_a2ab6b50ac7a8c86f4d74b48b0f22aba9}\label{class_leaderboard_manager_a2ab6b50ac7a8c86f4d74b48b0f22aba9}} 
 \index{LeaderboardManager@{LeaderboardManager}!sortUserBy@{sortUserBy}}
@@ -495,7 +594,7 @@ the sorted user leaderboard
 \end{DoxyReturn}
 
 
-Definition at line 194 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 200 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_ac0871a8bfeb86c07dd75986a9c8c5425}\label{class_leaderboard_manager_ac0871a8bfeb86c07dd75986a9c8c5425}} 
 \index{LeaderboardManager@{LeaderboardManager}!sortUsers@{sortUsers}}
@@ -510,7 +609,7 @@ sorted \mbox{\hyperlink{class_leaderboard}{Leaderboard}} of users
 \end{DoxyReturn}
 
 
-Definition at line 82 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 88 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_ae868b1e09780663f0359b5094634133b}\label{class_leaderboard_manager_ae868b1e09780663f0359b5094634133b}} 
 \index{LeaderboardManager@{LeaderboardManager}!sortUsers@{sortUsers}}
@@ -530,7 +629,7 @@ sorted \mbox{\hyperlink{class_leaderboard}{Leaderboard}} of viewers
 \end{DoxyReturn}
 
 
-Definition at line 92 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 98 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_ad75ac401f9543ef24630d36868fd9af9}\label{class_leaderboard_manager_ad75ac401f9543ef24630d36868fd9af9}} 
 \index{LeaderboardManager@{LeaderboardManager}!sortViewerBy@{sortViewerBy}}
@@ -550,7 +649,7 @@ the sorted viewer leaderboard
 \end{DoxyReturn}
 
 
-Definition at line 169 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 175 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_a745d2999bb798141297151eff68c6b54}\label{class_leaderboard_manager_a745d2999bb798141297151eff68c6b54}} 
 \index{LeaderboardManager@{LeaderboardManager}!sortViewers@{sortViewers}}
@@ -565,7 +664,7 @@ sorted \mbox{\hyperlink{class_leaderboard}{Leaderboard}} of viewers
 \end{DoxyReturn}
 
 
-Definition at line 69 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 72 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_a92b6b427590b1e061161a5ae12d285a3}\label{class_leaderboard_manager_a92b6b427590b1e061161a5ae12d285a3}} 
 \index{LeaderboardManager@{LeaderboardManager}!sortViewers@{sortViewers}}
@@ -585,7 +684,7 @@ sorted \mbox{\hyperlink{class_leaderboard}{Leaderboard}} of viewers
 \end{DoxyReturn}
 
 
-Definition at line 76 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 82 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_abbfe993a3f67d9f69582e1c5aecd6297}\label{class_leaderboard_manager_abbfe993a3f67d9f69582e1c5aecd6297}} 
 \index{LeaderboardManager@{LeaderboardManager}!top10StreamsBy@{top10StreamsBy}}
@@ -605,7 +704,7 @@ the top10 stream leaderboard
 \end{DoxyReturn}
 
 
-Definition at line 250 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 258 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_add6e307ea56924146714db3b53282867}\label{class_leaderboard_manager_add6e307ea56924146714db3b53282867}} 
 \index{LeaderboardManager@{LeaderboardManager}!totalNumberOfPrivateStreams@{totalNumberOfPrivateStreams}}
@@ -620,7 +719,7 @@ the total number of active private streams
 \end{DoxyReturn}
 
 
-Definition at line 289 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 298 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_afe0692a4fd04fd7e9fe15490b0fa287c}\label{class_leaderboard_manager_afe0692a4fd04fd7e9fe15490b0fa287c}} 
 \index{LeaderboardManager@{LeaderboardManager}!totalNumberOfPublicStreams@{totalNumberOfPublicStreams}}
@@ -635,7 +734,7 @@ the total number of active public streams
 \end{DoxyReturn}
 
 
-Definition at line 297 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 306 of file leaderboard\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_leaderboard_manager_accec45f518f9d4e92ddbbe2db3e3bab4}\label{class_leaderboard_manager_accec45f518f9d4e92ddbbe2db3e3bab4}} 
 \index{LeaderboardManager@{LeaderboardManager}!totalNumberOfStreams@{totalNumberOfStreams}}
@@ -650,7 +749,7 @@ the total number of active streams
 \end{DoxyReturn}
 
 
-Definition at line 284 of file leaderboard\+\_\+manager.\+cpp.
+Definition at line 293 of file leaderboard\+\_\+manager.\+cpp.
 
 
 

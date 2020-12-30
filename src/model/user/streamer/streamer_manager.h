@@ -19,6 +19,9 @@
  * @ingroup user
  */
 
+/**
+ * Hash for the unordered set of streamers
+ */
 struct streamerHash{
     int operator()(const std::shared_ptr<Streamer>& str) const{
         int v = 0;
@@ -133,6 +136,11 @@ public:
      * */
     [[nodiscard]] const tabHStreamer &getStreamers() const;
 
+    /**
+     * Getter of the BST of donations
+     *
+     * @return the BST of donations
+     */
     [[nodiscard]] const BST<Donation> &getDonations() const;
 
     /**

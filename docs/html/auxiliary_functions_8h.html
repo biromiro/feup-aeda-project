@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="rsz_1rsz_acastro_200410_1777_obs_00010.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StreamZ
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">A streaming platform for all!</div>
   </td>
@@ -93,6 +93,8 @@ $(document).ready(function(){initNavTree('auxiliary_functions_8h.html',''); init
 <div class="contents">
 <div class="textblock"><code>#include &lt;cstdio&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div>
 <p><a href="auxiliary_functions_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -108,6 +110,8 @@ Functions</h2></td></tr>
 <tr class="separator:aeaa0dd0638ab41b3d2b528b3f9444a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45cc1ff630a8eee6b52699b6ea74be2e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="auxiliary_functions_8h.html#a45cc1ff630a8eee6b52699b6ea74be2e">shrinkToColumnSize</a> (std::string value)</td></tr>
 <tr class="separator:a45cc1ff630a8eee6b52699b6ea74be2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a476558ce4cefce05a6e88e92f0f3e4ce"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="auxiliary_functions_8h.html#a476558ce4cefce05a6e88e92f0f3e4ce">inputFloat</a> ()</td></tr>
+<tr class="separator:a476558ce4cefce05a6e88e92f0f3e4ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -175,7 +179,28 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8cpp_source.html#l00077">77</a> of file <a class="el" href="auxiliary_functions_8cpp_source.html">auxiliaryFunctions.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8cpp_source.html#l00098">98</a> of file <a class="el" href="auxiliary_functions_8cpp_source.html">auxiliaryFunctions.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a476558ce4cefce05a6e88e92f0f3e4ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a476558ce4cefce05a6e88e92f0f3e4ce">&#9670;&nbsp;</a></span>inputFloat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float inputFloat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Receives a float number from the input stream, and handles such stream</p>
+<dl class="section return"><dt>Returns</dt><dd>the float given as input </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8cpp_source.html#l00085">85</a> of file <a class="el" href="auxiliary_functions_8cpp_source.html">auxiliaryFunctions.cpp</a>.</p>
 
 </div>
 </div>
@@ -252,7 +277,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the shrinked string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8cpp_source.html#l00083">83</a> of file <a class="el" href="auxiliary_functions_8cpp_source.html">auxiliaryFunctions.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8cpp_source.html#l00104">104</a> of file <a class="el" href="auxiliary_functions_8cpp_source.html">auxiliaryFunctions.cpp</a>.</p>
 
 </div>
 </div>
@@ -277,7 +302,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00019">19</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00021">21</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
 
 </div>
 </div>
@@ -301,7 +326,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00017">17</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00019">19</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
 
 </div>
 </div>
@@ -325,7 +350,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00025">25</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00027">27</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
 
 </div>
 </div>
@@ -349,7 +374,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00020">20</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00022">22</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
 
 </div>
 </div>
@@ -373,7 +398,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00024">24</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00026">26</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
 
 </div>
 </div>
@@ -397,7 +422,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00022">22</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00024">24</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
 
 </div>
 </div>
@@ -421,7 +446,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00018">18</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00020">20</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
 
 </div>
 </div>
@@ -445,7 +470,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00021">21</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00023">23</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
 
 </div>
 </div>
@@ -469,7 +494,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00023">23</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00025">25</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
 
 </div>
 </div>
@@ -493,7 +518,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00026">26</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="auxiliary_functions_8h_source.html#l00028">28</a> of file <a class="el" href="auxiliary_functions_8h_source.html">auxiliaryFunctions.h</a>.</p>
 
 </div>
 </div>

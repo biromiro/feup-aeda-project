@@ -1,0 +1,210 @@
+\hypertarget{class_streamer_merch}{}\doxysection{Streamer\+Merch Class Reference}
+\label{class_streamer_merch}\index{StreamerMerch@{StreamerMerch}}
+
+
+{\ttfamily \#include $<$streamer\+Merch.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_streamer_merch_a90a1d3f4b1f5ba9a00dc92e325430fcf}{Streamer\+Merch}} ()
+\item 
+unsigned int \mbox{\hyperlink{class_streamer_merch_a1abf2c5fa4396d8a39fd6692305f32a9}{get\+Limit}} () const
+\item 
+std\+::priority\+\_\+queue$<$ \mbox{\hyperlink{class_merch_request}{Merch\+Request}} $>$ \mbox{\hyperlink{class_streamer_merch_ac02849477c2bbc6325bfd140a94e60f3}{get\+Orders}} () const
+\item 
+void \mbox{\hyperlink{class_streamer_merch_af2fbe75ccb37ab11d42f1381626c16c9}{set\+Limit}} (unsigned int new\+Limit)
+\item 
+\mbox{\hyperlink{class_merch_request}{Merch\+Request}} \mbox{\hyperlink{class_streamer_merch_a35f5a133a6f34270f2c75925ebc399e4}{process\+Next\+Order}} ()
+\item 
+bool \mbox{\hyperlink{class_streamer_merch_a55e45d5376c40885ee454984ced88640}{add\+Order}} (const \mbox{\hyperlink{class_merch_request}{Merch\+Request}} \&new\+Order)
+\item 
+bool \mbox{\hyperlink{class_streamer_merch_a1c41f2a19588fa3b312e53663882b528}{remove\+Order}} (std\+::string buyer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_streamer_merch_a8021ada6b4e6f9ac22cf704127d02847}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_streamer_merch}{Streamer\+Merch}} \&f)
+\item 
+std\+::istream \& \mbox{\hyperlink{class_streamer_merch_ab603ca54e3de57c9a3a830ebc8bbbf42}{operator$>$$>$}} (std\+::istream \&out, \mbox{\hyperlink{class_streamer_merch}{Streamer\+Merch}} \&f)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \mbox{\hyperlink{class_streamer}{Streamer}} Merch class
+
+Wrapper for the queue representing merch requests 
+
+Definition at line 24 of file streamer\+Merch.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_streamer_merch_a90a1d3f4b1f5ba9a00dc92e325430fcf}\label{class_streamer_merch_a90a1d3f4b1f5ba9a00dc92e325430fcf}} 
+\index{StreamerMerch@{StreamerMerch}!StreamerMerch@{StreamerMerch}}
+\index{StreamerMerch@{StreamerMerch}!StreamerMerch@{StreamerMerch}}
+\doxysubsubsection{\texorpdfstring{StreamerMerch()}{StreamerMerch()}}
+{\footnotesize\ttfamily Streamer\+Merch\+::\+Streamer\+Merch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file streamer\+Merch.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_streamer_merch_a55e45d5376c40885ee454984ced88640}\label{class_streamer_merch_a55e45d5376c40885ee454984ced88640}} 
+\index{StreamerMerch@{StreamerMerch}!addOrder@{addOrder}}
+\index{addOrder@{addOrder}!StreamerMerch@{StreamerMerch}}
+\doxysubsubsection{\texorpdfstring{addOrder()}{addOrder()}}
+{\footnotesize\ttfamily bool Streamer\+Merch\+::add\+Order (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_merch_request}{Merch\+Request}} \&}]{new\+Order }\end{DoxyParamCaption})}
+
+Adds a new order to the orders queue
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Order} & order to add to the queue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if order was successfully added, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file streamer\+Merch.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_merch_a1abf2c5fa4396d8a39fd6692305f32a9}\label{class_streamer_merch_a1abf2c5fa4396d8a39fd6692305f32a9}} 
+\index{StreamerMerch@{StreamerMerch}!getLimit@{getLimit}}
+\index{getLimit@{getLimit}!StreamerMerch@{StreamerMerch}}
+\doxysubsubsection{\texorpdfstring{getLimit()}{getLimit()}}
+{\footnotesize\ttfamily unsigned int Streamer\+Merch\+::get\+Limit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the orders queue size limit
+
+\begin{DoxyReturn}{Returns}
+limit of the orders queue size 
+\end{DoxyReturn}
+
+
+Definition at line 16 of file streamer\+Merch.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_merch_ac02849477c2bbc6325bfd140a94e60f3}\label{class_streamer_merch_ac02849477c2bbc6325bfd140a94e60f3}} 
+\index{StreamerMerch@{StreamerMerch}!getOrders@{getOrders}}
+\index{getOrders@{getOrders}!StreamerMerch@{StreamerMerch}}
+\doxysubsubsection{\texorpdfstring{getOrders()}{getOrders()}}
+{\footnotesize\ttfamily std\+::priority\+\_\+queue$<$ \mbox{\hyperlink{class_merch_request}{Merch\+Request}} $>$ Streamer\+Merch\+::get\+Orders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter of the orders queue
+
+\begin{DoxyReturn}{Returns}
+orders queue 
+\end{DoxyReturn}
+
+
+Definition at line 18 of file streamer\+Merch.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_merch_a35f5a133a6f34270f2c75925ebc399e4}\label{class_streamer_merch_a35f5a133a6f34270f2c75925ebc399e4}} 
+\index{StreamerMerch@{StreamerMerch}!processNextOrder@{processNextOrder}}
+\index{processNextOrder@{processNextOrder}!StreamerMerch@{StreamerMerch}}
+\doxysubsubsection{\texorpdfstring{processNextOrder()}{processNextOrder()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_merch_request}{Merch\+Request}} Streamer\+Merch\+::process\+Next\+Order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Processes the first order on the queue
+
+\begin{DoxyReturn}{Returns}
+first order on the queue, now removed from it 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file streamer\+Merch.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_merch_a1c41f2a19588fa3b312e53663882b528}\label{class_streamer_merch_a1c41f2a19588fa3b312e53663882b528}} 
+\index{StreamerMerch@{StreamerMerch}!removeOrder@{removeOrder}}
+\index{removeOrder@{removeOrder}!StreamerMerch@{StreamerMerch}}
+\doxysubsubsection{\texorpdfstring{removeOrder()}{removeOrder()}}
+{\footnotesize\ttfamily bool Streamer\+Merch\+::remove\+Order (\begin{DoxyParamCaption}\item[{std\+::string}]{buyer }\end{DoxyParamCaption})}
+
+Removes an order from the orders queue
+
+
+\begin{DoxyParams}{Parameters}
+{\em buyer} & nickname of the viewer whose order is to be removed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if order was successfully removed, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 60 of file streamer\+Merch.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_merch_af2fbe75ccb37ab11d42f1381626c16c9}\label{class_streamer_merch_af2fbe75ccb37ab11d42f1381626c16c9}} 
+\index{StreamerMerch@{StreamerMerch}!setLimit@{setLimit}}
+\index{setLimit@{setLimit}!StreamerMerch@{StreamerMerch}}
+\doxysubsubsection{\texorpdfstring{setLimit()}{setLimit()}}
+{\footnotesize\ttfamily void Streamer\+Merch\+::set\+Limit (\begin{DoxyParamCaption}\item[{unsigned int}]{new\+Limit }\end{DoxyParamCaption})}
+
+Updates the orders queue size limit
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Limit} & new orders queue size limit \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 20 of file streamer\+Merch.\+cpp.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_streamer_merch_a8021ada6b4e6f9ac22cf704127d02847}\label{class_streamer_merch_a8021ada6b4e6f9ac22cf704127d02847}} 
+\index{StreamerMerch@{StreamerMerch}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!StreamerMerch@{StreamerMerch}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_streamer_merch}{Streamer\+Merch}} \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Output stream operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & the stream to output \\
+\hline
+{\em f} & the streamer merch object to output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the stream passed as parameter 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file streamer\+Merch.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_merch_ab603ca54e3de57c9a3a830ebc8bbbf42}\label{class_streamer_merch_ab603ca54e3de57c9a3a830ebc8bbbf42}} 
+\index{StreamerMerch@{StreamerMerch}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!StreamerMerch@{StreamerMerch}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{out,  }\item[{\mbox{\hyperlink{class_streamer_merch}{Streamer\+Merch}} \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Input stream operator overload
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & the stream to get input from \\
+\hline
+{\em f} & the streamer merch object to get input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the stream passed as parameter 
+\end{DoxyReturn}
+
+
+Definition at line 88 of file streamer\+Merch.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/transactions/merch/\mbox{\hyperlink{streamer_merch_8h}{streamer\+Merch.\+h}}\item 
+/home/biromiro/\+A\+E\+D\+A/feup-\/aeda-\/project/src/model/transactions/merch/\mbox{\hyperlink{streamer_merch_8cpp}{streamer\+Merch.\+cpp}}\end{DoxyCompactItemize}

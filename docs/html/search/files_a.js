@@ -1,25 +1,7 @@
 var searchData=
 [
-  ['stream_2ecpp_525',['stream.cpp',['../stream_8cpp.html',1,'']]],
-  ['stream_2eh_526',['stream.h',['../stream_8h.html',1,'']]],
-  ['streamalreadyfinished_2ecpp_527',['streamAlreadyFinished.cpp',['../stream_already_finished_8cpp.html',1,'']]],
-  ['streamalreadyfinished_2eh_528',['streamAlreadyFinished.h',['../stream_already_finished_8h.html',1,'']]],
-  ['streamer_2ecpp_529',['streamer.cpp',['../streamer_8cpp.html',1,'']]],
-  ['streamer_2eh_530',['streamer.h',['../streamer_8h.html',1,'']]],
-  ['streamer_5fmanager_2ecpp_531',['streamer_manager.cpp',['../streamer__manager_8cpp.html',1,'']]],
-  ['streamer_5fmanager_2eh_532',['streamer_manager.h',['../streamer__manager_8h.html',1,'']]],
-  ['streameralreadystreaming_2ecpp_533',['streamerAlreadyStreaming.cpp',['../streamer_already_streaming_8cpp.html',1,'']]],
-  ['streameralreadystreaming_2eh_534',['streamerAlreadyStreaming.h',['../streamer_already_streaming_8h.html',1,'']]],
-  ['streamernotstreaming_2ecpp_535',['streamerNotStreaming.cpp',['../streamer_not_streaming_8cpp.html',1,'']]],
-  ['streamernotstreaming_2eh_536',['streamerNotStreaming.h',['../streamer_not_streaming_8h.html',1,'']]],
-  ['streamerview_2ecpp_537',['streamerView.cpp',['../streamer_view_8cpp.html',1,'']]],
-  ['streamerview_2eh_538',['streamerView.h',['../streamer_view_8h.html',1,'']]],
-  ['streammanager_2ecpp_539',['streamManager.cpp',['../stream_manager_8cpp.html',1,'']]],
-  ['streammanager_2eh_540',['streamManager.h',['../stream_manager_8h.html',1,'']]],
-  ['streamnotfound_2ecpp_541',['streamNotFound.cpp',['../stream_not_found_8cpp.html',1,'']]],
-  ['streamnotfound_2eh_542',['streamNotFound.h',['../stream_not_found_8h.html',1,'']]],
-  ['streamview_2ecpp_543',['streamView.cpp',['../stream_view_8cpp.html',1,'']]],
-  ['streamview_2eh_544',['streamView.h',['../stream_view_8h.html',1,'']]],
-  ['streamz_2ecpp_545',['streamZ.cpp',['../stream_z_8cpp.html',1,'']]],
-  ['streamz_2eh_546',['streamZ.h',['../stream_z_8h.html',1,'']]]
+  ['privatestream_2ecpp_674',['privateStream.cpp',['../private_stream_8cpp.html',1,'']]],
+  ['privatestream_2eh_675',['privateStream.h',['../private_stream_8h.html',1,'']]],
+  ['publicstream_2ecpp_676',['publicStream.cpp',['../public_stream_8cpp.html',1,'']]],
+  ['publicstream_2eh_677',['publicStream.h',['../public_stream_8h.html',1,'']]]
 ];

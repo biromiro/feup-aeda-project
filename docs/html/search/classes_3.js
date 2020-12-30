@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['finishedstream_436',['FinishedStream',['../class_finished_stream.html',1,'']]]
+  ['date_561',['Date',['../class_date.html',1,'']]],
+  ['donation_562',['Donation',['../class_donation.html',1,'']]]
 ];

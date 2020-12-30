@@ -21,7 +21,7 @@ void StreamerMerch::setLimit(unsigned int newLimit) {
     if (newLimit < limit) {
         unsigned int counter = newLimit;
         std::priority_queue<MerchRequest> temp;
-        while (counter != 0) {
+        while (counter != 0 && !orders.empty()) {
             temp.push(orders.top());
             orders.pop();
             counter--;
