@@ -125,8 +125,11 @@ bigstreamer
 biro
 LIKE
 PRIVATE
-0
-0
+1
+laidinha
+1
+laidinha
+muito fixe!
 12
 17
 17
@@ -136,11 +139,13 @@ GAMING
 Back Again for the Exploit
 biromiro
 12
-50
+51
 0
-0
+1
 2020/12/30
-0
+1
+laidinha
+LIKE
 10
 3
 17
