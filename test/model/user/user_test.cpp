@@ -63,7 +63,7 @@ TEST(user, update_birthdate){
 }
 
 TEST(user, update_name){
-    Date birthDate1("2001/10/20"), birthDate2("2007/10/29"), birthDate3(1969,11,16);
+    Date birthDate1("2001/10/20"), birthDate2("2007/10/29");
     Viewer viewer(birthDate2,"André Moreira","Dustini", "tenso");
     Streamer streamer(birthDate1, "Nuno Costa", "biromiro", "olaoscra");
     EXPECT_EQ(viewer.getName(), "André Moreira");
@@ -74,7 +74,7 @@ TEST(user, update_name){
 }
 
 TEST(user, update_nickname){
-    Date birthDate1("2001/10/20"), birthDate2("2007/10/29"), birthDate3(1969,11,16);
+    Date birthDate1("2001/10/20"), birthDate2("2007/10/29");
     Viewer viewer(birthDate2,"André Moreira","Dustini", "tenso");
     Streamer streamer(birthDate1, "Nuno Costa", "biromiro", "olaoscra");
     EXPECT_EQ(viewer.getNickname(), "Dustini");

@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"class_viewer.html#aaedebacb31cba87de6e7d448ed8d6586":[0,0,58,0],
+"class_viewer.html#abf65cbba6d953d882ab77e7cb9bb56ff":[0,0,58,2],
 "class_viewer.html#acb60572fbf42fba81b227ad8468ab0cd":[0,0,58,3],
 "class_viewer.html#acb814683a5b9f7a002e7883d17f6e935":[0,0,58,16],
 "class_viewer.html#adbd92f8cddd5f74fe128c13b8b8418c1":[0,0,58,6],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "leaderboard__manager_8h_source.html":[1,0,0,4,2,2],
 "leaderboard_page_8cpp.html":[1,0,0,3,2,0],
 "leaderboard_page_8cpp_source.html":[1,0,0,3,2,0],
-"leaderboard_page_8h.html":[1,0,0,3,2,1],
-"leaderboard_page_8h_source.html":[1,0,0,3,2,1],
-"login_page_8cpp.html":[1,0,0,3,3,0]
+"leaderboard_page_8h.html":[1,0,0,3,2,1]
 };

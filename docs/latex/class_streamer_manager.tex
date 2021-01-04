@@ -35,6 +35,10 @@ const \mbox{\hyperlink{class_b_s_t}{B\+ST}}$<$ \mbox{\hyperlink{class_donation}{
 \item 
 void \mbox{\hyperlink{class_streamer_manager_ad5edbda41b32658cf0deb1afa44b9dce}{add\+New\+Donation}} (const std\+::string \&nickname, float ammount, \mbox{\hyperlink{donation_8h_a0fc0828b6df2228e551899bce0ce1ad9}{streamer\+Work\+Rating}} rating)
 \item 
+bool \mbox{\hyperlink{class_streamer_manager_ac66f51306c933879c53affb09ec9320b}{remove\+Donation}} (const std\+::string \&nickname, float ammount, \mbox{\hyperlink{donation_8h_a0fc0828b6df2228e551899bce0ce1ad9}{streamer\+Work\+Rating}} rating)
+\item 
+bool \mbox{\hyperlink{class_streamer_manager_ab3e7710fcec5536c1b4960e3f37e7006}{remove\+Biggest\+Donation\+Of\+Streamer}} (const std\+::string \&nickname)
+\item 
 vector$<$ \mbox{\hyperlink{class_donation}{Donation}} $>$ \mbox{\hyperlink{class_streamer_manager_a33e98b3d8eaf4dcfcf8198e290f3a9f2}{get\+Streamer\+Donations}} (const std\+::string \&nickname)
 \item 
 bool \mbox{\hyperlink{class_streamer_manager_a0e58ddf85924d01bc58c79fd722e0bce}{read\+Data}} ()
@@ -229,7 +233,7 @@ the \mbox{\hyperlink{class_b_s_t}{B\+ST}} of donations
 \end{DoxyReturn}
 
 
-Definition at line 214 of file streamer\+\_\+manager.\+cpp.
+Definition at line 230 of file streamer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_manager_a836a95d8a52da98e895d0cdb3e46282f}\label{class_streamer_manager_a836a95d8a52da98e895d0cdb3e46282f}} 
 \index{StreamerManager@{StreamerManager}!getNumOfFollowers@{getNumOfFollowers}}
@@ -257,9 +261,14 @@ Definition at line 99 of file streamer\+\_\+manager.\+cpp.
 \doxysubsubsection{\texorpdfstring{getStreamerDonations()}{getStreamerDonations()}}
 {\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_donation}{Donation}} $>$ Streamer\+Manager\+::get\+Streamer\+Donations (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nickname }\end{DoxyParamCaption})}
 
+Gets the donations of all streamers
+
+\begin{DoxyReturn}{Returns}
+the vector of Donations 
+\end{DoxyReturn}
 
 
-Definition at line 201 of file streamer\+\_\+manager.\+cpp.
+Definition at line 217 of file streamer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_manager_a433abcff4e0f18367fbd953c3c1c101e}\label{class_streamer_manager_a433abcff4e0f18367fbd953c3c1c101e}} 
 \index{StreamerManager@{StreamerManager}!getStreamers@{getStreamers}}
@@ -390,6 +399,50 @@ True if the action was successful, false otherwise
 
 
 Definition at line 59 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_ab3e7710fcec5536c1b4960e3f37e7006}\label{class_streamer_manager_ab3e7710fcec5536c1b4960e3f37e7006}} 
+\index{StreamerManager@{StreamerManager}!removeBiggestDonationOfStreamer@{removeBiggestDonationOfStreamer}}
+\index{removeBiggestDonationOfStreamer@{removeBiggestDonationOfStreamer}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{removeBiggestDonationOfStreamer()}{removeBiggestDonationOfStreamer()}}
+{\footnotesize\ttfamily bool Streamer\+Manager\+::remove\+Biggest\+Donation\+Of\+Streamer (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nickname }\end{DoxyParamCaption})}
+
+Removes the biggest donation of the given streamer
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & the streamer to remove the donation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if removed, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 206 of file streamer\+\_\+manager.\+cpp.
+
+\mbox{\Hypertarget{class_streamer_manager_ac66f51306c933879c53affb09ec9320b}\label{class_streamer_manager_ac66f51306c933879c53affb09ec9320b}} 
+\index{StreamerManager@{StreamerManager}!removeDonation@{removeDonation}}
+\index{removeDonation@{removeDonation}!StreamerManager@{StreamerManager}}
+\doxysubsubsection{\texorpdfstring{removeDonation()}{removeDonation()}}
+{\footnotesize\ttfamily bool Streamer\+Manager\+::remove\+Donation (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nickname,  }\item[{float}]{ammount,  }\item[{\mbox{\hyperlink{donation_8h_a0fc0828b6df2228e551899bce0ce1ad9}{streamer\+Work\+Rating}}}]{rating }\end{DoxyParamCaption})}
+
+Removes a donation given its parameters
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & the nickname of the streamer of which the donation is to be removed \\
+\hline
+{\em ammount} & the ammount of the donation to remove \\
+\hline
+{\em rating} & the streamer work rating of the donation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if removed, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 201 of file streamer\+\_\+manager.\+cpp.
 
 \mbox{\Hypertarget{class_streamer_manager_abead67bd23d38c79a508a10e94f53226}\label{class_streamer_manager_abead67bd23d38c79a508a10e94f53226}} 
 \index{StreamerManager@{StreamerManager}!writeData@{writeData}}

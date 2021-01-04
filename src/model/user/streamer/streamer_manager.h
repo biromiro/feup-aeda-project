@@ -152,6 +152,30 @@ public:
      */
     void addNewDonation(const std::string& nickname, float ammount, streamerWorkRating rating);
 
+    /**
+     * Removes a donation given its parameters
+     *
+     * @param nickname the nickname of the streamer of which the donation is to be removed
+     * @param ammount the ammount of the donation to remove
+     * @param rating the streamer work rating of the donation
+     *
+     * @return True if removed, false otherwise
+     */
+    bool removeDonation(const std::string& nickname, float ammount, streamerWorkRating rating);
+
+    /**
+     * Removes the biggest donation of the given streamer
+     *
+     * @param nickname the streamer to remove the donation
+     * @return True if removed, false otherwise
+     */
+    bool removeBiggestDonationOfStreamer(const std::string& nickname);
+
+    /**
+     * Gets the donations of all streamers
+     *
+     * @return the vector of Donations
+     */
     vector<Donation> getStreamerDonations(const std::string& nickname);
 
     /**

@@ -178,7 +178,7 @@ public:
      * Checks if the streamer deactivated their account
      *
      * @return is deactivated*/
-    bool isDeactivated() const;
+    [[nodiscard]] bool isDeactivated() const;
 
     /**
     * Deactivates the streamer's account*/

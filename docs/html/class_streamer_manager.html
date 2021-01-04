@@ -124,6 +124,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9b8507082514a0431ff69eaa74d490be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5edbda41b32658cf0deb1afa44b9dce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer_manager.html#ad5edbda41b32658cf0deb1afa44b9dce">addNewDonation</a> (const std::string &amp;nickname, float ammount, <a class="el" href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9">streamerWorkRating</a> rating)</td></tr>
 <tr class="separator:ad5edbda41b32658cf0deb1afa44b9dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac66f51306c933879c53affb09ec9320b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer_manager.html#ac66f51306c933879c53affb09ec9320b">removeDonation</a> (const std::string &amp;nickname, float ammount, <a class="el" href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9">streamerWorkRating</a> rating)</td></tr>
+<tr class="separator:ac66f51306c933879c53affb09ec9320b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3e7710fcec5536c1b4960e3f37e7006"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer_manager.html#ab3e7710fcec5536c1b4960e3f37e7006">removeBiggestDonationOfStreamer</a> (const std::string &amp;nickname)</td></tr>
+<tr class="separator:ab3e7710fcec5536c1b4960e3f37e7006"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33e98b3d8eaf4dcfcf8198e290f3a9f2"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_donation.html">Donation</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer_manager.html#a33e98b3d8eaf4dcfcf8198e290f3a9f2">getStreamerDonations</a> (const std::string &amp;nickname)</td></tr>
 <tr class="separator:a33e98b3d8eaf4dcfcf8198e290f3a9f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e58ddf85924d01bc58c79fd722e0bce"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_streamer_manager.html#a0e58ddf85924d01bc58c79fd722e0bce">readData</a> ()</td></tr>
@@ -432,7 +436,7 @@ Public Member Functions</h2></td></tr>
 <p>Getter of the <a class="el" href="class_b_s_t.html">BST</a> of donations</p>
 <dl class="section return"><dt>Returns</dt><dd>the <a class="el" href="class_b_s_t.html">BST</a> of donations </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer__manager_8cpp_source.html#l00214">214</a> of file <a class="el" href="streamer__manager_8cpp_source.html">streamer_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer__manager_8cpp_source.html#l00230">230</a> of file <a class="el" href="streamer__manager_8cpp_source.html">streamer_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -479,8 +483,10 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Gets the donations of all streamers</p>
+<dl class="section return"><dt>Returns</dt><dd>the vector of Donations </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="streamer__manager_8cpp_source.html#l00201">201</a> of file <a class="el" href="streamer__manager_8cpp_source.html">streamer_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="streamer__manager_8cpp_source.html#l00217">217</a> of file <a class="el" href="streamer__manager_8cpp_source.html">streamer_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -663,6 +669,80 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>True if the action was successful, false otherwise </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="streamer__manager_8cpp_source.html#l00059">59</a> of file <a class="el" href="streamer__manager_8cpp_source.html">streamer_manager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab3e7710fcec5536c1b4960e3f37e7006"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3e7710fcec5536c1b4960e3f37e7006">&#9670;&nbsp;</a></span>removeBiggestDonationOfStreamer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StreamerManager::removeBiggestDonationOfStreamer </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>nickname</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Removes the biggest donation of the given streamer</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nickname</td><td>the streamer to remove the donation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if removed, false otherwise </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="streamer__manager_8cpp_source.html#l00206">206</a> of file <a class="el" href="streamer__manager_8cpp_source.html">streamer_manager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac66f51306c933879c53affb09ec9320b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac66f51306c933879c53affb09ec9320b">&#9670;&nbsp;</a></span>removeDonation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StreamerManager::removeDonation </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>nickname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ammount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="donation_8h.html#a0fc0828b6df2228e551899bce0ce1ad9">streamerWorkRating</a>&#160;</td>
+          <td class="paramname"><em>rating</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Removes a donation given its parameters</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nickname</td><td>the nickname of the streamer of which the donation is to be removed </td></tr>
+    <tr><td class="paramname">ammount</td><td>the ammount of the donation to remove </td></tr>
+    <tr><td class="paramname">rating</td><td>the streamer work rating of the donation</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if removed, false otherwise </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="streamer__manager_8cpp_source.html#l00201">201</a> of file <a class="el" href="streamer__manager_8cpp_source.html">streamer_manager.cpp</a>.</p>
 
 </div>
 </div>

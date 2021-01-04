@@ -31,7 +31,7 @@ public:
      *
      * @return admin attempted to be set
      */
-    const std::shared_ptr<Admin> &getAdmin() const;
+    [[nodiscard]] const std::shared_ptr<Admin> &getAdmin() const;
 
     /**
      * Constructor of the AdminAlreadySet class

@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"leaderboard_page_8h_source.html":[1,0,0,3,2,1],
+"login_page_8cpp.html":[1,0,0,3,3,0],
 "login_page_8cpp_source.html":[1,0,0,3,3,0],
 "login_page_8h.html":[1,0,0,3,3,1],
 "login_page_8h_source.html":[1,0,0,3,3,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "user_8h.html":[1,0,0,2,3,4],
 "user_8h.html#a149130c2252f62e9447117eb232ae507":[1,0,0,2,3,4,3],
 "user_8h.html#a470438656577c8fa5a6f8e20ea98331e":[1,0,0,2,3,4,7],
-"user_8h.html#a57725e7b87a8ce632ed4706189cbda58":[1,0,0,2,3,4,2],
-"user_8h.html#a70dc8aea0d441dfa634a71ecec0b386f":[1,0,0,2,3,4,6],
-"user_8h.html#a72bd6c909a97236a2c8350ed813ac3bb":[1,0,0,2,3,4,8]
+"user_8h.html#a57725e7b87a8ce632ed4706189cbda58":[1,0,0,2,3,4,2]
 };
