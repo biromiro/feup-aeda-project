@@ -2,8 +2,6 @@
 0
 2
 4
-<<<<<<< HEAD
-=======
 LIKE
 1
 DISLIKE
@@ -64,24 +62,8 @@ LIKE
 10
 LIKE
 12
->>>>>>> 407b5ecffb5b0fa30d66bbfa49dfecfb33175e0f
 LIKE
-1
-DISLIKE
 3
-<<<<<<< HEAD
-emanuelpogssoa
-osvaldo
-biromiro
-INVALID_VOTE
-2000/10/18
-2020/11/15
-0
-Emanuel Pessoa
-cao_manteiga
-palavrapassemuitosegura
-6
-=======
 jpcosta
 biromiro
 luist18
@@ -106,52 +88,12 @@ muitofixe
 4
 3
 LIKE
->>>>>>> 407b5ecffb5b0fa30d66bbfa49dfecfb33175e0f
-1
-5
-LIKE
-0
-LIKE
-2003/03/23
-2020/11/21
-0
-abc
-abc
-123
-0
-1
-11
-LIKE
-<<<<<<< HEAD
-0
-INVALID_VOTE
-2000/11/18
-2020/11/22
-0
-Loes
-palpss
-123
-0
-1
-5
-LIKE
-1
-biromiro
-INVALID_VOTE
-2001/01/21
-2020/11/20
-0
-Adelaide
-laidinha
-quete
-9
-1
 1
 LIKE
 2
-osvaldo
-biromiro
-=======
+LIKE
+11
+LIKE
 2
 biromiro
 mkay
@@ -162,28 +104,6 @@ LIKE
 Margarida Oliveira
 pardal
 toutodapardaleca
-3
-0
-0
->>>>>>> 407b5ecffb5b0fa30d66bbfa49dfecfb33175e0f
-DISLIKE
-1995/08/19
-2020/11/08
-0
-<<<<<<< HEAD
-Pedro Costa
-ptrv2001
-muitofixemieu
-4
-0
-0
-LIKE
-2006/11/22
-2020/11/16
-0
-Martinha Calado
-martinha
-kekw29xd
 3
 0
 0
@@ -191,44 +111,13 @@ DISLIKE
 2005/08/23
 2020/11/16
 0
-=======
->>>>>>> 407b5ecffb5b0fa30d66bbfa49dfecfb33175e0f
 Marta Calado
 sdads
 peepee2012e
 0
-<<<<<<< HEAD
 1
-5
-LIKE
-0
-INVALID_VOTE
-2001/04/24
-2020/11/20
-0
-Brocolo
-bdmendes
-leviosa
-10
-4
-3
-LIKE
-=======
->>>>>>> 407b5ecffb5b0fa30d66bbfa49dfecfb33175e0f
-1
-LIKE
-2
-LIKE
 11
 LIKE
-<<<<<<< HEAD
-2
-biromiro
-mkay
-LIKE
-2001/08/21
-2020/11/16
-=======
 0
 INVALID_VOTE
 2000/11/18
@@ -239,42 +128,8 @@ palpss
 123
 4
 0
->>>>>>> 407b5ecffb5b0fa30d66bbfa49dfecfb33175e0f
 0
-Margarida Oliveira
-pardal
-toutodapardaleca
-12
-3
-9
 LIKE
-<<<<<<< HEAD
-10
-LIKE
-12
-LIKE
-3
-biromiro
-jpcosta
-luist18
-LIKE
-2001/06/13
-2020/11/22
-0
-miro
-biro
-987
-0
-0
-0
-INVALID_VOTE
-2001/02/04
-2020/11/20
-0
-Olá amigos
-muitofixe
-123456
-=======
 2006/11/22
 2020/11/16
 0
@@ -293,4 +148,3 @@ INVALID_VOTE
 Brocolo
 bdmendes
 leviosa
->>>>>>> 407b5ecffb5b0fa30d66bbfa49dfecfb33175e0f
