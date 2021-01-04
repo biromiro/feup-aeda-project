@@ -37,7 +37,7 @@ public:
      *
      * @return invalid purchase availability
      */
-    unsigned int getPurchaseA() const;
+    [[nodiscard]] unsigned int getPurchaseA() const;
 private:
     unsigned int purchaseA;
 };

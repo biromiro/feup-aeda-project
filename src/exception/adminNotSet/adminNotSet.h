@@ -38,7 +38,7 @@ public:
      *
      * @return admin attempted to be removed
      */
-    const std::shared_ptr<Admin> &getAdmin() const;
+    [[nodiscard]] const std::shared_ptr<Admin> &getAdmin() const;
 
 private:
     std::shared_ptr<Admin> admin;

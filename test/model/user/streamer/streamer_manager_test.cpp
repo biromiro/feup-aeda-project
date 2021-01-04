@@ -95,6 +95,12 @@ TEST(streamer_manager, donations){
     donation = bItr.retrieve();
     EXPECT_EQ(donation.getAmmount(), 50);
     EXPECT_EQ(donation.getStreamerNickname(), "Nautilus gaming");
+    EXPECT_EQ(srm1->removeDonation("Nautilus", 50,streamerWorkRating::VERY_BAD), false);
+    EXPECT_EQ(srm1->removeDonation("Nautilus gaming", 50, streamerWorkRating::GOOD), true);
+    EXPECT_EQ(srm1->removeBiggestDonationOfStreamer("idhugbcds"), true);
+    srm1->removeBiggestDonationOfStreamer("idhugbcds");
+    srm1->removeBiggestDonationOfStreamer("Nautilus gaming");
+    EXPECT_EQ(srm1->getDonations().isEmpty(), true);
     std::cout << lbm1->getOrderedDonations() << std::endl;
     std::cout << lbm1->getDonationsByAvalInterval(streamerWorkRating::BAD,streamerWorkRating::MEH);
 }

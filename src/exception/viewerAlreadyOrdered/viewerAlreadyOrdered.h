@@ -38,7 +38,7 @@ public:
      *
      * @return order that couldn't be added
      */
-    MerchRequest getOrder() const;
+    [[nodiscard]] MerchRequest getOrder() const;
 private:
     MerchRequest order;
 };

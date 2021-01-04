@@ -49,7 +49,7 @@ TEST(leaderboard_manager, filters){
     std::shared_ptr<LeaderboardManager> leaderboardManager = std::make_shared<LeaderboardManager>(viewerManager,streamerManager,streamManager,userManager);
     streamManager->setStreamerManager(streamerManager);
 
-    Date birthDate("2001/10/20"), birthDate2("2000/10/20");
+    Date birthDate("2001/10/20");
     viewerManager->build(birthDate,"André Moreira","Dustini", "hehuebfghcudewc");
     viewerManager->build(birthDate,"André Pereira","dustibo", "autofeito");
     auto s1 = streamerManager->build(birthDate, "Nuno Costa", "biromiro", "hahduegvywbcs");

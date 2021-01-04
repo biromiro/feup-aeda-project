@@ -8,7 +8,6 @@ RegisterPage::RegisterPage(UIManager &uiManager) : uiManager(uiManager){}
 
 void RegisterPage::run() {
     char answer = ' ';
-    bool started = false;
     std::string nickname, password;
     do{std::cout << CLEAR_SCREEN << GO_TO_TOP;
         pageOutput();
@@ -53,7 +52,6 @@ void RegisterPage::pageOutput() {
 bool RegisterPage::streamerRegister() {
     std::string nickname, name, password;
     Date birthDate = Date();
-    bool valid = false;
     char answer = 0;
     do{
         std::cout << CLEAR_SCREEN << GO_TO_TOP;
@@ -67,7 +65,6 @@ bool RegisterPage::streamerRegister() {
         std::cout << "PRESS ANY OTHER KEY TO PROCEED" << std::endl;
         answer = _getch_();
         if(answer != '1') break;
-        valid = true;
 
     }while (answer != '0');
     if(answer == '0') return false;
@@ -84,7 +81,7 @@ bool RegisterPage::streamerRegister() {
 
 bool RegisterPage::viewerRegister() {
     std::string nickname, name, password;
-    Date birthDate = Date(), currentDate = Date();
+    Date birthDate = Date();
     bool valid = false;
     char answer = 0;
     do{

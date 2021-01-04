@@ -198,6 +198,22 @@ void StreamerManager::addNewDonation(const string &nickname, float ammount, stre
     donations.insert(Donation(nickname,ammount,rating));
 }
 
+bool StreamerManager::removeDonation(const std::string& nickname, float ammount, streamerWorkRating rating){
+    Donation donationToDelete(nickname, ammount, rating);
+    return donations.remove(donationToDelete);
+}
+
+bool StreamerManager::removeBiggestDonationOfStreamer(const std::string& nickname){
+    for(BSTItrIn<Donation> bItr = BSTItrIn<Donation>(donations); !bItr.isAtEnd(); bItr.advance()){
+        Donation current = bItr.retrieve();
+        if(current.getStreamerNickname() == nickname){
+            donations.remove(current);
+            return true;
+        }
+    }
+    return false;
+}
+
 vector<Donation> StreamerManager::getStreamerDonations(const string &nickname) {
     vector<Donation> streamerDonations;
 
